@@ -15,9 +15,9 @@
   },
   "scripts": {
     "dev": "yarn css-watch",
-    "build": "yarn css",
+    "build": "yarn dist",
     "css-watch": "postcss --output dist/main.css --watch src/css/index.css",
     "css": "postcss --output dist/main.css src/css/index.css",
-    "dist": "NODE_ENV=production postcss --output dist/main.min.css src/css/index.css"
+    "dist": "NODE_ENV=production postcss --output dist/main.css src/css/index.css"
   }
 }
