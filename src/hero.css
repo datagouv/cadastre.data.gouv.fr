@@ -1,7 +1,7 @@
 .hero {
   height: 20vh;
   width: 100%;
-  background: linear-gradient(180deg, #238dff, #2870f4);
+  background: linear-gradient(180deg, var(--theme-primary), var(--theme-primary-darker));
 }
 
 .hero__container {

@@ -1,5 +1,5 @@
 .footer {
-  background: #0f1c40;
+  background: var(--theme-background-dark);
   color: #fff;
 }
 

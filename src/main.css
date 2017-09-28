@@ -5,7 +5,7 @@ body {
   overflow: auto;
   font-family: "Source Sans Pro", Arial, sans-serif;
   font-size: 15px;
-  background: #ebebeb;
+  background: var(--theme-background-light);
 }
 
 h1,
@@ -27,7 +27,7 @@ a:hover,
 a:focus,
 a:visited,
 a:active {
-  color: #238dff;
+  color: var(--theme-primary);
   text-decoration: none;
 }
 

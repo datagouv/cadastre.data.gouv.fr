@@ -1,8 +1,8 @@
 .panel {
   background: #fff;
-  border: 1px solid #eaeaea;
+  border: 1px solid var(--theme-border-lighter);
   border-radius: 2px;
-  box-shadow: 0 1px 4px #d7d7d7;
+  box-shadow: 0 1px 4px var(--theme-box-shadow);
   padding: 2em;
 }
 

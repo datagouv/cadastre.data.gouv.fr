@@ -1,7 +1,9 @@
 module.exports = (ctx) => ({
   plugins: {
     'postcss-import': {},
-    'stylelint': {},
+    'stylelint': {
+      fix: true
+    },
     'postcss-cssnext': {
       warnForDuplicates: false,
       browsers: ['last 2 versions']
