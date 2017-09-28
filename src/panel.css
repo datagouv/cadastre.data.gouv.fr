@@ -1,0 +1,11 @@
+.panel {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px #d7d7d7;
+  padding: 2em;
+}
+
+.panel h2:first-of-type {
+  margin-top: 0;
+}

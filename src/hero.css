@@ -1,0 +1,17 @@
+.hero {
+  height: 20vh;
+  width: 100%;
+  background: linear-gradient(180deg, #238dff, #2870f4);
+}
+
+.hero__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.hero__title {
+  color: #fff;
+}

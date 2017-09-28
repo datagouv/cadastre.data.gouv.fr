@@ -1,0 +1,37 @@
+.nav {
+  position: fixed;
+  top: 0;
+  box-shadow: 0 1px 4px #d7d7d7;
+  width: 100%;
+  background: #fff;
+  z-index: 100;
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.nav__home,
+.nav__logo {
+  height: 40px;
+}
+
+.nav__links {
+  display: inline;
+  margin: 0;
+  list-style-type: none;
+  text-align: right;
+}
+
+.nav__links li {
+  padding: 0;
+  display: inline;
+}
+
+.side-nav,
+.button-collapse {
+  display: none;
+}

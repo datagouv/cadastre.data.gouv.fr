@@ -1,0 +1,20 @@
+{
+  "name": "datagouv_css",
+  "version": "1.0.0",
+  "description": "CSS skeleton for data.gouv.fr and friends",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "cssnano": "^3.10.0",
+    "postcss-cli": "^4.1.1",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^11.0.0",
+    "postcss-reporter": "^5.0.0",
+    "stylelint": "^8.1.1",
+    "stylelint-config-standard": "^17.0.0"
+  },
+  "scripts": {
+    "build": "postcss --output dist/datagouv.css src/index.css",
+    "dist": "NODE_ENV=production postcss --output dist/datagouv.min.css src/index.css "
+  }
+}
