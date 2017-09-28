@@ -1,8 +1,15 @@
 .hero {
-  height: 20vh;
-  min-height: 12em;
+  height: 38vh;
+  min-height: 18em;
   width: 100%;
-  background: linear-gradient(180deg, var(--theme-primary), var(--theme-primary-darker));
+  color: #fff;
+  background-color: var(--theme-background-light);
+  background-blend-mode: darken;
+  background-image: url(../images/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .hero__container {
@@ -14,6 +21,18 @@
   box-sizing: border-box;
 }
 
-.hero__title {
-  color: #fff;
+.hero h1 {
+  margin: 0 0 0.5em;
+  background-color: white;
+  padding: 10px 1em;
+  color: var(--theme-dark-text);
+}
+
+.hero p {
+  margin: 0;
+  background-color: white;
+  padding: 10px 1em;
+  color: var(--theme-dark-text);
+  font-size: 1.2em;
+  font-style: italic;
 }

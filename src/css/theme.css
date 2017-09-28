@@ -1,10 +1,18 @@
 :root {
-  --theme-primary: #238dff;
-  --theme-primary-darker: #2870f4;
-  --theme-secondary: #264491;
-  --theme-border: #323d57;
-  --theme-border-lighter: #eaeaea;
-  --theme-background-dark: #0f1c40;
-  --theme-background-light: #ebebeb;
-  --theme-box-shadow: #d7d7d7;
+  --dark-blue: #2C3E50;
+  --almost-black: #404040;
+  --black: #1C1C1C;
+  --light-grey: #E7E7E7;
+  --grey: #DADADA;
+  --dark-grey: #CDCDCD;
+  --theme-primary: var(--dark-blue);
+  --theme-primary-darker: var(--dark-blue);
+  --theme-secondary: var(--dark-blue);
+  --theme-border: var(--dark-grey);
+  --theme-border-lighter: var(--grey);
+  --theme-background-dark: var(--black);
+  --theme-background-light: var(--light-grey);
+  --theme-box-shadow: var(--grey);
+  --theme-dark-text: var(--almost-black);
+  --theme-background-dark-blue: var(--dark-blue);
 }

@@ -1,6 +1,7 @@
 .footer {
   background: var(--theme-background-dark);
   color: #fff;
+  padding: 2em 0;
 }
 
 .footer a,

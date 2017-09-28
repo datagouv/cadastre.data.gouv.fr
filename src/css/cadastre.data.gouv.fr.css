@@ -1,0 +1,155 @@
+.uses div,
+.apps div {
+  color: var(--grey);
+  padding: 0 2em;
+  text-align: center;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.uses a,
+.apps a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.uses div:not(:last-child) {
+  border-right: 1px solid var(--grey);
+}
+
+.muted {
+  opacity: 0.5;
+}
+
+form {
+  margin: auto;
+  max-width: 640px;
+}
+
+form button.button {
+  width: calc(100% + 40px);
+  text-transform: uppercase;
+  margin-top: 1em;
+}
+
+.three.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 4em;
+}
+
+.apps {
+  max-width: 970px;
+  margin: auto;
+  grid-column-gap: 1em;
+}
+
+.apps img {
+  height: 100px;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.section-light {
+  background-color: var(--theme-background-light);
+}
+
+.section-dark {
+  background-color: var(--theme-background-dark);
+  color: #fff;
+}
+
+.section-dark-blue {
+  background-color: var(--theme-background-dark-blue);
+  color: #fff;
+}
+
+.section__subtitle {
+  margin: auto;
+  max-width: 640px;
+  font-size: 1.3em;
+  font-style: italic;
+  text-align: center;
+  color: var(--dark-blue);
+}
+
+.section__title + .section__subtitle {
+  margin-top: -1em;
+  margin-bottom: 1em;
+}
+
+.links div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.links a.button {
+  color: var(--black);
+  background-color: var(--dark-grey);
+}
+
+.links a.button:hover {
+  box-shadow: inset 0 0 0 2em var(--grey);
+  background-color: var(--grey);
+}
+
+.section-dark-blue .section__subtitle {
+  color: white;
+}
+
+.cadastre {
+  text-align: center;
+}
+
+a.unstyled {
+  font-size: 2em;
+  border-bottom: 2px solid white;
+  padding-bottom: 1px;
+  font-style: oblique;
+  color: white;
+}
+
+.footer__social {
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.footer__social img {
+  height: 2em;
+  width: auto;
+  margin-right: 10px;
+}
+
+.footer__social div {
+  display: flex;
+  flex-direction: column;
+}
+
+.social__text {
+  margin: 0;
+  line-height: 1;
+}
+
+.footer a.social__link {
+  color: var(--dark-grey);
+  line-height: 1;
+}
+
+.footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer li {
+  color: var(--grey);
+  font-size: 1.2em;
+  line-height: 1.8em;
+}

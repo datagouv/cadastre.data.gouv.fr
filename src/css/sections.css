@@ -1,0 +1,9 @@
+section {
+  padding: 6em 0;
+  background-color: #fff;
+}
+
+.section__title {
+  margin: 0 0 1em;
+  text-align: center;
+}

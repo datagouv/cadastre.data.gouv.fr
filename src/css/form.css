@@ -1,0 +1,11 @@
+input[type=email] {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 16px 20px;
+  font: inherit;
+  line-height: 1.6;
+  font-size: 1.3em;
+  color: var(--black);
+  border-radius: 2px;
+}
