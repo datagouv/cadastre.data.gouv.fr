@@ -1,11 +1,13 @@
 .hero {
   height: 20vh;
+  min-height: 12em;
   width: 100%;
   background: linear-gradient(180deg, var(--theme-primary), var(--theme-primary-darker));
 }
 
 .hero__container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;

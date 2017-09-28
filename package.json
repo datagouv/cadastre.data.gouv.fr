@@ -14,7 +14,10 @@
     "stylelint-config-standard": "^17.0.0"
   },
   "scripts": {
-    "build": "postcss --output dist/datagouv.css src/index.css",
-    "dist": "NODE_ENV=production postcss --output dist/datagouv.min.css src/index.css "
+    "dev": "yarn css-watch",
+    "build": "yarn css",
+    "css-watch": "postcss --output dist/main.css --watch src/css/index.css",
+    "css": "postcss --output dist/main.css src/css/index.css",
+    "dist": "NODE_ENV=production postcss --output dist/main.min.css src/css/index.css"
   }
 }
