@@ -1,5 +1,5 @@
 input[type=email] {
-  width: 100%;
+  width: calc(100% - 40px);
   border: none;
   outline: none;
   padding: 16px 20px;

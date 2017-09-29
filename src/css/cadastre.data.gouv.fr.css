@@ -31,7 +31,7 @@ form {
 }
 
 form button.button {
-  width: calc(100% + 40px);
+  width: 100%;
   text-transform: uppercase;
   margin-top: 1em;
 }
@@ -40,10 +40,18 @@ form button.button:active {
   margin-top: 1em;
 }
 
-.three.columns {
+.columns {
   display: grid;
+}
+
+.three.columns {
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 4em;
+}
+
+.four.columns {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 3em;
 }
 
 .apps {
@@ -162,7 +170,9 @@ a.unstyled {
   .hero h1 {
     font-size: 1.3em;
   }
-  .three.columns {
+
+  .three.columns,
+  .four.columns {
     grid-template-columns: 1fr;
     grid-row-gap: 1em;
   }
