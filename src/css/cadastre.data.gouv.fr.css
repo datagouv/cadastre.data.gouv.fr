@@ -19,6 +19,7 @@
 
 .uses div:not(:last-child) {
   border-right: 1px solid var(--grey);
+  padding-right: 4em;
 }
 
 .muted {
@@ -81,7 +82,7 @@ form button.button:active {
 }
 
 .section__subtitle {
-  margin: auto;
+  margin: 0 auto 2em;
   max-width: 640px;
   font-size: 1.3em;
   font-style: italic;
@@ -166,6 +167,17 @@ a.unstyled {
   line-height: 1.8em;
 }
 
+.footer__logo-container {
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.footer__logo-container img {
+  width: 100px;
+  height: auto;
+}
+
 @media (max-width: 550px) {
   .hero h1 {
     font-size: 1.3em;
@@ -179,6 +191,7 @@ a.unstyled {
 
   .uses div:not(:last-child) {
     border-right: none;
+    padding-right: 2em;
   }
 
   .footer__container {
