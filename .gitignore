@@ -1,6 +1,8 @@
 node_modules
-dist
+dist/*
+!dist/.gitkeep
 yarn-error.log
+main.css
 
 .DS_Store
 .AppleDouble

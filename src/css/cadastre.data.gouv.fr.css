@@ -36,6 +36,10 @@ form button.button {
   margin-top: 1em;
 }
 
+form button.button:active {
+  margin-top: 1em;
+}
+
 .three.columns {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
