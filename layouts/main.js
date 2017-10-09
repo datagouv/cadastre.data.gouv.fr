@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {withRouter} from 'next/router'
 
-import piwik from '../piwik'
+import piwik from '../lib/piwik'
 
 import Meta from '../components/meta'
 import Header from '../components/header'
