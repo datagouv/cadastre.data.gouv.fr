@@ -1,7 +1,8 @@
 {
-  "name": "datagouv_css",
+  "name": "cadastre.data.gouv.fr",
+  "private": true,
   "version": "1.0.0",
-  "description": "CSS skeleton for data.gouv.fr and friends",
+  "description": "Landing page pour le cadastre",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
