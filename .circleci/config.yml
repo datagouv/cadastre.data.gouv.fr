@@ -59,6 +59,16 @@ jobs:
           paths:
             - ./
 
+  lint:
+    <<: *default_container
+    steps:
+      - *attach_workspace
+      - *restore_node_modules
+
+      - run:
+          name: Lint JavaScript
+          command: yarn lint
+
   build:
     <<: *default_container
     steps:
@@ -67,41 +77,11 @@ jobs:
 
       - run:
           name: Build output bundles
-          command: yarn dist
+          command: yarn build
 
-      - persist_to_workspace:
-          root: *workspace_root
-          paths:
-            - dist/
-
-  deploy:
-    <<: *default_container
-    steps:
-      - *attach_workspace
-      - *restore_node_modules
-
-      - add_ssh_keys:
-          fingerprints:
-            - 63:c6:b8:d7:85:98:4c:0b:f4:1b:dd:ed:57:dc:d8:95
-
-      - run:
-          name: Setup SSH to GitHub
-          command: mkdir ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-      - run:
-          name: Set SSH user email
-          command: git config --global user.email "infra@data.gouv.fr"
-
-      - run:
-          name: Set SSH user name
-          command: git config --global user.name "CircleCI"
-
-      - deploy:
-          name: Deploy to gh-pages branch on GitHub
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn deploy
-            fi
+      - store_artifacts:
+          name: Store build artifacts
+          path: .next/
 
 workflows:
   version: 2
@@ -114,6 +94,6 @@ workflows:
           requires:
             - install
 
-      - deploy:
+      - lint:
           requires:
-            - build
+            - install

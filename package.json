@@ -4,27 +4,57 @@
   "description": "CSS skeleton for data.gouv.fr and friends",
   "main": "index.js",
   "license": "MIT",
-  "devDependencies": {
-    "cssnano": "^3.10.0",
-    "gh-pages": "^1.0.0",
-    "postcss-cli": "^4.1.1",
-    "postcss-cssnext": "^3.0.2",
-    "postcss-import": "^11.0.0",
-    "postcss-reporter": "^5.0.0",
-    "stylelint": "^8.1.1",
-    "stylelint-config-standard": "^17.0.0"
-  },
   "scripts": {
-    "deploy": "yarn dist && gh-pages -d dist",
-    "dev": "yarn css-watch",
-    "build": "yarn dist",
-    "css-watch": "postcss --output main.css --watch src/css/index.css",
-    "css": "postcss --output main.css src/css/index.css",
-    "dist": "yarn dist-css && yarn dist-site",
-    "dist-css": "NODE_ENV=production postcss --output dist/main.css src/css/index.css",
-    "dist-site": "copyfiles images/* fonts/**/* index.html dist"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "xo"
   },
   "dependencies": {
-    "copyfiles": "^1.2.0"
+    "copyfiles": "^1.2.0",
+    "next": "^4.0.0-beta.6",
+    "piwik-react-router": "^0.10.0",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "eslint-config-xo-react": "^0.13.0",
+    "eslint-plugin-react": "^7.4.0",
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "extends": "xo-react",
+    "semicolon": false,
+    "space": 2,
+    "rules": {
+      "jsx-quotes": [
+        "error",
+        "prefer-single"
+      ],
+      "react/jsx-closing-bracket-location": [
+        "error",
+        "after-props"
+      ],
+      "react/jsx-closing-tag-location": "off",
+      "react/jsx-first-prop-new-line": "off",
+      "react/jsx-max-props-per-line": [
+        "warn",
+        {
+          "maximum": 4,
+          "when": "multiline"
+        }
+      ],
+      "react/jsx-tag-spacing": [
+        "error",
+        {
+          "closingSlash": "never",
+          "beforeSelfClosing": "always",
+          "afterOpening": "never"
+        }
+      ],
+      "react/forbid-component-props": "off",
+      "react/react-in-jsx-scope": "off"
+    }
   }
 }

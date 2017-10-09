@@ -1,9 +1,10 @@
+# Node.js
 node_modules
-dist/*
-!dist/.gitkeep
-yarn-error.log
-/main.css
 
+# Build
+.next
+
+# Apple stuff
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -14,3 +15,6 @@ Icon
 
 # Thumbnails
 ._*
+
+# Logs
+*.log
