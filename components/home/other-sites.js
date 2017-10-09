@@ -27,7 +27,7 @@ export default () => (
     <style jsx>{`
       .main {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         grid-row-gap: 0.6em;
         text-align: center;
       }
