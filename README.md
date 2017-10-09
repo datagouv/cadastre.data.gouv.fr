@@ -1,19 +1,21 @@
-# cadastre.data.gouv.fr
+# cadastre.data.gouv.fr [![CircleCI](https://circleci.com/gh/etalab/cadastre.data.gouv.fr.svg?style=svg)](https://circleci.com/gh/etalab/cadastre.data.gouv.fr)
+
 Une landing page pour le cadastre
 
 ## Développement
 
-Pour bénéficier du rechargement automatique du CSS:
+Cette application utilise [Next.js](https://github.com/zeit/next.js).
 
-```bash
-  yarn install && yarn dev
-  open index.html
-```
+1. Installer les dépendances
 
-## Déploiement
+   ```bash
+   yarn
+   ```
 
-Sur github pages:
+2. Lancer le serveur de développement
 
-```bash
-  yarn install && yarn deploy
-```
+   ```bash
+   yarn dev
+   ```
+
+   Par défaut, il écoutera sur le port `3000`, pour changer, utiliser `yarn dev -p 4242`.
