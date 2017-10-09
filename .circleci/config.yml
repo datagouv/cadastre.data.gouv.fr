@@ -79,13 +79,17 @@ jobs:
           name: Build output bundles
           command: yarn build
 
-      - store_artifacts:
-          name: Store build bundle
-          path: .next/app.js
+      - run:
+          name: Extract relevant bundle files
+          command: mkdir out && cp -r static .next/app.js .next/bundles out
+
+      - run:
+          name: Gzip bundle files
+          command: gzip -r out
 
       - store_artifacts:
-          name: Store build pages bundles
-          path: .next/bundles
+          name: Store build bundles
+          path: out
 
 workflows:
   version: 2
