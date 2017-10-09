@@ -10,7 +10,7 @@ import OldCadastre from '../components/home/old-cadastre'
 export default () => (
   <Page>
     <Hero
-      title='Données cadastrales en libre accès'
+      title='Données cadastrales ouvertes'
       tagline='Consulter, télécharger et intégrer les données cadastrales sans effort' />
 
     <Usages />
