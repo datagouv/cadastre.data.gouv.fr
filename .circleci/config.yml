@@ -80,8 +80,12 @@ jobs:
           command: yarn build
 
       - store_artifacts:
-          name: Store build artifacts
-          path: .next/
+          name: Store build bundle
+          path: .next/app.js
+
+      - store_artifacts:
+          name: Store build pages bundles
+          path: .next/bundles
 
 workflows:
   version: 2
