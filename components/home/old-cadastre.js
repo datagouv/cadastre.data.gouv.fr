@@ -14,7 +14,7 @@ export default () => (
         text-align: center;
         color: ${theme.colors.white};
         font-size: 2em;
-        font-style: oblique;
+        font-style: italic;
       }
 
       span {

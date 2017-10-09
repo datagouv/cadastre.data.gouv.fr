@@ -20,8 +20,9 @@ const ButtonLink = ({children, ...props}) => (
         border-radius: 2px;
         box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
         border: 1px solid transparent;
-        font-family: "Evolventa", "Trebuchet MS", sans-serif;
+        font-family: Evolventa, 'Trebuchet MS', sans-serif;
         font-size: 1.2em;
+        font-weight: bold;
         position: relative;
         overflow: hidden;
         transition: box-shadow 0.25s;
