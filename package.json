@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "copyfiles": "^1.2.0",
-    "next": "^4.0.0-beta.6",
+    "next": "^4.0.0",
     "piwik-react-router": "^0.10.0",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
