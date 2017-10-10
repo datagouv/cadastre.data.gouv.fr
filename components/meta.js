@@ -65,7 +65,7 @@ export default () => (
       h4,
       h5,
       h6 {
-        font-family: 'Evolventa', 'Trebuchet MS', sans-serif;
+        font-family: Evolventa, 'Trebuchet MS', sans-serif;
       }
 
       a,
