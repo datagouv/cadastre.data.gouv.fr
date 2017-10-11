@@ -4,7 +4,7 @@ import theme from '../styles/theme'
 
 import Container from './container'
 
-const Section = ({title, subtitle, children, background}) => (
+const Section = ({title, subtitle, children, background, centered}) => (
   <section className={`section-${background}`}>
     <Container>
       {title && <h2 className='title'>{title}</h2>}
@@ -16,6 +16,7 @@ const Section = ({title, subtitle, children, background}) => (
     <style jsx>{`
       section {
         padding: 6em 0;
+        ${centered && 'text-align: center;'}
       }
 
       .section-white {
@@ -74,14 +75,16 @@ Section.propTypes = {
     'grey',
     'dark',
     'color'
-  ])
+  ]),
+  centered: PropTypes.bool
 }
 
 Section.defaultProps = {
   title: null,
   subtitle: null,
   children: null,
-  background: 'white'
+  background: 'white',
+  centered: false
 }
 
 export default Section

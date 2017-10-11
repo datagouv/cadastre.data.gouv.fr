@@ -3,7 +3,7 @@ import Section from '../section'
 import theme from '../../styles/theme'
 
 export default () => (
-  <Section title='Applications possibles' background='dark'>
+  <Section title='Applications possibles' background='dark' centered>
     <div className='main'>
       <div>
         Rechercher des références cadastrales : parcelles, feuilles, sections
@@ -25,7 +25,6 @@ export default () => (
 
       .main div {
         color: ${theme.colors.grey};
-        text-align: center;
         font-size: 1.2em;
         font-style: italic;
       }
