@@ -24,7 +24,7 @@ export default () => (
       }
 
       .main div {
-        color: ${theme.colors.grey};
+        color: ${theme.themeDarkText};
         font-size: 1.2em;
         font-style: italic;
       }
@@ -39,7 +39,7 @@ export default () => (
         }
 
         .main div:not(:last-child) {
-          border-right: 1px solid ${theme.colors.grey};
+          border-right: 1px solid ${theme.themeBorderLighter};
         }
       }
     `}</style>
