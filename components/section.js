@@ -4,67 +4,63 @@ import theme from '../styles/theme'
 
 import Container from './container'
 
-const Section = ({title, subtitle, children, background, centered}) => (
-  <section className={`section-${background}`}>
-    <Container>
-      {title && <h2 className='title'>{title}</h2>}
-      {subtitle && <p className='subtitle'>{subtitle}</p>}
+const Section = ({title, subtitle, children, background}) => {
+  const backgroundColor = background ? '-' + background : ''
+  return (
+    <section className={`section${backgroundColor}`}>
+      <Container>
+        {title && <h2 className='section__title'>{title}</h2>}
+        {subtitle && <p className='section__subtitle'>{subtitle}</p>}
 
-      {children}
-    </Container>
+        {children}
+      </Container>
+      <style jsx>{`
+        section {
+          padding: 5em 0;
+          background-color: ${theme.backgroundWhite};
+          color: ${theme.colors.black};
+        }
 
-    <style jsx>{`
-      section {
-        padding: 6em 0;
-        ${centered && 'text-align: center;'}
-      }
+        .section-grey {
+          background-color: ${theme.backgroundGrey};
+          color: ${theme.colors.black};
+        }
 
-      .section-white {
-        background-color: ${theme.backgroundWhite};
-        color: ${theme.colors.black};
-      }
+        .section-dark {
+          background-color: ${theme.backgroundDark};
+          color: ${theme.colors.white};
+        }
 
-      .section-grey {
-        background-color: ${theme.backgroundGrey};
-        color: ${theme.colors.black};
-      }
+        .section-white {
+          background-color: ${theme.backgroundColor};
+          color: ${theme.colors.white};
+        }
 
-      .section-dark {
-        background-color: ${theme.backgroundDark};
-        color: ${theme.colors.white};
-      }
+        .section__subtitle {
+          margin: 0 auto 2em;
+          max-width: 640px;
+          font-size: 1.3em;
+          font-style: italic;
+          text-align: center;
+          margin-bottom: 0;
+        }
 
-      .section-color {
-        background-color: ${theme.backgroundColor};
-        color: ${theme.colors.white};
-      }
+        .section__subtitle:not(:last-child) {
+          margin-bottom: 3em;
+        }
 
-      h2 {
-        margin: 0 0 2.2em;
-        text-align: center;
-      }
+        .section__title + .section__subtitle {
+          margin-top: -3em;
+        }
 
-      p {
-        margin: 0 auto 2em;
-        max-width: 640px;
-        font-size: 1.3em;
-        font-weight: normal;
-        font-style: italic;
-        text-align: center;
-      }
-
-      .section-white p {
-        color: ${theme.secondary};
-      }
-
-      h2 + p {
-        margin-top: -2em;
-        margin-bottom: 0.2em;
-        padding-bottom: 2em;
-      }
-    `}</style>
-  </section>
-)
+        .section__title {
+          margin: 0 0 3em;
+          text-align: center;
+        }
+      `}</style>
+    </section>
+  )
+}
 
 Section.propTypes = {
   title: PropTypes.string,
@@ -75,16 +71,14 @@ Section.propTypes = {
     'grey',
     'dark',
     'color'
-  ]),
-  centered: PropTypes.bool
+  ])
 }
 
 Section.defaultProps = {
   title: null,
   subtitle: null,
   children: null,
-  background: 'white',
-  centered: false
+  background: null
 }
 
 export default Section

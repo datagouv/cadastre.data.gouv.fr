@@ -45,32 +45,18 @@ export default () => (
     <Fonts />
 
     <style jsx global>{`
-      * {
-        box-sizing: border-box;
-      }
-
       body {
         padding: 0;
         margin: 0;
         position: relative;
         overflow: auto;
-        font-family: 'Source Sans Pro', Arial, sans-serif;
-        font-size: 15px;
         background: ${theme.backgroundGrey};
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: Evolventa, 'Trebuchet MS', sans-serif;
       }
 
       a,
       button {
         outline: none;
+        cursor: pointer;
       }
 
       a,
@@ -80,6 +66,55 @@ export default () => (
       a:active {
         color: ${theme.primary};
         text-decoration: none;
+        transition: color 0.2s ease-out;
+      }
+
+      @custom-media --smaller-than-mobile (max-width: 399px);
+      @custom-media --larger-than-mobile (min-width: 400px);
+
+      @custom-media --smaller-than-phablet (max-width: 549px);
+      @custom-media --larger-than-phablet (min-width: 550px);
+
+      @custom-media --smaller-than-tablet (max-width: 749px);
+      @custom-media --larger-than-tablet (min-width: 750px);
+
+      @custom-media --smaller-than-desktop (max-width: 999px);
+      @custom-media --larger-than-desktop (min-width: 1000px);
+
+      body {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Evolventa", "Trebuchet MS", sans-serif;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      h3 {
+        font-size: 1.25em;
+      }
+
+      h4 {
+        font-size: 1em;
+      }
+
+      .subtitle {
+        color: var(--dark-grey);
       }
     `}</style>
   </div>

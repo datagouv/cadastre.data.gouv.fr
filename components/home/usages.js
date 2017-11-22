@@ -24,6 +24,7 @@ export default () => (
       }
 
       .main div {
+        text-align: center;
         color: ${theme.themeDarkText};
         font-size: 1.2em;
         font-style: italic;

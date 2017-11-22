@@ -8,6 +8,8 @@ import Meta from '../components/meta'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
+import theme from '../styles/theme'
+
 class Layout extends React.Component {
   componentDidMount() {
     const {router} = this.props
@@ -24,8 +26,22 @@ class Layout extends React.Component {
       <div>
         <Meta />
         <Header />
-        { children }
+        <main>
+          { children }
+        </main>
         <Footer />
+        <style jsx>{`
+          div {
+             display: flex;
+             flex-direction: column;
+             min-height: 100vh;
+             background-color: ${theme.colors.white};
+           }
+
+           main {
+             flex: 1;
+           }
+        `}</style>
       </div>
     )
   }

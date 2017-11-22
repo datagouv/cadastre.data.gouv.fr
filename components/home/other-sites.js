@@ -6,8 +6,8 @@ export default () => (
     <div className='main'>
       <div>
         <p>Catalogue des données géographiques</p>
-        <Button href='https://inspire.data.gouv.fr'>
-          inspire.data.gouv.fr
+        <Button href='https://geo.data.gouv.fr'>
+          geo.data.gouv.fr
         </Button>
       </div>
       <div>
