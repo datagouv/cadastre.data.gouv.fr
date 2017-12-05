@@ -1,9 +1,9 @@
 import Page from '../layouts/main'
 
-import Data from '../components/data'
+import PciVecteur from '../components/pci-vecteur'
 
 export default () => (
   <Page>
-    <Data />
+    <PciVecteur />
   </Page>
 )

@@ -50,7 +50,7 @@ const Data = () => (
     <div className='data'>
       <DownloadIcon size={50} style={iconStyle} />
       <div>
-        <Link href='/data/download-assistant'><a><h2>Assistant téléchargement</h2></a></Link>
+        <Link href='/data/download-assistant'><a><h2>Assistant de téléchargement</h2></a></Link>
         <p>[insert description here]</p>
       </div>
     </div>
