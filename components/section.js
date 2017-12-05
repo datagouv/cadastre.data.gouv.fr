@@ -31,7 +31,7 @@ const Section = ({title, subtitle, children, background}) => {
           color: ${theme.colors.white};
         }
 
-        .section-white {
+        .section-primary {
           background-color: ${theme.backgroundColor};
           color: ${theme.colors.white};
         }
