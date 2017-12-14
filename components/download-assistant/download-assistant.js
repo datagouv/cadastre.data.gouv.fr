@@ -2,12 +2,10 @@ import {join} from 'path'
 import React from 'react'
 import Router from 'next/router'
 
-import ButtonLink from '../button-link'
-import Section from '../section'
-import Step from '../step'
-import Selector from '../selector'
-import ProductSelection from './product-selection'
-import TerritorySelection from './territory-selection'
+import theme from '../../styles/theme'
+
+import DownloadForm from './download-form'
+import DownloadButton from './download-button'
 
 class DownloadAssistant extends React.Component {
   constructor(props) {
@@ -17,11 +15,14 @@ class DownloadAssistant extends React.Component {
       layer: null,
       territory: null,
       territoryType: null,
-      format: null
+      format: null,
+      url: null,
+      downloadable: false,
+      error: false
     }
   }
 
-  setProduct(product) {
+  toggleProduct(product) {
     this.setState({
       product: product === this.state.product ? null : product,
       layer: product.name === 'Cadastre Etalab' ? 'communes' : null,
@@ -29,18 +30,18 @@ class DownloadAssistant extends React.Component {
     }, () => Router.push('/download-assistant#territory'))
   }
 
-  setTerritoryType(territoryType) {
+  toggleTerritoryType(territoryType) {
     this.setState({
       territoryType: territoryType === this.state.territoryType ? null : territoryType,
       territory: null
     })
   }
 
-  setTerritory(territory) {
+  toggleTerritory(territory) {
     this.setState({territory: territory === this.state.territory ? null : territory}, () => Router.push('/download-assistant#format'))
   }
 
-  setFormat(format) {
+  toggleFormat(format) {
     this.setState({format: format === this.state.format ? null : format}, () => Router.push('/download-assistant#download'))
   }
 
@@ -48,66 +49,72 @@ class DownloadAssistant extends React.Component {
     this.setState({layer})
   }
 
-  isDownloadable() {
-    const {product, territoryType, territory, format} = this.state
-    return product && territoryType && territory && format
-  }
-
-  download() {
+  constructUrl() {
     const {product, territoryType, territory, format, layer} = this.state
     const prd = product.name.toLowerCase().replace(' ', '-')
-    const url = join('http://cadastre.api.gouv.fr/', prd, territoryType.replace('é', 'e'), territory.code, format.replace('/', '-'))
+    const url = join('https://cadastre.data.gouv.fr/bundler', prd, territoryType.replace('é', 'e'), territory.code, format.replace('/', '-'))
 
     return layer ? join(url, layer) : url
   }
 
+  toggleForm(formCompleted) {
+    const {url, error} = this.state
+
+    if (!formCompleted) {
+      if (url || error) {
+        this.setState({downloadable: false, url: null, error: null})
+      }
+    } else {
+      const newUrl = this.constructUrl()
+
+      if ((!url || newUrl !== url) && !error) {
+        fetch(newUrl, {method: 'HEAD'})
+          .then(response => {
+            if (response.status === 200) {
+              this.setState({url: newUrl, downloadable: true})
+            } else {
+              this.setState({downloadable: false, error: true})
+            }
+          })
+          .catch(err => {
+            this.setState({downloadable: false, error: true})
+          })
+      }
+    }
+  }
+
   render() {
-    const {product, territoryType, territory, format, layer} = this.state
+    const {product, territoryType, territory, format, layer, url, downloadable, error} = this.state
 
     return (
       <div>
-        <Section>
-          <h1>Assistant de téléchargement</h1>
+        <DownloadForm
+          product={product}
+          territoryType={territoryType}
+          territory={territory}
+          format={format}
+          layer={layer}
+          setLayer={layer => this.toggleLayer(layer)}
+          setProduct={product => this.toggleProduct(product)}
+          setTerritoryType={territoryType => this.toggleTerritoryType(territoryType)}
+          setTerritory={territory => this.toggleTerritory(territory)}
+          setFormat={format => this.toggleFormat(format)}
+          formCompleted={formCompleted => this.toggleForm(formCompleted)} />
 
-          <Step id='product' title='1. Sélectionner un produit' disabled={false}>
-            <ProductSelection
-              productSelected={product}
-              layer={layer}
-              toggleLayer={layer => this.toggleLayer(layer)}
-              selectProduct={product => this.setProduct(product)} />
-          </Step>
-
-          <Step id='territory' title='2. Sélectionner un territoire' disabled={Boolean(!product)}>
-            <TerritorySelection
-              territorySelected={territoryType}
-              selectTerritoryType={territoryType => this.setTerritoryType(territoryType)}
-              selectTerritory={territory => this.setTerritory(territory)} />
-          </Step>
-
-          <Step id='format' title='3. Sélectionner un format' disabled={Boolean(!territory)}>
-            <Selector
-              items={product && territory ? product.formats : []}
-              selected={format}
-              unavailable={['edigeo/cc']}
-              uppercase
-              onSelect={(format => this.setFormat(format))} />
-          </Step>
-        </Section>
-
-        {this.isDownloadable() &&
-          <div id='download' className='submit'>
-            <ButtonLink href={this.download()}>
-              Télécharger
-            </ButtonLink>
-          </div>
+        {downloadable && <DownloadButton href={url} />}
+        {error &&
+          <div className='error-msg'>Il semblerait que cette ressource ne soit pas disponible.</div>
         }
 
         <style jsx>{`
-          .submit {
-            text-align: center;
-            padding: 0 0 4em 0;
+          .error-msg {
+            margin: 0 auto 2em;
+            padding: 2em;
+            color: ${theme.colors.red};
+            border: 1px solid ${theme.colors.red};
+            width: 368px;
           }
-          `}</style>
+        `}</style>
       </div>
     )
   }
