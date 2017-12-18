@@ -24,18 +24,18 @@ class ProductSelection extends React.Component {
           selected={territorySelected}
           unavailable={['epci']}
           onSelect={territory => selectTerritoryType(territory)} />
-          <Container>
-            <Step
-              title={stepTitle}
-              disabled={Boolean(!territorySelected)}>
-              {territorySelected ?
-                <ApiGeo
-                  territoryType={territorySelected}
-                  onSelect={territory => selectTerritory(territory)} /> :
-                <div />
-              }
-            </Step>
-          </Container>
+        <Container>
+          <Step
+            title={stepTitle}
+            disabled={Boolean(!territorySelected)}>
+            {territorySelected ?
+              <ApiGeo
+                territoryType={territorySelected}
+                onSelect={territory => selectTerritory(territory)} /> :
+              <div />
+            }
+          </Step>
+        </Container>
       </div>
     )
   }
