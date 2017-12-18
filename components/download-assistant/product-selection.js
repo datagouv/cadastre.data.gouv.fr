@@ -53,7 +53,7 @@ class ProductSelection extends React.Component {
   }
 
   render() {
-    const {productSelected, layer, toggleLayer} = this.props
+    const {productSelected} = this.props
 
     return (
       <div>
@@ -73,12 +73,10 @@ class ProductSelection extends React.Component {
 ProductSelection.propTypes = {
   selectProduct: PropTypes.func.isRequired,
   toggleLayer: PropTypes.func.isRequired,
-  productSelected: PropTypes.object,
-  layer: PropTypes.string
+  productSelected: PropTypes.object
 }
 
 ProductSelection.defaultProps = {
-  layer: 'communes',
   productSelected: null
 }
 
