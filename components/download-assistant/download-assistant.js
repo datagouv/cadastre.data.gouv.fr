@@ -60,11 +60,7 @@ class DownloadAssistant extends React.Component {
   toggleForm(formCompleted) {
     const {url, error} = this.state
 
-    if (!formCompleted) {
-      if (url || error) {
-        this.setState({downloadable: false, url: null, error: null})
-      }
-    } else {
+    if (formCompleted) {
       const newUrl = this.constructUrl()
 
       if ((!url || newUrl !== url) && !error) {
@@ -77,9 +73,11 @@ class DownloadAssistant extends React.Component {
             }
           })
           .catch(err => {
-            this.setState({downloadable: false, error: true})
+            this.setState({downloadable: false, error: err})
           })
       }
+    } else if (url || error) {
+      this.setState({downloadable: false, url: null, error: null})
     }
   }
 
