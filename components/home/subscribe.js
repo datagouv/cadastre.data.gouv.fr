@@ -1,8 +1,6 @@
 import Section from '../section'
 import Button from '../button'
 
-import theme from '../../styles/theme'
-
 export default () => (
   <Section background='grey'>
     <form action='//gouv.us11.list-manage.com/subscribe/post?u=a4f79da7f01e4f7ad001a0ea4&amp;id=f670b5722f' method='post'name='mc-embedded-subscribe-form' target='_blank' noValidate>
@@ -29,10 +27,10 @@ export default () => (
         font-size: 1.3em;
         font-style: italic;
         text-align: center;
-        color: ${theme.secondaryDarken};
       }
 
       input {
+        box-sizing: border-box;
         display: block;
         width: 100%;
         border: none;
