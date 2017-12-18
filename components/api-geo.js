@@ -36,7 +36,7 @@ class ApiGeo extends React.Component {
   search(url) {
     const options = {
       headers: {
-        'Accept': 'application/json'
+        Accept: 'application/json'
       },
       mode: 'cors',
       method: 'GET'
