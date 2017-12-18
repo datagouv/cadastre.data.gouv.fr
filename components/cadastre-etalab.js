@@ -3,13 +3,6 @@ import Ressource from './ressource'
 
 const CadastreEtalab = () => (
   <div>
-    <Section
-      background='dark'>
-      <h1>Cadastre</h1>
-      <p>Le plan cadastral est le découpage du territoire français en unités de surfaces permettant le calcul de certains impôts.</p>
-      <p>Chaque commune est subdivisée en sections, elles-mêmes subdivisées en feuilles (ou planches).
-        Une feuille cadastrale comporte des parcelles, qui peuvent supporter des bâtiments.</p>
-    </Section>
     <Section>
       <div className='main'>
         <h4>Différence par rapport au PCI Vecteur</h4>

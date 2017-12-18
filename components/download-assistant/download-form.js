@@ -21,38 +21,34 @@ class DownloadForm extends React.Component {
     const {product, territoryType, territory, format, layer} = this.props
 
     return (
-      <div>
-        <Section>
-          <h1>Assistant de téléchargement</h1>
+      <Section>
+        <Step id='product' title='1. Sélectionner un produit' disabled={false}>
+          <ProductSelection
+            productSelected={product}
+            layer={layer}
+            toggleLayer={layer => setLayer(layer)}
+            selectProduct={product => setProduct(product)} />
+        </Step>
 
-          <Step id='product' title='1. Sélectionner un produit' disabled={false}>
-            <ProductSelection
-              productSelected={product}
-              layer={layer}
-              toggleLayer={layer => setLayer(layer)}
-              selectProduct={product => setProduct(product)} />
-          </Step>
+        <Step id='territory' title='2. Sélectionner un territoire' disabled={Boolean(!product)}>
+          <TerritorySelection
+            territorySelected={territoryType}
+            selectTerritoryType={territoryType => setTerritoryType(territoryType)}
+            selectTerritory={territory => setTerritory(territory)} />
+        </Step>
 
-          <Step id='territory' title='2. Sélectionner un territoire' disabled={Boolean(!product)}>
-            <TerritorySelection
-              territorySelected={territoryType}
-              selectTerritoryType={territoryType => setTerritoryType(territoryType)}
-              selectTerritory={territory => setTerritory(territory)} />
-          </Step>
-
-          <Step id='format' title='3. Sélectionner un format' disabled={Boolean(!territory)}>
-            <Selector
-              items={product && territory ? product.formats : []}
-              selected={format}
-              unavailable={['edigeo/cc']}
-              uppercase
-              onSelect={(format => setFormat(format))} />
-            {product && product.name === 'Cadastre Etalab' &&
-              <LayerSelection productSelected={product} layer={layer} toggleLayer={layer => setLayer(layer)} />
-            }
-          </Step>
-        </Section>
-      </div>
+        <Step id='format' title='3. Sélectionner un format' disabled={Boolean(!territory)}>
+          <Selector
+            items={product && territory ? product.formats : []}
+            selected={format}
+            unavailable={['edigeo/cc']}
+            uppercase
+            onSelect={(format => setFormat(format))} />
+          {product && product.name === 'Cadastre Etalab' &&
+            <LayerSelection productSelected={product} layer={layer} toggleLayer={layer => setLayer(layer)} />
+          }
+        </Step>
+      </Section>
     )
   }
 }
