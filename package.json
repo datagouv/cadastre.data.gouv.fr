@@ -32,6 +32,7 @@
     "extends": "xo-react",
     "semicolon": false,
     "space": 2,
+    "globals": ["fetch"],
     "rules": {
       "jsx-quotes": [
         "error",

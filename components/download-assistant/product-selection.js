@@ -41,11 +41,16 @@ const products = [
 ]
 
 class ProductSelection extends React.Component {
-  select(productName) {
-    const {selectProduct, toggleLayer} = this.props
-    const product = products.find(p => p.name === productName)
+  constructor(props) {
+    super(props)
+    this.select = this.select.bind(this)
+  }
 
-    if (productName === 'Cadastre Etalab') {
+  select(item) {
+    const {selectProduct, toggleLayer} = this.props
+    const product = products.find(p => p.name === item)
+
+    if (item === 'Cadastre Etalab') {
       toggleLayer(product.layers)
     }
 
@@ -53,7 +58,7 @@ class ProductSelection extends React.Component {
   }
 
   render() {
-    const {productSelected, layer, toggleLayer} = this.props
+    const {productSelected} = this.props
 
     return (
       <div>
@@ -61,10 +66,7 @@ class ProductSelection extends React.Component {
           items={products.map(product => product.name)}
           selected={productSelected ? productSelected.name : null}
           unavailable={['Cadastre Strasbourg']}
-          onSelect={(product => this.select(product))} />
-        <style jsx>{`
-
-          `}</style>
+          handleSelect={this.select} />
       </div>
     )
   }
@@ -73,12 +75,10 @@ class ProductSelection extends React.Component {
 ProductSelection.propTypes = {
   selectProduct: PropTypes.func.isRequired,
   toggleLayer: PropTypes.func.isRequired,
-  productSelected: PropTypes.object,
-  layer: PropTypes.string
+  productSelected: PropTypes.object
 }
 
 ProductSelection.defaultProps = {
-  layer: 'communes',
   productSelected: null
 }
 

@@ -14,6 +14,11 @@ class ApiGeo extends React.Component {
       loading: false,
       territoryType: props.territoryType
     }
+
+    this.updateValue = this.updateValue.bind(this)
+    this.search = this.search.bind(this)
+    this.selectTerritory = this.selectTerritory.bind(this)
+
     this.search = debounce(this.search, 200)
   }
 
@@ -36,7 +41,7 @@ class ApiGeo extends React.Component {
   search(url) {
     const options = {
       headers: {
-        'Accept': 'application/json'
+        Accept: 'application/json'
       },
       mode: 'cors',
       method: 'GET'
@@ -80,8 +85,8 @@ class ApiGeo extends React.Component {
           results={results}
           loading={loading}
           placeholder={placeholder}
-          search={input => this.updateValue(input)}
-          handleSelect={territory => this.selectTerritory(territory)} />
+          search={this.updateValue}
+          handleSelect={this.selectTerritory} />
       </div>
     )
   }
