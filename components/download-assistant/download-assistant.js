@@ -20,6 +20,13 @@ class DownloadAssistant extends React.Component {
       downloadable: false,
       error: false
     }
+
+    this.toggleProduct = this.toggleProduct.bind(this)
+    this.toggleTerritoryType = this.toggleTerritoryType.bind(this)
+    this.toggleTerritory = this.toggleTerritory.bind(this)
+    this.toggleFormat = this.toggleFormat.bind(this)
+    this.toggleLayer = this.toggleLayer.bind(this)
+    this.toggleForm = this.toggleForm.bind(this)
   }
 
   toggleProduct(product) {
@@ -92,12 +99,12 @@ class DownloadAssistant extends React.Component {
           territory={territory}
           format={format}
           layer={layer}
-          setLayer={layer => this.toggleLayer(layer)}
-          setProduct={product => this.toggleProduct(product)}
-          setTerritoryType={territoryType => this.toggleTerritoryType(territoryType)}
-          setTerritory={territory => this.toggleTerritory(territory)}
-          setFormat={format => this.toggleFormat(format)}
-          formCompleted={formCompleted => this.toggleForm(formCompleted)} />
+          setLayer={this.toggleLayer}
+          setProduct={this.toggleProduct}
+          setTerritoryType={this.toggleTerritoryType}
+          setTerritory={this.toggleTerritory}
+          setFormat={this.toggleFormat}
+          formCompleted={this.toggleForm} />
 
         {downloadable && <DownloadButton href={url} />}
         {error &&

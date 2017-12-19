@@ -26,15 +26,15 @@ class DownloadForm extends React.Component {
           <ProductSelection
             productSelected={product}
             layer={layer}
-            toggleLayer={layer => setLayer(layer)}
-            selectProduct={product => setProduct(product)} />
+            toggleLayer={setLayer}
+            selectProduct={setProduct} />
         </Step>
 
         <Step id='territory' title='2. Sélectionner un territoire' disabled={Boolean(!product)}>
           <TerritorySelection
             territorySelected={territoryType}
-            selectTerritoryType={territoryType => setTerritoryType(territoryType)}
-            selectTerritory={territory => setTerritory(territory)} />
+            selectTerritoryType={setTerritoryType}
+            selectTerritory={setTerritory} />
         </Step>
 
         <Step id='format' title='3. Sélectionner un format' disabled={Boolean(!territory)}>
@@ -43,9 +43,9 @@ class DownloadForm extends React.Component {
             selected={format}
             unavailable={['edigeo/cc']}
             uppercase
-            onSelect={(format => setFormat(format))} />
+            handleSelect={setFormat} />
           {product && product.name === 'Cadastre Etalab' &&
-            <LayerSelection productSelected={product} layer={layer} toggleLayer={layer => setLayer(layer)} />
+            <LayerSelection productSelected={product} layer={layer} toggleLayer={setLayer} />
           }
         </Step>
       </Section>

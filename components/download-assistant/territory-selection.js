@@ -23,7 +23,7 @@ class ProductSelection extends React.Component {
           items={territories}
           selected={territorySelected}
           unavailable={['epci']}
-          onSelect={territory => selectTerritoryType(territory)} />
+          handleSelect={selectTerritoryType} />
         <Container>
           <Step
             title={stepTitle}
@@ -31,7 +31,7 @@ class ProductSelection extends React.Component {
             {territorySelected ?
               <ApiGeo
                 territoryType={territorySelected}
-                onSelect={territory => selectTerritory(territory)} /> :
+                onSelect={selectTerritory} /> :
               <div />
             }
           </Step>

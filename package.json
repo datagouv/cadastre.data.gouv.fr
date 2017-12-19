@@ -38,7 +38,6 @@
         "error",
         "prefer-single"
       ],
-      "react/jsx-no-bind": "off",
       "react/jsx-closing-bracket-location": [
         "error",
         "after-props"
