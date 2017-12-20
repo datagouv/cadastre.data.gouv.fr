@@ -26,13 +26,16 @@
   "devDependencies": {
     "eslint-config-xo-react": "^0.13.0",
     "eslint-plugin-react": "^7.4.0",
+    "webpack-bundle-analyzer": "^2.9.1",
     "xo": "^0.18.2"
   },
   "xo": {
     "extends": "xo-react",
     "semicolon": false,
     "space": 2,
-    "globals": ["fetch"],
+    "globals": [
+      "fetch"
+    ],
     "rules": {
       "jsx-quotes": [
         "error",

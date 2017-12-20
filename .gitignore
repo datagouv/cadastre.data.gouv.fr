@@ -4,6 +4,9 @@ node_modules
 # Build
 .next
 
+# Reports
+reports
+
 # Apple stuff
 .DS_Store
 .AppleDouble
