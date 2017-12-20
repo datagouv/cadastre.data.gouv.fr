@@ -34,7 +34,7 @@ class DownloadAssistant extends React.Component {
       product: product === this.state.product ? null : product,
       layer: product.name === 'Cadastre Etalab' ? 'communes' : null,
       format: product.name === 'PCI Image' ? 'tiff' : null
-    }, () => Router.push('/data/download-assistant#territory'))
+    }, () => Router.push('/datasets/download-assistant#territory'))
   }
 
   toggleTerritoryType(territoryType) {
@@ -45,11 +45,11 @@ class DownloadAssistant extends React.Component {
   }
 
   toggleTerritory(territory) {
-    this.setState({territory: territory === this.state.territory ? null : territory}, () => Router.push('/data/download-assistant#format'))
+    this.setState({territory: territory === this.state.territory ? null : territory}, () => Router.push('/datasets/download-assistant#format'))
   }
 
   toggleFormat(format) {
-    this.setState({format: format === this.state.format ? null : format}, () => Router.push('/data/download-assistant#download'))
+    this.setState({format: format === this.state.format ? null : format}, () => Router.push('/datasets/download-assistant#download'))
   }
 
   toggleLayer(layer) {
