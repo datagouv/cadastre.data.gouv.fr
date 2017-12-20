@@ -14,7 +14,7 @@ const products = [
       'sections',
       'feuilles',
       'parcelles',
-      'bâtiments'
+      'batiments'
     ]
   }
 ]
