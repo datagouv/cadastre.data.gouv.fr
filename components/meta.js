@@ -1,43 +1,57 @@
+import {Fragment} from 'react'
+import PropTypes from 'prop-types'
 import Head from 'next/head'
 
 import theme from '../styles/theme'
 
 import Fonts from './styles/fonts'
 
-export default () => (
-  <div>
+const SITE_NAME = 'cadastre.data.gouv.fr'
+
+const Meta = ({title, description}) => (
+  <Fragment>
     <Head>
       <meta charSet='utf-8' />
       <meta httpEquiv='x-ua-compatible' content='ie=edge' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
 
-      <title>Données cadastrales ouvertes - cadastre.data.gouv.fr</title>
+      {title ? (
+        <Head>
+          <title>{title} | {SITE_NAME}</title>
+          <meta name='twitter:title' content={title} />
+          <meta property='og:title' content={title} />
+        </Head>
+      ) : (
+        <Head>
+          <title>{SITE_NAME}</title>
+        </Head>
+      )}
 
       <link rel='icon' href='/static/favicon.ico' />
 
       {/* Search Engine */}
-      <meta name='description' content='Consulter, télécharger et intégrer les données cadastrales sans effort' />
+      <meta name='description' content={description} />
       <meta name='image' content='https://cadastre.data.gouv.fr/static/images/previews/default.png' />
 
       {/* Schema.org for Google */}
-      <meta itemProp='name' content='Données cadastrales ouvertes' />
-      <meta itemProp='description' content='Consulter, télécharger et intégrer les données cadastrales sans effort' />
+      <meta itemProp='name' content={title} />
+      <meta itemProp='description' content={description} />
       <meta itemProp='image' content='https://cadastre.data.gouv.fr/static/images/previews/default.png' />
 
       {/* Twitter */}
       <meta name='twitter:card' content='summary' />
-      <meta name='twitter:title' content='Données cadastrales ouvertes' />
-      <meta name='twitter:description' content='Consulter, télécharger et intégrer les données cadastrales sans effort' />
+      <meta name='twitter:title' content={title} />
+      <meta name='twitter:description' content={description} />
       <meta name='twitter:site' content='@geodatagouv' />
       <meta name='twitter:creator' content='geodatagouv' />
       <meta name='twitter:image:src' content='https://cadastre.data.gouv.fr/static/images/previews/default.png' />
 
       {/* Open Graph general (Facebook, Pinterest & Google+) */}
-      <meta name='og:title' content='Données cadastrales ouvertes' />
-      <meta name='og:description' content='Consulter, télécharger et intégrer les données cadastrales sans effort' />
+      <meta name='og:title' content={title} />
+      <meta name='og:description' content={description} />
       <meta name='og:image' content='https://cadastre.data.gouv.fr/static/images/previews/facebook.png' />
       <meta name='og:url' content='https://cadastre.data.gouv.fr/' />
-      <meta name='og:site_name' content='Données cadastrales ouvertes' />
+      <meta name='og:site_name' content={title} />
       <meta name='og:locale' content='fr_FR' />
       <meta name='og:type' content='website' />
     </Head>
@@ -272,5 +286,17 @@ export default () => (
       }
 
     `}</style>
-  </div>
+  </Fragment>
 )
+
+Meta.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string
+}
+
+Meta.defaultProps = {
+  title: 'Données cadastrales ouvertes',
+  description: 'Consulter, télécharger et intégrer les données cadastrales sans effort'
+}
+
+export default Meta
