@@ -1,7 +1,7 @@
 import Section from './section'
 import Ressource from './ressource'
 
-const PciVecteur = () => (
+const Pci = () => (
   <div>
     <Section>
       <div>
@@ -91,4 +91,4 @@ const PciVecteur = () => (
   </div>
 )
 
-export default PciVecteur
+export default Pci
