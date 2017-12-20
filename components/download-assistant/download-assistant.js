@@ -1,4 +1,3 @@
-import {join} from 'path'
 import React from 'react'
 import Router from 'next/router'
 
@@ -58,10 +57,19 @@ class DownloadAssistant extends React.Component {
 
   constructUrl() {
     const {product, territoryType, territory, format, layer} = this.state
-    const prd = product.name.toLowerCase().replace(' ', '-')
-    const url = join('https://cadastre.data.gouv.fr/bundler', prd, territoryType.replace('é', 'e'), territory.code, format.replace('/', '-'))
+    let url = [
+      'https://cadastre.data.gouv.fr/bundler',
+      product.name.toLowerCase().replace(' ', '-'),
+      territoryType.replace('é', 'e'),
+      territory.code,
+      format.replace('/', '-')
+    ].join('/')
 
-    return layer ? join(url, layer) : url
+    if (layer) {
+      url += `/${layer}`
+    }
+
+    return url
   }
 
   toggleForm(formCompleted) {
