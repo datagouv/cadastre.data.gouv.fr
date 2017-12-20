@@ -118,7 +118,7 @@ class DownloadAssistant extends React.Component {
 
         {downloadable && <DownloadButton href={url} />}
         {error &&
-          <div className='error-msg'>Il semblerait que cette ressource ne soit pas disponible.</div>
+          <div className='error-msg'>Cette ressource n’est pas disponible sur ce territoire.</div>
         }
 
         <style jsx>{`
