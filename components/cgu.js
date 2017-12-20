@@ -19,12 +19,6 @@ const Cgu = () => (
           Ce droit s’exerce auprès de la Mission Etalab, Direction interministérielle du numérique et du système d’information et de communication de l’État (DINSIC), 20 avenue de Ségur, 75007 Paris.
         </p>
         <p>La plateforme data.gouv.fr a été déclarée à la Commission Nationale de l’Informatique et des Libertés sous le numéro : eRa0876341t.</p>
-
-        <h4>Stockage des données soumises à l’API</h4>
-        <p>
-          Les données cadastre soumises à l’API peuvent être conservées dans un but d’amélioration du service, que ce soit au niveau des algorithmes ou au niveau du contenu de la BAN.
-          Pour les fichiers CSV soumis au géocodage, seules les colonnes signalées comme contenant les données adresses peuvent être conservées, aucun stockage des autres colonnes n’est effectué à l’issu du traitement.
-        </p>
       </div>
 
       <div>
