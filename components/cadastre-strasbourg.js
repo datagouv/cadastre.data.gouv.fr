@@ -1,7 +1,7 @@
 import Section from './section'
 import Ressource from './ressource'
 
-const CadastreEtalab = () => (
+const CadastreStrasbourg = () => (
   <div>
     <Section>
       <div className='main'>
@@ -73,4 +73,4 @@ const CadastreEtalab = () => (
   </div>
 )
 
-export default CadastreEtalab
+export default CadastreStrasbourg
