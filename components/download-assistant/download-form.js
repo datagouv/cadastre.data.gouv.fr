@@ -17,27 +17,28 @@ class DownloadForm extends React.Component {
   }
 
   render() {
-    const {setLayer, setProduct, setTerritoryType, setTerritory, setFormat} = this.props
+    const {productList, setLayer, setProduct, setTerritoryType, setTerritory, setFormat} = this.props
     const {product, territoryType, territory, format, layer} = this.props
 
     return (
       <Section>
-        <Step id='product' title='1. Sélectionner un produit' disabled={false}>
+        {productList.length > 1 && <Step id='product' title='Sélectionner un produit' disabled={false}>
           <ProductSelection
+            products={productList}
             productSelected={product}
             layer={layer}
             toggleLayer={setLayer}
             selectProduct={setProduct} />
-        </Step>
+        </Step>}
 
-        <Step id='territory' title='2. Sélectionner un territoire' disabled={Boolean(!product)}>
+        <Step id='territory' title='Sélectionner un territoire' disabled={Boolean(!product)}>
           <TerritorySelection
             territorySelected={territoryType}
             selectTerritoryType={setTerritoryType}
             selectTerritory={setTerritory} />
         </Step>
 
-        <Step id='format' title='3. Sélectionner un format' disabled={Boolean(!territory)}>
+        <Step id='format' title='Sélectionner un format' disabled={Boolean(!territory)}>
           <Selector
             items={product && territory ? product.formats : []}
             selected={format}
@@ -58,6 +59,7 @@ DownloadForm.propTypes = {
   territory: PropTypes.object,
   format: PropTypes.string,
   layer: PropTypes.string,
+  productList: PropTypes.array.isRequired,
   setLayer: PropTypes.func.isRequired,
   setProduct: PropTypes.func.isRequired,
   setTerritoryType: PropTypes.func.isRequired,

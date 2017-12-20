@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-import Router from 'next/router'
 
 import theme from '../../styles/theme'
 
@@ -10,8 +10,8 @@ class DownloadAssistant extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      product: null,
-      layer: null,
+      product: props.productList.length === 1 ? props.productList[0] : null,
+      layer: props.productList[0].name === 'Cadastre Etalab' ? 'communes' : null,
       territory: null,
       territoryType: null,
       format: null,
@@ -97,11 +97,13 @@ class DownloadAssistant extends React.Component {
   }
 
   render() {
+    const {productList} = this.props
     const {product, territoryType, territory, format, layer, url, downloadable, error} = this.state
 
     return (
       <div>
         <DownloadForm
+          productList={productList}
           product={product}
           territoryType={territoryType}
           territory={territory}
@@ -131,6 +133,10 @@ class DownloadAssistant extends React.Component {
       </div>
     )
   }
+}
+
+DownloadAssistant.propTypes = {
+  productList: PropTypes.array.isRequired
 }
 
 export default DownloadAssistant
