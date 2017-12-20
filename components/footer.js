@@ -16,7 +16,6 @@ const Footer = () => (
       </div>
       <ul className='footer__links'>
         <li><h2>cadastre.data.gouv.fr</h2></li>
-        <li><Link href='/about'><a>À propos</a></Link></li>
         <li><Link href='/cgu'><a>Mentions légales et CGU</a></Link></li>
         <li><Link href='/faq'><a>FAQ</a></Link></li>
         <li><a href='mailto:cadastre@data.gouv.fr'>Contact</a></li>
