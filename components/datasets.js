@@ -1,6 +1,5 @@
 import FlaskIcon from 'react-icons/lib/fa/flask'
 import MapIcon from 'react-icons/lib/fa/map-o'
-import DownloadIcon from 'react-icons/lib/fa/download'
 import ThIcon from 'react-icons/lib/fa/th'
 
 import Section from './section'
@@ -24,12 +23,6 @@ const titles = [
     href: '/datasets/cadastre-strasbourg',
     subtitle: '[insert description here]',
     icon: <MapIcon />
-  },
-  {
-    title: 'Assistant de téléchargement',
-    href: '/datasets/download-assistant',
-    subtitle: '[insert description here]',
-    icon: <DownloadIcon />
   }
 ]
 

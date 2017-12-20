@@ -1,5 +1,23 @@
 import Section from './section'
 import Ressource from './ressource'
+import DownloadAssistant from './download-assistant/download-assistant'
+
+const products = [
+  {
+    name: 'PCI Vecteur',
+    formats: [
+      'dxf',
+      'edigeo',
+      'edigeo/cc'
+    ]
+  },
+  {
+    name: 'PCI Image',
+    formats: [
+      'tiff'
+    ]
+  }
+]
 
 const Pci = () => (
   <div>
@@ -78,6 +96,9 @@ const Pci = () => (
           format='edigeo'
           link='https://cadastre.data.gouv.fr/data/dgfip-pci-vecteur/2017-02-13/' />
       </div>
+    </Section>
+    <Section title='Assistant de téléchargement'>
+      <DownloadAssistant productList={products} />
     </Section>
     <style jsx>{`
       .ressources {

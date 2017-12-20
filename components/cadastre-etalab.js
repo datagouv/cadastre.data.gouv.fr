@@ -1,5 +1,23 @@
 import Section from './section'
 import Ressource from './ressource'
+import DownloadAssistant from './download-assistant/download-assistant'
+
+const products = [
+  {
+    name: 'Cadastre Etalab',
+    formats: [
+      'geojson',
+      'geojson/gz'
+    ],
+    layers: [
+      'communes',
+      'sections',
+      'feuilles',
+      'parcelles',
+      'batiments'
+    ]
+  }
+]
 
 const CadastreEtalab = () => (
   <div>
@@ -78,6 +96,9 @@ const CadastreEtalab = () => (
           format='geojson'
           link='https://cadastre.data.gouv.fr/data/etalab-cadastre/2017-07-06/' />
       </div>
+    </Section>
+    <Section title='Assistant de téléchargement'>
+      <DownloadAssistant productList={products} />
     </Section>
     <style jsx>{`
       .ressources {

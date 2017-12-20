@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types'
 import React from 'react'
-import Router from 'next/router'
 
 import theme from '../../styles/theme'
 
@@ -10,8 +10,8 @@ class DownloadAssistant extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      product: null,
-      layer: null,
+      product: props.productList.length === 1 ? props.productList[0] : null,
+      layer: props.productList[0].name === 'Cadastre Etalab' ? 'communes' : null,
       territory: null,
       territoryType: null,
       format: null,
@@ -33,7 +33,7 @@ class DownloadAssistant extends React.Component {
       product: product === this.state.product ? null : product,
       layer: product.name === 'Cadastre Etalab' ? 'communes' : null,
       format: product.name === 'PCI Image' ? 'tiff' : null
-    }, () => Router.push('/datasets/download-assistant#territory'))
+    })
   }
 
   toggleTerritoryType(territoryType) {
@@ -44,11 +44,11 @@ class DownloadAssistant extends React.Component {
   }
 
   toggleTerritory(territory) {
-    this.setState({territory: territory === this.state.territory ? null : territory}, () => Router.push('/datasets/download-assistant#format'))
+    this.setState({territory: territory === this.state.territory ? null : territory})
   }
 
   toggleFormat(format) {
-    this.setState({format: format === this.state.format ? null : format}, () => Router.push('/datasets/download-assistant#download'))
+    this.setState({format: format === this.state.format ? null : format})
   }
 
   toggleLayer(layer) {
@@ -97,11 +97,13 @@ class DownloadAssistant extends React.Component {
   }
 
   render() {
+    const {productList} = this.props
     const {product, territoryType, territory, format, layer, url, downloadable, error} = this.state
 
     return (
       <div>
         <DownloadForm
+          productList={productList}
           product={product}
           territoryType={territoryType}
           territory={territory}
@@ -116,7 +118,7 @@ class DownloadAssistant extends React.Component {
 
         {downloadable && <DownloadButton href={url} />}
         {error &&
-          <div className='error-msg'>Il semblerait que cette ressource ne soit pas disponible.</div>
+          <div className='error-msg'>Cette ressource n’est pas disponible sur ce territoire.</div>
         }
 
         <style jsx>{`
@@ -131,6 +133,10 @@ class DownloadAssistant extends React.Component {
       </div>
     )
   }
+}
+
+DownloadAssistant.propTypes = {
+  productList: PropTypes.array.isRequired
 }
 
 export default DownloadAssistant
