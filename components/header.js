@@ -13,10 +13,8 @@ export default () => (
       </Link>
 
       <ul className='nav__links'>
-        <li><Link href='/data'><a>Données</a></Link></li>
-        <li><Link href='/consult'><a>Consulter</a></Link></li>
+        <li><Link href='/datasets'><a>Données</a></Link></li>
         <li><Link href='/faq'><a>FAQ</a></Link></li>
-        <li><Link href='/api'><a>API</a></Link></li>
       </ul>
 
     </div>

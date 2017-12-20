@@ -4,7 +4,7 @@ defaults:
   workspace_root: &workspace_root
     ~/cadastredatagouv
 
-  container: &default_container
+  nodejs_container: &nodejs_container
     working_directory: *workspace_root
     docker:
       - image: circleci/node:8
@@ -21,18 +21,27 @@ defaults:
         - v1-cadastredatagouv-node-
 
 jobs:
-  install:
-    <<: *default_container
+  checkout:
+    <<: *nodejs_container
     steps:
       - checkout
+
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - ./
+
+  install:
+    <<: *nodejs_container
+    steps:
+      - *attach_workspace
+      - *restore_node_modules
 
       - restore_cache:
           name: Restore yarn cache
           keys:
             - v1-cadastredatagouv-yarn-{{ checksum "yarn.lock" }}
             - v1-cadastredatagouv-yarn-
-
-      - *restore_node_modules
 
       - run:
           name: Install dependencies
@@ -50,17 +59,8 @@ jobs:
           paths:
             - node_modules/
 
-      - run:
-          name: Remove node_modules to cleanup workspace
-          command: rm -r node_modules/
-
-      - persist_to_workspace:
-          root: *workspace_root
-          paths:
-            - ./
-
   lint:
-    <<: *default_container
+    <<: *nodejs_container
     steps:
       - *attach_workspace
       - *restore_node_modules
@@ -70,7 +70,7 @@ jobs:
           command: yarn lint
 
   build:
-    <<: *default_container
+    <<: *nodejs_container
     steps:
       - *attach_workspace
       - *restore_node_modules
@@ -79,20 +79,29 @@ jobs:
           name: Build output bundles
           command: yarn build
 
-      - store_artifacts:
-          name: Store build bundle
-          path: .next/app.js
+      - run:
+          name: Extract built bundles for stats
+          command: |
+            mkdir dist-stats
+            cp -r .next/app.js .next/bundles dist-stats
+            # Remove _document.js as it’s only used by the server.
+            rm dist-stats/bundles/pages/_document.js
+            gzip -r dist-stats
 
-      - store_artifacts:
-          name: Store build pages bundles
-          path: .next/bundles
+      -  store_artifacts:
+          name: Store built bundles for stats
+          path: dist-stats
 
 workflows:
   version: 2
 
   build_test_deploy:
     jobs:
-      - install
+      - checkout
+
+      - install:
+          requires:
+            - checkout
 
       - build:
           requires:

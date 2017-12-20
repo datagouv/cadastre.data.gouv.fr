@@ -1,4 +1,3 @@
-import {join} from 'path'
 import React from 'react'
 import PropTypes from 'prop-types'
 import debounce from 'debounce'
@@ -33,7 +32,7 @@ class ApiGeo extends React.Component {
 
   updateValue(value) {
     const {territoryType} = this.props
-    const url = join('https://geo.api.gouv.fr', territoryType.replace('é', 'e')) + `?nom=${value}&boost=population`
+    const url = `https://geo.api.gouv.fr/${territoryType.replace('é', 'e')}?nom=${value}&boost=population`
 
     this.setState({value, results: [], loading: true}, this.search(url))
   }
