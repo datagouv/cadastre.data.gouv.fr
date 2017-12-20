@@ -2,7 +2,7 @@ import ThIcon from 'react-icons/lib/fa/th'
 import Page from '../../layouts/main'
 
 import Head from '../../components/head'
-import PciVecteur from '../../components/pci-vecteur'
+import Pci from '../../components/pci'
 
 export default () => (
   <Page>
@@ -14,6 +14,6 @@ export default () => (
         <p>Pour plus de précision, veuillez vous reporter à la documentation du <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>standard EDIGÉO</a>.</p>
       </div>
     </Head>
-    <PciVecteur />
+    <Pci />
   </Page>
 )
