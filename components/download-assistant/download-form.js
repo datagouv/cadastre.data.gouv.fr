@@ -41,7 +41,6 @@ class DownloadForm extends React.Component {
           <Selector
             items={product && territory ? product.formats : []}
             selected={format}
-            unavailable={['edigeo/cc']}
             uppercase
             handleSelect={setFormat} />
           {product && product.name === 'Cadastre Etalab' &&
