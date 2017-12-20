@@ -9,7 +9,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "xo"
+    "lint": "xo",
+    "heroku-postbuild": "next build"
   },
   "dependencies": {
     "debounce": "^1.1.0",
