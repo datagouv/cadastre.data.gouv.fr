@@ -31,12 +31,6 @@ const products = [
       'parcelles',
       'bâtiments'
     ]
-  },
-  {
-    name: 'Cadastre Strasbourg',
-    formats: [
-      'shp/cc49'
-    ]
   }
 ]
 
@@ -65,7 +59,6 @@ class ProductSelection extends React.Component {
         <Selector
           items={products.map(product => product.name)}
           selected={productSelected ? productSelected.name : null}
-          unavailable={['Cadastre Strasbourg']}
           handleSelect={this.select} />
       </div>
     )
