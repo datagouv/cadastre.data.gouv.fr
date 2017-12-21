@@ -19,7 +19,7 @@ export default () => (
       </div>
       <div>
         <h4>Développeurs</h4>
-        <p>Intégrer les références cadastrales dans les applications</p>
+        <p>Intégrer les références cadastrales dans les applications ou les formulaires en ligne</p>
       </div>
     </div>
 
