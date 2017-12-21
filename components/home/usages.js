@@ -3,16 +3,23 @@ import Section from '../section'
 import theme from '../../styles/theme'
 
 export default () => (
-  <Section title='Applications possibles' background='dark' centered>
+  <Section title='Utilisations possibles' background='dark' centered>
     <div className='main'>
       <div>
-        Rechercher des références cadastrales : parcelles, feuilles, sections
+        <h4>Collectivités</h4>
+        <p>Télécharger et consulter le plan cadastral de ma commune</p>
       </div>
       <div>
-        Travailler avec les emprises au sol des bâtiments
+        <h4>Géomaticiens</h4>
+        <p>Construire des zonages basés sur des données parcellaires</p>
       </div>
       <div>
-        Construire des zonages basés sur le découpage parcellaire
+        <h4>Professionnels de l’aménagement</h4>
+        <p>Disposer de l’emprise au sol des bâtiments</p>
+      </div>
+      <div>
+        <h4>Développeurs</h4>
+        <p>Intégrer les références cadastrales dans les applications</p>
       </div>
     </div>
 
