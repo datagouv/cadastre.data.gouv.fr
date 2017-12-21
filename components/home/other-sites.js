@@ -1,7 +1,7 @@
 import Section from '../section'
 
 export default () => (
-  <Section title='Notre autre site' subtitle=''>
+  <Section title='Voir aussi' subtitle=''>
     <div className='main'>
       <div>
         <a href='https://geo.data.gouv.fr'>
