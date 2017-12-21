@@ -77,6 +77,8 @@ const Meta = ({title, description}) => {
           color: ${theme.primary};
           text-decoration: none;
           transition: color 0.2s ease-out;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
         }
 
         @custom-media --smaller-than-mobile (max-width: 399px);
