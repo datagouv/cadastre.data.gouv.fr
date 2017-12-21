@@ -4,12 +4,12 @@ import theme from '../styles/theme'
 
 import Container from './container'
 
-const Section = ({title, subtitle, children, background}) => {
+const Section = ({title, subtitle, children, background, beta}) => {
   const backgroundColor = background ? '-' + background : ''
   return (
-    <section className={`section${backgroundColor}`}>
+    <section className={`section${backgroundColor} `}>
       <Container>
-        {title && <h2 className='section__title'>{title}</h2>}
+        {title && <h2 className='section__title'>{title} {beta && <span>Beta</span>}</h2>}
         {subtitle && <p className='section__subtitle'>{subtitle}</p>}
 
         {children}
@@ -57,6 +57,23 @@ const Section = ({title, subtitle, children, background}) => {
           margin: 0 0 3em;
           text-align: center;
         }
+
+        span {
+          font-size: 10px;
+          font-weight: bold;
+          color: ${theme.colors.white}
+          text-transform: uppercase;
+          text-align: center;
+          line-height: 20px;
+          transform: rotate(45deg);
+          display: inline-block;
+          position: absolute;
+          top: 5px;
+          width: 60px;
+          -webkit-transform: rotate(45deg);
+          background: ${theme.backgroundColor};
+          box-shadow: 0 3px 10px -5px ${theme.boxShadow};
+        }
       `}</style>
     </section>
   )
@@ -66,6 +83,7 @@ Section.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   children: PropTypes.node,
+  beta: PropTypes.boolean,
   background: PropTypes.oneOf([
     'white',
     'grey',
@@ -78,7 +96,8 @@ Section.defaultProps = {
   title: null,
   subtitle: null,
   children: null,
-  background: null
+  background: null,
+  beta: false
 }
 
 export default Section
