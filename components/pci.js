@@ -112,7 +112,7 @@ const Pci = () => (
             <ul>
               {millesime.formats.map(format => (
                 <li key={millesime.date + format}>
-                  {formatLabels[format]} (<a href={getUrl(millesime, format, 'departements')}>départements</a>, <a href={getUrl(millesime, format, 'feuilles')}>feuilles</a>)
+                  {formatLabels[format]} (<a href={getUrl(millesime, format, 'departements')}>par départements</a>, <a href={getUrl(millesime, format, 'feuilles')}>par feuilles</a>)
                 </li>
               ))}
             </ul>
