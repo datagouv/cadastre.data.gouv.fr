@@ -36,12 +36,20 @@ class SearchInput extends React.Component {
   }
 
   renderItem(item, isHighlighted) {
+    let description
+    if (item.departement) {
+      description = `${item.departement.nom} - ${item.departement.code}`
+    } else if (item.region) {
+      description = item.region.nom
+    } else {
+      description = 'Collectivité d’outre-mer'
+    }
     return (
       <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
         <div>
           <div className='label'>{item.nom}</div>
         </div>
-        <div>{item.code}</div>
+        <div>{description}</div>
         <style jsx>{`
           .item {
             display: flex;
