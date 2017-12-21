@@ -102,7 +102,7 @@ const Pci = () => (
           link='https://cadastre.data.gouv.fr/data/dgfip-pci-vecteur/2017-02-13/' />
       </div>
     </Section>
-    <Section title='Assistant de téléchargement'>
+    <Section title='Assistant de téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
       <DownloadAssistant productList={products} />
     </Section>
     <style jsx>{`

@@ -101,7 +101,7 @@ class DownloadAssistant extends React.Component {
     const {product, territoryType, territory, format, layer, url, downloadable, error} = this.state
 
     return (
-      <div>
+      <div className='download-wizard'>
         <DownloadForm
           productList={productList}
           product={product}
@@ -122,6 +122,11 @@ class DownloadAssistant extends React.Component {
         }
 
         <style jsx>{`
+          .download-wizard {
+            padding: 1em 2em;
+            box-shadow: 0 1px 4px ${theme.boxShadow};
+          }
+
           .error-msg {
             margin: 0 auto 2em;
             padding: 2em;

@@ -3,12 +3,16 @@ import PropTypes from 'prop-types'
 import theme from '../styles/theme'
 
 const Step = ({id, title, disabled, children}) => (
-  <div id={id} className={`${disabled ? 'disabled' : ''}`}>
+  <div id={id} className={`step ${disabled ? 'disabled' : ''}`}>
     <h3>{title}</h3>
     <div>
       {children}
     </div>
     <style jsx>{`
+      .step {
+        padding-bottom: 1em;
+      }
+
       .disabled h3 {
         color: ${theme.colors.grey};
       }
