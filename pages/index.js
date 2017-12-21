@@ -7,11 +7,14 @@ import OpenData from '../components/home/opendata'
 import Subscribe from '../components/home/subscribe'
 import OtherSites from '../components/home/other-sites'
 
+const title = 'Données cadastrales ouvertes'
+const tagline = 'Consulter, télécharger et intégrer facilement les données cadastrales'
+
 export default () => (
-  <Page>
+  <Page title={title} description={tagline}>
     <Hero
-      title='Données cadastrales ouvertes'
-      tagline='Consulter, télécharger et intégrer facilement les données cadastrales' />
+      title={title}
+      tagline={tagline} />
 
     <Explaination />
     <OpenData />
