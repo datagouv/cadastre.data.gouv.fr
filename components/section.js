@@ -16,7 +16,7 @@ const Section = ({title, subtitle, children, background}) => {
       </Container>
       <style jsx>{`
         section {
-          padding: 5em 0;
+          padding: 4em 0;
           background-color: ${theme.backgroundWhite};
           color: ${theme.colors.black};
         }

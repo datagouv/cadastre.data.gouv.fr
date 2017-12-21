@@ -11,7 +11,7 @@ export default ({
   darkGrey: '#8393A7',
   darkerGrey: '#53657D',
   almostBlack: '#26353f',
-  black: '#1c1c1c',
+  black: '#222',
 
   green: '#03BD5B',
   lightGreen: '#DAF5E7',
