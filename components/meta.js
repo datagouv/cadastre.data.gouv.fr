@@ -1,4 +1,3 @@
-import {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 
@@ -9,23 +8,13 @@ import Fonts from './styles/fonts'
 const SITE_NAME = 'cadastre.data.gouv.fr'
 
 const Meta = ({title, description}) => (
-  <Fragment>
+  <div>
     <Head>
       <meta charSet='utf-8' />
       <meta httpEquiv='x-ua-compatible' content='ie=edge' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
 
-      {title ? (
-        <Head>
-          <title>{title} | {SITE_NAME}</title>
-          <meta name='twitter:title' content={title} />
-          <meta property='og:title' content={title} />
-        </Head>
-      ) : (
-        <Head>
-          <title>{SITE_NAME}</title>
-        </Head>
-      )}
+      {title ? <title>{title} | {SITE_NAME}</title> : <title>{SITE_NAME}</title>}
 
       <link rel='icon' href='/static/favicon.ico' />
 
@@ -286,7 +275,7 @@ const Meta = ({title, description}) => (
       }
 
     `}</style>
-  </Fragment>
+  </div>
 )
 
 Meta.propTypes = {
