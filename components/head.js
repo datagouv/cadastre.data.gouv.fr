@@ -17,7 +17,7 @@ const Head = ({children, title, icon}) => (
     </Container>
     <style jsx>{`
       .head {
-        background-color: ${theme.backgroundDark};
+        background-color: ${theme.backgroundColor};
       }
 
       .row {
