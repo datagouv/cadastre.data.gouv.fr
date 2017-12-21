@@ -10,11 +10,7 @@ const description = 'Le plan cadastral est le découpage du territoire français
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<FlaskIcon />}>
-      <div>
-        <p>{description}</p>
-        <p>Chaque commune est subdivisée en sections, elles-mêmes subdivisées en feuilles (ou planches).
-          Une feuille cadastrale comporte des parcelles, qui peuvent supporter des bâtiments.</p>
-      </div>
+      {description}
     </Head>
     <CadastreEtalab />
   </Page>

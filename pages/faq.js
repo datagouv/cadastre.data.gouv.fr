@@ -10,7 +10,7 @@ const description = 'Questions les plus fréquemment posées.'
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<FaQuestion />}>
-      <div><p>{description}</p></div>
+      {description}
     </Head>
     <Faq />
   </Page>

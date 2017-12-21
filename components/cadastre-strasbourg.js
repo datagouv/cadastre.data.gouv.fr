@@ -5,6 +5,7 @@ const CadastreStrasbourg = () => (
   <div>
     <Section>
       <div className='main'>
+        <p>Créée le 4 décembre 1967 sous le nom de communauté urbaine de Strasbourg (CUS), elle devient une métropole le 1er janvier 2015.</p>
 
         <p>Ce jeu de données contient principalement les parcelles cadastrales gérées par le service Géomatique et Connaissance du Territoire de l’Eurométropole de Strasbourg sur le territoire de la collectivité.
         Les parcelles sont issues d’opérations de calcul basée sur les croquis cadastraux ce qui permet d’atteindre une bonne précision géométrique des données.</p>

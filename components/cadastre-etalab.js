@@ -23,6 +23,13 @@ const CadastreEtalab = () => (
   <div>
     <Section>
       <div className='main'>
+
+        <h4>Divisions</h4>
+        <p>
+          Chaque commune est subdivisée en sections, elles-mêmes subdivisées en feuilles (ou planches).
+          Une feuille cadastrale comporte des parcelles, qui peuvent supporter des bâtiments.
+        </p>
+
         <h4>Différence par rapport au PCI Vecteur</h4>
 
         <p>Contrairement au <a href='https://www.data.gouv.fr/fr/datasets/58e5924b88ee3802ca255566/'>Plan Cadastral Informatisé</a> au format EDIGÉO qui est un ensemble de 600 000 feuilles cadastrales avec de nombreux éléments liés à la fiscalité ou à l’habillage du plan, cette version retravaillée par Etalab se concentre sur le découpage parcellaire et sur les bâtiments.</p>

@@ -10,10 +10,7 @@ const description = 'L’Eurométropole de Strasbourg est une métropole frança
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<MapIcon />}>
-      <div>
-        <p>{description}</p>
-        <p>Créée le 4 décembre 1967 sous le nom de communauté urbaine de Strasbourg (CUS), elle devient une métropole le 1er janvier 2015.</p>
-      </div>
+      {description}
     </Head>
     <CadastreStrasbourg />
   </Page>
