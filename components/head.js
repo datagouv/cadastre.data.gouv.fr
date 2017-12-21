@@ -11,13 +11,13 @@ const Head = ({children, title, icon}) => (
         <div className='icon'>{icon}</div>
         <div className='text'>
           <h1>{title}</h1>
-          <div className='description'>{children}</div>
+          <p className='description'>{children}</p>
         </div>
       </div>
     </Container>
     <style jsx>{`
       .head {
-        background-color: ${theme.backgroundDark};
+        background-color: ${theme.backgroundColor};
       }
 
       .row {

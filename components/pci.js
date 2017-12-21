@@ -23,6 +23,11 @@ const Pci = () => (
   <div>
     <Section>
       <div>
+        <h4>Divisions</h4>
+        <p>Chaque commune est subdivisée en sections, elles-mêmes subdivisées en feuilles (ou planches).
+    Une feuille cadastrale comporte des parcelles, qui peuvent supporter des bâtiments, ainsi que de nombreux autres objets d’habillage ou de gestion.</p>
+        <p>Pour plus de précision, veuillez vous reporter à la documentation du <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>standard EDIGÉO</a>.</p>
+
         <h4>Couverture</h4>
         <p>32 864 communes sont couvertes par le PCI Vecteur, sur un total de près de 36 000.
         Les plans des autres communes sont disponibles sous forme d’images, via le PCI Image (diffusion prévue courant octobre).</p>

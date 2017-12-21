@@ -10,7 +10,7 @@ const description = 'cadaste.data.gouv.fr met en place des outils pour une prise
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<DownloadIcon />}>
-      <div><p>{description}</p></div>
+      {description}
     </Head>
     <Datasets />
   </Page>

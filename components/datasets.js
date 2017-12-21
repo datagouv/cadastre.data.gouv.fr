@@ -19,7 +19,7 @@ const titles = [
     icon: <FlaskIcon />
   },
   {
-    title: 'Données cadastrales Eurométropole de Strasbourg',
+    title: 'Cadastre Eurométropole de Strasbourg',
     href: '/datasets/cadastre-strasbourg',
     subtitle: '[insert description here]',
     icon: <MapIcon />
