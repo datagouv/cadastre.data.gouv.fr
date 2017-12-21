@@ -4,8 +4,8 @@ import Page from '../../layouts/main'
 import Head from '../../components/head'
 import Datasets from '../../components/datasets'
 
-const title = 'Données brutes'
-const description = 'cadaste.data.gouv.fr met en place des outils pour une prise en main rapide des données cadastre ouvertes.'
+const title = 'Télécharger les données'
+const description = 'Plusieurs jeux de données sont mis à disposition sous Licence Ouverte.'
 
 export default () => (
   <Page title={title} description={description}>
