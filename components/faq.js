@@ -44,6 +44,8 @@ const Faq = () => (
         <h3>Quand les plans cadastraux des communes qui ne le sont pas encore seront-ils vectorisés ?</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat diam lorem, eu congue nisi molestie sed. Duis luctus lacus diam, vulputate dictum sem posuere sed.</p>
 
+        <h2>Comment obtenir des tirages papier du plan cadastral ?</h2>
+        <p>Vous pouvez vous rendre sur <a href='https://cadastre.gouv.fr'><span>cadastre.gouv.fr</span></a></p>
       </div>
     </div>
     <style jsx>{`
