@@ -39,11 +39,11 @@ export default () => (
 
       @media (min-width: 768px) {
         .main {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(4, 1fr);
         }
 
         .main div {
-          padding: 0 3em;
+          padding: 0 2em;
         }
 
         .main div:not(:last-child) {
