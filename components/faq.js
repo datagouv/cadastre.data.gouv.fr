@@ -4,14 +4,8 @@ const Faq = () => (
   <Section>
     <div className='row'>
       <div className='prose'>
-        <h2>À propos du site</h2>
-        <h3>À quoi sert ce site ?</h3>
-        <p>Ce site est destiné à :</p>
-        <ul>
-          <li>faciliter l’accès aux données cadastrales,</li>
-          <li>faciliter leur réutilisation,</li>
-          <li>fournir un assistant de téléchargement pour trouver les données en plusieurs formats,</li>
-        </ul>
+        <h2>Le site</h2>
+
         <h3>Qui gère ce site ?</h3>
         <p>Le site cadastre.data.gouv.fr est géré par la mission Etalab de la DINSIC.</p>
 
