@@ -104,7 +104,7 @@ const CadastreEtalab = () => (
           link='https://cadastre.data.gouv.fr/data/etalab-cadastre/2017-07-06/' />
       </div>
     </Section>
-    <Section title='Assistant de téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
+    <Section title='Assistant de téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
       <DownloadAssistant productList={products} />
     </Section>
     <style jsx>{`
