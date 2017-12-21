@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Section from '../section'
 import Step from '../step'
 import Selector from '../selector'
 import ProductSelection from './product-selection'
@@ -21,7 +20,7 @@ class DownloadForm extends React.Component {
     const {product, territoryType, territory, format, layer} = this.props
 
     return (
-      <Section>
+      <div>
         {productList.length > 1 && <Step id='product' title='Sélectionner un produit' disabled={false}>
           <ProductSelection
             products={productList}
@@ -48,7 +47,7 @@ class DownloadForm extends React.Component {
             <LayerSelection productSelected={product} layer={layer} toggleLayer={setLayer} />
           }
         </Step>
-      </Section>
+      </div>
     )
   }
 }

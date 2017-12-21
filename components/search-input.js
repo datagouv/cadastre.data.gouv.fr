@@ -117,6 +117,7 @@ class SearchInput extends React.Component {
             background-color: ${theme.colors.white};
             border: 1px solid ${theme.border};
             border-radius: 5px;
+            margin-bottom: 1em;
             outline: none;
           }
 
