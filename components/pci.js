@@ -102,8 +102,8 @@ const Pci = () => (
       </div>
     </Section>
     <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
-      <p>Les liens suivants permettent de télécharger les données du plan cadastral <b>à la feuille</b>, ou <b>par département</b>.</p>
-      <p>Les URL de téléchargement seront maintenues dans le temps, il est donc tout à fait possible d’automatiser la récupération des données
+      <p>Les liens suivants permettent de télécharger les données du plan cadastral <b>à la feuille</b>, ou <b>par département</b>.<br />Dans le cas d’un téléchargement à la feuille, vous serez invité à choisir un code département puis un code de commune.</p>
+      <p>Les URL de téléchargement sont maintenues dans le temps, il est donc tout à fait possible d’automatiser la récupération des données
         grâce à un script.</p>
       <ul>
         {millesimes.map(millesime => (
