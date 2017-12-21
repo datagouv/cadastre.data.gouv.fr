@@ -51,7 +51,7 @@ class ApiGeo extends React.Component {
       if (contentType && contentType.indexOf('application/json') !== -1) {
         response.json().then(json => {
           this.setState({
-            results: json || [],
+            results: json.splice(0, 10) || [],
             loading: false
           })
         })
