@@ -19,6 +19,45 @@ const products = [
   }
 ]
 
+const millesimes = [
+  {
+    latest: true,
+    date: '12 octobre 2017',
+    path: 'latest',
+    formats: ['dxf', 'edigeo', 'tiff']
+  },
+  {
+    date: '12 octobre 2017',
+    path: '2017-10-12',
+    formats: ['dxf', 'edigeo', 'tiff']
+  },
+  {
+    date: '6 juillet 2017',
+    path: '2017-07-06',
+    formats: ['edigeo']
+  },
+  {
+    date: '14 mai 2017',
+    path: '2017-05-14',
+    formats: ['edigeo']
+  },
+  {
+    date: '13 février 2017',
+    path: '2017-02-13',
+    formats: ['edigeo']
+  }
+]
+
+function getUrl(millesime, selectedFormat, granularity) {
+  return `https://cadastre.data.gouv.fr/data/${selectedFormat === 'tiff' ? 'dgfip-pci-image' : 'dgfip-pci-vecteur'}/${millesime.path}/${selectedFormat}/${granularity}`
+}
+
+const formatLabels = {
+  tiff: 'Format TIFF (PCI Image)',
+  edigeo: 'Format EDIGÉO',
+  dxf: 'Format DXF-PCI'
+}
+
 const Pci = () => (
   <div>
     <Section>
@@ -33,14 +72,7 @@ const Pci = () => (
         Les plans des autres communes sont disponibles sous forme d’images, via le PCI Image (diffusion prévue courant octobre).</p>
         <p>Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et historiquement intégrées dans le département de la Guadeloupe (971).</p>
 
-        <h4>Millésimes :</h4>
-
-        <ul>
-          <li>13 février 2017</li>
-          <li>14 mai 2017</li>
-          <li>6 juillet 2017</li>
-          <li>12 octobre 2017 (plus récent)</li>
-        </ul>
+        <h4>PCI Vecteur et PCI Image</h4>
 
         <h4>Fichiers</h4>
 
@@ -69,38 +101,24 @@ const Pci = () => (
         <p>Une partie des données du cadastre est également <a href='https://www.data.gouv.fr/fr/datasets/59b0020ec751df07d5f13bcf/'>mise à disposition par Etalab au format GeoJSON</a>.</p>
       </div>
     </Section>
-    <Section title='Ressources' background='grey'>
-      <div className='ressources'>
-        <Ressource
-          title='Données dernier millésime'
-          lastModification='Dernière modification le jeudi 9 novembre 2017'
-          format='edigeo+dxf'
-          link='https://cadastre.data.gouv.fr/data/dgfip-pci-vecteur/latest/' />
-
-        <Ressource
-          title='Données millésime 12 octobre 2017'
-          lastModification='Dernière modification le jeudi 9 novembre 2017'
-          format='edigeo+dxf'
-          link='https://cadastre.data.gouv.fr/data/dgfip-pci-vecteur/2017-10-12/' />
-
-        <Ressource
-          title='Données millésime 6 juillet 2017'
-          lastModification='Dernière modification le vendredi 29 septembre 2017'
-          format='edigeo'
-          link='https://cadastre.data.gouv.fr/data/dgfip-pci-vecteur/2017-07-06' />
-
-        <Ressource
-          title='Données millésime 14 mai 2017'
-          lastModification='Dernière modification le vendredi 29 septembre 2017'
-          format='edigeo'
-          link='https://cadastre.data.gouv.fr/data/dgfip-pci-vecteur/2017-05-14' />
-
-        <Ressource
-          title='Données millésime 13 février 2017'
-          lastModification='Dernière modification le vendredi 29 septembre 2017'
-          format='edigeo'
-          link='https://cadastre.data.gouv.fr/data/dgfip-pci-vecteur/2017-02-13/' />
-      </div>
+    <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
+      <p>Les liens suivants permettent de télécharger les données du plan cadastral <b>à la feuille</b>, ou <b>par département</b>.</p>
+      <p>Les URL de téléchargement seront maintenues dans le temps, il est donc tout à fait possible d’automatiser la récupération des données
+        grâce à un script.</p>
+      <ul>
+        {millesimes.map(millesime => (
+          <li key={millesime.date}>
+            <h5>{millesime.latest ? `Dernier millésime (${millesime.date})` : `Millésime ${millesime.date}`}</h5>
+            <ul>
+              {millesime.formats.map(format => (
+                <li key={millesime.date + format}>
+                  {formatLabels[format]} (<a href={getUrl(millesime, format, 'departements')}>départements</a>, <a href={getUrl(millesime, format, 'feuilles')}>feuilles</a>)
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
     </Section>
     <Section title='Assistant de téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
       <DownloadAssistant productList={products} />

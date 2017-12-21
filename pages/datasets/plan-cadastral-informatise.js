@@ -1,24 +1,17 @@
-import ThIcon from 'react-icons/lib/fa/th'
+import MapO from 'react-icons/lib/fa/map-o'
 import Page from '../../layouts/main'
 
 import Head from '../../components/head'
 import Pci from '../../components/pci'
 
 const title = 'Plan Cadastral Informatisé (PCI)'
-const description = 'Le plan cadastral est le découpage du territoire français en unités de surfaces permettant le calcul de certains impôts (notamment la taxe foncière, la taxe d’habitation et la cotisation foncière des entreprises). La consultation du cadastre peut se faire en ligne sur cadastre.gouv.fr'
+const description = 'Données de références pour la France entière produites par la Direction Générale des Finances Publiques.'
 
 export default () => (
   <Page title={title} description={description}>
-    <Head title={title} icon={<ThIcon />}>
-      Le plan cadastral est le découpage du territoire français en unités de surfaces permettant le calcul de certains impôts (notamment la taxe foncière, la taxe d’habitation et la cotisation foncière des entreprises). La consultation du cadastre peut se faire en ligne sur <a href='https://cadastre.gouv.fr' rel='nofollow'>cadastre.gouv.fr</a>.
+    <Head title={title} icon={<MapO />}>
+      Données de références pour la France entière (hors Strasbourg), produites par la Direction Générale des Finances Publiques.
     </Head>
     <Pci />
-    <style jsx>{`
-      a {
-        color: #fff;
-        text-decoration: underline;
-        font-weight: 600;
-      }
-      `}</style>
   </Page>
 )
