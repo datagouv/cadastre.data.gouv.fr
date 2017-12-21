@@ -13,7 +13,6 @@ export default () => (
       tagline='Consulter, télécharger et intégrer facilement les données cadastrales' />
 
     <Usages />
-    <DataAndTools />
     <Subscribe />
     <OtherSites />
   </Page>
