@@ -10,7 +10,7 @@ export default () => (
   <Page>
     <Hero
       title='Données cadastrales ouvertes'
-      tagline='Consulter, télécharger et intégrer les données cadastrales sans effort' />
+      tagline='Consulter, télécharger et intégrer facilement les données cadastrales' />
 
     <Usages />
     <DataAndTools />
