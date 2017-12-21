@@ -20,7 +20,8 @@
     "react": "^16.2.0",
     "react-autocomplete": "^1.7.2",
     "react-dom": "^16.2.0",
-    "react-icons": "^2.2.7"
+    "react-icons": "^2.2.7",
+    "underscore.string": "^3.3.4"
   },
   "devDependencies": {
     "eslint-config-xo-react": "^0.13.0",
