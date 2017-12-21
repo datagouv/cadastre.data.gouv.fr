@@ -1,26 +1,13 @@
 import Section from '../section'
-import Button from '../button-link'
 
 export default () => (
-  <Section title='Nos autres sites' subtitle='Visiter les autres sites de la galaxie géo d’Etalab'>
+  <Section title='Notre autre site' subtitle=''>
     <div className='main'>
       <div>
+        <a href='https://geo.data.gouv.fr'>
+          <img src='/static/images/logos/geo.svg' />
+        </a>
         <p>Catalogue des données géographiques</p>
-        <Button href='https://geo.data.gouv.fr'>
-          geo.data.gouv.fr
-        </Button>
-      </div>
-      <div>
-        <p>API géographiques pour les développeurs</p>
-        <Button href='https://geo.api.gouv.fr'>
-          geo.api.gouv.fr
-        </Button>
-      </div>
-      <div>
-        <p>Données Adresse en libre accès</p>
-        <Button href='https://adresse.data.gouv.fr'>
-          adresse.data.gouv.fr
-        </Button>
       </div>
     </div>
 
@@ -30,6 +17,10 @@ export default () => (
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         grid-row-gap: 0.6em;
         text-align: center;
+      }
+
+      img {
+        width: 300px;
       }
     `}</style>
   </Section>
