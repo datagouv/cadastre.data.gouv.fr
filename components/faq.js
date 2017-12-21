@@ -30,8 +30,6 @@ const Faq = () => (
           <h3>Pourquoi la métropole de Strasbourg est-elle un cas particulier ?</h3>
           <p>Cras auctor vitae magna id interdum. Suspendisse potenti. Aliquam tempus sed massa sit amet interdum. Pellentesque vestibulum nibh ut sodales bibendum. Nullam suscipit bibendum finibus.</p>
 
-        </div>
-        <div>
           <h3>Est-il possible de télécharger les données du Plan Cadastral Informatisé en projections locales ?</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat diam lorem, eu congue nisi molestie sed. Duis luctus lacus diam, vulputate dictum sem posuere sed.</p>
 
