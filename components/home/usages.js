@@ -3,7 +3,7 @@ import Section from '../section'
 import theme from '../../styles/theme'
 
 export default () => (
-  <Section title='Utilisations possibles' background='dark' centered>
+  <Section title='Réutilisations possibles' background='dark' centered>
     <div className='main'>
       <div>
         <h4>Collectivités</h4>
