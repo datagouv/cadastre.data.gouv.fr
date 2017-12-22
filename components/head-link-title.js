@@ -36,7 +36,7 @@ const HeadLinkTitle = ({title, subtitle, href, icon}) => {
 
 HeadLinkTitle.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  subtitle: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
   icon: PropTypes.element
 }
