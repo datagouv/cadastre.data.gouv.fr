@@ -1,5 +1,6 @@
 import Section from './section'
 import DownloadAssistant from './download-assistant/download-assistant'
+import Millesimes from './millesimes'
 
 const products = [
   {
@@ -22,11 +23,6 @@ const millesimes = [
   {
     latest: true,
     date: '12 octobre 2017',
-    path: 'latest',
-    formats: ['dxf', 'edigeo', 'tiff']
-  },
-  {
-    date: '12 octobre 2017',
     path: '2017-10-12',
     formats: ['dxf', 'edigeo', 'tiff']
   },
@@ -47,14 +43,8 @@ const millesimes = [
   }
 ]
 
-function getUrl(millesime, selectedFormat, granularity) {
-  return `https://cadastre.data.gouv.fr/data/${selectedFormat === 'tiff' ? 'dgfip-pci-image' : 'dgfip-pci-vecteur'}/${millesime.path}/${selectedFormat}/${granularity}`
-}
-
-const formatLabels = {
-  tiff: 'Format TIFF (PCI Image)',
-  edigeo: 'Format EDIGÉO',
-  dxf: 'Format DXF-PCI'
+function getUrl(path, selectedFormat, granularity) {
+  return `https://cadastre.data.gouv.fr/data/${selectedFormat === 'tiff' ? 'dgfip-pci-image' : 'dgfip-pci-vecteur'}/${path}/${selectedFormat}/${granularity}`
 }
 
 const Pci = () => (
@@ -114,33 +104,13 @@ const Pci = () => (
     </Section>
     <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
       <p>Les liens suivants permettent de télécharger les données du plan cadastral <b>à la feuille</b>, ou <b>par département</b>.<br />Dans le cas d’un téléchargement à la feuille, vous serez invité à choisir un code département puis un code de commune.</p>
-      <ul>
-        {millesimes.map(millesime => (
-          <li key={millesime.date}>
-            <h5>{millesime.latest ? `Dernier millésime (${millesime.date})` : `Millésime ${millesime.date}`}</h5>
-            <ul>
-              {millesime.formats.map(format => (
-                <li key={millesime.date + format}>
-                  {formatLabels[format]} (<a href={getUrl(millesime, format, 'departements')}>par département</a>, <a href={getUrl(millesime, format, 'feuilles')}>par feuille</a>)
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+      <p>Les URL de téléchargement sont maintenues dans le temps, il est donc tout à fait possible d’automatiser la récupération des données
+        grâce à un script.</p>
+      <Millesimes millesimes={millesimes} getUrl={getUrl} />
     </Section>
     <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
       <DownloadAssistant productList={products} />
     </Section>
-    <style jsx>{`
-      .ressources {
-        display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-        grid-gap: 1em;
-        grid-row-gap: 0.6em;
-        margin: 2em 0;
-      }
-    `}</style>
   </div>
 )
 

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Section from './section'
+import Millesimes from './millesimes'
 import DownloadAssistant from './download-assistant/download-assistant'
 
 const products = [
@@ -23,11 +24,6 @@ const millesimes = [
   {
     latest: true,
     date: '12 octobre 2017',
-    path: 'latest',
-    formats: ['geojson']
-  },
-  {
-    date: '12 octobre 2017',
     path: '2017-10-12',
     formats: ['geojson']
   },
@@ -38,8 +34,8 @@ const millesimes = [
   }
 ]
 
-function getUrl(millesime, selectedFormat, granularity) {
-  return `https://cadastre.data.gouv.fr/data/etalab-cadastre/${millesime.path}/${selectedFormat}/${granularity}`
+function getUrl(path, selectedFormat, granularity) {
+  return `https://cadastre.data.gouv.fr/data/etalab-cadastre/${path}/${selectedFormat}/${granularity}`
 }
 
 const CadastreEtalab = () => (
@@ -103,31 +99,7 @@ const CadastreEtalab = () => (
     </Section>
     <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
       <p>Les liens suivants permettent de télécharger les données cadastrales <b>à la commune</b>, ou <b>au département</b>.<br />Dans le cas d’un téléchargement à la commune, vous serez invité à choisir un code département puis un code de commune.</p>
-      <ul>
-        {millesimes.map(millesime => (
-          <li key={millesime.date}>
-            <h5>{millesime.latest ? `Dernier millésime (${millesime.date})` : `Millésime ${millesime.date}`}</h5>
-            <ul>
-              {millesime.formats.map(format => (
-                <li key={millesime.date + format}>
-                  Format GeoJSON (<a href={getUrl(millesime, format, 'departements')}>par département</a>, <a href={getUrl(millesime, format, 'communes')}>par commune</a>)
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
-      <p>L’arborescence est la suivante :</p>
-      <p>Découpage communal :</p>
-      <div>
-        <pre><code>{`{format}/communes/{code_departement}/{code_commune}/cadastre-{code_commune}-{nom_couche}.json.gz`}</code></pre>
-      </div>
-      <p>Découpage départemental :</p>
-      <div>
-        <pre><code>{`{format}/departements/{code_departement}/cadastre-{code_departement}-{nom_couche}.json.gz`}</code></pre>
-      </div>
-      <p>Exemple :</p>
-      <p><a href='https://cadastre.data.gouv.fr/data/etalab-cadastre/latest/geojson/communes/01/01001/cadastre-01001-batiments.json.gz' rel='nofollow'>https://cadastre.data.gouv.fr/data/etalab-cadastre/latest/geojson/communes/01/01001/cadastre-01001-batiments.json.gz</a></p>
+      <Millesimes millesimes={millesimes} getUrl={getUrl} />
     </Section>
     <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
       <DownloadAssistant productList={products} />

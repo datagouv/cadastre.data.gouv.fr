@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 
-const Grid = ({children, ...props}) => (
+const Grid = ({children, ...props, columns}) => (
   <div className='grid' {...props}>
     {children}
 
     <style jsx>{`
       .grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(${columns}, 1fr);
         grid-gap: 10px;
         grid-auto-rows: minmax(100px, auto);
       }
@@ -27,10 +27,12 @@ const Grid = ({children, ...props}) => (
 )
 
 Grid.propTypes = {
+  columns: PropTypes.number,
   children: PropTypes.node
 }
 
 Grid.defaultProps = {
+  columns: 4,
   children: null
 }
 
