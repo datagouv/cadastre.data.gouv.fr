@@ -74,6 +74,12 @@ const Section = ({title, subtitle, children, background, beta}) => {
           background: ${theme.backgroundColor};
           box-shadow: 0 3px 10px -5px ${theme.boxShadow};
         }
+
+        @media (min-width: 370px) and (max-width: 450px) {
+          .section__title {
+            margin: 0 1em 3em;
+          }
+        }
       `}</style>
     </section>
   )
