@@ -5,7 +5,7 @@ import theme from '../styles/theme'
 import Grid from './grid'
 import Millesime from './millesime'
 
-const Millesimes = ({millesimes}) => (
+const Millesimes = ({millesimes, getUrl}) => (
   <Grid columns={3}>
     {millesimes.map(millesime => (
       <div key={millesime.date}>
@@ -16,7 +16,8 @@ const Millesimes = ({millesimes}) => (
         <Millesime
           date={millesime.date}
           path={millesime.path}
-          formats={millesime.formats} />
+          formats={millesime.formats}
+          getUrl={getUrl} />
       </div>
     ))}
     <style jsx>{`
@@ -43,7 +44,8 @@ const Millesimes = ({millesimes}) => (
 )
 
 Millesimes.propTypes = {
-  millesimes: PropTypes.array.isRequired
+  millesimes: PropTypes.array.isRequired,
+  getUrl: PropTypes.func.isRequired
 }
 
 export default Millesimes

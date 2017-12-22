@@ -5,14 +5,11 @@ import theme from '../styles/theme'
 const formatLabels = {
   tiff: 'Format TIFF (PCI Image)',
   edigeo: 'Format EDIGÉO',
-  dxf: 'Format DXF-PCI'
+  dxf: 'Format DXF-PCI',
+  geojson: 'Format GEOJSON'
 }
 
-function getUrl(path, selectedFormat, granularity) {
-  return `https://cadastre.data.gouv.fr/data/${selectedFormat === 'tiff' ? 'dgfip-pci-image' : 'dgfip-pci-vecteur'}/${path}/${selectedFormat}/${granularity}`
-}
-
-const Millesime = ({date, formats, path}) => (
+const Millesime = ({date, formats, path, getUrl}) => (
   <div className='container'>
     <h5>Millésime {date}</h5>
     <div className='millesimes'>
@@ -69,7 +66,8 @@ const Millesime = ({date, formats, path}) => (
 Millesime.propTypes = {
   date: PropTypes.string.isRequired,
   formats: PropTypes.array.isRequired,
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
+  getUrl: PropTypes.func.isRequired
 }
 
 export default Millesime
