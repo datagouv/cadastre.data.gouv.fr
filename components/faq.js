@@ -4,42 +4,23 @@ const Faq = () => (
   <Section>
     <div className='row'>
       <div className='prose'>
-        <h2>Le site</h2>
 
         <h3>Qui gère ce site ?</h3>
-        <p>Le site cadastre.data.gouv.fr est géré par la mission Etalab de la DINSIC.</p>
-
-        <h2>Les données</h2>
-
-        <h3>Quelle est la différence entre le Plan Cadastral Informatisé et les données cadastrales diffusées par Etalab ?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat diam lorem, eu congue nisi molestie sed. Duis luctus lacus diam, vulputate dictum sem posuere sed.</p>
-
-        <h3>Pourquoi la métropole de Strasbourg est-elle un cas particulier ?</h3>
-        <p>Cras auctor vitae magna id interdum. Suspendisse potenti. Aliquam tempus sed massa sit amet interdum. Pellentesque vestibulum nibh ut sodales bibendum. Nullam suscipit bibendum finibus.</p>
-
-        <h3>Est-il possible de télécharger les données du Plan Cadastral Informatisé en projections locales ?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat diam lorem, eu congue nisi molestie sed. Duis luctus lacus diam, vulputate dictum sem posuere sed.</p>
-
-        <h3>Depuis quand les données du plan cadastral sont-elles diffusées gratuitement ?</h3>
-        <p>Cras auctor vitae magna id interdum. Suspendisse potenti. Aliquam tempus sed massa sit amet interdum. Pellentesque vestibulum nibh ut sodales bibendum. Nullam suscipit bibendum finibus.</p>
-
-        <h3>Quelles sont les données juridiquement opposables ?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat diam lorem, eu congue nisi molestie sed. Duis luctus lacus diam, vulputate dictum sem posuere sed.</p>
+        <p>Le site cadastre.data.gouv.fr est géré par la <a href='https://www.etalab.gouv.fr'>mission Etalab</a> de la direction interministérielle du numérique et du système d’information et de communication de l’État (DINSIC).</p>
 
         <h3>Pourquoi les données du plan cadastral se chevauchent-elles dans certaines zones ?</h3>
-        <p>Cras auctor vitae magna id interdum. Suspendisse potenti. Aliquam tempus sed massa sit amet interdum. Pellentesque vestibulum nibh ut sodales bibendum. Nullam suscipit bibendum finibus.</p>
+        <p>Les feuilles cadastrales sont numérisées feuille par feuille. Les différents procédés et époques de numérisation ont pour conséquence des chevauchements, en particulier en limites de communes et en zones forestières, de montagne ou agricoles.</p>
 
-        <h3>Existe-t-il des flux OGC diffusant les données cadastrales (WFS, WMS) ?</h3>
-        <p>Cras auctor vitae magna id interdum. Suspendisse potenti. Aliquam tempus sed massa sit amet interdum. Pellentesque vestibulum nibh ut sodales bibendum. Nullam suscipit bibendum finibus.</p>
-
-        <h3>Quelle différence entre les données cadastrales diffusées par Etalab et la BD Parcellaire ?</h3>
-        <p>Cras auctor vitae magna id interdum. Suspendisse potenti. Aliquam tempus sed massa sit amet interdum. Pellentesque vestibulum nibh ut sodales bibendum. Nullam suscipit bibendum finibus.</p>
+        <h3>Quelle différence entre les données cadastrales retravaillées par Etalab et la BD Parcellaire ?</h3>
+        <p>La <a href='http://professionnels.ign.fr/bdparcellaire'>BD Parcellaire</a> diffusée par l’<a href='http://www.ign.fr/'>IGN</a> va plus loin que ce que propose Etalab dans le sens où il y a un important travail de correction topologique.<br />
+        Si ces données sont gratuites pour la plupart des missions de service public, elles ne le sont pas pour les acteurs privés et ne sont pas à proprement parler des données ouvertes.</p>
 
         <h3>Quand les plans cadastraux des communes qui ne le sont pas encore seront-ils vectorisés ?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat diam lorem, eu congue nisi molestie sed. Duis luctus lacus diam, vulputate dictum sem posuere sed.</p>
+        <p>Il n’existe pas de planning. Certaines communes n’ont pas manifesté d’intérêt pour cette initiative.<br />
+        Dans la plupart des cas il s’agit de problèmes de financement.</p>
 
-        <h2>Comment obtenir des tirages papier du plan cadastral ?</h2>
-        <p>Vous pouvez vous rendre sur <a href='https://cadastre.gouv.fr'><span>cadastre.gouv.fr</span></a></p>
+        <h3>Comment obtenir des tirages papiers du plan cadastral ?</h3>
+        <p>Cette prestation est proposée sur le site de la DGFiP <a href='https://cadastre.gouv.fr'><span>cadastre.gouv.fr</span></a>.</p>
       </div>
     </div>
     <style jsx>{`
