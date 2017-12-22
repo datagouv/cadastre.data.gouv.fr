@@ -6,12 +6,48 @@ import theme from '../../styles/theme'
 import DownloadForm from './download-form'
 import DownloadButton from './download-button'
 
+const pci = [
+  {
+    name: 'PCI Vecteur',
+    formats: [
+      'dxf',
+      'edigeo',
+      'edigeo/cc'
+    ]
+  },
+  {
+    name: 'PCI Image',
+    formats: [
+      'tiff'
+    ]
+  }
+]
+
+const etalab = [
+  {
+    name: 'Cadastre Etalab',
+    formats: [
+      'geojson',
+      'geojson/gz'
+    ],
+    layers: [
+      'communes',
+      'sections',
+      'feuilles',
+      'parcelles',
+      'batiments'
+    ]
+  }
+]
+
+const productList = {etalab, pci}
+
 class DownloadAssistant extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      product: props.productList.length === 1 ? props.productList[0] : null,
-      layer: props.productList[0].name === 'Cadastre Etalab' ? 'communes' : null,
+      product: props.cat === 'etalab' ? productList[props.cat][0] : null,
+      layer: props.cat === 'etalab' ? 'communes' : null,
       territory: null,
       territoryType: null,
       format: null,
@@ -97,13 +133,13 @@ class DownloadAssistant extends React.Component {
   }
 
   render() {
-    const {productList} = this.props
+    const {cat} = this.props
     const {product, territoryType, territory, format, layer, url, downloadable, error} = this.state
 
     return (
       <div className='download-wizard'>
         <DownloadForm
-          productList={productList}
+          productList={productList[cat]}
           product={product}
           territoryType={territoryType}
           territory={territory}
@@ -140,7 +176,7 @@ class DownloadAssistant extends React.Component {
 }
 
 DownloadAssistant.propTypes = {
-  productList: PropTypes.array.isRequired
+  cat: PropTypes.PropTypes.oneOf(['pci', 'etalab']).isRequired
 }
 
 export default DownloadAssistant

@@ -3,23 +3,6 @@ import Section from './section'
 import Millesimes from './millesimes'
 import DownloadAssistant from './download-assistant/download-assistant'
 
-const products = [
-  {
-    name: 'Cadastre Etalab',
-    formats: [
-      'geojson',
-      'geojson/gz'
-    ],
-    layers: [
-      'communes',
-      'sections',
-      'feuilles',
-      'parcelles',
-      'batiments'
-    ]
-  }
-]
-
 const millesimes = [
   {
     latest: true,
@@ -102,7 +85,7 @@ const CadastreEtalab = () => (
       <Millesimes millesimes={millesimes} getUrl={getUrl} />
     </Section>
     <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
-      <DownloadAssistant productList={products} />
+      <DownloadAssistant cat='etalab' />
     </Section>
     <style jsx>{`
       .ressources {
