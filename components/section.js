@@ -83,7 +83,7 @@ Section.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   children: PropTypes.node,
-  beta: PropTypes.boolean,
+  beta: PropTypes.bool,
   background: PropTypes.oneOf([
     'white',
     'grey',
