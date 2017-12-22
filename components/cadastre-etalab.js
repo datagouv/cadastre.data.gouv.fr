@@ -1,5 +1,4 @@
 import Section from './section'
-import Ressource from './ressource'
 import DownloadAssistant from './download-assistant/download-assistant'
 
 const products = [
