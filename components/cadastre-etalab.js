@@ -25,12 +25,14 @@ const millesimes = [
     latest: true,
     date: '12 octobre 2017',
     path: '2017-10-12',
-    formats: ['geojson']
+    formats: ['geojson'],
+    granularities: ['communes', 'departements']
   },
   {
     date: '6 juillet 2017',
     path: '2017-07-06',
-    formats: ['geojson']
+    formats: ['geojson'],
+    granularities: ['communes', 'departements']
   }
 ]
 

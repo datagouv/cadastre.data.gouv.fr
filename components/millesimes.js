@@ -17,6 +17,7 @@ const Millesimes = ({millesimes, getUrl}) => (
           date={millesime.date}
           path={millesime.path}
           formats={millesime.formats}
+          granularities={millesime.granularities}
           getUrl={getUrl} />
       </div>
     ))}

@@ -24,22 +24,26 @@ const millesimes = [
     latest: true,
     date: '12 octobre 2017',
     path: '2017-10-12',
-    formats: ['dxf', 'edigeo', 'tiff']
+    formats: ['dxf', 'edigeo', 'tiff'],
+    granularities: ['feuilles', 'departements']
   },
   {
     date: '6 juillet 2017',
     path: '2017-07-06',
-    formats: ['edigeo']
+    formats: ['edigeo'],
+    granularities: ['feuilles', 'departements']
   },
   {
     date: '14 mai 2017',
     path: '2017-05-14',
-    formats: ['edigeo']
+    formats: ['edigeo'],
+    granularities: ['feuilles', 'departements']
   },
   {
     date: '13 février 2017',
     path: '2017-02-13',
-    formats: ['edigeo']
+    formats: ['edigeo'],
+    granularities: ['feuilles', 'departements']
   }
 ]
 

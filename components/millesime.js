@@ -9,7 +9,13 @@ const formatLabels = {
   geojson: 'Format GEOJSON'
 }
 
-const Millesime = ({date, formats, path, getUrl}) => (
+const granularityLabels = {
+  feuilles: 'par feuille',
+  departements: 'par département',
+  communes: 'par commune'
+}
+
+const Millesime = ({date, formats, granularities, path, getUrl}) => (
   <div className='container'>
     <h5>Millésime {date}</h5>
     <div className='millesimes'>
@@ -17,8 +23,10 @@ const Millesime = ({date, formats, path, getUrl}) => (
         <div key={date + format} className='format'>
           <div><strong>{formatLabels[format]}</strong></div>
           <div className='granularity'>
-            <a href={getUrl(path, format, 'departements')}>par départements</a>
-            <a href={getUrl(path, format, 'feuilles')}>par feuilles</a></div>
+            {granularities.map(granularity => (
+              <a key={date + format + granularity} href={getUrl(path, format, granularity)}>{granularityLabels[granularity]}</a>
+            ))}
+          </div>
         </div>
       ))}
     </div>
@@ -66,6 +74,7 @@ const Millesime = ({date, formats, path, getUrl}) => (
 Millesime.propTypes = {
   date: PropTypes.string.isRequired,
   formats: PropTypes.array.isRequired,
+  granularities: PropTypes.array.isRequired,
   path: PropTypes.string.isRequired,
   getUrl: PropTypes.func.isRequired
 }
