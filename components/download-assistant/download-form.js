@@ -21,7 +21,14 @@ class DownloadForm extends React.Component {
 
     return (
       <div>
-        {productList.length > 1 && <Step id='product' title='Sélectionner un produit' disabled={false}>
+        <Step id='territory' title='Sélectionner un territoire' disabled={false}>
+          <TerritorySelection
+            territorySelected={territoryType}
+            selectTerritoryType={setTerritoryType}
+            selectTerritory={setTerritory} />
+        </Step>
+
+        {productList.length > 1 && <Step id='product' title='Sélectionner un produit' disabled={Boolean(!territory)}>
           <ProductSelection
             products={productList}
             productSelected={product}
@@ -29,13 +36,6 @@ class DownloadForm extends React.Component {
             toggleLayer={setLayer}
             selectProduct={setProduct} />
         </Step>}
-
-        <Step id='territory' title='Sélectionner un territoire' disabled={Boolean(!product)}>
-          <TerritorySelection
-            territorySelected={territoryType}
-            selectTerritoryType={setTerritoryType}
-            selectTerritory={setTerritory} />
-        </Step>
 
         <Step id='format' title='Sélectionner un format' disabled={Boolean(!territory)}>
           <Selector

@@ -2,23 +2,6 @@ import Section from './section'
 import DownloadAssistant from './download-assistant/download-assistant'
 import Millesimes from './millesimes'
 
-const products = [
-  {
-    name: 'PCI Vecteur',
-    formats: [
-      'dxf',
-      'edigeo',
-      'edigeo/cc'
-    ]
-  },
-  {
-    name: 'PCI Image',
-    formats: [
-      'tiff'
-    ]
-  }
-]
-
 const millesimes = [
   {
     latest: true,
@@ -109,7 +92,7 @@ const Pci = () => (
       <Millesimes millesimes={millesimes} getUrl={getUrl} />
     </Section>
     <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
-      <DownloadAssistant productList={products} />
+      <DownloadAssistant cat='pci' />
     </Section>
   </div>
 )
