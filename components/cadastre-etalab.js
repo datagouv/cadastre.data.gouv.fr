@@ -57,7 +57,7 @@ const CadastreEtalab = () => (
 
         <p>Les différentes couches sont constituées par juxtaposition des feuilles, sans correction de topologie.<br />
         Les données de l’Eurométropole Strasbourg sont ajoutées par écrasement de celles éventuellement présentes dans le PCI Vecteur.<br />
-        Le modèle de données est simplifié, et ne sont concervés que les <b>sections</b>, les <b>feuilles</b> (le cas échéant), les <b>parcelles</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
+        Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b> (le cas échéant), les <b>parcelles</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
         Le code source est ouvert et <a href='https://github.com/etalab/cadastre'>disponible sur GitHub</a>.
         </p>
 
