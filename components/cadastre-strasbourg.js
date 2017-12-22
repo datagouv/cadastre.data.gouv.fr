@@ -15,10 +15,10 @@ const CadastreStrasbourg = () => (
         <p>Les attributs fournis sont les suivants :</p>
 
         <ul>
-          <li>NUM_DEPT (numéro de département)s</li>
+          <li>NUM_DEPT (numéro de département)</li>
           <li>NUM_COMMUN (numéro de commune INSEE sur 3 caractères)</li>
           <li>NUM_PARCEL (numéro de parcelle)</li>
-          <li>CODE_PRECI (code de précision géométrique, voir détail en annexe)</li>
+          <li>CODE_PRECI (code de précision géométrique, voir <a href='https://www.data.gouv.fr/s/resources/parcelles-cadastrales-de-leurometropole-de-strasbourg/20171127-173844/BD_parcellaire.pdf'>détail en annexe</a>)</li>
           <li>DATE_MAJ (date de dernière mise à jour)</li>
         </ul>
 
