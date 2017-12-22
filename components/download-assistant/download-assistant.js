@@ -128,11 +128,10 @@ class DownloadAssistant extends React.Component {
           }
 
           .error-msg {
-            margin: 0 auto 2em;
-            padding: 2em;
+            text-align: center;
+            padding: 1em;
             color: ${theme.colors.red};
             border: 1px solid ${theme.colors.red};
-            width: 368px;
           }
         `}</style>
       </div>
