@@ -1,4 +1,5 @@
 import Section from './section'
+import Millesimes from './millesimes'
 import DownloadAssistant from './download-assistant/download-assistant'
 
 const products = [
@@ -22,11 +23,6 @@ const millesimes = [
   {
     latest: true,
     date: '12 octobre 2017',
-    path: 'latest',
-    formats: ['geojson']
-  },
-  {
-    date: '12 octobre 2017',
     path: '2017-10-12',
     formats: ['geojson']
   },
@@ -37,8 +33,8 @@ const millesimes = [
   }
 ]
 
-function getUrl(millesime, selectedFormat, granularity) {
-  return `https://cadastre.data.gouv.fr/data/etalab-cadastre/${millesime.path}/${selectedFormat}/${granularity}`
+function getUrl(path, selectedFormat, granularity) {
+  return `https://cadastre.data.gouv.fr/data/etalab-cadastre/${path}/${selectedFormat}/${granularity}`
 }
 
 const CadastreEtalab = () => (
@@ -110,20 +106,7 @@ const CadastreEtalab = () => (
       <p>Les liens suivants permettent de télécharger les données cadastrales <b>à la commune</b>, ou <b>au département</b>.<br />Dans le cas d’un téléchargement à la commune, vous serez invité à choisir un code département puis un code de commune.</p>
       <p>Les URL de téléchargement sont maintenues dans le temps, il est donc tout à fait possible d’automatiser la récupération des données
         grâce à un script.</p>
-      <ul>
-        {millesimes.map(millesime => (
-          <li key={millesime.date}>
-            <h5>{millesime.latest ? `Dernier millésime (${millesime.date})` : `Millésime ${millesime.date}`}</h5>
-            <ul>
-              {millesime.formats.map(format => (
-                <li key={millesime.date + format}>
-                  Format GeoJSON (<a href={getUrl(millesime, format, 'departements')}>par département</a>, <a href={getUrl(millesime, format, 'communes')}>par commune</a>)
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+      <Millesimes millesimes={millesimes} getUrl={getUrl} />
     </Section>
     <Section title='Assistant de téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
       <DownloadAssistant productList={products} />
