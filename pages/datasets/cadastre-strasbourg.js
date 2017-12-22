@@ -5,7 +5,7 @@ import Head from '../../components/head'
 import CadastreStrasbourg from '../../components/cadastre-strasbourg'
 
 const title = 'Cadastre Eurométropole de Strasbourg'
-const description = 'L’Eurométropole de Strasbourg est une métropole française située dans le département du Bas-Rhin. Elle fait partie du pôle métropolitain Strasbourg-Mulhouse-Colmar qui fédère les grandes intercommunalités alsaciennes.'
+const description = 'Données de références pour l’Eurométropole de Strasbourg.'
 
 export default () => (
   <Page title={title} description={description}>

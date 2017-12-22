@@ -1,6 +1,6 @@
 import FlaskIcon from 'react-icons/lib/fa/flask'
-import MapIcon from 'react-icons/lib/fa/map-o'
-import ThIcon from 'react-icons/lib/fa/th'
+import FileArchiveO from 'react-icons/lib/fa/file-archive-o'
+import MapO from 'react-icons/lib/fa/map-o'
 
 import Section from './section'
 import HeadLinkTitle from './head-link-title'
@@ -8,32 +8,32 @@ import HeadLinkTitle from './head-link-title'
 const titles = [
   {
     title: 'Plan Cadastral Informatisé (PCI)',
-    href: '/datasets/pci',
-    subtitle: 'Le plan cadastral est le découpage du territoire français en unités de surfaces permettant le calcul de certains impôts (notamment la taxe foncière, la taxe d’habitation et la cotisation foncière des entreprises).',
-    icon: <ThIcon />
-  },
-  {
-    title: 'Cadastre par Etalab',
-    href: '/datasets/cadastre-etalab',
-    subtitle: 'Le plan cadastral est le découpage du territoire français en unités de surfaces permettant le calcul de certains impôts.',
-    icon: <FlaskIcon />
+    href: '/datasets/plan-cadastral-informatise',
+    description: <span>Données de références pour la France entière (hors Strasbourg), produites par la Direction Générale des Finances Publiques.<br />Environ 600 000 feuilles disponibles aux formats EDIGÉO et DXF.</span>,
+    icon: <MapO />
   },
   {
     title: 'Cadastre Eurométropole de Strasbourg',
     href: '/datasets/cadastre-strasbourg',
-    subtitle: '[insert description here]',
-    icon: <MapIcon />
+    description: <span>Données de références pour l’Eurométropole de Strasbourg.<br />4 couches disponibles au format Shapefile.</span>,
+    icon: <FileArchiveO />
+  },
+  {
+    title: 'Cadastre Etalab',
+    href: '/datasets/cadastre-etalab',
+    description: <span>Données consolidées pour la France entière, produites par Etalab à partir des données de référence ci-dessus.<br />5 couches disponibles au format GeoJSON.</span>,
+    icon: <FlaskIcon />
   }
 ]
 
 const Datasets = () => (
   <Section>
-    {titles.map(({title, href, subtitle, icon}) =>
+    {titles.map(({title, href, description, icon}) =>
       (<HeadLinkTitle
         key={title}
         title={title}
         href={href}
-        subtitle={subtitle}
+        subtitle={description}
         icon={icon} />)
     )}
   </Section>

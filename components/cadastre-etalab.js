@@ -1,5 +1,6 @@
+import Link from 'next/link'
 import Section from './section'
-import Ressource from './ressource'
+import Millesimes from './millesimes'
 import DownloadAssistant from './download-assistant/download-assistant'
 
 const products = [
@@ -19,62 +20,74 @@ const products = [
   }
 ]
 
+const millesimes = [
+  {
+    latest: true,
+    date: '12 octobre 2017',
+    path: '2017-10-12',
+    formats: ['geojson']
+  },
+  {
+    date: '6 juillet 2017',
+    path: '2017-07-06',
+    formats: ['geojson']
+  }
+]
+
+function getUrl(path, selectedFormat, granularity) {
+  return `https://cadastre.data.gouv.fr/data/etalab-cadastre/${path}/${selectedFormat}/${granularity}`
+}
+
 const CadastreEtalab = () => (
   <div>
     <Section>
       <div className='main'>
+        <h4>Raison d’être de ce jeu de données</h4>
+        <p>Le <Link href='/datasets/plan-cadastral-informatise'>Plan Cadastral Informatisé</Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
+        Etalab a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
 
-        <h4>Divisions</h4>
-        <p>
-          Chaque commune est subdivisée en sections, elles-mêmes subdivisées en feuilles (ou planches).
-          Une feuille cadastrale comporte des parcelles, qui peuvent supporter des bâtiments.
+        <h4>Données sources</h4>
+        <p>Ces données sont produites à partir :</p>
+        <ul>
+          <li>des <Link href='/datasets/plan-cadastral-informatise'>données EDIGÉO du PCI Vecteur</Link> ;</li>
+          <li>des <Link href='/datasets/cadastre-strasbourg'>données cadastrales de l’Eurométropole de Strasbourg</Link>.</li>
+        </ul>
+
+        <h4>Processus de construction</h4>
+
+        <p>Les différentes couches sont constituées par juxtaposition des feuilles, sans correction de topologie.<br />
+        Les données de l’Eurométropole Strasbourg sont ajoutées par écrasement de celles éventuellement présentes dans le PCI Vecteur.<br />
+        Le modèle de données est simplifié, et ne sont concervés que les <b>sections</b>, les <b>feuilles</b> (le cas échéant), les <b>parcelles</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
+        Le code source est ouvert et <a href='https://github.com/etalab/cadastre'>disponible sur GitHub</a>.
         </p>
-
-        <h4>Différence par rapport au PCI Vecteur</h4>
-
-        <p>Contrairement au <a href='https://www.data.gouv.fr/fr/datasets/58e5924b88ee3802ca255566/'>Plan Cadastral Informatisé</a> au format EDIGÉO qui est un ensemble de 600 000 feuilles cadastrales avec de nombreux éléments liés à la fiscalité ou à l’habillage du plan, cette version retravaillée par Etalab se concentre sur le découpage parcellaire et sur les bâtiments.</p>
-        <p>Les différentes couches d’information géographique sont constituées par juxtaposition des feuilles, sans correction.</p>
-        <p>Ces données incluent aussi le <a href='https://www.data.gouv.fr/fr/datasets/59d2c07888ee3814dbdaf501'>référentiel cadastral géré par l’Eurométropole de Strasbourg</a>.</p>
-        <p>Enfin cette version est disponible directement dans des formats de données géographiques usuels, ce qui rend son utilisation plus simple.</p>
 
         <h4>Couverture</h4>
 
-        <p>32 864 communes sont couvertes par le PCI Vecteur, sur un total de près de 36 000.
-        Les plans des autres communes sont disponibles sous forme d’images, via le PCI Image (diffusion prévue courant octobre).</p>
-        <p>Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et historiquement intégrées dans le département de la Guadeloupe (971).</p>
+        <p>Les 32 864 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
+        Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
 
-        <h4>Couches de données</h4>
+        <h4>Formats disponibles</h4>
+        <p>Les données sont actuellement disponibles au format <a href='http://geojson.org/'>GeoJSON</a> compressé, et <a href='http://geojson.org/'>GeoJSON</a> simple via l’outil d’aide au téléchargement.<br />
+        💡 Les formats Shapefile et Geopackage seront proposés début 2018.</p>
 
-        <ul>
-          <li>parcelles</li>
-          <li>feuilles</li>
-          <li>sections</li>
-          <li>communes</li>
-          <li>batiments</li>
-        </ul>
-
-        <h4>Millésimes</h4>
+        <h4>Couches géographiques</h4>
 
         <ul>
-          <li>6 juillet 2017</li>
-          <li>12 octobre 2017 (plus récent)</li>
+          <li>parcelles (multi polygones)</li>
+          <li>feuilles (multi polygones)</li>
+          <li>sections (multi polygones)</li>
+          <li>communes (multi polygones)</li>
+          <li>batiments (polygones)</li>
         </ul>
 
-        <h4>Fichiers</h4>
+        <h4>Mise à disposition</h4>
 
-        <p>Les données sont actuellement disponibles au format <a href='http://geojson.org/' rel='nofollow'>GeoJSON</a> compressé.</p>
-        <p>Le téléchargement se fait par couche, et au choix <strong>par département</strong> ou <strong>par commune</strong>.</p>
-        <p>L’arborescence est la suivante :</p>
-        <p>Découpage communal :</p>
-        <div>
-          <pre><code>{`{format}/communes/{code_departement}/{code_commune}/cadastre-{code_commune}-{nom_couche}.json.gz`}</code></pre>
-        </div>
-        <p>Découpage départemental :</p>
-        <div>
-          <pre><code>{`{format}/departements/{code_departement}/cadastre-{code_departement}-{nom_couche}.json.gz`}</code></pre>
-        </div>
-        <p>Exemple :</p>
-        <p><a href='https://cadastre.data.gouv.fr/data/etalab-cadastre/latest/geojson/communes/01/01001/cadastre-01001-batiments.json.gz' rel='nofollow'>https://cadastre.data.gouv.fr/data/etalab-cadastre/latest/geojson/communes/01/01001/cadastre-01001-batiments.json.gz</a></p>
+        <p>Les données sont mises à disposition de deux manières :</p>
+        <ul>
+          <li>En <b>téléchargement direct</b> à la <b>commune</b> ou au <b>département</b>, pour le format <a href='http://geojson.org/'>GeoJSON</a> compressé. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
+          <li>Via un outil en ligne pour les données au format <a href='http://geojson.org/'>GeoJSON</a> et à terme pour les formats Shapefile et Geopackage.</li>
+        </ul>
+        <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
 
         <h4>Historique</h4>
 
@@ -84,27 +97,11 @@ const CadastreEtalab = () => (
         </ul>
       </div>
     </Section>
-    <Section title='Ressources' background='grey'>
-      <div className='ressources'>
-        <Ressource
-          title='Données dernier millésime'
-          lastModification='Dernière modification le jeudi 9 novembre 2017'
-          format='geojson'
-          link='https://cadastre.data.gouv.fr/data/etalab-cadastre/latest/' />
-        <Ressource
-          title='Données millésime 12 octobre 2017'
-          lastModification='Dernière modification le jeudi 9 novembre 2017'
-          format='geojson'
-          link='https://cadastre.data.gouv.fr/data/etalab-cadastre/2017-10-12/' />
-
-        <Ressource
-          title='Données millésime 6 juillet 2017'
-          lastModification='Dernière modification le vendredi 29 septembre 2017'
-          format='geojson'
-          link='https://cadastre.data.gouv.fr/data/etalab-cadastre/2017-07-06/' />
-      </div>
+    <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
+      <p>Les liens suivants permettent de télécharger les données cadastrales <b>à la commune</b>, ou <b>au département</b>.<br />Dans le cas d’un téléchargement à la commune, vous serez invité à choisir un code département puis un code de commune.</p>
+      <Millesimes millesimes={millesimes} getUrl={getUrl} />
     </Section>
-    <Section title='Assistant de téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
+    <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
       <DownloadAssistant productList={products} />
     </Section>
     <style jsx>{`

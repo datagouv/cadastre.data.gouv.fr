@@ -16,7 +16,7 @@ const Section = ({title, subtitle, children, background, beta}) => {
       </Container>
       <style jsx>{`
         section {
-          padding: 5em 0;
+          padding: 4em 0;
           background-color: ${theme.backgroundWhite};
           color: ${theme.colors.black};
         }
@@ -74,6 +74,12 @@ const Section = ({title, subtitle, children, background, beta}) => {
           background: ${theme.backgroundColor};
           box-shadow: 0 3px 10px -5px ${theme.boxShadow};
         }
+
+        @media (min-width: 370px) and (max-width: 450px) {
+          .section__title {
+            margin: 0 1em 3em;
+          }
+        }
       `}</style>
     </section>
   )
@@ -83,7 +89,7 @@ Section.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   children: PropTypes.node,
-  beta: PropTypes.boolean,
+  beta: PropTypes.bool,
   background: PropTypes.oneOf([
     'white',
     'grey',

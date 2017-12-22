@@ -26,19 +26,15 @@ const Ressource = ({title, lastModification, format, link}) => (
         border: 1px solid ${theme.borderLighter};
         box-shadow: 0 1px 4px 0 ${theme.boxShadow};
       }
-
       .container:hover .overlay {
         opacity: 1;
       }
-
       .ressource {
         text-align: center;
       }
-
       a.ressource {
         color: ${theme.darkText};
       }
-
       .overlay {
         display: flex;
         justify-content: center;
@@ -55,16 +51,13 @@ const Ressource = ({title, lastModification, format, link}) => (
         transition: .5s ease;
         background-color: ${theme.colors.white};
       }
-
       .overlay img {
         width: 50px;
         margin: 10px 0;
       }
-
       .description {
         padding: 1em;
       }
-
       .format {
         text-align: center;
         padding: 0.3em 0;
