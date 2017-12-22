@@ -24,7 +24,7 @@ const CadastreStrasbourg = () => (
 
         <p>
           Les données sont en cours de constitution pour les communes d’Achenheim, Breuschwickersheim, Hangenbieten, Kolbsheim et Osthoffen.
-          Les contours de ces communes sont basés sur les données du <Link href='datasets/plan-cadastral-informatise'>Plan Cadastral Informatisé</Link>.
+          Les contours de ces communes sont basés sur les données du <Link href='datasets/plan-cadastral-informatise'><a>Plan Cadastral Informatisé</a></Link>.
         </p>
 
         <p>Les données sont fournies dans le système RGF 93 CC48.</p>

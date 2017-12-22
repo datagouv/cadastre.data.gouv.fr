@@ -43,14 +43,14 @@ const CadastreEtalab = () => (
     <Section>
       <div className='main'>
         <h4>Raison d’être de ce jeu de données</h4>
-        <p>Le <Link href='/datasets/plan-cadastral-informatise'>Plan Cadastral Informatisé</Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
+        <p>Le <Link href='/datasets/plan-cadastral-informatise'><a>Plan Cadastral Informatisé</a></Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
         Etalab a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
 
         <h4>Données sources</h4>
         <p>Ces données sont produites à partir :</p>
         <ul>
-          <li>des <Link href='/datasets/plan-cadastral-informatise'>données EDIGÉO du PCI Vecteur</Link> ;</li>
-          <li>des <Link href='/datasets/cadastre-strasbourg'>données cadastrales de l’Eurométropole de Strasbourg</Link>.</li>
+          <li>des <Link href='/datasets/plan-cadastral-informatise'><a>données EDIGÉO du PCI Vecteur</a></Link> ;</li>
+          <li>des <Link href='/datasets/cadastre-strasbourg'><a>données cadastrales de l’Eurométropole de Strasbourg</a></Link>.</li>
         </ul>
 
         <h4>Processus de construction</h4>
