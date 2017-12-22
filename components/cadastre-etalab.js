@@ -68,7 +68,7 @@ const CadastreEtalab = () => (
 
         <h4>Formats disponibles</h4>
         <p>Les données sont actuellement disponibles au format <a href='http://geojson.org/'>GeoJSON</a> compressé, et <a href='http://geojson.org/'>GeoJSON</a> simple via l’outil d’aide au téléchargement.<br />
-        💡 Les formats Shapefile et Geopackage seront proposés début 2018.</p>
+        💡 Les formats Shapefile et Geopackage seront proposés début 2018.</p>
 
         <h4>Couches géographiques</h4>
 
