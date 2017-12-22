@@ -16,7 +16,7 @@ export default () => (
     <Hero
       title={title}
       tagline={tagline} />
-    <DoubleSection href='/faq' link='Consultez la FAQ pour en savoir plus'>
+    <DoubleSection>
       <Explaination />
       <OpenData />
     </DoubleSection>
