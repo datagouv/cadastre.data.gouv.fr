@@ -4,10 +4,6 @@ import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-const wrapperStyle = {
-  width: '100%'
-}
-
 class SearchInput extends React.Component {
   constructor(props) {
     super(props)
@@ -37,6 +33,7 @@ class SearchInput extends React.Component {
 
   renderItem(item, isHighlighted) {
     let description
+
     if (item.departement) {
       description = `${item.departement.nom} - ${item.departement.code}`
     } else if (item.region) {
@@ -44,6 +41,7 @@ class SearchInput extends React.Component {
     } else {
       description = 'Collectivité d’outre-mer'
     }
+
     return (
       <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
         <div>
@@ -57,6 +55,7 @@ class SearchInput extends React.Component {
             justify-content: space-between;
             align-items: center;
             padding: 1em;
+            border-bottom: 1px solid whitesmoke;
           }
 
           .item .label {
@@ -145,7 +144,7 @@ class SearchInput extends React.Component {
         <Autocomplete
           value={value}
           inputProps={{id: 'states-autocomplete'}}
-          wrapperStyle={wrapperStyle}
+          wrapperStyle={null}
           items={results}
           getItemValue={this.getItemValue}
           onSelect={this.handleSelect}

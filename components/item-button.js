@@ -78,6 +78,10 @@ class ItemButton extends React.Component {
             transform: translate(-50%, -50%);
           }
 
+          .item div:first-letter {
+            text-transform: uppercase;
+          }
+
           .selected {
             background-color: ${theme.backgroundWhite};
             border-color: ${theme.primary};

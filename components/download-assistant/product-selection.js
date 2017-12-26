@@ -10,13 +10,8 @@ class ProductSelection extends React.Component {
   }
 
   select(item) {
-    const {products, selectProduct, toggleLayer} = this.props
+    const {products, selectProduct} = this.props
     const product = products.find(p => p.name === item)
-
-    if (item === 'Cadastre Etalab') {
-      toggleLayer(product.layers)
-    }
-
     selectProduct(product)
   }
 
@@ -37,7 +32,6 @@ class ProductSelection extends React.Component {
 ProductSelection.propTypes = {
   products: PropTypes.array.isRequired,
   selectProduct: PropTypes.func.isRequired,
-  toggleLayer: PropTypes.func.isRequired,
   productSelected: PropTypes.object
 }
 
