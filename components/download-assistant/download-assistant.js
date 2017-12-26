@@ -31,7 +31,7 @@ class DownloadAssistant extends React.Component {
   toggleProduct(product) {
     this.setState({
       product: product === this.state.product ? null : product,
-      format: product.name === 'PCI Image' ? 'tiff' : null
+      format: product.formats.length === 1 ? product.formats[0] : null
     })
   }
 
