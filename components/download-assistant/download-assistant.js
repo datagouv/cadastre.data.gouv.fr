@@ -11,7 +11,7 @@ class DownloadAssistant extends React.Component {
     super(props)
     this.state = {
       product: props.productList.length === 1 ? props.productList[0] : null,
-      layer: props.productList[0].name === 'Cadastre Etalab' ? 'communes' : null,
+      layer: props.productList[0].layers ? props.productList[0].layers[0] : null,
       territory: null,
       territoryType: null,
       format: null,
@@ -31,7 +31,6 @@ class DownloadAssistant extends React.Component {
   toggleProduct(product) {
     this.setState({
       product: product === this.state.product ? null : product,
-      layer: product.name === 'Cadastre Etalab' ? 'communes' : null,
       format: product.name === 'PCI Image' ? 'tiff' : null
     })
   }

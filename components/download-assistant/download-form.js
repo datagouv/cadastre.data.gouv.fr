@@ -32,21 +32,21 @@ class DownloadForm extends React.Component {
           <ProductSelection
             products={productList}
             productSelected={product}
-            layer={layer}
-            toggleLayer={setLayer}
             selectProduct={setProduct} />
         </Step>}
 
-        <Step id='format' title='Sélectionner un format' disabled={Boolean(!territory)}>
+        <Step id='format' title='Sélectionner un format' disabled={Boolean(!territory || !product)}>
           <Selector
             items={product && territory ? product.formats : []}
             selected={format}
             uppercase
             handleSelect={setFormat} />
-          {product && product.name === 'Cadastre Etalab' &&
-            <LayerSelection productSelected={product} layer={layer} toggleLayer={setLayer} />
-          }
         </Step>
+
+        {layer &&
+          <Step id='layer' title='Sélectionner une couche' disabled={Boolean(!format || !territory || !product)}>
+            <LayerSelection layers={product.layers} layer={layer} toggleLayer={setLayer} />
+          </Step>}
       </div>
     )
   }

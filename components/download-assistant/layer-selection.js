@@ -1,16 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Step from '../step'
-import Container from '../container'
-
 import theme from '../../styles/theme'
 
 class LayerSelection extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {value: ''}
-
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -20,22 +15,16 @@ class LayerSelection extends React.Component {
   }
 
   render() {
-    const {productSelected, layer} = this.props
+    const {layers, layer} = this.props
 
     return (
-      <Container>
-        <Step
-          title='Sélectionner une couche'
-          disabled={Boolean(productSelected.name !== 'Cadastre Etalab')}>
-          <div className='form'>
-            {productSelected.layers.map(lyr => (
-              <div key={lyr}>
-                <input type='radio' id={`radio-${lyr}`} value={lyr} checked={lyr === layer} onChange={this.handleChange} />
-                <label className='label-inline'>{lyr}</label>
-              </div>
-            ))}
+      <div className='form'>
+        {layers.map(lyr => (
+          <div key={lyr}>
+            <input type='radio' id={`radio-${lyr}`} value={lyr} checked={lyr === layer} onChange={this.handleChange} />
+            <label className='label-inline'>{lyr}</label>
           </div>
-        </Step>
+        ))}
         <style jsx>{`
           .form {
             display: flex;
@@ -59,14 +48,14 @@ class LayerSelection extends React.Component {
               flex-flow: column;
             }
           }
-        `}</style>
-      </Container>
+          `}</style>
+      </div>
     )
   }
 }
 
 LayerSelection.propTypes = {
-  productSelected: PropTypes.object.isRequired,
+  layers: PropTypes.array.isRequired,
   layer: PropTypes.string.isRequired,
   toggleLayer: PropTypes.func.isRequired
 }
