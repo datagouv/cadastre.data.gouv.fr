@@ -9,13 +9,13 @@ const titles = [
   {
     title: 'Plan Cadastral Informatisé (PCI)',
     href: '/datasets/plan-cadastral-informatise',
-    description: <span>Données de références pour la France entière (hors Strasbourg), produites par la Direction Générale des Finances Publiques.<br />Environ 600 000 feuilles disponibles aux formats EDIGÉO et DXF.</span>,
+    description: <span>Données de référence pour la France entière (hors Strasbourg), produites par la Direction Générale des Finances Publiques.<br />Environ 600 000 feuilles disponibles aux formats EDIGÉO et DXF.</span>,
     icon: <MapO />
   },
   {
     title: 'Cadastre Eurométropole de Strasbourg',
     href: '/datasets/cadastre-strasbourg',
-    description: <span>Données de références pour l’Eurométropole de Strasbourg.<br />4 couches disponibles au format Shapefile.</span>,
+    description: <span>Données de référence pour l’Eurométropole de Strasbourg.<br />4 couches disponibles au format Shapefile.</span>,
     icon: <FileArchiveO />
   },
   {

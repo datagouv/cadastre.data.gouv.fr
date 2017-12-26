@@ -5,12 +5,12 @@ import Head from '../../components/head'
 import Pci from '../../components/pci'
 
 const title = 'Plan Cadastral Informatisé (PCI)'
-const description = 'Données de références pour la France entière produites par la Direction Générale des Finances Publiques.'
+const description = 'Données de référence pour la France entière produites par la Direction Générale des Finances Publiques.'
 
 export default () => (
   <Page title={title} description={description}>
     <Head title={title} icon={<MapO />}>
-      Données de références pour la France entière (hors Strasbourg), produites par la Direction Générale des Finances Publiques.
+      Données de référence pour la France entière (hors Strasbourg), produites par la Direction Générale des Finances Publiques.
     </Head>
     <Pci />
   </Page>
