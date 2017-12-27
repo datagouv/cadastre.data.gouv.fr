@@ -32,7 +32,7 @@ const Footer = () => (
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        align-items: center;
+        margin-bottom: 2em;
         flex-wrap: wrap;
       }
       .footer__logo img {
