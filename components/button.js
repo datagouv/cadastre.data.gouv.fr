@@ -18,12 +18,12 @@ const Button = ({children, ...props}) => (
         display: inline-block;
         margin: 0 auto;
         padding: 0.5em 3em;
-        color: ${theme.colors.white};
+        color: #fff;
         background-color: ${theme.secondary};
-        border-bottom: 1px solid ${theme.border};
         border-radius: ${theme.borderRadius};
         box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
         border: 1px solid transparent;
+        border-bottom: 2px solid ${theme.primaryDark};
         font-family: "Evolventa", "Trebuchet MS", sans-serif;
         font-size: 1.2em;
         position: relative;
@@ -33,14 +33,15 @@ const Button = ({children, ...props}) => (
 
       a.button:hover,
       button.button:hover {
-        text-decoration: none;
-        box-shadow: inset 0 0 0 2em ${theme.secondaryDarken};
+        background: ${theme.secondaryDarken};
       }
 
       a.button:active,
-      .button.button:active {
-        transform: translateY(1px);
+      button.button:active {
+        transform: translateY(2px);
         border-bottom: 0;
+        margin-bottom: 2px;
+        box-shadow: none;
       }
     `}</style>
   </button>
