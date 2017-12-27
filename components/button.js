@@ -7,10 +7,6 @@ const Button = ({children, ...props}) => (
     {children}
 
     <style jsx>{`
-      a.button,
-      a.button:focus,
-      a.button:active,
-      a.button:visited,
       button.button,
       button.button:focus,
       button.button:active,
@@ -31,12 +27,10 @@ const Button = ({children, ...props}) => (
         transition: box-shadow 0.25s;
       }
 
-      a.button:hover,
       button.button:hover {
         background: ${theme.secondaryDarken};
       }
 
-      a.button:active,
       button.button:active {
         transform: translateY(2px);
         border-bottom: 0;
