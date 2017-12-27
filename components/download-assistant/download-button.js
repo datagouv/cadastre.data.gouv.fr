@@ -16,7 +16,7 @@ class DownloadButton extends React.Component {
         <style jsx>{`
           .submit {
             text-align: center;
-            padding: 0 0 4em 0;
+            padding: 1em 0 2em 0;
           }
         `}</style>
       </div>

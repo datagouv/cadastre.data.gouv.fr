@@ -3,16 +3,15 @@ import PropTypes from 'prop-types'
 import theme from '../styles/theme'
 
 const Hero = ({title, tagline}) => (
-  <div>
-    <h1>{title}</h1>
-    <p>{tagline}</p>
-
+  <div className='hero'>
+    <div className='hero__container'>
+      <h1 className='hero__white-background'>{title}</h1>
+      <p className='hero__white-background'>{tagline}</p>
+    </div>
     <style jsx>{`
-      div {
-        height: 38vh;
-        min-height: 18em;
+      .hero {
         width: 100%;
-        color: #fff;
+        color: ${theme.colors.white};
         background-color: ${theme.backgroundGrey};
         background-blend-mode: darken;
         background-image: url(/static/images/background.png);
@@ -20,24 +19,30 @@ const Hero = ({title, tagline}) => (
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
+      }
+
+      .hero__container {
+        height: 38vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: ${theme.darkText};
+        box-sizing: border-box;
       }
 
-      h1, p {
+      .hero__white-background {
         padding: 10px 1em;
-        background-color: white;
+        background-color: ${theme.colors.white};
       }
 
-      h1 {
-        margin: 0 0 0.5em;
-      }
-
-      p {
+      .hero h1 {
+        color: ${theme.darkText};
         margin: 0;
+      }
+
+      .hero p {
+        margin: 1em 0 0;
+        color: ${theme.darkText};
         font-size: 1.2em;
         font-style: italic;
       }
@@ -51,4 +56,3 @@ Hero.propTypes = {
 }
 
 export default Hero
-
