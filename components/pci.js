@@ -57,7 +57,7 @@ const Pci = () => (
       <div>
         <h4>Plan cadastral</h4>
         <p>Le plan cadastral est un assemblage d’environ <b>600 000 feuilles</b> ou planches représentant chacune une section ou une partie d’une section cadastrale.<br />
-        Il couvre la France entière, à l’exception de la ville de Strasbourg et de quelques communes voisines, pour des raisons historiques liée à l’occupation de l’Alsace-Moselle par l’Allemagne entre 1871 et 1918.<br />
+        Il couvre la France entière, à l’exception de la ville de Strasbourg et de quelques communes voisines, pour des raisons historiques liées à l’occupation de l’Alsace-Moselle par l’Allemagne entre 1871 et 1918.<br />
         Le plan cadastral est géré par la Direction Générale des Finances Publiques (DGFiP).
         </p>
 
