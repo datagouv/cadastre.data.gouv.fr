@@ -7,7 +7,7 @@ export default () => (
     <div className='nav__container'>
 
       <Link href='/'>
-        <a>
+        <a className='nav__link'>
           <img className='nav__logo' src='/static/images/logos/cadastre.svg' alt='Accueil de cadastre.data.gouv.fr' />
         </a>
       </Link>
@@ -39,10 +39,17 @@ export default () => (
         align-items: center;
       }
 
-      .nav__home,
-      .nav__logo {
-        height: 70px;
+      .nav__home {
+        height: 40px;
+      }
+
+      .nav__link {
         padding: 1em;
+        height: 70px;
+      }
+
+      .nav__logo {
+        height: 100%;
       }
 
       .nav__links {
@@ -60,7 +67,7 @@ export default () => (
 
       .nav__links a,
       .nav__links .dropdown {
-        color: var(--black);
+        color: ${theme.colors.black};
         padding: 0.4em 0.8em;
         border-radius: 3px;
       }
@@ -71,7 +78,7 @@ export default () => (
 
       .nav__links a:hover,
       .nav__links .dropdown:hover {
-        background: ${theme.backgroundGrey};
+        background: ${theme.lightGrey};
         transition: background ease-out 0.5s;
       }
 
