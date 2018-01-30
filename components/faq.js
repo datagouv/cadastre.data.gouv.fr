@@ -21,6 +21,9 @@ const Faq = () => (
 
         <h3>Comment obtenir des tirages papiers du plan cadastral ?</h3>
         <p>Cette prestation est proposée sur le site de la DGFiP <a href='https://cadastre.gouv.fr'><span>cadastre.gouv.fr</span></a>.</p>
+
+        <h3>Je constate une erreur dans le plan cadastral, comment la faire corriger ?</h3>
+        <p>Ce type de correction doit être demandé au Centre des impôts fonciers de votre département, dont vous trouverez les coordonnées sur <a href='https://www.service-public.fr/particuliers/recherche?keyword=centre%20des%20impots%20fonciers&rubricFilter=annuaire'>service-public.fr</a>.</p>
       </div>
     </div>
     <style jsx>{`
