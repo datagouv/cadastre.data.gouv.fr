@@ -5,7 +5,9 @@ import theme from '../styles/theme'
 const formatLabels = {
   tiff: 'Format TIFF (PCI Image)',
   edigeo: 'Format EDIGÉO',
+  'edigeo-cc': 'Format EDIGÉO (CC 9 zones)',
   dxf: 'Format DXF-PCI',
+  'dxf-cc': 'Format DXF-PCI (CC 9 zones)',
   geojson: 'Format GEOJSON'
 }
 

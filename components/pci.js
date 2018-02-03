@@ -7,6 +7,7 @@ const products = [
     name: 'PCI Vecteur',
     formats: [
       'dxf',
+      'dxf/cc',
       'edigeo',
       'edigeo/cc'
     ]
@@ -22,9 +23,15 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '2 janvier 2018',
+    path: '2018-01-02',
+    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
+    granularities: ['feuilles', 'departements']
+  },
+  {
     date: '12 octobre 2017',
     path: '2017-10-12',
-    formats: ['dxf', 'edigeo', 'tiff'],
+    formats: ['edigeo', 'dxf', 'tiff'],
     granularities: ['feuilles', 'departements']
   },
   {
@@ -80,10 +87,10 @@ const Pci = () => (
         <p>Les données du PCI Vecteur sont disponibles dans plusieurs formats :</p>
         <ul>
           <li>Format <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>EDIGÉO</a> en projection Lambert 93 ;</li>
-          <li>Format <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>EDIGÉO</a> en projection Lambert CC 9 zones (via l’assistant de téléchargement) ;</li>
-          <li>Format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> en projection Lambert 93.</li>
+          <li>Format <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>EDIGÉO</a> en projection Lambert CC 9 zones ;</li>
+          <li>Format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> en projection Lambert 93 ;</li>
+          <li>Format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> en projection Lambert CC 9 zones.</li>
         </ul>
-        <p>💡 Les données <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> en projection Lambert CC 9 zones seront ajoutées début 2018.</p>
         <p>Les données du PCI Image sont disponibles au format TIFF.</p>
 
         <h4>Modèle de données</h4>
@@ -95,8 +102,8 @@ const Pci = () => (
 
         <p>Les données sont mises à disposition de deux manières :</p>
         <ul>
-          <li>En <b>téléchargement direct</b> à la <b>feuille</b> ou en <b>archive départementale</b>, pour les formats EDIGÉO-L93, DXF-PCI-L93 et TIFF. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
-          <li>Via un outil en ligne pour les <b>archives communales</b> et pour le format EDIGÉO-CC. Les données sont alors produites à la volée.</li>
+          <li>En <b>téléchargement direct</b> à la <b>feuille</b> ou en <b>archive départementale</b>. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
+          <li>Via un outil en ligne pour les <b>archives communales</b>. Les données sont alors produites à la volée.</li>
         </ul>
         <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
 
