@@ -15,7 +15,8 @@ const products = [
       'sections',
       'feuilles',
       'parcelles',
-      'batiments'
+      'batiments',
+      'lieux_dits'
     ]
   }
 ]
@@ -23,6 +24,12 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '2 janvier 2018',
+    path: '2018-01-02',
+    formats: ['geojson'],
+    granularities: ['communes', 'departements']
+  },
+  {
     date: '12 octobre 2017',
     path: '2017-10-12',
     formats: ['geojson'],
@@ -59,7 +66,7 @@ const CadastreEtalab = () => (
 
         <p>Les différentes couches sont constituées par juxtaposition des feuilles, sans correction de topologie.<br />
         Les données de l’Eurométropole Strasbourg sont ajoutées par écrasement de celles éventuellement présentes dans le PCI Vecteur.<br />
-        Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b> (le cas échéant), les <b>parcelles</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
+        Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b>, les <b>lieux-dits</b>, les <b>parcelles</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
         Le code source est ouvert et <a href='https://github.com/etalab/cadastre'>disponible sur GitHub</a>.
         </p>
 
@@ -75,7 +82,8 @@ const CadastreEtalab = () => (
         <h4>Couches géographiques</h4>
 
         <ul>
-          <li>parcelles (multi polygones)</li>
+          <li>parcelles (polygones ou multi polygones)</li>
+          <li>lieux_dits (polygones)</li>
           <li>feuilles (multi polygones)</li>
           <li>sections (multi polygones)</li>
           <li>communes (multi polygones)</li>
@@ -96,11 +104,13 @@ const CadastreEtalab = () => (
         <ul>
           <li>30/09/2017 : première diffusion des données</li>
           <li>08/11/2017 : nouveau millésime PCI + correction projection Saint-Barthelemy et Saint-Martin + intégration données Strasbourg + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=is%3Aclosed+label%3A%22cadastre+data%22+is%3Aissue+milestone%3A%22Sprint+%232%22' rel='nofollow'>détails</a>)</li>
+          <li>07/02/2018 : nouveau millésime PCI + nouvelles données Strasbourg + ajout des lieux-dits + amélioration des géométries + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=milestone%3A%22Livraison+01%2F2018%22+label%3A%22cadastre+data%22+is%3Aclosed' rel='nofollow'>détails</a>)</li>
         </ul>
       </div>
     </Section>
     <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
       <p>Les liens suivants permettent de télécharger les données cadastrales <b>à la commune</b>, ou <b>au département</b>.<br />Dans le cas d’un téléchargement à la commune, vous serez invité à choisir un code département puis un code de commune.</p>
+      <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
       <Millesimes millesimes={millesimes} getUrl={getUrl} />
     </Section>
     <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
