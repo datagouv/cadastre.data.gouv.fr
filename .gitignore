@@ -3,6 +3,7 @@ node_modules
 
 # Build
 .next
+bundle-stats
 
 # Reports
 reports
