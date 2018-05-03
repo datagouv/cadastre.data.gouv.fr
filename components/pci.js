@@ -23,6 +23,12 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '3 avril 2018',
+    path: '2018-04-03',
+    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
+    granularities: ['feuilles', 'departements']
+  },
+  {
     date: '2 janvier 2018',
     path: '2018-01-02',
     formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
