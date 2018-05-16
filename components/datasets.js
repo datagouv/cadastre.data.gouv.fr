@@ -21,7 +21,7 @@ const titles = [
   {
     title: 'Cadastre Etalab',
     href: '/datasets/cadastre-etalab',
-    description: <span>Données consolidées pour la France entière, produites par Etalab à partir des données de référence ci-dessus.<br />5 couches disponibles au format GeoJSON.</span>,
+    description: <span>Données consolidées pour la France entière, produites par Etalab à partir des données de référence ci-dessus.<br />6 couches disponibles au format GeoJSON.</span>,
     icon: <FlaskIcon />
   }
 ]
