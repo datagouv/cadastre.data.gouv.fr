@@ -77,8 +77,7 @@ const CadastreEtalab = () => (
         Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
 
         <h4>Formats disponibles</h4>
-        <p>Les données sont actuellement disponibles au format <a href='http://geojson.org/'>GeoJSON</a> compressé, et <a href='http://geojson.org/'>GeoJSON</a> simple via l’outil d’aide au téléchargement.<br />
-        💡 Les formats Shapefile et Geopackage seront proposés début 2018.</p>
+        <p>Les données sont actuellement disponibles au format <a href='http://geojson.org/'>GeoJSON</a> compressé, <a href='http://geojson.org/'>GeoJSON</a> simple et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, via l’outil d’aide au téléchargement.</p>
 
         <h4>Couches géographiques</h4>
 
@@ -96,7 +95,7 @@ const CadastreEtalab = () => (
         <p>Les données sont mises à disposition de deux manières :</p>
         <ul>
           <li>En <b>téléchargement direct</b> à la <b>commune</b> ou au <b>département</b>, pour le format <a href='http://geojson.org/'>GeoJSON</a> compressé. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
-          <li>Via un outil en ligne pour les données au format <a href='http://geojson.org/'>GeoJSON</a> et à terme pour les formats Shapefile et Geopackage.</li>
+          <li>Via un outil en ligne pour les données au format <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>.</li>
         </ul>
         <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
 
@@ -106,6 +105,7 @@ const CadastreEtalab = () => (
           <li>30/09/2017 : première diffusion des données</li>
           <li>08/11/2017 : nouveau millésime PCI + correction projection Saint-Barthelemy et Saint-Martin + intégration données Strasbourg + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=is%3Aclosed+label%3A%22cadastre+data%22+is%3Aissue+milestone%3A%22Sprint+%232%22' rel='nofollow'>détails</a>)</li>
           <li>07/02/2018 : nouveau millésime PCI + nouvelles données Strasbourg + ajout des lieux-dits + amélioration des géométries + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=milestone%3A%22Livraison+01%2F2018%22+label%3A%22cadastre+data%22+is%3Aclosed' rel='nofollow'>détails</a>)</li>
+          <li>16/05/2018 : ajout du téléchargement au format Shapefile, pour les communes uniquement</li>
         </ul>
       </div>
     </Section>
