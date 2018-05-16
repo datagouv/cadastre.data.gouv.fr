@@ -8,7 +8,8 @@ const products = [
     name: 'Cadastre Etalab',
     formats: [
       'geojson',
-      'geojson/gz'
+      'geojson/gz',
+      'shp'
     ],
     layers: [
       'communes',
