@@ -126,7 +126,7 @@ const CadastreEtalab = () => (
       <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
       <Millesimes millesimes={millesimes} getUrl={getUrl} />
     </Section>
-    <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
+    <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
       <DownloadAssistant productList={products} />
     </Section>
     <style jsx>{`
