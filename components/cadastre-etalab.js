@@ -116,8 +116,7 @@ const CadastreEtalab = () => (
           <li>30/09/2017 : première diffusion des données</li>
           <li>08/11/2017 : nouveau millésime PCI + correction projection Saint-Barthelemy et Saint-Martin + intégration données Strasbourg + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=is%3Aclosed+label%3A%22cadastre+data%22+is%3Aissue+milestone%3A%22Sprint+%232%22' rel='nofollow'>détails</a>)</li>
           <li>07/02/2018 : nouveau millésime PCI + nouvelles données Strasbourg + ajout des lieux-dits + amélioration des géométries + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=milestone%3A%22Livraison+01%2F2018%22+label%3A%22cadastre+data%22+is%3Aclosed' rel='nofollow'>détails</a>)</li>
-          <li>16/05/2018 : ajout du téléchargement au format Shapefile, pour les communes uniquement</li>
-          <li>20/05/2018 : nouveau millésime PCI + ajout des subdivisions fiscales et des préfixes de sections + ajout des assemblages nationaux + ajout de Shapefile au département + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/5?closed=1'>détails</a>)</li>
+          <li>20/05/2018 : nouveau millésime PCI + ajout des subdivisions fiscales et des préfixes de sections + ajout des assemblages nationaux + ajout du format Shapefile + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/5?closed=1'>détails</a>)</li>
         </ul>
       </div>
     </Section>
