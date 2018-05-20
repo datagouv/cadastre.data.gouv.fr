@@ -8,13 +8,15 @@ const formatLabels = {
   'edigeo-cc': 'Format EDIGÉO (CC 9 zones)',
   dxf: 'Format DXF-PCI',
   'dxf-cc': 'Format DXF-PCI (CC 9 zones)',
-  geojson: 'Format GEOJSON'
+  geojson: 'Format GEOJSON',
+  shp: 'Format Shapefile'
 }
 
 const granularityLabels = {
   feuilles: 'par feuille',
   departements: 'par département',
-  communes: 'par commune'
+  communes: 'par commune',
+  france: 'France entière'
 }
 
 const Millesime = ({date, formats, granularities, path, getUrl}) => (

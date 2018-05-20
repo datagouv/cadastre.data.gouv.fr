@@ -13,11 +13,13 @@ const products = [
     ],
     layers: [
       'communes',
+      'prefixes_sections',
       'sections',
       'feuilles',
+      'lieux_dits',
       'parcelles',
-      'batiments',
-      'lieux_dits'
+      'subdivisions_fiscales',
+      'batiments'
     ]
   }
 ]
@@ -25,6 +27,12 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '3 avril 2018',
+    path: '2018-04-03',
+    formats: ['geojson', 'shp'],
+    granularities: ['communes', 'departements', 'france']
+  },
+  {
     date: '2 janvier 2018',
     path: '2018-01-02',
     formats: ['geojson'],
@@ -67,13 +75,14 @@ const CadastreEtalab = () => (
 
         <p>Les différentes couches sont constituées par juxtaposition des feuilles, sans correction de topologie.<br />
         Les données de l’Eurométropole Strasbourg sont ajoutées par écrasement de celles éventuellement présentes dans le PCI Vecteur.<br />
-        Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b>, les <b>lieux-dits</b>, les <b>parcelles</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
+        Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b>, les <b>lieux-dits</b>, les <b>parcelles</b>, les <b>subdivisions fiscales</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
+        La couche des contours des <b>préfixes de sections</b> est construite à partir de la couche des sections.<br />
         Le code source est ouvert et <a href='https://github.com/etalab/cadastre'>disponible sur GitHub</a>.
         </p>
 
         <h4>Couverture</h4>
 
-        <p>Les 32 864 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
+        <p>Les 33 335 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
         Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
 
         <h4>Formats disponibles</h4>
@@ -83,9 +92,11 @@ const CadastreEtalab = () => (
 
         <ul>
           <li>parcelles (polygones ou multi polygones)</li>
+          <li>subdivisions_fiscales (polygones)</li>
           <li>lieux_dits (polygones)</li>
           <li>feuilles (multi polygones)</li>
           <li>sections (multi polygones)</li>
+          <li>prefixes_sections (multi polygones)</li>
           <li>communes (multi polygones)</li>
           <li>batiments (polygones)</li>
         </ul>
@@ -94,8 +105,8 @@ const CadastreEtalab = () => (
 
         <p>Les données sont mises à disposition de deux manières :</p>
         <ul>
-          <li>En <b>téléchargement direct</b> à la <b>commune</b> ou au <b>département</b>, pour le format <a href='http://geojson.org/'>GeoJSON</a> compressé. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
-          <li>Via un outil en ligne pour les données aux formats <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>.</li>
+          <li>En <b>téléchargement direct</b> à la <b>commune</b>, au <b>département</b> ou <b>France entière</b>, pour le format <a href='http://geojson.org/'>GeoJSON</a> compressé, au <b>département</b> ou <b>France entière</b> pour le format <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
+          <li>Via un outil en ligne pour les données aux formats <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, quel que soit le niveau de granularité.</li>
         </ul>
         <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
 
@@ -106,6 +117,7 @@ const CadastreEtalab = () => (
           <li>08/11/2017 : nouveau millésime PCI + correction projection Saint-Barthelemy et Saint-Martin + intégration données Strasbourg + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=is%3Aclosed+label%3A%22cadastre+data%22+is%3Aissue+milestone%3A%22Sprint+%232%22' rel='nofollow'>détails</a>)</li>
           <li>07/02/2018 : nouveau millésime PCI + nouvelles données Strasbourg + ajout des lieux-dits + amélioration des géométries + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=milestone%3A%22Livraison+01%2F2018%22+label%3A%22cadastre+data%22+is%3Aclosed' rel='nofollow'>détails</a>)</li>
           <li>16/05/2018 : ajout du téléchargement au format Shapefile, pour les communes uniquement</li>
+          <li>20/05/3018 : nouveau millésime PCI + ajout des subdivisions fiscales et des préfixes de sections + ajout des assemblages nationaux + ajout de Shapefile au département + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/5?closed=1'>détails</a>)</li>
         </ul>
       </div>
     </Section>
