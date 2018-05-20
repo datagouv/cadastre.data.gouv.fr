@@ -8,7 +8,7 @@ const formatLabels = {
   'edigeo-cc': 'Format EDIGÉO (CC 9 zones)',
   dxf: 'Format DXF-PCI',
   'dxf-cc': 'Format DXF-PCI (CC 9 zones)',
-  geojson: 'Format GEOJSON',
+  geojson: 'Format GeoJSON',
   shp: 'Format Shapefile'
 }
 
