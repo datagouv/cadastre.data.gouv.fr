@@ -7,6 +7,7 @@ const products = [
     name: 'PCI Vecteur',
     formats: [
       'dxf',
+      'dxf/cc',
       'edigeo',
       'edigeo/cc'
     ]
@@ -22,9 +23,21 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '3 avril 2018',
+    path: '2018-04-03',
+    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
+    granularities: ['feuilles', 'departements']
+  },
+  {
+    date: '2 janvier 2018',
+    path: '2018-01-02',
+    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
+    granularities: ['feuilles', 'departements']
+  },
+  {
     date: '12 octobre 2017',
     path: '2017-10-12',
-    formats: ['dxf', 'edigeo', 'tiff'],
+    formats: ['edigeo', 'dxf', 'tiff'],
     granularities: ['feuilles', 'departements']
   },
   {
@@ -57,7 +70,7 @@ const Pci = () => (
       <div>
         <h4>Plan cadastral</h4>
         <p>Le plan cadastral est un assemblage d’environ <b>600 000 feuilles</b> ou planches représentant chacune une section ou une partie d’une section cadastrale.<br />
-        Il couvre la France entière, à l’exception de la ville de Strasbourg et de quelques communes voisines, pour des raisons historiques liée à l’occupation de l’Alsace-Moselle par l’Allemagne entre 1871 et 1918.<br />
+        Il couvre la France entière, à l’exception de la ville de Strasbourg et de quelques communes voisines, pour des raisons historiques liées à l’occupation de l’Alsace-Moselle par l’Allemagne entre 1871 et 1918.<br />
         Le plan cadastral est géré par la Direction Générale des Finances Publiques (DGFiP).
         </p>
 
@@ -80,10 +93,10 @@ const Pci = () => (
         <p>Les données du PCI Vecteur sont disponibles dans plusieurs formats :</p>
         <ul>
           <li>Format <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>EDIGÉO</a> en projection Lambert 93 ;</li>
-          <li>Format <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>EDIGÉO</a> en projection Lambert CC 9 zones (via l’assistant de téléchargement) ;</li>
-          <li>Format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> en projection Lambert 93.</li>
+          <li>Format <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>EDIGÉO</a> en projection Lambert CC 9 zones ;</li>
+          <li>Format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> en projection Lambert 93 ;</li>
+          <li>Format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> en projection Lambert CC 9 zones.</li>
         </ul>
-        <p>💡 Les données <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> en projection Lambert CC 9 zones seront ajoutées début 2018.</p>
         <p>Les données du PCI Image sont disponibles au format TIFF.</p>
 
         <h4>Modèle de données</h4>
@@ -95,8 +108,8 @@ const Pci = () => (
 
         <p>Les données sont mises à disposition de deux manières :</p>
         <ul>
-          <li>En <b>téléchargement direct</b> à la <b>feuille</b> ou en <b>archive départementale</b>, pour les formats EDIGÉO-L93, DXF-PCI-L93 et TIFF. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
-          <li>Via un outil en ligne pour les <b>archives communales</b> et pour le format EDIGÉO-CC. Les données sont alors produites à la volée.</li>
+          <li>En <b>téléchargement direct</b> à la <b>feuille</b> ou en <b>archive départementale</b>. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
+          <li>Via un outil en ligne pour les <b>archives communales</b>. Les données sont alors produites à la volée.</li>
         </ul>
         <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
 
@@ -110,9 +123,10 @@ const Pci = () => (
       <p>Les liens suivants permettent de télécharger les données du plan cadastral <b>à la feuille</b>, ou <b>par département</b>.<br />Dans le cas d’un téléchargement à la feuille, vous serez invité à choisir un code département puis un code de commune.</p>
       <p>Les URL de téléchargement sont maintenues dans le temps, il est donc tout à fait possible d’automatiser la récupération des données
         grâce à un script.</p>
+      <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
       <Millesimes millesimes={millesimes} getUrl={getUrl} />
     </Section>
-    <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité' beta>
+    <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
       <DownloadAssistant productList={products} />
     </Section>
   </div>

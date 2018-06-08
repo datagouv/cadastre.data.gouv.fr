@@ -5,14 +5,18 @@ import theme from '../styles/theme'
 const formatLabels = {
   tiff: 'Format TIFF (PCI Image)',
   edigeo: 'Format EDIGÉO',
+  'edigeo-cc': 'Format EDIGÉO (CC 9 zones)',
   dxf: 'Format DXF-PCI',
-  geojson: 'Format GEOJSON'
+  'dxf-cc': 'Format DXF-PCI (CC 9 zones)',
+  geojson: 'Format GeoJSON',
+  shp: 'Format Shapefile'
 }
 
 const granularityLabels = {
   feuilles: 'par feuille',
   departements: 'par département',
-  communes: 'par commune'
+  communes: 'par commune',
+  france: 'France entière'
 }
 
 const Millesime = ({date, formats, granularities, path, getUrl}) => (
