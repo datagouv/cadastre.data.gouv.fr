@@ -28,8 +28,8 @@ const titles = [
 
 const Datasets = () => (
   <Section>
-    {titles.map(({title, href, description, icon}) =>
-      (<HeadLinkTitle
+    {titles.map(({title, href, description, icon}) => (
+      <HeadLinkTitle
         key={title}
         title={title}
         href={href}

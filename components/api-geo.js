@@ -10,8 +10,7 @@ class ApiGeo extends React.Component {
     this.state = {
       value: '',
       results: [],
-      loading: false,
-      territoryType: props.territoryType
+      loading: false
     }
 
     this.updateValue = this.updateValue.bind(this)
@@ -21,20 +20,21 @@ class ApiGeo extends React.Component {
     this.search = debounce(this.search, 200)
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.territoryType !== this.state.territoryType) {
-      this.setState({
-        territoryType: nextProps.territoryType,
-        value: ''
-      })
-    }
-  }
-
   updateValue(value) {
     const {territoryType} = this.props
     const field = territoryType === 'communes' ? 'departement' : 'region'
     const url = `https://geo.api.gouv.fr/${territoryType.replace('é', 'e')}?nom=${value}&fields=${field}&boost=population`
     this.setState({value, results: [], loading: true}, this.search(url))
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.territoryType !== prevProps.territoryType) {
+      this.clearInput()
+    }
+  }
+
+  clearInput() {
+    this.setState({value: ''})
   }
 
   search(url) {

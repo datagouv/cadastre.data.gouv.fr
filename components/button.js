@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import theme from '../styles/theme'
 
 const Button = ({children, ...props}) => (
-  <button className='button' {...props}>
+  <button className='button' type='button' {...props}>
     {children}
 
     <style jsx>{`
