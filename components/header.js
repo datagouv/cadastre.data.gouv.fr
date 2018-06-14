@@ -1,6 +1,14 @@
 import Link from 'next/link'
+import FaBars from 'react-icons/lib/fa/bars'
 
 import theme from '../styles/theme'
+
+import Dropdown from './dropdown'
+
+const links = [
+  {text: 'Télécharger les données', href: '/datasets'},
+  {text: 'FAQ', href: '/faq'}
+]
 
 export default () => (
   <nav className='nav'>
@@ -13,9 +21,16 @@ export default () => (
       </Link>
 
       <ul className='nav__links'>
-        <li><Link href='/datasets'><a>Télécharger les données</a></Link></li>
-        <li><Link href='/faq'><a>FAQ</a></Link></li>
+        {links.map(link => (
+          <li key={link.text}>
+            <Link href={link.href}><a>{link.text}</a></Link>
+          </li>
+        ))}
       </ul>
+
+      <div className='hamburger-menu'>
+        <Dropdown title={<FaBars />} links={links} />
+      </div>
 
     </div>
     <style jsx>{`
@@ -39,21 +54,14 @@ export default () => (
         align-items: center;
       }
 
-      .nav__home {
-        height: 40px;
-      }
-
-      .nav__link {
-        padding: 1em;
-        height: 70px;
-      }
-
       .nav__logo {
-        height: 100%;
+        height: 70px;
+        padding: 1em;
       }
 
       .nav__links {
-        display: inline;
+        display: flex;
+        flex-flow: wrap;
         margin: 0;
         padding: 1em;
         list-style-type: none;
@@ -87,9 +95,24 @@ export default () => (
         color: ${theme.colors.white};
       }
 
-      @media (--smaller-than-phablet) {
+      .hamburger-menu {
+        display: none;
+      }
+
+      @media (max-width: 700px) {
         .nav__links {
-          padding-top: 0;
+          display: none;
+        }
+
+        .hamburger-menu {
+          display: block;
+          margin: 1em;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .nav__logo {
+          height: 60px;
         }
       }
     `}</style>
