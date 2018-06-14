@@ -1,0 +1,21 @@
+{
+  "plugins": [
+    [
+      "inline-import", {
+        "extensions": [".css"]
+      }
+    ]
+  ],
+  "presets": [
+    "next/babel"
+  ],
+
+  "env": {
+    "test": {
+      "presets": [
+        ["env", { "modules": "commonjs" }],
+        "next/babel"
+      ]
+    }
+  }
+}
