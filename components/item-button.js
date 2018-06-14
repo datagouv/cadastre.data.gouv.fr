@@ -92,7 +92,6 @@ class ItemButton extends React.Component {
       </div>
     )
   }
-
 }
 
 ItemButton.propTypes = {
