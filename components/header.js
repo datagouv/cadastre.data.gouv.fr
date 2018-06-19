@@ -1,9 +1,8 @@
 import Link from 'next/link'
-import FaBars from 'react-icons/lib/fa/bars'
 
 import theme from '../styles/theme'
 
-import Dropdown from './dropdown'
+import HamburgerMenu from './hamburger-menu'
 
 const links = [
   {text: 'Télécharger les données', href: '/datasets'},
@@ -29,7 +28,7 @@ export default () => (
       </ul>
 
       <div className='hamburger-menu'>
-        <Dropdown title={<FaBars />} links={links} />
+        <HamburgerMenu links={links} />
       </div>
 
     </div>
