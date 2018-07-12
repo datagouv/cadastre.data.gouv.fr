@@ -29,25 +29,37 @@ class DownloadAssistant extends React.Component {
   }
 
   toggleProduct(product) {
-    this.setState({
-      product: product === this.state.product ? null : product,
-      format: product.formats.length === 1 ? product.formats[0] : null
+    this.setState(state => {
+      return {
+        product: product === state.product ? null : product,
+        format: product.formats.length === 1 ? product.formats[0] : null
+      }
     })
   }
 
   toggleTerritoryType(territoryType) {
-    this.setState({
-      territoryType: territoryType === this.state.territoryType ? null : territoryType,
-      territory: null
+    this.setState(state => {
+      return {
+        territoryType: territoryType === state.territoryType ? null : territoryType,
+        territory: null
+      }
     })
   }
 
   toggleTerritory(territory) {
-    this.setState({territory: territory === this.state.territory ? null : territory})
+    this.setState(state => {
+      return {
+        territory: territory === state.territory ? null : territory
+      }
+    })
   }
 
   toggleFormat(format) {
-    this.setState({format: format === this.state.format ? null : format})
+    this.setState(state => {
+      return {
+        format: format === state.format ? null : format
+      }
+    })
   }
 
   toggleLayer(layer) {

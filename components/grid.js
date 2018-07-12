@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const Grid = ({children, ...props, columns}) => (
+const Grid = ({children, columns, ...props}) => (
   <div className='grid' {...props}>
     {children}
 

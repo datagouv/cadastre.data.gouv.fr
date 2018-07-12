@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-child-element-spacing */
 import Section from './section'
 import DownloadAssistant from './download-assistant/download-assistant'
 import Millesimes from './millesimes'
