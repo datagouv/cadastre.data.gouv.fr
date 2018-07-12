@@ -9,6 +9,11 @@ const Faq = () => (
         <h3>Qui gère ce site ?</h3>
         <p>Le site cadastre.data.gouv.fr est géré par la <a href='https://www.etalab.gouv.fr'>mission Etalab</a> de la direction interministérielle du numérique et du système d’information et de communication de l’État (DINSIC).</p>
 
+        <h3>Que puis-je faire avec les données ?</h3>
+        <p>Les données cadastrales diffusées sur ce site sont disponibles sous <a href='https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf'>Licence Ouverte 2.0</a>.<br />
+        Elles peuvent être utilisées librement, y compris exploitées commercialement, tant que la source et la date de mise à jour sont citées.<br />
+        N’hésitez pas à vous référer au texte de la <a href='https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf'>Licence Ouverte 2.0</a> pour plus de précision.</p>
+
         <h3>Pourquoi les données du plan cadastral se chevauchent-elles dans certaines zones ?</h3>
         <p>Les feuilles cadastrales sont numérisées feuille par feuille. Les différents procédés et époques de numérisation ont pour conséquence des chevauchements, en particulier en limites de communes et en zones forestières, de montagne ou agricoles.</p>
 
