@@ -36,15 +36,15 @@ const CadastreStrasbourg = () => (
       <div className='ressources'>
         <Ressource
           title='Limites des parcelles cadastrales'
-          lastModification='Dernière modification le mardi 20 décembre 2017'
+          lastModification='Dernière modification le 16 août 2018'
           format='SHP'
-          link='https://www.data.gouv.fr/s/resources/donnees-cadastrales-de-leurometropole-de-strasbourg/20171220-154444/171220_cadastre_parcelles.zip' />
+          link='https://static.data.gouv.fr/resources/donnees-cadastrales-de-leurometropole-de-strasbourg/20180816-163843/cadastre_parcelle.zip' />
 
         <Ressource
           title='Limites des sections cadastrales'
-          lastModification='Dernière modification le mardi 20 décembre 2017'
+          lastModification='Dernière modification le 16 août 2018'
           format='SHP'
-          link='https://www.data.gouv.fr/s/resources/donnees-cadastrales-de-leurometropole-de-strasbourg/20171220-154321/171220_cadastre_sections.zip' />
+          link='https://static.data.gouv.fr/resources/donnees-cadastrales-de-leurometropole-de-strasbourg/20180816-163900/cadastre_section.zip' />
 
         <Ressource
           title='Limites des communes'
