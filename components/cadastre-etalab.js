@@ -95,7 +95,7 @@ const CadastreEtalab = () => (
 
         <h4>Couverture</h4>
 
-        <p>Les 33 335 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
+        <p>Les 33 682 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
         Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
 
         <h4>Formats disponibles</h4>
