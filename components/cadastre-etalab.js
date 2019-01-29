@@ -28,6 +28,12 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '1er janvier 2019',
+    path: '2019-01-01',
+    formats: ['geojson', 'shp'],
+    granularities: ['communes', 'departements', 'france']
+  },
+  {
     date: '1er octobre 2018',
     path: '2018-10-01',
     formats: ['geojson', 'shp'],
@@ -132,6 +138,7 @@ const CadastreEtalab = () => (
           <li>20/05/2018 : nouveau millésime PCI + ajout des subdivisions fiscales et des préfixes de sections + ajout des assemblages nationaux + ajout du format Shapefile + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/5?closed=1'>détails</a>)</li>
           <li>16/07/2018 : nouveau millésime PCI + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/6?closed=1'>détails</a>)</li>
           <li>31/10/2018 : nouveau millésime PCI + nouvelles données Strasbourg</li>
+          <li>29/01/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
         </ul>
       </div>
     </Section>
