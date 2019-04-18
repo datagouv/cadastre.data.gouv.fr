@@ -24,16 +24,16 @@ const Cgu = () => (
 
       <div>
         <h2>Nous contacter</h2>
-        <p><a href='mailto:contact@cadastre.data.gouv.fr'>contact@cadastre.data.gouv.fr</a></p>
+        <p><a href='mailto:cadastre@data.gouv.fr'>cadastre@data.gouv.fr</a></p>
 
         <h2>Mentions légales</h2>
         <h4>Editeur</h4>
         <p>Direction interministérielle du numérique et du système d’information et de communication de l’État (DINSIC)<br />
         20, avenue de Ségur<br />
         75007 Paris<br />
-        dinsic-sec.sgmap [à] modernisation.gouv.fr</p>
+        dinsic-sec-directeur [à] modernisation.gouv.fr</p>
 
-        <p>Directeur de la publication : M. Henri Verdier, DINSIC</p>
+        <p>Directeur de la publication : M. Nadi Bou Hanna, DINSIC</p>
 
         <h4>Hébergeur</h4>
         <p>Société OVH<br />
