@@ -5,7 +5,7 @@ module.exports = app => {
   const router = new Router()
 
   router.get('/robots.txt', (req, res) => {
-    res.sendFile(join(__dirname, '..', 'robots.txt'))
+    res.sendFile(join(__dirname, '..', 'static', 'robots.txt'))
   })
 
   router.get('*', (req, res) => {
