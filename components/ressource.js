@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import theme from '../styles/theme'
 
 const Ressource = ({title, lastModification, format, link}) => (
-  <div className='container'>
+  <div className='ressource-container'>
     <a className='ressource' href={link}>
       <div className='overlay'>
         <div>
@@ -11,7 +11,7 @@ const Ressource = ({title, lastModification, format, link}) => (
           <img src='../static/images/icons/download.svg' />
         </div>
       </div>
-      <div>
+      <div className='content'>
         <div className='description'>
           <h4>{title}</h4>
           <p>{lastModification}</p>
@@ -20,19 +20,20 @@ const Ressource = ({title, lastModification, format, link}) => (
       </div>
     </a>
     <style jsx>{`
-      .container {
+      .ressource-container {
         position: relative;
         background: ${theme.backgroundWhite};
         border: 1px solid ${theme.borderLighter};
         box-shadow: 0 1px 4px 0 ${theme.boxShadow};
       }
-      .container:hover .overlay {
+      .ressource-container:hover .overlay {
         opacity: 1;
       }
       .ressource {
         text-align: center;
       }
       a.ressource {
+        text-decoration: none;
         color: ${theme.darkText};
       }
       .overlay {
