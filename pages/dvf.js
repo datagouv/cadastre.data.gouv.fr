@@ -52,17 +52,17 @@ export default () => (
           <h2>Données disponibles</h2>
 
           <div className='article__author-list'>
-            <Dataset year='2018' size='297 Mo' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2018.txt.gz' />
-            <Dataset year='2017' size='428 Mo' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2017.txt.gz' />
+            <Dataset year='2018' size='44 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2018.txt.gz' />
+            <Dataset year='2017' size='63 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2017.txt.gz' />
           </div>
 
           <div className='article__author-list'>
-            <Dataset year='2016' size='373 Mo' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2016.txt.gz' />
-            <Dataset year='2015' size='348 Mo' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2015.txt.gz' />
+            <Dataset year='2016' size='55 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2016.txt.gz' />
+            <Dataset year='2015' size='52 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2015.txt.gz' />
           </div>
 
           <div className='article__author-list'>
-            <Dataset year='2014' size='373 Mo' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2014.txt.gz' />
+            <Dataset year='2014' size='48 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2014.txt.gz' />
           </div>
         </div>
       </div>
