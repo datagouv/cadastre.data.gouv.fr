@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Container from '../container'
 import Selector from '../selector'
 import Step from '../step'
 import ApiGeo from '../api-geo'
@@ -24,7 +23,7 @@ class ProductSelection extends React.Component {
           selected={territorySelected}
           unavailable={['epci']}
           handleSelect={selectTerritoryType} />
-        <Container>
+        <container>
           <Step
             title={stepTitle}
             disabled={Boolean(!territorySelected)}>
@@ -35,7 +34,7 @@ class ProductSelection extends React.Component {
               <div />
             }
           </Step>
-        </Container>
+        </container>
       </div>
     )
   }

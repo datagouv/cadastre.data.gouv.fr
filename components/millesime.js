@@ -20,7 +20,7 @@ const granularityLabels = {
 }
 
 const Millesime = ({date, formats, granularities, path, getUrl}) => (
-  <div className='container'>
+  <div className='millesime-container'>
     <h5>Millésime {date}</h5>
     <div className='millesimes'>
       {formats.map(format => (
@@ -35,12 +35,12 @@ const Millesime = ({date, formats, granularities, path, getUrl}) => (
       ))}
     </div>
     <style jsx>{`
-      .container {
+      .millesime-container {
         background: ${theme.colors.white};
         box-shadow: 0 1px 4px ${theme.boxShadow};
       }
 
-      .container h5 {
+      .millesime-container h5 {
         margin: 0;
         padding: 1em;
         text-align: center;
@@ -52,10 +52,9 @@ const Millesime = ({date, formats, granularities, path, getUrl}) => (
       }
 
       .format {
-        display: flex;
-        justify-content: space-between;
-        flex-flow: wrap;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 1em;
         padding: 0.8em;
       }
 

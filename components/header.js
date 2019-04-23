@@ -21,7 +21,7 @@ export default () => (
 
       <ul className='nav__links'>
         {links.map(link => (
-          <li key={link.text}>
+          <li key={link.text} className='nav__item'>
             <Link href={link.href}><a>{link.text}</a></Link>
           </li>
         ))}
