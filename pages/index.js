@@ -7,8 +7,6 @@ import OpenData from '../components/home/opendata'
 import Subscribe from '../components/home/subscribe'
 import OtherSites from '../components/home/other-sites'
 import Section from '../components/section'
-import DoubleSection from '../components/double-section'
-import ButtonLink from '../components/button-link';
 
 const title = 'Données cadastrales ouvertes'
 const tagline = 'Consulter, télécharger et intégrer facilement les données cadastrales'
