@@ -40,7 +40,7 @@ export default () => (
         <p>
           La base de données DVF ne contient pas de données à caractère personnel, comme le nom du vendeur ou celui de l’acheteur d’un bien. Elle ne contient que des informations sur les transactions : type de bien vendu, superficie, prix de vente et ainsi de suite. Comme ces données peuvent être recoupées avec d’autres données déjà en ligne, la direction générale des finances publiques rappelle que l’utilisation des données issues de la base DVF ne peut avoir ni pour objet ni pour effet de permettre la réidentification des personnes concernées, et qu’elle ne doit pas non plus faire l’objet d’une indexation sur les moteurs de recherche en ligne.
         </p>
-        <ButtonLink className='button-outline large' href='#download'>
+        <ButtonLink className='button-outline large' href='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/conditions-generales-dutilisation.pdf'>
         Voir les conditions générales d’utilisation
         </ButtonLink>
       </div>
@@ -52,17 +52,17 @@ export default () => (
           <h2>Données disponibles</h2>
 
           <div className='article__author-list'>
-            <Dataset year='2018' size='297 Mo' link='' />
-            <Dataset year='2017' size='428 Mo' link='' />
+            <Dataset year='2018' size='297 Mo' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2018.txt.gz' />
+            <Dataset year='2017' size='428 Mo' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2017.txt.gz' />
           </div>
 
           <div className='article__author-list'>
-            <Dataset year='2016' size='373 Mo' link='' />
-            <Dataset year='2015' size='348 Mo' link='' />
+            <Dataset year='2016' size='373 Mo' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2016.txt.gz' />
+            <Dataset year='2015' size='348 Mo' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2015.txt.gz' />
           </div>
 
           <div className='article__author-list'>
-            <Dataset year='2014' size='373 Mo' link='' />
+            <Dataset year='2014' size='373 Mo' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2014.txt.gz' />
           </div>
         </div>
       </div>
@@ -72,17 +72,17 @@ export default () => (
           <h2>Documentation</h2>
 
           <div className='article__author-list'>
-            <Documentation title='Notice' format='PDF' link=''>
+            <Documentation title='Notice' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/notice-descriptive-du-fichier-dvf.pdf'>
               Notice descriptive du fichier demande de valeurs foncières.
             </Documentation>
 
-            <Documentation title='Référence' format='PDF' link=''>
+            <Documentation title='Référence' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/tables-de-reference-nature-de-culture.pdf'>
               Tables de référence nature de culture.
             </Documentation>
           </div>
 
           <div className='article__author-list'>
-            <Documentation title='Informations' format='PDF' link=''>
+            <Documentation title='Informations' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/information-des-personnes-concernees-par-le-traitement-informatique.pdf'>
               Information des personnes concernées par le traitement informatique.
             </Documentation>
           </div>
