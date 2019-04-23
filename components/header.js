@@ -5,7 +5,7 @@ import theme from '../styles/theme'
 import HamburgerMenu from './hamburger-menu'
 
 const links = [
-  {text: 'Télécharger les données', href: '/datasets'},
+  {text: 'Données cadastrales', href: '/datasets'},
   {text: 'DVF', href: '/dvf'},
   {text: 'FAQ', href: '/faq'}
 ]
