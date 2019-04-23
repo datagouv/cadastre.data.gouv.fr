@@ -15,8 +15,7 @@ export default () => (
   <Page title={title} description={tagline}>
     <Hero
       title={title}
-      tagline={tagline}
-    />
+      tagline={tagline} />
 
     <Section>
       <div className='row'>
