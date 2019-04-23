@@ -6,7 +6,9 @@ import Explaination from '../components/home/explaination'
 import OpenData from '../components/home/opendata'
 import Subscribe from '../components/home/subscribe'
 import OtherSites from '../components/home/other-sites'
+import Section from '../components/section'
 import DoubleSection from '../components/double-section'
+import ButtonLink from '../components/button-link';
 
 const title = 'Données cadastrales ouvertes'
 const tagline = 'Consulter, télécharger et intégrer facilement les données cadastrales'
@@ -15,11 +17,16 @@ export default () => (
   <Page title={title} description={tagline}>
     <Hero
       title={title}
-      tagline={tagline} />
-    <DoubleSection>
-      <Explaination />
-      <OpenData />
-    </DoubleSection>
+      tagline={tagline}
+    />
+
+    <Section>
+      <div className='row'>
+        <Explaination />
+        <OpenData />
+      </div>
+    </Section>
+
     <Usages />
     <Subscribe />
     <OtherSites />
