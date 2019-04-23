@@ -47,45 +47,33 @@ export default () => (
     </Section>
 
     <Section title='Télécharger les fichiers' background='grey' id='download'>
-      <div className='article__content'>
-        <div className='article__container'>
-          <h2>Données disponibles</h2>
+      <div className='ressources-container'>
+        <h2>Données disponibles</h2>
 
-          <div className='article__author-list'>
-            <Dataset year='2018' size='44 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2018.txt.gz' />
-            <Dataset year='2017' size='63 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2017.txt.gz' />
-          </div>
-
-          <div className='article__author-list'>
-            <Dataset year='2016' size='55 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2016.txt.gz' />
-            <Dataset year='2015' size='52 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2015.txt.gz' />
-          </div>
-
-          <div className='article__author-list'>
-            <Dataset year='2014' size='48 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2014.txt.gz' />
-          </div>
+        <div className='grid ressources'>
+          <Dataset year='2018' size='44 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2018.txt.gz' />
+          <Dataset year='2017' size='63 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2017.txt.gz' />
+          <Dataset year='2016' size='55 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2016.txt.gz' />
+          <Dataset year='2015' size='52 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2015.txt.gz' />
+          <Dataset year='2014' size='48 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2014.txt.gz' />
         </div>
       </div>
 
-      <div className='article__content'>
-        <div className='article__container'>
-          <h2>Documentation</h2>
+      <div className='ressources-container'>
+        <h2>Documentation</h2>
 
-          <div className='article__author-list'>
-            <Documentation title='Notice' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/notice-descriptive-du-fichier-dvf.pdf'>
-              Notice descriptive du fichier demande de valeurs foncières.
-            </Documentation>
+        <div className='grid ressources'>
+          <Documentation title='Notice' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/notice-descriptive-du-fichier-dvf.pdf'>
+            Notice descriptive du fichier demande de valeurs foncières.
+          </Documentation>
 
-            <Documentation title='Référence' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/tables-de-reference-nature-de-culture.pdf'>
-              Tables de référence nature de culture.
-            </Documentation>
-          </div>
+          <Documentation title='Référence' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/tables-de-reference-nature-de-culture.pdf'>
+            Tables de référence nature de culture.
+          </Documentation>
 
-          <div className='article__author-list'>
-            <Documentation title='Informations' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/information-des-personnes-concernees-par-le-traitement-informatique.pdf'>
-              Information des personnes concernées par le traitement informatique.
-            </Documentation>
-          </div>
+          <Documentation title='Informations' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/information-des-personnes-concernees-par-le-traitement-informatique.pdf'>
+            Information des personnes concernées par le traitement informatique.
+          </Documentation>
         </div>
       </div>
     </Section>
@@ -104,6 +92,14 @@ export default () => (
         flex-direction: column;
         justify-content: center;
         align-items: center;
+      }
+
+      .ressources-container {
+        margin: 2em 0;
+      }
+
+      .grid.ressources {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       }
   `}</style>
   </Page>
