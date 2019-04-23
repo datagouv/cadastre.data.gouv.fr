@@ -92,7 +92,7 @@ export default () => (
 
     <div className='hero hero-explore' role='banner'>
       <div className='hero__container'>
-        <ButtonLink className='button-outline large' href=''>
+        <ButtonLink className='button-outline large' href='https://app.dvf.etalab.gouv.fr'>
           Explorer les données
         </ButtonLink>
       </div>

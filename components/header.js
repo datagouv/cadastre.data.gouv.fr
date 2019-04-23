@@ -6,6 +6,7 @@ import HamburgerMenu from './hamburger-menu'
 
 const links = [
   {text: 'Télécharger les données', href: '/datasets'},
+  {text: 'DVF', href: '/dvf'},
   {text: 'FAQ', href: '/faq'}
 ]
 
