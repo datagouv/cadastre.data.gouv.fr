@@ -64,7 +64,7 @@ export default () => (
 
         <div className='grid ressources'>
           <Documentation title='Notice' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/notice-descriptive-du-fichier-dvf.pdf'>
-            Notice descriptive du fichier demande de valeurs foncières.
+            Notice descriptive du fichier demandes de valeurs foncières.
           </Documentation>
 
           <Documentation title='Référence' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/tables-de-reference-nature-de-culture.pdf'>
