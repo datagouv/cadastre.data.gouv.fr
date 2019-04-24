@@ -76,7 +76,8 @@
       "react/react-in-jsx-scope": "off",
       "react/jsx-curly-brace-presence": "off",
       "react/require-default-props": "off",
-      "react/jsx-no-bind": "off"
+      "react/jsx-no-bind": "off",
+      "react/jsx-child-element-spacing": "off"
     },
     "overrides": [
       {
