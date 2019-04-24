@@ -22,3 +22,5 @@ Icon
 
 # Logs
 *.log
+
+/out
