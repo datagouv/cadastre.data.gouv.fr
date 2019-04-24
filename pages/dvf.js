@@ -78,6 +78,17 @@ export default () => (
       </div>
     </Section>
 
+    <Section title='Données enrichies'>
+      <div className='column'>
+        <p>
+          En plus des données brutes officielles produites par la DGFIP, Etalab met à disposition des données enrichies, à la commune ou au département.
+        </p>
+        <ButtonLink className='button-outline large primary' href='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/contrib/etalab-csv/'>
+          Accéder aux données
+        </ButtonLink>
+      </div>
+    </Section>
+
     <div className='hero hero-explore' role='banner'>
       <div className='hero__container'>
         <ButtonLink className='button-outline large' href='https://app.dvf.etalab.gouv.fr'>
