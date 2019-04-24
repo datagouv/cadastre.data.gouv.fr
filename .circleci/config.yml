@@ -84,14 +84,6 @@ jobs:
           paths:
             - .next/
 
-      - run:
-          name: Extract built bundles for stats
-          command: ./build/scripts/extract-bundles
-
-      -  store_artifacts:
-          name: Store built bundles for stats
-          path: bundle-stats
-
 workflows:
   version: 2
 
