@@ -21,7 +21,7 @@ export default () => (
         <p>
           La base de données « Demandes de valeurs foncières », ou DVF, recense l’ensemble des ventes de biens fonciers réalisées au cours des cinq dernières années, en métropole et dans les départements et territoires d’outre-mer&nbsp;— sauf à Mayotte et en Alsace-Moselle. Les biens concernés peuvent être bâtis (appartement et maison) ou non bâtis (parcelles et exploitations). Les données sont produites par Bercy, c’est-à-dire par la direction générale des finances publiques. Elles proviennent des actes enregistrés chez les notaires et des informations contenues dans le cadastre.
         </p>
-        <ButtonLink className='button-outline large primary' href='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/'>
+        <ButtonLink className='button-outline large primary' href='#download'>
           Télécharger les données DVF
         </ButtonLink>
       </div>
@@ -46,7 +46,10 @@ export default () => (
       </div>
     </Section>
 
-    <Section title='Télécharger les fichiers' background='grey' id='download'>
+    {/* Hash for next/link */}
+    <a id='download' />
+
+    <Section title='Télécharger les fichiers' background='grey'>
       <div className='ressources-container'>
         <h2>Données disponibles</h2>
 
