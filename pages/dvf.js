@@ -21,8 +21,8 @@ export default () => (
         <p>
           La base de données « Demandes de valeurs foncières », ou DVF, recense l’ensemble des ventes de biens fonciers réalisées au cours des cinq dernières années, en métropole et dans les départements et territoires d’outre-mer&nbsp;— sauf à Mayotte et en Alsace-Moselle. Les biens concernés peuvent être bâtis (appartement et maison) ou non bâtis (parcelles et exploitations). Les données sont produites par Bercy, c’est-à-dire par la direction générale des finances publiques. Elles proviennent des actes enregistrés chez les notaires et des informations contenues dans le cadastre.
         </p>
-        <ButtonLink className='button-outline large primary' href='#download'>
-          Télécharger les données DVF
+        <ButtonLink className='button-outline large primary' href='https://www.data.gouv.fr/fr/datasets/5c4ae55a634f4117716d5656/'>
+          Télécharger les données sur data.gouv.fr
         </ButtonLink>
       </div>
     </Section>
@@ -40,7 +40,7 @@ export default () => (
         <p>
           La base de données DVF ne contient pas de données à caractère personnel, comme le nom du vendeur ou celui de l’acheteur d’un bien. Elle ne contient que des informations sur les transactions : type de bien vendu, superficie, prix de vente et ainsi de suite. Comme ces données peuvent être recoupées avec d’autres données déjà en ligne, la direction générale des finances publiques rappelle que l’utilisation des données issues de la base DVF ne peut avoir ni pour objet ni pour effet de permettre la réidentification des personnes concernées, et qu’elle ne doit pas non plus faire l’objet d’une indexation sur les moteurs de recherche en ligne.
         </p>
-        <ButtonLink className='button-outline large' href='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/conditions-generales-dutilisation.pdf'>
+        <ButtonLink className='button-outline large' href='https://www.data.gouv.fr/fr/datasets/r/99549bdd-91f1-4a99-ac00-855b9a14e5f6'>
         Voir les conditions générales d’utilisation
         </ButtonLink>
       </div>
@@ -54,11 +54,11 @@ export default () => (
         <h2>Données disponibles</h2>
 
         <div className='grid ressources'>
-          <Dataset year='2018' size='44 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2018.txt.gz' />
-          <Dataset year='2017' size='63 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2017.txt.gz' />
-          <Dataset year='2016' size='55 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2016.txt.gz' />
-          <Dataset year='2015' size='52 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2015.txt.gz' />
-          <Dataset year='2014' size='48 Mo (compressés)' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/valeursfoncieres-2014.txt.gz' />
+          <Dataset year='2018' size='297 Mo' link='https://www.data.gouv.fr/fr/datasets/r/1be77ca5-dc1b-4e50-af2b-0240147e0346' />
+          <Dataset year='2017' size='428 Mo' link='https://www.data.gouv.fr/fr/datasets/r/7161c9f2-3d91-4caf-afa2-cfe535807f04' />
+          <Dataset year='2016' size='373 Mo' link='https://www.data.gouv.fr/fr/datasets/r/0ab442c5-57d1-4139-92c2-19672336401c' />
+          <Dataset year='2015' size='348 Mo' link='https://www.data.gouv.fr/fr/datasets/r/09f013c5-9531-444b-ab6c-7a0e88efd77d' />
+          <Dataset year='2014' size='318 Mo' link='https://www.data.gouv.fr/fr/datasets/r/dc13282f-3c7a-4fac-b1f3-3939e39d45f6' />
         </div>
       </div>
 
@@ -66,15 +66,15 @@ export default () => (
         <h2>Documentation</h2>
 
         <div className='grid ressources'>
-          <Documentation title='Notice' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/notice-descriptive-du-fichier-dvf.pdf'>
+          <Documentation title='Notice' format='PDF' link='https://www.data.gouv.fr/fr/datasets/r/d573456c-76eb-4276-b91c-e6b9c89d6656'>
             Notice descriptive du fichier demandes de valeurs foncières.
           </Documentation>
 
-          <Documentation title='Référence' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/tables-de-reference-nature-de-culture.pdf'>
+          <Documentation title='Référence' format='PDF' link='https://www.data.gouv.fr/fr/datasets/r/e702307c-fc72-474b-8e71-b496e2ed1070'>
             Tables de référence nature de culture.
           </Documentation>
 
-          <Documentation title='Informations' format='PDF' link='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/information-des-personnes-concernees-par-le-traitement-informatique.pdf'>
+          <Documentation title='Informations' format='PDF' link='https://www.data.gouv.fr/fr/datasets/r/2cacd01a-3492-47aa-8750-1b58535ad20b'>
             Information des personnes concernées par le traitement informatique.
           </Documentation>
         </div>
@@ -84,9 +84,9 @@ export default () => (
     <Section title='Données enrichies'>
       <div className='column'>
         <p>
-          En plus des données brutes officielles produites par la DGFiP, Etalab met à disposition des <a href='https://github.com/etalab/dvf/blob/master/README-CSV.md'>données enrichies</a>, à la commune et au département.
+          En plus des données brutes officielles produites par la DGFiP, Etalab met à disposition des données enrichies, à la commune et au département.
         </p>
-        <ButtonLink className='button-outline large primary' href='https://cadastre.data.gouv.fr/data/hackathon-dgfip-dvf/contrib/etalab-csv/'>
+        <ButtonLink className='button-outline large primary' href='https://www.data.gouv.fr/fr/datasets/5cc1b94a634f4165e96436c1/'>
           Accéder aux données
         </ButtonLink>
       </div>
