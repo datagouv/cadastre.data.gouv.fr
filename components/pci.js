@@ -26,68 +26,109 @@ const millesimes = [
     latest: true,
     date: '1er juillet 2019',
     path: '2019-07-01',
-    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
   },
   {
     date: '1er avril 2019',
     path: '2019-04-01',
-    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
   },
   {
     date: '1er janvier 2019',
     path: '2019-01-01',
-    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
   },
   {
     date: '1er octobre 2018',
     path: '2018-10-01',
-    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
   },
   {
     date: '29 juin 2018',
     path: '2018-06-29',
-    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
   },
   {
     date: '3 avril 2018',
     path: '2018-04-03',
-    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
   },
   {
     date: '2 janvier 2018',
     path: '2018-01-02',
-    formats: ['edigeo', 'edigeo-cc', 'dxf', 'dxf-cc', 'tiff'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
   },
   {
     date: '12 octobre 2017',
     path: '2017-10-12',
-    formats: ['edigeo', 'dxf', 'tiff'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
   },
   {
     date: '6 juillet 2017',
     path: '2017-07-06',
-    formats: ['edigeo'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']}
+    ]
   },
   {
     date: '14 mai 2017',
     path: '2017-05-14',
-    formats: ['edigeo'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']}
+    ]
   },
   {
     date: '13 février 2017',
     path: '2017-02-13',
-    formats: ['edigeo'],
-    granularities: ['feuilles', 'departements']
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']}
+    ]
   }
 ]
 

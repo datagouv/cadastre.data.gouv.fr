@@ -20,16 +20,16 @@ const granularityLabels = {
   france: 'France entière'
 }
 
-const Millesime = ({date, formats, granularities, path, getUrl}) => (
+const Millesime = ({date, formats, path, getUrl}) => (
   <div className='millesime-container'>
     <h5>Millésime {date}</h5>
     <div className='millesimes'>
       {formats.map(format => (
-        <div key={date + format} className='format'>
-          <div><strong>{formatLabels[format]}</strong></div>
+        <div key={date + format.name} className='format'>
+          <div><strong>{formatLabels[format.name]}</strong></div>
           <div className='granularity'>
-            {granularities.map(granularity => (
-              <a key={date + format + granularity} href={getUrl(path, format, granularity)}>{granularityLabels[granularity]}</a>
+            {format.granularities.map(granularity => (
+              <a key={date + format.name + granularity} href={getUrl(path, format.name, granularity)}>{granularityLabels[granularity]}</a>
             ))}
           </div>
         </div>
@@ -78,7 +78,6 @@ const Millesime = ({date, formats, granularities, path, getUrl}) => (
 Millesime.propTypes = {
   date: PropTypes.string.isRequired,
   formats: PropTypes.array.isRequired,
-  granularities: PropTypes.array.isRequired,
   path: PropTypes.string.isRequired,
   getUrl: PropTypes.func.isRequired
 }

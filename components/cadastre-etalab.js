@@ -30,56 +30,71 @@ const millesimes = [
     latest: true,
     date: '1er juillet 2019',
     path: '2019-07-01',
-    formats: ['geojson', 'shp'],
-    granularities: ['communes', 'departements', 'france']
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
+    ]
   },
   {
     date: '1er avril 2019',
     path: '2019-04-01',
-    formats: ['geojson', 'shp'],
-    granularities: ['communes', 'departements', 'france']
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
+    ]
   },
   {
     date: '1er janvier 2019',
     path: '2019-01-01',
-    formats: ['geojson', 'shp'],
-    granularities: ['communes', 'departements', 'france']
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
+    ]
   },
   {
     date: '1er octobre 2018',
     path: '2018-10-01',
-    formats: ['geojson', 'shp'],
-    granularities: ['communes', 'departements', 'france']
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
+    ]
   },
   {
     date: '29 juin 2018',
     path: '2018-06-29',
-    formats: ['geojson', 'shp'],
-    granularities: ['communes', 'departements', 'france']
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
+    ]
   },
   {
     date: '3 avril 2018',
     path: '2018-04-03',
-    formats: ['geojson', 'shp'],
-    granularities: ['communes', 'departements', 'france']
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
+    ]
   },
   {
     date: '2 janvier 2018',
     path: '2018-01-02',
-    formats: ['geojson'],
-    granularities: ['communes', 'departements']
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements']}
+    ]
   },
   {
     date: '12 octobre 2017',
     path: '2017-10-12',
-    formats: ['geojson'],
-    granularities: ['communes', 'departements']
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements']}
+    ]
   },
   {
     date: '6 juillet 2017',
     path: '2017-07-06',
-    formats: ['geojson'],
-    granularities: ['communes', 'departements']
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements']}
+    ]
   }
 ]
 
