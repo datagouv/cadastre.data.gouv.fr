@@ -1,3 +1,4 @@
+import React from 'react'
 import Section from '../section'
 
 const subtitle = `Le cadastre est un ensemble de plans et fichiers administratifs qui recensent

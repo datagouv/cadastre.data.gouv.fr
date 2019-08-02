@@ -1,3 +1,4 @@
+import React from 'react'
 import prune from 'underscore.string/prune'
 import PropTypes from 'prop-types'
 import Head from 'next/head'

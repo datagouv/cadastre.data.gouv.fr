@@ -1,3 +1,4 @@
+import React from 'react'
 import MapO from 'react-icons/lib/fa/map-o'
 import Page from '../../layouts/main'
 

@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-child-element-spacing */
+import React from 'react'
 import Link from 'next/link'
 import Section from './section'
 import Millesimes from './millesimes'

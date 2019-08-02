@@ -1,3 +1,5 @@
+import React from 'react'
+
 import FaOBuilding from 'react-icons/lib/fa/building-o'
 import Page from '../layouts/main'
 

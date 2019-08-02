@@ -1,3 +1,4 @@
+import React from 'react'
 import FlaskIcon from 'react-icons/lib/fa/flask'
 import FileArchiveO from 'react-icons/lib/fa/file-archive-o'
 import MapO from 'react-icons/lib/fa/map-o'
@@ -34,7 +35,8 @@ const Datasets = () => (
         title={title}
         href={href}
         subtitle={description}
-        icon={icon} />)
+        icon={icon} />
+    )
     )}
   </Section>
 )

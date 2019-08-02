@@ -1,3 +1,4 @@
+import React from 'react'
 import MapIcon from 'react-icons/lib/fa/flask'
 import Page from '../../layouts/main'
 

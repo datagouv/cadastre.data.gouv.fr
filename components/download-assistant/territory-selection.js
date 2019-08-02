@@ -26,7 +26,8 @@ class ProductSelection extends React.Component {
         <container>
           <Step
             title={stepTitle}
-            disabled={Boolean(!territorySelected)}>
+            disabled={Boolean(!territorySelected)}
+          >
             {territorySelected ?
               <ApiGeo
                 territoryType={territorySelected}

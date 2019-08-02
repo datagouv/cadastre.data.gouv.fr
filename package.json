@@ -29,64 +29,28 @@
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "babel-plugin-inline-import": "^3.0.0",
-    "eslint": "^4.19.1",
-    "eslint-config-xo-nextjs": "^1.3.0",
-    "eslint-plugin-react": "^7.9.1",
+    "eslint": "^6.1.0",
+    "eslint-config-xo-nextjs": "^1.4.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "webpack-bundle-analyzer": "^2.11.1",
-    "xo": "^0.21.1"
+    "xo": "^0.24.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "xo-nextjs"
+    ]
   },
   "xo": {
-    "extends": "xo-react",
+    "extends": "xo-nextjs",
     "semicolon": false,
     "space": 2,
-    "envs": [
-      "browser"
-    ],
-    "globals": [
-      "fetch"
-    ],
-    "parser": "babel-eslint",
+    "env": "browser",
     "rules": {
-      "jsx-quotes": [
-        "error",
-        "prefer-single"
-      ],
-      "react/jsx-closing-bracket-location": [
-        "error",
-        "after-props"
-      ],
-      "react/jsx-closing-tag-location": "off",
-      "react/jsx-first-prop-new-line": "off",
-      "react/jsx-max-props-per-line": [
-        "warn",
-        {
-          "maximum": 4,
-          "when": "multiline"
-        }
-      ],
-      "react/jsx-tag-spacing": [
-        "error",
-        {
-          "closingSlash": "never",
-          "beforeSelfClosing": "always",
-          "afterOpening": "never"
-        }
-      ],
-      "react/forbid-component-props": "off",
-      "react/react-in-jsx-scope": "off",
-      "react/jsx-curly-brace-presence": "off",
-      "react/require-default-props": "off",
-      "react/jsx-no-bind": "off",
+      "unicorn/catch-error-name": "off",
+      "react/jsx-sort-props": "off",
       "react/jsx-child-element-spacing": "off"
-    },
-    "overrides": [
-      {
-        "files": "__tests__/**/*.js",
-        "env": [
-          "browser",
-          "jest"
-        ]
-      }
-    ]
+    }
   }
 }
