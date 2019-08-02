@@ -16,12 +16,12 @@
   "dependencies": {
     "compression": "^1.7.4",
     "debounce": "^1.2.0",
-    "express": "^4.16.4",
-    "next": "^8.1.0",
+    "express": "^4.17.1",
+    "next": "^9.0.3",
     "piwik-react-router": "^0.10.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-autocomplete": "^1.7.2",
+    "react-autocomplete": "^1.8.1",
     "react-dom": "^16.8.6",
     "react-icons": "^2.2.7",
     "underscore.string": "^3.3.5"
@@ -33,7 +33,7 @@
     "eslint-config-xo-nextjs": "^1.4.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.6.1",
-    "webpack-bundle-analyzer": "^2.11.1",
+    "webpack-bundle-analyzer": "^3.4.1",
     "xo": "^0.24.0"
   },
   "eslintConfig": {
