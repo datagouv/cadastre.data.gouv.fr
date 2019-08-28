@@ -1,8 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 
-import theme from '../styles/theme'
-
 import HamburgerMenu from './hamburger-menu'
 
 const links = [

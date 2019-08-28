@@ -15,6 +15,11 @@ const Hero = ({title, tagline}) => (
         background-blend-mode: darken;
         background-image: url(/static/images/background.png);
       }
+
+      .hero__white-background {
+        padding: 10px 1em;
+        background-color: ${theme.colors.white};
+      }
     `}</style>
   </div>
 )

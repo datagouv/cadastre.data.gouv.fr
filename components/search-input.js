@@ -44,9 +44,7 @@ class SearchInput extends React.Component {
 
     return (
       <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
-        <div>
-          <div className='label'>{item.nom}</div>
-        </div>
+        <div>{item.nom}</div>
         <div>{description}</div>
         <style jsx>{`
           .item {
@@ -56,10 +54,6 @@ class SearchInput extends React.Component {
             align-items: center;
             padding: 1em;
             border-bottom: 1px solid whitesmoke;
-          }
-
-          .item .label {
-            font-weight: 600;
           }
 
           .item:hover {

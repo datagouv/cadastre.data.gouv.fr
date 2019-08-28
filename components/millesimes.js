@@ -21,6 +21,10 @@ const Millesimes = ({millesimes, getUrl}) => (
       </div>
     ))}
     <style jsx>{`
+      .grid {
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      }
+
       .latest {
         padding: 1.5em;
       }

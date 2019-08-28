@@ -34,7 +34,7 @@ const CadastreStrasbourg = () => (
       </div>
     </Section>
     <Section title='Ressources' background='grey'>
-      <div className='ressources'>
+      <div className='grid'>
         <Ressource
           title='Limites des parcelles cadastrales'
           lastModification='Dernière modification le 16 août 2018'
@@ -54,15 +54,6 @@ const CadastreStrasbourg = () => (
           link='https://www.data.gouv.fr/s/resources/donnees-cadastrales-de-leurometropole-de-strasbourg/20171220-154146/171220_cadastre_communes.zip' />
       </div>
     </Section>
-    <style jsx>{`
-      .ressources {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        grid-gap: 1em;
-        grid-row-gap: 0.6em;
-        margin: 2em 0;
-      }
-    `}</style>
   </div>
 )
 
