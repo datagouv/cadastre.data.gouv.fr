@@ -24,8 +24,8 @@ class Question extends React.Component {
   }
 
   render() {
-    const { open } = this.state
-    const { question, children } = this.props
+    const {open} = this.state
+    const {question, children} = this.props
 
     return (
       <div>
