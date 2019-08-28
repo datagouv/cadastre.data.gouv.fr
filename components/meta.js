@@ -10,7 +10,7 @@ const SITE_NAME = 'cadastre.data.gouv.fr'
 const Meta = ({title, description}) => {
   description = prune(description, 160, '…')
   return (
-    <div>
+    <>
       <Head>
         <meta charSet='utf-8' />
         <meta httpEquiv='x-ua-compatible' content='ie=edge' />
@@ -45,12 +45,10 @@ const Meta = ({title, description}) => {
         <meta name='og:site_name' content={title} />
         <meta name='og:locale' content='fr_FR' />
         <meta name='og:type' content='website' />
-
-        <link href='https://unpkg.com/template.data.gouv.fr@1.2.1/dist/main.min.css' rel='stylesheet' />
       </Head>
 
       <Fonts />
-    </div>
+    </>
   )
 }
 
