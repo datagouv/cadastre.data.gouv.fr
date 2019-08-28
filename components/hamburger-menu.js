@@ -56,6 +56,7 @@ class HamburgerMenu extends React.Component {
 
           a {
             color: ${theme.colors.black};
+            text-decoration: none;
           }
 
           .content {

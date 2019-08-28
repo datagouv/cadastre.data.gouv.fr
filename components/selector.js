@@ -1,22 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Grid from './grid'
 import ItemButton from './item-button'
 
 const Selector = ({items, selected, handleSelect, unavailable, uppercase}) => (
-  <div className='main'>
-    <Grid>
-      {items.map(item => (
-        <ItemButton
-          key={item}
-          item={item}
-          selected={selected}
-          handleSelect={handleSelect}
-          unavailable={unavailable.includes(item)}
-          uppercase={uppercase} />
-      ))}
-    </Grid>
+  <div className='main grid'>
+    {items.map(item => (
+      <ItemButton
+        key={item}
+        item={item}
+        selected={selected}
+        handleSelect={handleSelect}
+        unavailable={unavailable.includes(item)}
+        uppercase={uppercase} />
+    ))}
     <style jsx>{`
       .main {
         padding: 1em 0;

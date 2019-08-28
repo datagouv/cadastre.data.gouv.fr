@@ -1,26 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Section = ({title, subtitle, children, background, beta}) => {
-  const backgroundColor = background ? '-' + background : ''
-  return (
-    <section className={`section section${backgroundColor} `}>
-      <div className='container'>
-        {title && <h2 className='section__title'>{title} {beta && <span>Beta</span>}</h2>}
-        {subtitle && <p className='section__subtitle'>{subtitle}</p>}
+import Container from './container'
 
-        {children}
-
-      </div>
-    </section>
-  )
-}
+const Section = ({title, subtitle, children, background}) => (
+  <section className={`section section-${background}`}>
+    <Container>
+      {title && <h2 className='section__title'>{title}</h2>}
+      {subtitle && <p className='section__subtitle'>{subtitle}</p>}
+      {children}
+    </Container>
+  </section>
+)
 
 Section.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   children: PropTypes.node,
-  beta: PropTypes.bool,
   background: PropTypes.oneOf([
     'white',
     'grey',
@@ -33,8 +29,7 @@ Section.defaultProps = {
   title: null,
   subtitle: null,
   children: null,
-  background: null,
-  beta: false
+  background: 'white'
 }
 
 export default Section
