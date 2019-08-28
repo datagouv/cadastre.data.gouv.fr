@@ -5,6 +5,7 @@ import {withRouter} from 'next/router'
 import piwik from '../lib/piwik'
 
 import Meta from '../components/meta'
+import MainStyle from '../components/main-style'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
@@ -25,6 +26,7 @@ class Layout extends React.Component {
     return (
       <div>
         <Meta title={title} description={description} />
+        <MainStyle />
         <Header />
         <main>
           { children }
