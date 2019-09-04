@@ -17,26 +17,24 @@ class ProductSelection extends React.Component {
     const stepTitle = territorySelected ? `Rechercher ${territorySelected === 'communes' ? 'la commune' : 'le département'}` : ''
 
     return (
-      <div>
+      <>
         <Selector
           items={territories}
           selected={territorySelected}
           unavailable={['epci']}
           handleSelect={selectTerritoryType} />
-        <container>
-          <Step
-            title={stepTitle}
-            disabled={Boolean(!territorySelected)}
-          >
-            {territorySelected ?
-              <ApiGeo
-                territoryType={territorySelected}
-                onSelect={selectTerritory} /> :
-              <div />
-            }
-          </Step>
-        </container>
-      </div>
+        <Step
+          title={stepTitle}
+          disabled={Boolean(!territorySelected)}
+        >
+          {territorySelected ?
+            <ApiGeo
+              territoryType={territorySelected}
+              onSelect={selectTerritory} /> :
+            <div />
+          }
+        </Step>
+      </>
     )
   }
 }

@@ -3,11 +3,10 @@ import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-import Grid from './grid'
 import Millesime from './millesime'
 
 const Millesimes = ({millesimes, getUrl}) => (
-  <Grid columns={3}>
+  <div className='grid'>
     {millesimes.map(millesime => (
       <div key={millesime.date}>
         {millesime.latest ?
@@ -22,6 +21,10 @@ const Millesimes = ({millesimes, getUrl}) => (
       </div>
     ))}
     <style jsx>{`
+      .grid {
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      }
+
       .latest {
         padding: 1.5em;
       }
@@ -41,7 +44,7 @@ const Millesimes = ({millesimes, getUrl}) => (
         padding: 0 10px;
       }
     `}</style>
-  </Grid>
+  </div>
 )
 
 Millesimes.propTypes = {

@@ -20,7 +20,7 @@ class DownloadForm extends React.Component {
     const {product, territoryType, territory, format, layer} = this.props
 
     return (
-      <div>
+      <>
         <Step id='territory' title='Sélectionner un territoire' disabled={false}>
           <TerritorySelection
             territorySelected={territoryType}
@@ -47,7 +47,7 @@ class DownloadForm extends React.Component {
           <Step id='layer' title='Sélectionner une couche' disabled={Boolean(!format || !territory || !product)}>
             <LayerSelection layers={product.layers} layer={layer} toggleLayer={setLayer} />
           </Step>}
-      </div>
+      </>
     )
   }
 }

@@ -39,6 +39,7 @@ const Millesime = ({date, formats, path, getUrl}) => (
       .millesime-container {
         background: ${theme.colors.white};
         box-shadow: 0 1px 4px ${theme.boxShadow};
+        width: 380px;
       }
 
       .millesime-container h5 {

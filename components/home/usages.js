@@ -3,7 +3,7 @@ import Section from '../section'
 
 export default () => (
   <Section title='Réutilisations possibles' background='dark' centered>
-    <div className='row'>
+    <div className='row' style={{textAlign: 'center'}}>
       <div>
         <h4>Collectivités</h4>
         <p>Télécharger et consulter le plan cadastral de ma commune</p>
