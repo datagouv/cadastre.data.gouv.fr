@@ -29,8 +29,7 @@ class ItemButton extends React.Component {
           </div> :
           <div key={item} value={text} className={`item ${selected === item ? 'selected' : ''}`} onClick={this.handleClick}>
             <div>{text}</div>
-          </div>
-        }
+          </div>}
         <style jsx>{`
           .item {
             margin: 10px 0;

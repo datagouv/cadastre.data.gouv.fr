@@ -14,7 +14,7 @@ export default () => (
         <i>DGFiP</i>
       </div>
       <div>
-        <a target='_blank'rel='noopener noreferrer' href='https://www.data.gouv.fr/fr/datasets/59b0020ec751df07d5f13bcf/'>
+        <a target='_blank' rel='noopener noreferrer' href='https://www.data.gouv.fr/fr/datasets/59b0020ec751df07d5f13bcf/'>
           <img src='/static/images/icons/download.svg' alt='Données Cadastre simplifié' />
           Données Cadastre simplifié
         </a>
