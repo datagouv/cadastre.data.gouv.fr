@@ -15,8 +15,8 @@ const titles = [
   },
   {
     title: 'Cadastre Eurométropole de Strasbourg',
-    href: '/datasets/cadastre-strasbourg',
-    description: <span>Données de référence pour l’Eurométropole de Strasbourg.<br />4 couches disponibles au format Shapefile.</span>,
+    href: 'https://www.data.gouv.fr/datasets/5a1572c9c751df784fb348fd',
+    description: <span>Données de référence pour l’Eurométropole de Strasbourg.<br />3 couches disponibles au format Shapefile.</span>,
     icon: <FileArchiveO />
   },
   {

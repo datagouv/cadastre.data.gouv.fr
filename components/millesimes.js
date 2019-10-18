@@ -11,8 +11,7 @@ const Millesimes = ({millesimes, getUrl}) => (
       <div key={millesime.date}>
         {millesime.latest ?
           <div className='latest line'><span>Dernier millésime</span></div> :
-          <div className='latest' />
-        }
+          <div className='latest' />}
         <Millesime
           date={millesime.date}
           path={millesime.path}

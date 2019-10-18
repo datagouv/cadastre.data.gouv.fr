@@ -28,6 +28,14 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '1er octobre 2019',
+    path: '2019-10-01',
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
+    ]
+  },
+  {
     date: '1er juillet 2019',
     path: '2019-07-01',
     formats: [
@@ -168,6 +176,7 @@ const CadastreEtalab = () => (
           <li>29/01/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
           <li>27/04/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
           <li>25/07/2019 : nouveau millésime PCI + nouvelles données Strasbourg + ajout du champ ‘arpente’ (<a href='https://github.com/etalab/cadastre/issues/80'>détails</a>)</li>
+          <li>18/10/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
         </ul>
       </div>
     </Section>

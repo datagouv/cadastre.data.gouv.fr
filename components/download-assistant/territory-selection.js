@@ -31,8 +31,7 @@ class ProductSelection extends React.Component {
             <ApiGeo
               territoryType={territorySelected}
               onSelect={selectTerritory} /> :
-            <div />
-          }
+            <div />}
         </Step>
       </>
     )
