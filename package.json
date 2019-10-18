@@ -44,7 +44,11 @@
     "rules": {
       "unicorn/catch-error-name": "off",
       "react/jsx-sort-props": "off",
-      "react/jsx-child-element-spacing": "off"
+      "react/jsx-child-element-spacing": "off",
+      "react/boolean-prop-naming": "off",
+      "react/static-property-placement": "off",
+      "react/state-in-constructor": "off"
+
     }
   }
 }
