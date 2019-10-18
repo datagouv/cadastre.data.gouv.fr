@@ -17,36 +17,30 @@
     "compression": "^1.7.4",
     "debounce": "^1.2.0",
     "express": "^4.17.1",
-    "next": "^9.0.3",
-    "piwik-react-router": "^0.10.0",
+    "next": "^9.1.1",
+    "piwik-react-router": "^0.12.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
+    "react": "^16.10.2",
     "react-autocomplete": "^1.8.1",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.10.2",
     "react-icons": "^2.2.7",
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
-    "babel-plugin-inline-import": "^3.0.0",
-    "eslint": "^6.1.0",
-    "eslint-config-xo-nextjs": "^1.4.0",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.6.1",
-    "webpack-bundle-analyzer": "^3.4.1",
+    "babel-eslint": "^10.0.3",
+    "eslint-config-xo-nextjs": "^1.5.0",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "webpack-bundle-analyzer": "^3.6.0",
     "xo": "^0.24.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "xo",
-      "xo-nextjs"
-    ]
   },
   "xo": {
     "extends": "xo-nextjs",
     "semicolon": false,
     "space": 2,
-    "env": "browser",
+    "env": [
+      "browser"
+    ],
     "rules": {
       "unicorn/catch-error-name": "off",
       "react/jsx-sort-props": "off",
