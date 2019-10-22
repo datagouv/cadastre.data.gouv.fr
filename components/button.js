@@ -1,3 +1,4 @@
+/* eslint react/button-has-type: off */
 import React from 'react'
 import PropTypes from 'prop-types'
 
