@@ -14,7 +14,7 @@ export default () => (
     <div className='navbar__container'>
 
       <Link href='/'>
-        <a className='navbar__home' href='index.html'>
+        <a className='navbar__home' href='/'>
           <img className='navbar__logo' src='/static/images/logos/logo-marianne.svg' alt='cadastre.data.gouv.fr' />
           <span className='navbar__domain'>cadastre</span><img src='/static/images/logos/pointgouvfr.svg' className='navbar__gouvfr' alt='data.gouv.fr' />
         </a>
