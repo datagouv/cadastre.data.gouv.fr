@@ -20,7 +20,7 @@ export default () => (
       <div className='faq-row'>
         <div className='theme'>
           <Question question='Qui gère ce site ?'>
-            <p>Le site cadastre.data.gouv.fr est géré par la <a href='https://www.etalab.gouv.fr'>mission Etalab</a> de la direction interministérielle du numérique et du système d’information et de communication de l’État (DINSIC).</p>
+            <p>Le site cadastre.data.gouv.fr est géré par la <a href='https://www.etalab.gouv.fr'>mission Etalab</a> de la direction interministérielle du numérique (DINUM).</p>
           </Question>
 
           <Question question='Que puis-je faire avec les données ?'>
