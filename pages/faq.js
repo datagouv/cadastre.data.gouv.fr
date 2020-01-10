@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FaQuestion from 'react-icons/lib/fa/question'
+import {HelpCircle} from 'react-feather'
 import Page from '../layouts/main'
 
 import Head from '../components/head'
@@ -13,7 +13,7 @@ const description = 'Questions les plus fréquemment posées.'
 
 export default () => (
   <Page title={title} description={description}>
-    <Head title={title} icon={<FaQuestion />}>
+    <Head title={title} icon={<span className='feather-icon'><HelpCircle /></span>}>
       {description}
     </Head>
     <Section>
