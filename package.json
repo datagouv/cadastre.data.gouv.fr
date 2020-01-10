@@ -23,6 +23,7 @@
     "react": "^16.10.2",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.10.2",
+    "react-feather": "^2.0.3",
     "react-icons": "^2.2.7",
     "underscore.string": "^3.3.5"
   },
