@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FaOBuilding from 'react-icons/lib/fa/building-o'
+import {Home} from 'react-feather'
 import Page from '../layouts/main'
 
 import Head from '../components/head'
@@ -15,7 +15,7 @@ const description = 'Consultez les ventes foncières réalisées au cours des ci
 
 export default () => (
   <Page title={title} description={description}>
-    <Head title={title} icon={<FaOBuilding />}>
+    <Head title={title} icon={<span className='feather-icon'><Home /></span>}>
       {description}
     </Head>
     <Section title='Améliorer l’accès aux données sur les ventes de biens fonciers' background='white'>

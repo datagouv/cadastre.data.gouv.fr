@@ -1,5 +1,5 @@
 import React from 'react'
-import FlaskIcon from 'react-icons/lib/fa/flask'
+import {Maximize} from 'react-feather'
 import Page from '../../layouts/main'
 
 import Head from '../../components/head'
@@ -10,7 +10,7 @@ const description = 'Données consolidées pour la France entière, produites pa
 
 export default () => (
   <Page title={title} description={description}>
-    <Head title={title} icon={<FlaskIcon />}>
+    <Head title={title} icon={<span className='feather-icon'><Maximize /></span>}>
       {description}
     </Head>
     <CadastreEtalab />

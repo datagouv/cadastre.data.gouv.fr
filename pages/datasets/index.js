@@ -1,5 +1,5 @@
 import React from 'react'
-import DownloadIcon from 'react-icons/lib/fa/download'
+import {Download} from 'react-feather'
 import Page from '../../layouts/main'
 
 import Head from '../../components/head'
@@ -10,7 +10,7 @@ const description = 'Plusieurs jeux de données sont mis à disposition sous Lic
 
 export default () => (
   <Page title={title} description={description}>
-    <Head title={title} icon={<DownloadIcon />}>
+    <Head title={title} icon={<span className='feather-icon'><Download /></span>}>
       {description}
     </Head>
     <Datasets />
