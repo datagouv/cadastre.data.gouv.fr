@@ -21,7 +21,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const {title, description, children} = this.props
+    const {title, description, hasFooter, children} = this.props
 
     return (
       <div>
@@ -31,7 +31,7 @@ class Layout extends React.Component {
         <main>
           { children }
         </main>
-        <Footer />
+        {hasFooter && <Footer />}
         <style jsx>{`
           div {
              display: flex;
@@ -56,13 +56,15 @@ Layout.propTypes = {
   }).isRequired,
   children: PropTypes.node,
   title: PropTypes.string,
+  hasFooter: PropTypes.bool,
   description: PropTypes.string
 }
 
 Layout.defaultProps = {
   children: null,
   title: null,
-  description: null
+  description: null,
+  hasFooter: true
 }
 
 export default withRouter(Layout)
