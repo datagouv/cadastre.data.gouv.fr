@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import debounce from 'debounce'
 
+import theme from '../styles/theme'
+
 import SearchInput from './search-input'
 
 class ApiGeo extends React.Component {
@@ -37,6 +39,48 @@ class ApiGeo extends React.Component {
     this.setState({value: ''})
   }
 
+  getItemValue(item) {
+    return item.nom
+  }
+
+  renderItem(item, isHighlighted) {
+    let description
+
+    if (item.departement) {
+      description = `${item.departement.nom} - ${item.departement.code}`
+    } else if (item.region) {
+      description = item.region.nom
+    } else {
+      description = 'Collectivité d’outre-mer'
+    }
+
+    return (
+      <div key={item.code} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>
+        <div>{item.nom}</div>
+        <div>{description}</div>
+        <style jsx>{`
+          .item {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            border-bottom: 1px solid whitesmoke;
+          }
+
+          .item:hover {
+            cursor: pointer;
+          }
+
+          .item-highlighted {
+            background-color: ${theme.primary};
+            color: ${theme.colors.white};
+          }
+        `}</style>
+      </div>
+    )
+  }
+
   search(url) {
     const options = {
       headers: {
@@ -64,10 +108,10 @@ class ApiGeo extends React.Component {
     })
   }
 
-  selectTerritory(territory) {
+  selectTerritory(value, feature) {
     const {onSelect} = this.props
-    this.setState({value: territory.nom})
-    onSelect(territory)
+    this.setState({value: feature.nom})
+    onSelect(feature)
   }
 
   render() {
@@ -78,15 +122,15 @@ class ApiGeo extends React.Component {
       'Taper le nom du département'
 
     return (
-      <div>
-        <SearchInput
-          value={value}
-          results={results}
-          loading={loading}
-          placeholder={placeholder}
-          search={this.updateValue}
-          handleSelect={this.selectTerritory} />
-      </div>
+      <SearchInput
+        value={value}
+        results={results}
+        isLoading={loading}
+        placeholder={placeholder}
+        renderItem={this.renderItem}
+        getItemValue={this.getItemValue}
+        onSearch={this.updateValue}
+        onSelect={this.selectTerritory} />
     )
   }
 }
