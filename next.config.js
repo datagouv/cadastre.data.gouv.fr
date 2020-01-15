@@ -1,6 +1,13 @@
 const {join} = require('path')
+const nextRuntimeDotenv = require('next-runtime-dotenv')
 
-module.exports = {
+const withConfig = nextRuntimeDotenv({
+  public: [
+    'API_ADRESSE'
+  ]
+})
+
+module.exports = withConfig({
   webpack(config, {dev, isServer}) {
     if (!dev && !isServer) {
       const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
@@ -26,4 +33,4 @@ module.exports = {
       '/datasets/cadastre-etalab': {page: '/datasets/cadastre-etalab'}
     }
   }
-}
+})
