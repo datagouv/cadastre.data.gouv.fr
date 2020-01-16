@@ -17,8 +17,9 @@ const description = 'Cherchez des adresses et lieux-dits.'
 
 const zoomLevel = {
   street: 16,
+  locality: 17,
   housenumber: 18,
-  locality: 15
+  municipality: 13
 }
 
 const MapPage = ({defaultInput}) => {
