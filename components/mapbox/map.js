@@ -6,6 +6,7 @@ import mapStyle from 'mapbox-gl/dist/mapbox-gl.css'
 
 import Notification from '../notification'
 
+import {vector, ortho} from './styles'
 import SwitchMapStyle from './switch-map-style'
 
 import useMarker from './hooks/marker'
@@ -15,24 +16,16 @@ import useLoadData from './hooks/load-data'
 const DEFAULT_CENTER = [1.7, 46.9]
 const DEFAULT_ZOOM = 5
 
-const STYLES = {
-  vector: 'https://openmaptiles.geo.data.gouv.fr/styles/osm-bright/style.json',
-  ortho: {
-    version: 8,
-    glyphs: 'https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf',
-    sources: {
-      'raster-tiles': {
-        type: 'raster',
-        tiles: ['https://tiles.geo.api.gouv.fr/photographies-aeriennes/tiles/{z}/{x}/{y}'],
-        tileSize: 256,
-        attribution: '© IGN'
-      }
-    },
-    layers: [{
-      id: 'simple-tiles',
-      type: 'raster',
-      source: 'raster-tiles'
-    }]
+function getBaseStyle(style) {
+  switch (style) {
+    case 'ortho':
+      return ortho
+
+    case 'vector':
+      return vector
+
+    default:
+      return vector
   }
 }
 
@@ -81,7 +74,7 @@ const Map = ({hasSwitchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, is
     if (mapContainer) {
       const map = new mapboxgl.Map({
         container: mapContainer,
-        style: STYLES[style],
+        style: getBaseStyle(style),
         center: defaultCenter || DEFAULT_CENTER,
         zoom: defaultZoom || DEFAULT_ZOOM,
         hash: true,
@@ -115,7 +108,7 @@ const Map = ({hasSwitchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, is
 
   useEffect(() => {
     if (map) {
-      map.setStyle(STYLES[style], {diff: false})
+      map.setStyle(getBaseStyle(style), {diff: false})
 
       const onStyleData = () => {
         if (map.isStyleLoaded()) {
