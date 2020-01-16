@@ -84,11 +84,12 @@ const Map = ({hasSwitchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, is
         style: STYLES[style],
         center: defaultCenter || DEFAULT_CENTER,
         zoom: defaultZoom || DEFAULT_ZOOM,
+        hash: true,
         isInteractive
       })
 
       if (hasControl) {
-        map.addControl(new mapboxgl.NavigationControl({ showCompass: false }))
+        map.addControl(new mapboxgl.NavigationControl({showCompass: false}))
       }
 
       map.once('load', () => {
@@ -114,7 +115,7 @@ const Map = ({hasSwitchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, is
 
   useEffect(() => {
     if (map) {
-      map.setStyle(STYLES[style], { diff: false })
+      map.setStyle(STYLES[style], {diff: false})
 
       const onStyleData = () => {
         if (map.isStyleLoaded()) {
