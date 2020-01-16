@@ -1,0 +1,135 @@
+{
+  "version": 8,
+  "name": "Basic",
+  "metadata": {
+    "mapbox:autocomposite": false,
+    "mapbox:type": "template",
+    "maputnik:renderer": "mbgljs",
+    "openmaptiles:version": "3.x",
+    "openmaptiles:mapbox:owner": "openmaptiles",
+    "openmaptiles:mapbox:source:url": "mapbox://openmaptiles.4qljc88t"
+  },
+  "sources": {
+    "cadastre": {
+      "type": "vector",
+      "url": "https://openmaptiles.geo.data.gouv.fr/data/cadastre.json"
+    },
+    "decoupage-administratif": {
+      "type": "vector",
+      "url": "https://openmaptiles.geo.data.gouv.fr/data/decoupage-administratif.json"
+    },
+    "photographies-aeriennes": {
+      "type": "raster",
+      "tiles": [
+        "https://tiles.geo.api.gouv.fr/photographies-aeriennes/tiles/{z}/{x}/{y}"
+      ],
+      "minzoom": 0,
+      "maxzoom": 19
+    }
+  },
+  "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
+  "glyphs": "https://openmaptiles.geo.data.gouv.fr/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "photographies-aeriennes",
+      "type": "raster",
+      "source": "photographies-aeriennes"
+    },
+    {
+      "id": "communes",
+      "type": "line",
+      "source": "decoupage-administratif",
+      "source-layer": "communes",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": [
+        "all"
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(21, 255, 0, 1)"
+      }
+    },
+    {
+      "id": "departements",
+      "type": "line",
+      "source": "decoupage-administratif",
+      "source-layer": "departements",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(212, 70, 5, 1)"
+      }
+    },
+    {
+      "id": "regions",
+      "type": "line",
+      "source": "decoupage-administratif",
+      "source-layer": "regions",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 0, 1)"
+      }
+    },
+    {
+      "id": "batiments-fill",
+      "type": "fill",
+      "source": "cadastre",
+      "source-layer": "batiments",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(193, 128, 128, 1)",
+        "fill-opacity": 0.5,
+        "fill-antialias": true
+      }
+    },
+    {
+      "id": "batiments",
+      "type": "line",
+      "source": "cadastre",
+      "source-layer": "batiments",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(179, 0, 9, 1)"
+      }
+    },
+    {
+      "id": "parcelles",
+      "type": "line",
+      "source": "cadastre",
+      "source-layer": "parcelles",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(129, 123, 0, 1)"
+      }
+    },
+    {
+      "id": "sections",
+      "type": "line",
+      "source": "cadastre",
+      "source-layer": "sections",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(12, 163, 255, 1)"
+      }
+    }
+  ],
+  "id": "basic"
+}

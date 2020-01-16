@@ -29,7 +29,7 @@ const Map = ({center, zoom}) => {
         .map-container {
           width: 100%;
           position: relative;
-          height: calc(100vh - 78px);
+          height: calc(100vh - 72px);
         }
 
         @media (max-width: 700px) {
