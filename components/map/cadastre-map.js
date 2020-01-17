@@ -1,8 +1,65 @@
 /* eslint react/no-danger: off */
-import {useEffect} from 'react'
+import {useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 
-const AddressMap = ({map, zoom, center}) => {
+let hoveredStateId = null
+let selectedId = null
+
+const CadastreMap = ({map, zoom, center, selectedParcelle, selectParcelle}) => {
+  const handleClick = useCallback(e => {
+    const {id} = e.features[0]
+    selectParcelle(id === selectedId ? null : e.features[0])
+  }, [selectParcelle])
+
+  const onHover = e => {
+    if (e.features.length > 0) {
+      const {id, source, sourceLayer} = e.features[0]
+      if (hoveredStateId) {
+        map.setFeatureState({source, sourceLayer, id: hoveredStateId}, {hover: false})
+      }
+
+      hoveredStateId = id
+
+      map.getCanvas().style.cursor = 'pointer'
+
+      map.setFeatureState({source, sourceLayer, id: hoveredStateId}, {hover: true})
+    }
+  }
+
+  const onLeave = () => {
+    if (hoveredStateId) {
+      map.setFeatureState({source: 'cadastre', sourceLayer: 'parcelles', id: hoveredStateId}, {hover: false})
+
+      map.getCanvas().style.cursor = 'default'
+      hoveredStateId = null
+      // SetSelectedFeature(null)
+    }
+  }
+
+  useEffect(() => {
+    if (selectedId) {
+      map.setFeatureState({
+        source: 'cadastre',
+        sourceLayer: 'parcelles',
+        id: selectedId
+      },
+      {selected: false}
+      )
+    }
+
+    if (selectedParcelle) {
+      map.setFeatureState({
+        source: 'cadastre',
+        sourceLayer: 'parcelles',
+        id: selectedParcelle.id
+      },
+      {selected: true}
+      )
+    }
+
+    selectedId = selectedParcelle ? selectedParcelle.id : null
+  }, [map, selectedParcelle])
+
   useEffect(() => {
     if (zoom) {
       map.setZoom(zoom)
@@ -13,13 +70,32 @@ const AddressMap = ({map, zoom, center}) => {
     }
   }, [center, map, zoom])
 
+  useEffect(() => {
+    map.on('mousemove', 'parcelles-fill', onHover)
+    map.on('mouseleave', 'parcelles-fill', onLeave)
+    map.on('click', 'parcelles-fill', handleClick)
+
+    return () => {
+      map.off('mousemove', 'parcelles-fill', onHover)
+      map.off('mouseleave', 'parcelles-fill', onLeave)
+      map.off('click', 'parcelles-fill', handleClick)
+    }
+
+    // No dependency in order to mock a didMount and avoid duplicating events.
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
   return null
 }
 
-AddressMap.propTypes = {
-  zoom: PropTypes.number,
-  center: PropTypes.object,
-  map: PropTypes.object.isRequired
+CadastreMap.propTypes = {
+  selectedParcelle: null
 }
 
-export default AddressMap
+CadastreMap.propTypes = {
+  map: PropTypes.object.isRequired,
+  zoom: PropTypes.number,
+  center: PropTypes.array,
+  selectedParcelle: PropTypes.number,
+  selectParcelle: PropTypes.func.isRequired
+}
+
+export default CadastreMap

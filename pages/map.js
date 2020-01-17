@@ -8,9 +8,11 @@ import {search} from '../lib/api-adresse'
 
 import Page from '../layouts/main'
 
-import Map from '../components/map'
+import Mapbox from '../components/mapbox'
 import SearchInput from '../components/search-input'
 import renderAddress from '../components/search-input/render-address'
+
+import CadastreMap from '../components/map/cadastre-map'
 
 const title = 'Carte interactive'
 const description = 'Cherchez des adresses et lieux-dits.'
@@ -28,6 +30,7 @@ const MapPage = ({defaultInput}) => {
   const [zoom, setZoom] = useState()
   const [placeholder, setPlaceholder] = useInput(defaultInput)
   const [results, setResults] = useState([])
+  const [parcelle, setParcelle] = useState(null)
 
   const handleSelect = address => {
     const {label} = address.properties
@@ -69,30 +72,42 @@ const MapPage = ({defaultInput}) => {
           />
         </div>
 
-        <Map center={center} zoom={zoom} />
+        <div className='map-container'>
+          <Mapbox
+            defaultZoom={zoom}
+            defaultCenter={center}
+            hasSwitchStyle
+          >
+            {({...mapboxProps}) => (
+              <CadastreMap
+                {...mapboxProps}
+                zoom={zoom}
+                center={center}
+                selectedParcelle={parcelle}
+                selectParcelle={setParcelle}
+              />
+            )}
+          </Mapbox>
+        </div>
       </div>
 
       <style jsx>{`
-        .interactive-map {
+        .map-container {
+          width: 100%;
           position: relative;
+          height: calc(100vh - 72px);
         }
 
         .input {
-          z-index: 999;
-          width: 40%;
-          min-width: 260px;
+          z-index: 5;
           position: absolute;
-          top: 16px;
-          left: 50%;
-          transform: translate(-50%);
+          margin: 10px 0 0 10px;
+          width: 400px;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 470px) {
           .input {
-            min-width: 100%;
-            top: 0;
-            left: 0;
-            transform: none;
+            width: calc(100% - 50px);
           }
         }
       `}</style>
