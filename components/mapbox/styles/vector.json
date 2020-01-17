@@ -107,7 +107,7 @@
       }
     },
     {
-      "id": "parcelles",
+      "id": "parcelles-line",
       "type": "line",
       "source": "cadastre",
       "source-layer": "parcelles",
@@ -116,6 +116,52 @@
       },
       "paint": {
         "line-color": "rgba(129, 123, 0, 1)"
+      }
+    },
+    {
+      "id": "parcelles-fill",
+      "type": "fill",
+      "source": "cadastre",
+      "source-layer": "parcelles",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": [
+          "case",
+          [
+            "boolean",
+            [
+              "feature-state",
+              "selected"
+            ],
+            false
+          ],
+          "rgba(1, 129, 0, 1)",
+          "rgba(129, 123, 0, 1)"
+        ],
+        "fill-opacity": [
+          "case",
+          [
+            "boolean",
+            [
+              "feature-state",
+              "hover"
+            ],
+            false
+          ],
+          0.7,
+          [
+            "boolean",
+            [
+              "feature-state",
+              "selected"
+            ],
+            false
+          ],
+          0.7,
+          0.1
+        ]
       }
     },
     {

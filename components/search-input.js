@@ -101,7 +101,7 @@ class SearchInput extends React.Component {
         ) : items)}
         <style jsx>{`
           .menu {
-            position: absolute;
+            position: relative;
             box-shadow: 0 1px 4px ${theme.boxShadow};
             z-index: 1;
             width: 100%;
@@ -124,10 +124,6 @@ class SearchInput extends React.Component {
           }
 
           @media (max-width: 399px) {
-            .menu {
-              width: calc(100% - 40px);
-            }
-
             .fullscreen {
               width: 100%;
             }
