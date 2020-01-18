@@ -76,6 +76,7 @@ const MapPage = ({defaultInput}) => {
           <Mapbox
             defaultZoom={zoom}
             defaultCenter={center}
+            defaultStyle='ortho'
             hasSwitchStyle
           >
             {({...mapboxProps}) => (
