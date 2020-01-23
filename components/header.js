@@ -14,9 +14,8 @@ export default () => (
     <div className='navbar__container'>
 
       <Link href='/'>
-        <a className='navbar__home' href='/'>
-          <img className='navbar__logo' src='/static/images/logos/logo-marianne.svg' alt='cadastre.data.gouv.fr' />
-          <span className='navbar__domain'>cadastre</span><img src='/static/images/logos/pointgouvfr.svg' className='navbar__gouvfr' alt='data.gouv.fr' />
+        <a className='nav__link'>
+          <img className='nav__logo' src='/static/images/logos/cadastre.data.gouv.fr.svg' alt='Page d’accueil de cadastre.data.gouv.fr' />
         </a>
       </Link>
 
@@ -45,12 +44,12 @@ export default () => (
         background: none;
       }
 
-      .navbar__gouvfr {
-        width: 72px;
-      }
-
       .hamburger-menu {
         display: none;
+      }
+
+      .nav__logo {
+        height: 42px;
       }
 
       @media (max-width: 800px) {
@@ -66,7 +65,7 @@ export default () => (
 
       @media (max-width: 380px) {
         .nav__logo {
-          height: 60px;
+          height: 32px;
         }
       }
     `}</style>
