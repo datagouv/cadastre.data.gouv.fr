@@ -15,7 +15,7 @@ export default () => (
 
       <Link href='/'>
         <a className='nav__link'>
-          <img className='nav__logo' src='/static/images/logos/cadastre.data.gouv.fr.svg' alt='Page d’accueil de cadastre.data.gouv.fr' />
+          <img className='nav__logo' src='/static/images/logos/cadastre.data.gouv.fr.png' alt='Page d’accueil de cadastre.data.gouv.fr' />
         </a>
       </Link>
 
@@ -49,7 +49,7 @@ export default () => (
       }
 
       .nav__logo {
-        height: 42px;
+        height: 34px;
       }
 
       @media (max-width: 800px) {
@@ -65,7 +65,7 @@ export default () => (
 
       @media (max-width: 380px) {
         .nav__logo {
-          height: 32px;
+          height: 26px;
         }
       }
     `}</style>
