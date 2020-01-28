@@ -49,7 +49,7 @@ export default () => (
       }
 
       .nav__logo {
-        height: 42px;
+        height: 38px;
       }
 
       @media (max-width: 800px) {
@@ -65,7 +65,7 @@ export default () => (
 
       @media (max-width: 380px) {
         .nav__logo {
-          height: 32px;
+          height: 28px;
         }
       }
     `}</style>
