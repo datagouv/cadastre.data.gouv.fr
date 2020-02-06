@@ -1,11 +1,20 @@
 /* eslint react/no-danger: off */
-import {useCallback, useEffect} from 'react'
+import React, {useCallback, useEffect} from 'react'
+import {renderToString} from 'react-dom/server'
 import PropTypes from 'prop-types'
 
 let hoveredStateId = null
 let selectedId = null
 
-const CadastreMap = ({map, zoom, center, selectedParcelle, selectParcelle}) => {
+const popUp = parcelle => (
+  <div>
+    {Object.keys(parcelle).map(k => (
+      <div key={k}><b>{k}</b> : {parcelle[k] || 'inconnu'}</div>
+    ))}
+  </div>
+)
+
+const CadastreMap = ({map, zoom, center, popup, selectedParcelle, selectParcelle}) => {
   const handleClick = useCallback(e => {
     const {id} = e.features[0]
     selectParcelle(id === selectedId ? null : e.features[0])
@@ -20,6 +29,10 @@ const CadastreMap = ({map, zoom, center, selectedParcelle, selectParcelle}) => {
 
       hoveredStateId = id
 
+      popup.setLngLat(e.lngLat)
+        .setHTML(renderToString(popUp(e.features[0].properties)))
+        .addTo(map)
+
       map.getCanvas().style.cursor = 'pointer'
 
       map.setFeatureState({source, sourceLayer, id: hoveredStateId}, {hover: true})
@@ -32,6 +45,8 @@ const CadastreMap = ({map, zoom, center, selectedParcelle, selectParcelle}) => {
 
       map.getCanvas().style.cursor = 'default'
       hoveredStateId = null
+
+      popup.remove()
       // SetSelectedFeature(null)
     }
   }
