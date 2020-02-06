@@ -1,7 +1,7 @@
 import React, {useState, useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
-import {debounce} from 'lodash'
+import {debounce, pickBy, identity} from 'lodash'
 
 import {useInput} from '../components/hooks/input'
 import {search} from '../lib/api-adresse'
@@ -24,13 +24,13 @@ const zoomLevel = {
   municipality: 13
 }
 
-const MapPage = ({defaultInput}) => {
+const MapPage = ({defaultInput, defaultParcelleId}) => {
   const [input, setInput] = useInput(defaultInput)
   const [center, setCenter] = useState()
   const [zoom, setZoom] = useState()
   const [placeholder, setPlaceholder] = useInput(defaultInput)
   const [results, setResults] = useState([])
-  const [parcelle, setParcelle] = useState(null)
+  const [parcelleId, setParcelleId] = useState(defaultParcelleId)
 
   const handleSelect = address => {
     const {label} = address.properties
@@ -41,14 +41,26 @@ const MapPage = ({defaultInput}) => {
     setZoom(zoom)
     setInput('')
     setPlaceholder(label)
+    setParcelleId(null)
 
-    Router.push(`/map?q=${input}`)
+    Router.push({
+      pathname: '/map',
+      query: {q: encodeURI(label)}
+    })
   }
 
   const searchAddress = useCallback(debounce(async () => {
     const results = await search({q: input})
     setResults(results.features)
   }), [input])
+
+  useEffect(() => {
+    Router.push({
+      pathname: '/map',
+      query: pickBy({...Router.query, parcelleId}, identity),
+      hash: window.location.hash
+    })
+  }, [parcelleId])
 
   useEffect(() => {
     if (input.length > 0) {
@@ -84,8 +96,8 @@ const MapPage = ({defaultInput}) => {
                 {...mapboxProps}
                 zoom={zoom}
                 center={center}
-                selectedParcelle={parcelle}
-                selectParcelle={setParcelle}
+                selectedParcelleId={parcelleId}
+                selectParcelle={setParcelleId}
               />
             )}
           </Mapbox>
@@ -117,18 +129,21 @@ const MapPage = ({defaultInput}) => {
 }
 
 MapPage.propTypes = {
-  defaultInput: PropTypes.string
+  defaultInput: PropTypes.string,
+  defaultParcelleId: PropTypes.string
 }
 
 MapPage.defaultProps = {
-  defaultInput: null
+  defaultInput: null,
+  defaultParcelleId: null
 }
 
 MapPage.getInitialProps = async ({query}) => {
-  const {q} = query
+  const {q, parcelleId} = query
 
   return {
-    defaultInput: q
+    defaultInput: q ? decodeURI(q) : null,
+    defaultParcelleId: parcelleId
   }
 }
 

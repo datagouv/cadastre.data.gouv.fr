@@ -8,10 +8,10 @@ import ParcelleSumup from './parcelle-sumup'
 let hoveredStateId = null
 let selectedId = null
 
-const CadastreMap = ({map, zoom, center, popup, selectedParcelle, selectParcelle}) => {
+const CadastreMap = ({map, zoom, center, popup, selectedParcelleId, selectParcelle}) => {
   const handleClick = useCallback(e => {
     const {id} = e.features[0]
-    selectParcelle(id === selectedId ? null : e.features[0])
+    selectParcelle(id === selectedId ? null : e.features[0].id)
   }, [selectParcelle])
 
   const onHover = e => {
@@ -57,18 +57,18 @@ const CadastreMap = ({map, zoom, center, popup, selectedParcelle, selectParcelle
       )
     }
 
-    if (selectedParcelle) {
+    if (selectedParcelleId) {
       map.setFeatureState({
         source: 'cadastre',
         sourceLayer: 'parcelles',
-        id: selectedParcelle.id
+        id: selectedParcelleId
       },
       {selected: true}
       )
     }
 
-    selectedId = selectedParcelle ? selectedParcelle.id : null
-  }, [map, selectedParcelle])
+    selectedId = selectedParcelleId
+  }, [map, selectedParcelleId])
 
   useEffect(() => {
     if (zoom) {
