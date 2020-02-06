@@ -5,6 +5,7 @@ import HamburgerMenu from './hamburger-menu'
 
 const links = [
   {text: 'Données cadastrales', href: '/datasets'},
+  {text: 'Carte', href: '/map'},
   {text: 'DVF', href: '/dvf'},
   {text: 'FAQ', href: '/faq'}
 ]
