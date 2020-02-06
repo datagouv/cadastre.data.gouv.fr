@@ -108,10 +108,10 @@ class ApiGeo extends React.Component {
     })
   }
 
-  selectTerritory(value, feature) {
+  selectTerritory(territory) {
     const {onSelect} = this.props
-    this.setState({value: feature.nom})
-    onSelect(feature)
+    this.setState({value: territory.nom})
+    onSelect(territory)
   }
 
   render() {
