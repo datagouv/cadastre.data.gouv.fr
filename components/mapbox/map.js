@@ -34,15 +34,13 @@ const Map = ({hasSwitchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, is
   const [mapContainer, setMapContainer] = useState(null)
   const [isFirstLoad, setIsFirstLoad] = useState(false)
   const [style, setStyle] = useState(defaultStyle)
-  const [sources, setSources] = useState([])
-  const [layers, setLayers] = useState([])
   const [infos, setInfos] = useState(null)
   const [tools, setTools] = useState(null)
   const [marker, setMarkerCoordinates] = useMarker(map)
   const [popup] = usePopup(marker)
   const [mapError, setMapError] = useState(error)
 
-  const reloadData = useLoadData(map, isFirstLoad, sources, layers)
+  const reloadData = useLoadData(map, isFirstLoad)
 
   const mapReference = useCallback(ref => {
     if (ref) {
@@ -152,8 +150,6 @@ const Map = ({hasSwitchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, is
           marker,
           popup,
           style,
-          setSources,
-          setLayers,
           setInfos,
           setTools,
           setMarkerCoordinates
