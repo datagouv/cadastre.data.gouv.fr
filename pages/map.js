@@ -1,9 +1,11 @@
 import React, {useState, useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
-import {debounce, pickBy, identity} from 'lodash'
+import {pickBy, identity} from 'lodash'
 
 import {useInput} from '../components/hooks/input'
+import useDebounce from '../components/hooks/debounce'
+
 import {search} from '../lib/api-adresse'
 
 import Page from '../layouts/main'
@@ -32,6 +34,8 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
   const [results, setResults] = useState([])
   const [parcelleId, setParcelleId] = useState(defaultParcelleId)
 
+  const debouncedInput = useDebounce(input, 400)
+
   const handleSelect = address => {
     const {label} = address.properties
     const coords = address.geometry.coordinates
@@ -49,10 +53,10 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
     })
   }
 
-  const searchAddress = useCallback(debounce(async () => {
-    const results = await search({q: input})
+  const searchAddress = useCallback(async () => {
+    const results = await search({q: debouncedInput})
     setResults(results.features)
-  }), [input])
+  }, [debouncedInput])
 
   useEffect(() => {
     Router.push({
@@ -63,10 +67,10 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
   }, [parcelleId])
 
   useEffect(() => {
-    if (input.length > 0) {
+    if (debouncedInput.length > 0) {
       searchAddress()
     }
-  }, [input, searchAddress])
+  }, [debouncedInput, searchAddress])
 
   return (
     <Page title={title} description={description} hasFooter={false}>
