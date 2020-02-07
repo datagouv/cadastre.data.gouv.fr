@@ -7,6 +7,11 @@ import theme from '../styles/theme'
 import Loader from './loader'
 
 class SearchInput extends React.Component {
+  constructor(props) {
+    super(props)
+    this.inputRef = React.createRef()
+  }
+
   static propTypes = {
     results: PropTypes.array,
     value: PropTypes.string,
@@ -37,6 +42,7 @@ class SearchInput extends React.Component {
 
   handleSelect = (itemName, item) => {
     const {onSelect} = this.props
+    this.inputRef.current.blur()
 
     onSelect(item)
   }
@@ -139,7 +145,7 @@ class SearchInput extends React.Component {
     return (
       <div className='wrap'>
         <Autocomplete
-          inputProps={{nFocus: this.onFocus}}
+          ref={this.inputRef}
           value={value}
           wrapperStyle={wrapperStyle}
           items={results}
