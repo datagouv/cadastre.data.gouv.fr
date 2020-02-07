@@ -195,7 +195,7 @@ const Map = ({hasSwitchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, is
             position: absolute;
             max-height: ${hasSwitchStyle ? 'calc(100% - 116px)' : '100%'};
             overflow-y: ${hasSwitchStyle ? 'scroll' : 'initial'};
-            z-index: 900;
+            z-index: 1;
             padding: 0.5em;
             margin: 0.5em;
             border-radius: 4px;
