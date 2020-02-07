@@ -17,7 +17,7 @@ import renderAddress from '../components/search-input/render-address'
 import CadastreMap from '../components/map/cadastre-map'
 
 const title = 'Carte interactive'
-const description = 'Cherchez des adresses et lieux-dits.'
+const description = 'Consulter les données cadastrales'
 
 const zoomLevel = {
   street: 16,
@@ -73,7 +73,7 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
   }, [debouncedInput, searchAddress])
 
   return (
-    <Page title={title} description={description} hasFooter={false}>
+    <Page title={title} description={description} fullscreen>
       <div className='interactive-map'>
         <div className='input'>
           <SearchInput
@@ -109,10 +109,14 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
       </div>
 
       <style jsx>{`
-        .map-container {
+        .interactive-map {
+          position: absolute;
+          top: 72px;
+          bottom: 0;
+          left: 0;
+          right: 0;
           width: 100%;
-          position: relative;
-          height: calc(100vh - 72px);
+          overflow: hidden;
         }
 
         .input {
@@ -122,13 +126,18 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
           width: 400px;
         }
 
+        .map-container {
+          height: 100%;
+        }
+
         @media (max-width: 470px) {
           .input {
-            width: calc(100% - 50px);
+            width: calc(100% - 55px);
           }
         }
       `}</style>
     </Page>
+
   )
 }
 
