@@ -11,6 +11,7 @@
     "export": "next export",
     "start": "NODE_ENV=production node server",
     "lint": "xo",
+    "test": "ava",
     "heroku-postbuild": "next build"
   },
   "dependencies": {
@@ -32,6 +33,7 @@
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
+    "ava": "^3.3.0",
     "babel-eslint": "^10.0.3",
     "babel-plugin-inline-import": "^3.0.0",
     "eslint-config-xo-nextjs": "^1.5.0",
