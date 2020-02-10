@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-const Hero = ({title, tagline}) => (
+const Hero = ({title, tagline, children}) => (
   <div className='hero'>
     <div className='hero__container'>
       <h1 className='hero__white-background'>{title}</h1>
       <p className='hero__white-background'>{tagline}</p>
+      {children}
     </div>
     <style jsx>{`
       .hero {
@@ -26,7 +27,12 @@ const Hero = ({title, tagline}) => (
 
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
-  tagline: PropTypes.string.isRequired
+  tagline: PropTypes.string.isRequired,
+  children: PropTypes.node
+}
+
+Hero.defaultProps = {
+  children: null
 }
 
 export default Hero
