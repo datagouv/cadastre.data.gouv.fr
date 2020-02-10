@@ -29,7 +29,7 @@ function getBaseStyle(style) {
   }
 }
 
-const Map = ({hasSwitchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, isInteractive, hasControl, isLoading, error, children}) => {
+const Map = ({hasSwitchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, isInteractive, showControls, controls, isLoading, error, children}) => {
   const [map, setMap] = useState(null)
   const [mapContainer, setMapContainer] = useState(null)
   const [isFirstLoad, setIsFirstLoad] = useState(false)
@@ -79,8 +79,11 @@ const Map = ({hasSwitchStyle, bbox, defaultStyle, defaultCenter, defaultZoom, is
         isInteractive
       })
 
-      if (hasControl) {
+      if (showControls) {
         map.addControl(new mapboxgl.NavigationControl({showCompass: false}))
+        controls.forEach(control => {
+          map.addControl(control, 'top-right')
+        })
       }
 
       map.once('load', () => {
@@ -231,7 +234,8 @@ Map.propTypes = {
     'ortho'
   ]),
   isInteractive: PropTypes.bool,
-  hasControl: PropTypes.bool,
+  showControls: PropTypes.bool,
+  controls: PropTypes.array,
   defaultCenter: PropTypes.array,
   defaultZoom: PropTypes.number,
   isLoading: PropTypes.bool,
@@ -243,7 +247,8 @@ Map.defaultProps = {
   bbox: null,
   defaultStyle: 'vector',
   isInteractive: true,
-  hasControl: true,
+  showControls: true,
+  controls: [],
   defaultCenter: DEFAULT_CENTER,
   defaultZoom: DEFAULT_ZOOM,
   isLoading: false,

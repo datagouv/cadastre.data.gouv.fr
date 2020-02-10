@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect, useRef} from 'react'
+import React, {useState, useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
 import {pickBy, identity} from 'lodash'
@@ -15,6 +15,8 @@ import SearchInput from '../components/search-input'
 import renderAddress from '../components/search-input/render-address'
 
 import CadastreMap from '../components/map/cadastre-map'
+
+import BatiControl, {styleControl} from '../components/map/controls/bati-control'
 
 const title = 'Carte interactive'
 const description = 'Consulter les données cadastrales'
@@ -93,6 +95,7 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
             defaultZoom={zoom}
             defaultCenter={center}
             defaultStyle='ortho'
+            controls={[BatiControl]}
             hasSwitchStyle
           >
             {({...mapboxProps}) => (
@@ -108,6 +111,7 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
         </div>
       </div>
 
+      <style jsx global>{styleControl}</style>
       <style jsx>{`
         .interactive-map {
           position: absolute;
