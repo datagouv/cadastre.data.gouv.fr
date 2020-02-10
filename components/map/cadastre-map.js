@@ -25,7 +25,7 @@ const CadastreMap = ({map, zoom, center, popup, selectedParcelleId, selectParcel
 
       popup.setLngLat(e.lngLat)
         .setHTML(renderToString(
-          <ParcelleSumup parcelle={e.features[0].properties} />
+          <ParcelleSumup {...e.features[0].properties} />
         ))
         .addTo(map)
 
