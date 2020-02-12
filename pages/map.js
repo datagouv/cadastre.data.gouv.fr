@@ -90,13 +90,16 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
   useEffect(() => {
     if (window.location && window.location.hash) {
       const {hash} = window.location
-      const [zoom, lat, lng] = hash.replace('#', '').split('/')
 
-      setViewport({
-        latitude: Number(lat),
-        longitude: Number(lng),
-        zoom: Number(zoom)
-      })
+      if (hash !== '#8/0/0') { // Prevent map init to override hash
+        const [zoom, lat, lng] = hash.replace('#', '').split('/')
+
+        setViewport({
+          latitude: Number(lat),
+          longitude: Number(lng),
+          zoom: Number(zoom)
+        })
+      }
     }
   }, [])
 
