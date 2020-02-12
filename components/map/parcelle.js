@@ -1,13 +1,24 @@
-import React from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
 import PropTypes from 'prop-types'
 
 import {X} from 'react-feather'
 
 import {contenanceToSurface} from '../../lib/surfaces'
+import {getCommune} from '../../lib/api-geo'
 import colors from '../../styles/colors'
 
 const Parcelle = ({parcelle, close}) => {
-  const {prefixe, section, numero, commune, contenance, arpente, created, updated} = parcelle
+  const [commune, setCommune] = useState(null)
+  const {prefixe, section, numero, contenance, arpente, created, updated} = parcelle
+
+  const fetchCommune = useCallback(async () => {
+    const commune = await getCommune(parcelle.commune)
+    setCommune(commune)
+  }, [parcelle.commune])
+
+  useEffect(() => {
+    fetchCommune()
+  }, [fetchCommune])
 
   return (
     <div className='parcelle-container'>
@@ -16,7 +27,7 @@ const Parcelle = ({parcelle, close}) => {
         <div className='close' onClick={close}><X /></div>
       </div>
       <div className='content'>
-        <div><b>Commune</b>: {commune}</div>
+        <div><b>Commune</b>: {commune ? `${commune.nom} - ${commune.code}` : '…'}</div>
         <div><b>Contenance cadastrale</b>: {contenanceToSurface(contenance)}</div>
         <div><b>Arpente</b>: {arpente || 'inconnu'}</div>
         <div><b>Créée le</b> {created}</div>
