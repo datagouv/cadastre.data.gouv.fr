@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Router from 'next/router'
 import {pickBy, identity} from 'lodash'
 
+import Map from '../components/react-map-gl'
+
 import {useInput} from '../components/hooks/input'
 import useDebounce from '../components/hooks/debounce'
 
@@ -10,13 +12,10 @@ import {search} from '../lib/api-adresse'
 
 import Page from '../layouts/main'
 
-import Mapbox from '../components/mapbox'
 import SearchInput from '../components/search-input'
 import renderAddress from '../components/search-input/render-address'
 
-import CadastreMap from '../components/map/cadastre-map'
-
-import BatiControl, {styleControl} from '../components/map/controls/bati-control'
+import Parcelle from '../components/map/parcelle'
 
 const title = 'Carte interactive'
 const description = 'Consulter les données cadastrales'
@@ -28,26 +27,32 @@ const zoomLevel = {
   municipality: 13
 }
 
+const defaultViewport = {
+  latitude: 46.9,
+  longitude: 1.7,
+  zoom: 5
+}
+
 const MapPage = ({defaultInput, defaultParcelleId}) => {
   const [input, setInput] = useInput(defaultInput)
-  const [center, setCenter] = useState()
-  const [zoom, setZoom] = useState()
-  const [placeholder, setPlaceholder] = useInput(defaultInput)
+  const [viewport, setViewport] = useState(defaultViewport)
+  const [placeholder, setPlaceholder] = useInput('Rechercher une adresse')
   const [results, setResults] = useState([])
+  const [parcelle, setParcelle] = useState(null)
   const [parcelleId, setParcelleId] = useState(defaultParcelleId)
 
   const debouncedInput = useDebounce(input, 400)
 
   const handleSelect = address => {
     const {label} = address.properties
-    const coords = address.geometry.coordinates
+    const [longitude, latitude] = address.geometry.coordinates
     const zoom = zoomLevel[address.properties.type]
 
-    setCenter(coords)
-    setZoom(zoom)
+    setViewport({zoom, longitude, latitude})
     setInput('')
     setPlaceholder(label)
     setParcelleId(null)
+    setParcelle(null)
 
     Router.push({
       pathname: '/map',
@@ -59,6 +64,14 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
     const results = await search({q: debouncedInput})
     setResults(results.features)
   }, [debouncedInput])
+
+  useEffect(() => {
+    if (parcelle) {
+      setParcelleId(parcelle ? parcelle.featureId : null)
+    } else if (!parcelle && parcelleId !== defaultParcelleId) { // Prevent override defaultParcelleId when parcelle is null
+      setParcelleId(null)
+    }
+  }, [defaultParcelleId, parcelle, parcelleId])
 
   useEffect(() => {
     Router.push({
@@ -74,6 +87,19 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
     }
   }, [debouncedInput, searchAddress])
 
+  useEffect(() => {
+    if (window.location && window.location.hash) {
+      const {hash} = window.location
+      const [zoom, lat, lng] = hash.replace('#', '').split('/')
+
+      setViewport({
+        latitude: Number(lat),
+        longitude: Number(lng),
+        zoom: Number(zoom)
+      })
+    }
+  }, [])
+
   return (
     <Page title={title} description={description} fullscreen>
       <div className='interactive-map'>
@@ -88,30 +114,26 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
             getItemValue={item => item.properties.context}
             fullscreen
           />
+          {parcelle && (
+            <div className='info-panel'>
+              <Parcelle
+                parcelle={parcelle}
+                close={() => setParcelle(null)}
+              />
+            </div>
+          )}
         </div>
 
         <div className='map-container'>
-          <Mapbox
-            defaultZoom={zoom}
-            defaultCenter={center}
-            defaultStyle='ortho'
-            controls={[BatiControl]}
-            hasSwitchStyle
-          >
-            {({...mapboxProps}) => (
-              <CadastreMap
-                {...mapboxProps}
-                zoom={zoom}
-                center={center}
-                selectedParcelleId={parcelleId}
-                selectParcelle={setParcelleId}
-              />
-            )}
-          </Mapbox>
+          <Map
+            viewport={viewport}
+            onViewportChange={setViewport}
+            selectedParcelleId={parcelleId}
+            selectParcelle={setParcelle}
+          />
         </div>
       </div>
 
-      <style jsx global>{styleControl}</style>
       <style jsx>{`
         .interactive-map {
           position: absolute;
@@ -134,9 +156,24 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
           height: 100%;
         }
 
+        .info-panel {
+          margin-top: 0.2em;
+        }
+
         @media (max-width: 470px) {
           .input {
             width: calc(100% - 55px);
+          }
+
+          .info-panel {
+            z-index: 10;
+            position: fixed;
+            top: 66px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
           }
         }
       `}</style>
