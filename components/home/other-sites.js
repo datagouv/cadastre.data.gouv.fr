@@ -5,18 +5,29 @@ export default () => (
   <Section title='Voir aussi' subtitle=''>
     <div className='main'>
       <div>
-        <a href='https://geo.data.gouv.fr'>
-          <img src='/static/images/logos/geo.svg' />
+        <a href='https://adresse.data.gouv.fr'>
+          <img src='/static/images/logos/logo-adresse.svg' />
         </a>
-        <p>Catalogue des données géographiques</p>
       </div>
+      <div>
+        <a href='https://geo.api.gouv.fr'>
+          <img src='/static/images/logos/geo.api.gouv.fr.svg' />
+        </a>
+      </div>
+    </div>
+    <div className='centered'>
+      <p>Catalogues des données géographiques</p>
     </div>
 
     <style jsx>{`
       .main {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
         grid-row-gap: 0.6em;
+        text-align: center;
+      }
+
+      .centered {
         text-align: center;
       }
 
