@@ -41,8 +41,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
   const [viewport, setViewport] = useState(defaultViewport)
   const [showBati, setShowBati] = useState(!hideBati)
   const [style, setStyle] = useState(defaultStyle)
-  const [parcelle, setParcelle] = useState(null)
-  const [parcelleId, setParcelleId] = useState(defaultParcelleId)
+  const [parcelle, setParcelle] = useState(defaultParcelleId ? {id: defaultParcelleId} : null)
 
   const debouncedInput = useDebounce(input, 400)
 
@@ -54,7 +53,6 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
     setViewport({zoom, longitude, latitude})
     setInput('')
     setPlaceholder(label)
-    setParcelleId(null)
     setParcelle(null)
   }
 
@@ -64,25 +62,17 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
   }, [debouncedInput])
 
   useEffect(() => {
-    if (parcelle) {
-      setParcelleId(parcelle ? parcelle.featureId : null)
-    } else if (!parcelle && parcelleId !== defaultParcelleId) { // Prevent override defaultParcelleId when parcelle is null
-      setParcelleId(null)
-    }
-  }, [defaultParcelleId, parcelle, parcelleId])
-
-  useEffect(() => {
     Router.push({
       pathname: '/map',
       query: pickBy({
         ...Router.query,
-        parcelleId,
+        parcelleId: parcelle ? parcelle.id : null,
         hideBati: !showBati,
         style
       }, identity),
       hash: window.location.hash
     })
-  }, [showBati, parcelleId, style])
+  }, [showBati, parcelle, style])
 
   useEffect(() => {
     if (debouncedInput.length > 0) {
@@ -120,7 +110,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
             getItemValue={item => item.properties.context}
             fullscreen
           />
-          {parcelle && (
+          {parcelle && parcelle.section && (
             <div className='info-panel'>
               <Parcelle
                 parcelle={parcelle}
@@ -138,7 +128,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
             style={style}
             changeStyle={() => setStyle(style === 'vector' ? 'ortho' : 'vector')}
             onViewportChange={setViewport}
-            selectedParcelleId={parcelleId}
+            selectedParcelle={parcelle}
             selectParcelle={setParcelle}
           />
         </div>

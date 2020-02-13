@@ -1666,7 +1666,7 @@
       }
     },
     {
-      "id": "parcelles-cadastre",
+      "id": "parcelles",
       "type": "line",
       "source": "cadastre",
       "source-layer": "parcelles",
@@ -1686,24 +1686,28 @@
       "source-layer": "parcelles",
       "layout": {"visibility": "visible"},
       "paint": {
-        "fill-color": [
-          "case",
-          ["boolean", ["feature-state", "selected"], false],
-          "rgba(1, 129, 0, 1)",
-          "rgba(129, 123, 0, 1)"
-        ],
+        "fill-color": "rgba(129, 123, 0, 1)",
         "fill-opacity": [
           "case",
           ["boolean", ["feature-state", "hover"], false],
-          0.7,
-          ["boolean", ["feature-state", "selected"], false],
           0.7,
           0.1
         ]
       }
     },
     {
-      "id": "sections-cadastre",
+      "id": "parcelle-highlighted",
+      "type": "fill",
+      "source": "cadastre",
+      "source-layer": "parcelles",
+      "filter": ["==", "id", ""],
+      "paint": {
+        "fill-color": "rgba(1, 129, 0, 1)",
+        "fill-opacity": 0.7
+      }
+    },
+    {
+      "id": "sections",
       "type": "line",
       "source": "cadastre",
       "source-layer": "sections",

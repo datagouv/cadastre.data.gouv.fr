@@ -30,13 +30,12 @@ function getBaseStyle(style) {
   }
 }
 
-const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChange, selectedParcelleId, selectParcelle}) => {
+const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChange, selectedParcelle, selectParcelle}) => {
   const [map, setMap] = useState()
   const [isLoaded, setIsLoaded] = useState(false)
   const [mapStyle, setMapStyle] = useState(getBaseStyle(style))
   const [hovered, setHovered] = useState(null)
 
-  const prevParcelleId = usePrevious(selectedParcelleId)
   const prevHovered = usePrevious(hovered)
 
   const mapRef = useCallback(ref => {
@@ -48,16 +47,14 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
   const onClick = useCallback(event => {
     event.stopPropagation()
     const feature = event.features && event.features[0]
+    const {id} = selectedParcelle || {}
 
-    if (feature && (selectedParcelleId !== feature.id)) {
-      selectParcelle({
-        ...feature.properties,
-        featureId: feature.id
-      })
+    if (feature && (id !== feature.properties.id)) {
+      selectParcelle({...feature.properties})
     } else {
       selectParcelle(null)
     }
-  }, [selectParcelle, selectedParcelleId])
+  }, [selectParcelle, selectedParcelle])
 
   const onHover = event => {
     event.stopPropagation()
@@ -101,27 +98,21 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
 
   useEffect(() => {
     if (map) {
-      if (prevParcelleId) {
-        map.setFeatureState({
-          source: 'cadastre',
-          sourceLayer: 'parcelles',
-          id: prevParcelleId
-        },
-        {selected: false}
-        )
-      }
-
-      if (selectedParcelleId) {
-        map.setFeatureState({
-          source: 'cadastre',
-          sourceLayer: 'parcelles',
-          id: selectedParcelleId
-        },
-        {selected: true}
-        )
+      const {id} = selectedParcelle || {}
+      map.setFilter('parcelle-highlighted', ['==', 'id', id || ''])
+      if (selectedParcelle) {
+        if (id && !selectedParcelle.section) {
+          const selectedParcelle = map.queryRenderedFeatures({
+            layers: ['parcelles'],
+            filter: ['==', 'id', id]
+          })[0]
+          if (selectedParcelle) {
+            selectParcelle(selectedParcelle.properties)
+          }
+        }
       }
     }
-  }, [isLoaded, selectedParcelleId]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isLoaded, selectedParcelle]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (map) {
@@ -154,6 +145,7 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
         }}
         interactiveLayerIds={interactiveLayerIds}
       >
+
         <div className='control navigation'>
           <NavigationControl showCompass={false} />
           <div className='control custom mapboxgl-ctrl-group mapboxgl-ctrl'>
@@ -175,7 +167,7 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
           />
         </div>
 
-        {hovered && hovered.feature.id !== selectedParcelleId && (
+        {hovered && hovered.feature.id !== selectedParcelle && (
           <div className='popup'>
             <Popup
               longitude={hovered.longitude}
@@ -230,7 +222,7 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
 }
 
 Map.defaultProps = {
-  selectedParcelleId: null
+  selectedParcelle: null
 }
 
 Map.propTypes = {
@@ -244,7 +236,7 @@ Map.propTypes = {
   style: PropTypes.oneOf(['ortho', 'vector']).isRequired,
   changeStyle: PropTypes.func.isRequired,
   onViewportChange: PropTypes.func.isRequired,
-  selectedParcelleId: PropTypes.string,
+  selectedParcelle: PropTypes.string,
   selectParcelle: PropTypes.func.isRequired
 }
 

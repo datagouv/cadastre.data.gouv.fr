@@ -114,19 +114,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "fill-color": [
-          "case",
-          [
-            "boolean",
-            [
-              "feature-state",
-              "selected"
-            ],
-            false
-          ],
-          "rgba(1, 129, 0, 1)",
-          "rgba(129, 123, 0, 1)"
-        ],
+        "fill-color": "rgba(129, 123, 0, 1)",
         "fill-opacity": [
           "case",
           [
@@ -138,17 +126,19 @@
             false
           ],
           0.7,
-          [
-            "boolean",
-            [
-              "feature-state",
-              "selected"
-            ],
-            false
-          ],
-          0.7,
           0.1
         ]
+      }
+    },
+    {
+      "id": "parcelle-highlighted",
+      "type": "fill",
+      "source": "cadastre",
+      "source-layer": "parcelles",
+      "filter": ["==", "id", ""],
+      "paint": {
+        "fill-color": "rgba(1, 129, 0, 1)",
+        "fill-opacity": 0.7
       }
     },
     {
