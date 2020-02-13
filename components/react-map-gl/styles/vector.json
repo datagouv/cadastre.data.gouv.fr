@@ -1666,7 +1666,7 @@
       }
     },
     {
-      "id": "ParcellesCadastre",
+      "id": "parcelles-cadastre",
       "type": "line",
       "source": "cadastre",
       "source-layer": "parcelles",
@@ -1703,7 +1703,7 @@
       }
     },
     {
-      "id": "SectionsCadastre",
+      "id": "sections-cadastre",
       "type": "line",
       "source": "cadastre",
       "source-layer": "sections",
@@ -1717,7 +1717,7 @@
       }
     },
     {
-      "id": "Communes",
+      "id": "communes",
       "type": "line",
       "source": "decoupage-administratif",
       "source-layer": "communes",
@@ -1726,14 +1726,14 @@
       "layout": {"visibility": "visible"}
     },
     {
-      "id": "Departements",
+      "id": "departements",
       "type": "line",
       "source": "decoupage-administratif",
       "source-layer": "departements",
       "layout": {"visibility": "visible"}
     },
     {
-      "id": "Regions",
+      "id": "regions",
       "type": "line",
       "source": "decoupage-administratif",
       "source-layer": "regions",
@@ -2415,7 +2415,7 @@
       }
     },
     {
-      "id": "CodeSection",
+      "id": "code-section",
       "type": "symbol",
       "source": "cadastre",
       "source-layer": "sections",
@@ -2432,7 +2432,7 @@
       }
     },
     {
-      "id": "CodeParcelles",
+      "id": "code-parcelles",
       "type": "symbol",
       "source": "cadastre",
       "source-layer": "parcelles",
