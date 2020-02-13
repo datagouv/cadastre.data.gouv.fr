@@ -61,7 +61,7 @@
       }
     },
     {
-      "id": "BatimentsSurface",
+      "id": "batiments-fill",
       "type": "fill",
       "source": "cadastre",
       "source-layer": "batiments",
@@ -69,7 +69,7 @@
       "paint": {"fill-opacity": 0.3}
     },
     {
-      "id": "BatimentsCadastre",
+      "id": "batiments-line",
       "type": "line",
       "source": "cadastre",
       "source-layer": "batiments",
