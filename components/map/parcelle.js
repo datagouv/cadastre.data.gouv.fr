@@ -23,7 +23,7 @@ const Parcelle = ({parcelle, close}) => {
   return (
     <div className='parcelle-container'>
       <div className='header'>
-        <div className='title'>Parcelle {prefixe} {section} {numero}</div>
+        <div className='title'>Parcelle {(prefixe === '000') ? '' : prefixe} {section} {numero}</div>
         <div className='close' onClick={close}><X /></div>
       </div>
       <div className='content'>
