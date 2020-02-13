@@ -167,8 +167,9 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
           </div>
         </div>
 
-        <div className='control style-switch'>
+        <div className='control style-switch mapboxgl-ctrl-group mapboxgl-ctrl'>
           <SwitchMapStyle
+            captureClick
             isVector={style === 'vector'}
             handleChange={changeStyle}
           />

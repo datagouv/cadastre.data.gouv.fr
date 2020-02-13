@@ -1,22 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {BaseControl} from 'react-map-gl'
 
 import theme from '../../styles/theme'
 
-class SwitchMapStyle extends React.Component {
+class SwitchMapStyle extends BaseControl {
   static propTypes = {
     isVector: PropTypes.bool.isRequired,
     handleChange: PropTypes.func.isRequired
-  };
+  }
 
-  render() {
+  _render() {
     const {isVector, handleChange} = this.props
     const source = `/static/images/map/preview-${isVector ? 'ortho' : 'vector'}.png`
     const style = isVector ? 'Satellite' : 'Vectoriel'
 
     return (
-      <div className='switch-style'>
-        <img alt={style} src={source} onClick={handleChange} />
+      <div
+        ref={this._containerRef}
+        className='switch-style mapboxgl-ctrl-swith-map-style'
+        onClick={handleChange}
+      >
+        <img alt={style} src={source} />
         <div className='text'>{style}</div>
         <style jsx>{`
           .switch-style {
