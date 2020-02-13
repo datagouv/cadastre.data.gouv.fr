@@ -13,7 +13,6 @@ import SwitchMapStyle from './switch-map-style'
 import {vector, ortho} from './styles'
 
 const interactiveLayerIds = ['parcelles-fill']
-const defaultStyle = 'ortho'
 const settings = {
   maxZoom: 19
 }
@@ -31,12 +30,10 @@ function getBaseStyle(style) {
   }
 }
 
-const Map = ({viewport, onViewportChange, selectedParcelleId, selectParcelle}) => {
+const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChange, selectedParcelleId, selectParcelle}) => {
   const [map, setMap] = useState()
   const [isLoaded, setIsLoaded] = useState(false)
-  const [style, setStyle] = useState(defaultStyle)
   const [mapStyle, setMapStyle] = useState(getBaseStyle(style))
-  const [showBati, setShowBat] = useState(true)
   const [hovered, setHovered] = useState(null)
 
   const prevParcelleId = usePrevious(selectedParcelleId)
@@ -131,7 +128,7 @@ const Map = ({viewport, onViewportChange, selectedParcelleId, selectParcelle}) =
       map.setLayoutProperty('batiments-line', 'visibility', showBati ? 'visible' : 'none')
       map.setLayoutProperty('batiments-fill', 'visibility', showBati ? 'visible' : 'none')
     }
-  }, [showBati]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isLoaded, showBati]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     setMapStyle(getBaseStyle(style))
@@ -166,14 +163,14 @@ const Map = ({viewport, onViewportChange, selectedParcelleId, selectParcelle}) =
               icon={<Home />}
               enabledHint='Afficher le bâti'
               disabledHint='Cacher le bâti'
-              onChange={() => setShowBat(!showBati)} />
+              onChange={toggleBati} />
           </div>
         </div>
 
         <div className='control style-switch'>
           <SwitchMapStyle
             isVector={style === 'vector'}
-            handleChange={() => setStyle(style === 'vector' ? 'ortho' : 'vector')}
+            handleChange={changeStyle}
           />
         </div>
 
@@ -241,6 +238,10 @@ Map.propTypes = {
     latitude: PropTypes.number.isRequired,
     zoom: PropTypes.number.isRequired
   }).isRequired,
+  showBati: PropTypes.bool.isRequired,
+  toggleBati: PropTypes.func.isRequired,
+  style: PropTypes.oneOf(['ortho', 'vector']).isRequired,
+  changeStyle: PropTypes.func.isRequired,
   onViewportChange: PropTypes.func.isRequired,
   selectedParcelleId: PropTypes.string,
   selectParcelle: PropTypes.func.isRequired

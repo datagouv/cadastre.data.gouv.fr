@@ -33,11 +33,14 @@ const defaultViewport = {
   zoom: 5
 }
 
-const MapPage = ({defaultInput, defaultParcelleId}) => {
-  const [input, setInput] = useInput(defaultInput)
-  const [viewport, setViewport] = useState(defaultViewport)
+const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
+  const [input, setInput] = useInput('')
   const [placeholder, setPlaceholder] = useInput('Rechercher une adresse')
   const [results, setResults] = useState([])
+
+  const [viewport, setViewport] = useState(defaultViewport)
+  const [showBati, setShowBati] = useState(!hideBati)
+  const [style, setStyle] = useState(defaultStyle)
   const [parcelle, setParcelle] = useState(null)
   const [parcelleId, setParcelleId] = useState(defaultParcelleId)
 
@@ -53,11 +56,6 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
     setPlaceholder(label)
     setParcelleId(null)
     setParcelle(null)
-
-    Router.push({
-      pathname: '/map',
-      query: {q: encodeURI(label)}
-    })
   }
 
   const searchAddress = useCallback(async () => {
@@ -76,10 +74,15 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
   useEffect(() => {
     Router.push({
       pathname: '/map',
-      query: pickBy({...Router.query, parcelleId}, identity),
+      query: pickBy({
+        ...Router.query,
+        parcelleId,
+        hideBati: !showBati,
+        style
+      }, identity),
       hash: window.location.hash
     })
-  }, [parcelleId])
+  }, [showBati, parcelleId, style])
 
   useEffect(() => {
     if (debouncedInput.length > 0) {
@@ -130,6 +133,10 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
         <div className='map-container'>
           <Map
             viewport={viewport}
+            showBati={showBati}
+            toggleBati={() => setShowBati(!showBati)}
+            style={style}
+            changeStyle={() => setStyle(style === 'vector' ? 'ortho' : 'vector')}
             onViewportChange={setViewport}
             selectedParcelleId={parcelleId}
             selectParcelle={setParcelle}
@@ -186,21 +193,24 @@ const MapPage = ({defaultInput, defaultParcelleId}) => {
 }
 
 MapPage.propTypes = {
-  defaultInput: PropTypes.string,
-  defaultParcelleId: PropTypes.string
+  hideBati: PropTypes.bool,
+  defaultParcelleId: PropTypes.string,
+  defaultStyle: PropTypes.string
 }
 
 MapPage.defaultProps = {
-  defaultInput: null,
-  defaultParcelleId: null
+  hideBati: true,
+  defaultParcelleId: null,
+  defaultStyle: 'ortho'
 }
 
 MapPage.getInitialProps = async ({query}) => {
-  const {q, parcelleId} = query
+  const {parcelleId, hideBati, style} = query
 
   return {
-    defaultInput: q ? decodeURI(q) : null,
-    defaultParcelleId: parcelleId
+    defaultParcelleId: parcelleId,
+    hideBati: (hideBati && hideBati === 'true') || false,
+    defaultStyle: style
   }
 }
 
