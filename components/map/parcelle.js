@@ -9,7 +9,7 @@ import colors from '../../styles/colors'
 
 const Parcelle = ({parcelle, close}) => {
   const [commune, setCommune] = useState(null)
-  const {prefixe, section, numero, contenance, arpente, created, updated} = parcelle
+  const {prefixe, section, numero, contenance} = parcelle
 
   const fetchCommune = useCallback(async () => {
     const commune = await getCommune(parcelle.commune)
@@ -23,15 +23,13 @@ const Parcelle = ({parcelle, close}) => {
   return (
     <div className='parcelle-container'>
       <div className='header'>
-        <div className='title'>Parcelle {(prefixe === '000') ? '' : prefixe} {section} {numero}</div>
+        <div className='title'>Parcelle {numero}</div>
         <div className='close' onClick={close}><X /></div>
       </div>
       <div className='content'>
-        <div><b>Commune</b>: {commune ? `${commune.nom} - ${commune.code}` : '…'}</div>
-        <div><b>Contenance cadastrale</b>: {contenanceToSurface(contenance)}</div>
-        <div><b>Arpente</b>: {arpente || 'inconnu'}</div>
-        <div><b>Créée le</b> {created}</div>
-        <div><b>Mise à jour le</b> {updated}</div>
+        <div><b>Section</b> : {(prefixe === '000') ? '' : prefixe} {section}</div>
+        <div><b>Commune</b> : {commune ? `${commune.nom} - ${commune.code}` : '…'}</div>
+        <div><b>Contenance cadastrale</b> : {contenanceToSurface(contenance)}</div>
       </div>
       <style jsx>{`
         .parcelle-container {
@@ -81,10 +79,7 @@ Parcelle.propTypes = {
     prefixe: PropTypes.string,
     section: PropTypes.string.isRequired,
     numero: PropTypes.string.isRequired,
-    contenance: PropTypes.number.isRequired,
-    arpente: PropTypes.bool.isRequired,
-    created: PropTypes.string.isRequired,
-    updated: PropTypes.string.isRequired
+    contenance: PropTypes.number.isRequired
   }).isRequired,
   close: PropTypes.func.isRequired
 }
