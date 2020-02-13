@@ -175,7 +175,8 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
               closeButton={false}
               closeOnClick={false}
               onClose={() => setHovered(null)}
-              anchor='bottom'
+              anchor='top'
+              offsetTop={20}
             >
               <ParcelleSumup {...hovered.feature.properties} />
             </Popup>
