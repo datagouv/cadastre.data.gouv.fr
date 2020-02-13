@@ -29,12 +29,12 @@ class Control extends BaseControl {
         <span className='mapboxgl-ctrl-icon' aria-hidden='true'>{icon}</span>
 
         <style jsx>{`
-        button {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: ${enabled ? '#000' : '#a5a5a5'};
-        }
+          button span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: ${enabled ? '#000' : '#a5a5a5'};
+          }
         `}</style>
       </button>
     )
