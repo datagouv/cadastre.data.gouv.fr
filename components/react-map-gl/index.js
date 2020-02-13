@@ -161,6 +161,7 @@ const Map = ({viewport, onViewportChange, selectedParcelleId, selectParcelle}) =
           <NavigationControl showCompass={false} />
           <div className='control custom mapboxgl-ctrl-group mapboxgl-ctrl'>
             <Control
+              captureClick
               enabled={showBati}
               icon={<Home />}
               enabledHint='Afficher le bâti'

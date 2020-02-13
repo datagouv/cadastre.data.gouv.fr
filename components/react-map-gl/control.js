@@ -1,40 +1,44 @@
-import React, {useCallback} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import {BaseControl} from 'react-map-gl'
 
-const Control = ({enabled, icon, enabledHint, disabledHint, onChange}) => {
-  const onToggle = useCallback(e => {
-    e.stopPropagation()
-    onChange(enabled => !enabled)
-  }, [onChange])
+class Control extends BaseControl {
+  static defaultProps = {
+    enabled: true
+  }
 
-  return (
-    <button
-      type='button'
-      className='mapboxgl-ctrl-icon mapboxgl-ctrl-enabled'
-      title={enabled ? enabledHint : disabledHint}
-      onClick={onToggle}
-    >
-      {icon}
+  static propTypes = {
+    enabled: PropTypes.bool,
+    icon: PropTypes.node.isRequired,
+    enabledHint: PropTypes.string.isRequired,
+    disabledHint: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
+  }
 
-      <style jsx>{`
+  _render() {
+    const {enabled, enabledHint, disabledHint, onChange, icon} = this.props
+
+    return (
+      <button
+        type='button'
+        ref={this._containerRef}
+        className='mapboxgl-ctrl-icon mapboxgl-ctrl-custom-control'
+        title={enabled ? enabledHint : disabledHint}
+        onClick={onChange}
+      >
+        <span className='mapboxgl-ctrl-icon' aria-hidden='true'>{icon}</span>
+
+        <style jsx>{`
         button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           color: ${enabled ? '#000' : '#a5a5a5'};
         }
         `}</style>
-    </button>
-  )
-}
-
-Control.propTypes = {
-  enabled: PropTypes.bool,
-  icon: PropTypes.node.isRequired,
-  enabledHint: PropTypes.string.isRequired,
-  disabledHint: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
-}
-
-Control.defaultProps = {
-  enabled: true
+      </button>
+    )
+  }
 }
 
 export default Control
