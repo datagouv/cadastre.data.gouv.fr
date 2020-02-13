@@ -102,12 +102,12 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
       map.setFilter('parcelle-highlighted', ['==', 'id', id || ''])
       if (selectedParcelle) {
         if (id && !selectedParcelle.section) {
-          const selectedParcelle = map.queryRenderedFeatures({
+          const queryParcelle = map.queryRenderedFeatures({
             layers: ['parcelles'],
             filter: ['==', 'id', id]
           })[0]
-          if (selectedParcelle) {
-            selectParcelle(selectedParcelle.properties)
+          if (queryParcelle) {
+            selectParcelle(queryParcelle.properties)
           }
         }
       }
