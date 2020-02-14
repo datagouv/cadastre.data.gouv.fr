@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import PropTypes from 'prop-types'
-import ReactMapGL, {NavigationControl, Popup} from 'react-map-gl'
+import ReactMapGL, {NavigationControl, GeolocateControl, Popup} from 'react-map-gl'
 
 import {Home} from 'react-feather'
 
@@ -193,6 +193,13 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
         <div className='control navigation'>
           <NavigationControl showCompass={false} />
           <div className='control custom mapboxgl-ctrl-group mapboxgl-ctrl'>
+            <div className='user-location'>
+              <GeolocateControl
+                label='Géolocaliser'
+                positionOptions={{enableHighAccuracy: true}}
+                trackUserLocation={false}
+              />
+            </div>
             <Control
               captureClick
               enabled={showBati}
@@ -235,6 +242,10 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
           height: 100%;
         }
 
+        .user-location {
+          display: none;
+        }
+
         .control {
           position: absolute;
           margin: 0.5em;
@@ -259,6 +270,10 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
         @media (max-width: 470px) {
           .popup {
             display: none;
+          }
+
+          .user-location {
+            display: block;
           }
         }
       `}</style>
