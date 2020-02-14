@@ -21,7 +21,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const {title, description, children} = this.props
+    const {title, description, fullscreen, children} = this.props
 
     return (
       <div>
@@ -31,12 +31,12 @@ class Layout extends React.Component {
         <main>
           { children }
         </main>
-        <Footer />
+        {!fullscreen && <Footer />}
         <style jsx>{`
           div {
              display: flex;
              flex-direction: column;
-             min-height: 100vh;
+             min-height: ${fullscreen ? '0' : '100vh'};
              background-color: ${theme.colors.white};
            }
 
@@ -56,13 +56,15 @@ Layout.propTypes = {
   }).isRequired,
   children: PropTypes.node,
   title: PropTypes.string,
+  fullscreen: PropTypes.bool,
   description: PropTypes.string
 }
 
 Layout.defaultProps = {
   children: null,
   title: null,
-  description: null
+  description: null,
+  fullscreen: false
 }
 
 export default withRouter(Layout)
