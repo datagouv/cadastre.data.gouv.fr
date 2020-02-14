@@ -32,6 +32,7 @@ function getBaseStyle(style) {
 
 const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChange, selectedParcelle, selectParcelle}) => {
   const [map, setMap] = useState()
+
   const [isLoaded, setIsLoaded] = useState(false)
   const [mapStyle, setMapStyle] = useState(getBaseStyle(style))
   const [hovered, setHovered] = useState(null)
@@ -73,6 +74,38 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
     setHovered(hoverInfo)
   }
 
+  const loadLayers = useCallback(() => {
+    const {id} = selectedParcelle || {}
+    map.setFilter('parcelle-highlighted', ['==', 'id', id || ''])
+  }, [map, selectedParcelle])
+
+  const onStyleLoad = useCallback(() => {
+    const waiting = () => {
+      if (map.isStyleLoaded()) {
+        loadLayers()
+      } else {
+        setTimeout(waiting, 200)
+      }
+    }
+
+    if (map) {
+      waiting()
+    }
+  }, [loadLayers, map])
+
+  const displayPopup = useCallback(() => {
+    if (hovered) {
+      const {id} = selectedParcelle || {}
+      if (id === hovered.feature.properties.id) {
+        return false
+      }
+
+      return true
+    }
+
+    return false
+  }, [hovered, selectedParcelle])
+
   useEffect(() => {
     if (map) {
       if (prevHovered) {
@@ -97,11 +130,12 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
   }, [hovered]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    if (map) {
+    if (map && isLoaded) {
       const {id} = selectedParcelle || {}
-      map.setFilter('parcelle-highlighted', ['==', 'id', id || ''])
+      loadLayers()
+
       if (selectedParcelle) {
-        if (id && !selectedParcelle.section) {
+        if (id && !selectedParcelle.section) { // To select parcelle with parcelleId url params
           const queryParcelle = map.queryRenderedFeatures({
             layers: ['parcelles'],
             filter: ['==', 'id', id]
@@ -112,7 +146,7 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
         }
       }
     }
-  }, [isLoaded, selectedParcelle]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isLoaded, selectedParcelle, loadLayers]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (map) {
@@ -125,23 +159,20 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
     setMapStyle(getBaseStyle(style))
   }, [style])
 
-  const displayPopup = useCallback(() => {
-    if (hovered) {
-      const {id} = selectedParcelle || {}
-      if (id === hovered.feature.properties.id) {
-        return false
+  useEffect(() => {
+    if (isLoaded && map) {
+      map.on('styledata', onStyleLoad)
+
+      return () => {
+        map.off('styledata', onStyleLoad)
       }
-
-      return true
     }
-
-    return false
-  }, [hovered, selectedParcelle])
+  }, [isLoaded, map, onStyleLoad])
 
   return (
     <div className='map-container'>
       <ReactMapGL
-        reuseMaps
+        ReuseMaps
         ref={mapRef}
         {...viewport}
         width='100%'
@@ -250,7 +281,10 @@ Map.propTypes = {
   style: PropTypes.oneOf(['ortho', 'vector']).isRequired,
   changeStyle: PropTypes.func.isRequired,
   onViewportChange: PropTypes.func.isRequired,
-  selectedParcelle: PropTypes.string,
+  selectedParcelle: PropTypes.shape({
+    id: PropTypes.string,
+    section: PropTypes.string
+  }),
   selectParcelle: PropTypes.func.isRequired
 }
 
