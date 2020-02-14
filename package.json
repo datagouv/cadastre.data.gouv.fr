@@ -30,7 +30,6 @@
     "react-dom": "^16.10.2",
     "react-feather": "^2.0.3",
     "react-map-gl": "^5.2.3",
-    "styled-jsx": "^3.2.4",
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
