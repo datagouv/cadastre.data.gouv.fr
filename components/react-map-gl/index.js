@@ -125,6 +125,19 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
     setMapStyle(getBaseStyle(style))
   }, [style])
 
+  const displayPopup = useCallback(() => {
+    if (hovered) {
+      const {id} = selectedParcelle || {}
+      if (id === hovered.feature.properties.id) {
+        return false
+      }
+
+      return true
+    }
+
+    return false
+  }, [hovered, selectedParcelle])
+
   return (
     <div className='map-container'>
       <ReactMapGL
@@ -167,7 +180,7 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
           />
         </div>
 
-        {hovered && hovered.feature.id !== selectedParcelle && (
+        {displayPopup() && (
           <div className='popup'>
             <Popup
               longitude={hovered.longitude}
