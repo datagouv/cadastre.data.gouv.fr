@@ -195,6 +195,7 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
           <div className='control custom mapboxgl-ctrl-group mapboxgl-ctrl'>
             <div className='user-location'>
               <GeolocateControl
+                captureClick
                 label='Géolocaliser'
                 positionOptions={{enableHighAccuracy: true}}
                 trackUserLocation={false}
