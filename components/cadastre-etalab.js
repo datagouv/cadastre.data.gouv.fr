@@ -116,7 +116,7 @@ const CadastreEtalab = () => (
       <div className='main'>
         <h4>Raison d’être de ce jeu de données</h4>
         <p>Le <Link href='/datasets/plan-cadastral-informatise'><a>Plan Cadastral Informatisé</a></Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
-        Etalab a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
+          Etalab a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
 
         <h4>Données sources</h4>
         <p>Ces données sont produites à partir :</p>
@@ -128,16 +128,16 @@ const CadastreEtalab = () => (
         <h4>Processus de construction</h4>
 
         <p>Les différentes couches sont constituées par juxtaposition des feuilles, sans correction de topologie.<br />
-        Les données de l’Eurométropole Strasbourg sont ajoutées par écrasement de celles éventuellement présentes dans le PCI Vecteur.<br />
-        Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b>, les <b>lieux-dits</b>, les <b>parcelles</b>, les <b>subdivisions fiscales</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
-        La couche des contours des <b>préfixes de sections</b> est construite à partir de la couche des sections.<br />
-        Le code source est ouvert et <a href='https://github.com/etalab/cadastre'>disponible sur GitHub</a>.
+          Les données de l’Eurométropole Strasbourg sont ajoutées par écrasement de celles éventuellement présentes dans le PCI Vecteur.<br />
+          Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b>, les <b>lieux-dits</b>, les <b>parcelles</b>, les <b>subdivisions fiscales</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
+          La couche des contours des <b>préfixes de sections</b> est construite à partir de la couche des sections.<br />
+          Le code source est ouvert et <a href='https://github.com/etalab/cadastre'>disponible sur GitHub</a>.
         </p>
 
         <h4>Couverture</h4>
 
         <p>Les 33 682 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
-        Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
+          Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
 
         <h4>Formats disponibles</h4>
         <p>Les données sont actuellement disponibles aux formats <a href='http://geojson.org/'>GeoJSON</a> compressé, <a href='http://geojson.org/'>GeoJSON</a> simple et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, via l’outil d’aide au téléchargement.</p>

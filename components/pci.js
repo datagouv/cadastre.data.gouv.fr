@@ -153,24 +153,24 @@ const Pci = () => (
       <div>
         <h4>Plan cadastral</h4>
         <p>Le plan cadastral est un assemblage d’environ <b>600 000 feuilles</b> ou planches représentant chacune une section ou une partie d’une section cadastrale.<br />
-        Il couvre la France entière, à l’exception de la ville de Strasbourg et de quelques communes voisines, pour des raisons historiques liées à l’occupation de l’Alsace-Moselle par l’Allemagne entre 1871 et 1918.<br />
-        Le plan cadastral est géré par la Direction Générale des Finances Publiques (DGFiP).
+          Il couvre la France entière, à l’exception de la ville de Strasbourg et de quelques communes voisines, pour des raisons historiques liées à l’occupation de l’Alsace-Moselle par l’Allemagne entre 1871 et 1918.<br />
+          Le plan cadastral est géré par la Direction Générale des Finances Publiques (DGFiP).
         </p>
 
         <h4>Numérisation du plan cadastral</h4>
         <p>Depuis la fin des années 1980, des initiatives de numérisation du plan se sont succédées et structurées pour atteindre un régime de croisière au cours des années 2000.<br />
-        Cette numérisation est réalisée avec le concours financier des collectivités, et en particulier des communes, et se poursuit encore aujourd’hui.</p>
+          Cette numérisation est réalisée avec le concours financier des collectivités, et en particulier des communes, et se poursuit encore aujourd’hui.</p>
 
         <h4>PCI Vecteur et PCI Image</h4>
         <p>Pour des questions pratiques et techniques, le Plan Cadastral Informatisé existe sous la forme de <b>deux produits complémentaires</b> : le PCI Vecteur et le PCI Image.<br />
-        Le <b>PCI Vecteur</b> regroupe les feuilles qui ont été numérisées et couvre l’essentiel du territoire.<br />
-        Le <b>PCI Image</b> regroupe les feuilles qui n’ont été que scannées, et complète la couverture.</p>
+          Le <b>PCI Vecteur</b> regroupe les feuilles qui ont été numérisées et couvre l’essentiel du territoire.<br />
+          Le <b>PCI Image</b> regroupe les feuilles qui n’ont été que scannées, et complète la couverture.</p>
 
         <h4>Couverture</h4>
         <p><b>33 682 communes</b> sont couvertes par le PCI Vecteur, sur un total de près de 36 000.
-        Les plans des autres communes sont disponibles dans le PCI Image.<br />
-        Strasbourg et les communes limitrophes ne sont actuellement pas gérées au format PCI.<br />
-        Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et historiquement intégrées dans le département de la Guadeloupe (971).</p>
+          Les plans des autres communes sont disponibles dans le PCI Image.<br />
+          Strasbourg et les communes limitrophes ne sont actuellement pas gérées au format PCI.<br />
+          Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et historiquement intégrées dans le département de la Guadeloupe (971).</p>
 
         <h4>Formats disponibles</h4>
         <p>Les données du PCI Vecteur sont disponibles dans plusieurs formats :</p>
@@ -184,8 +184,8 @@ const Pci = () => (
 
         <h4>Modèle de données</h4>
         <p>Chaque commune est subdivisée en sections, elles-mêmes subdivisées en feuilles (ou planches).
-    Une feuille cadastrale comporte des parcelles, qui peuvent supporter des bâtiments, ainsi que de nombreux autres objets d’habillage ou de gestion.<br />
-        Pour plus de précision, veuillez vous reporter à la documentation du <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>standard EDIGÉO</a>.</p>
+          Une feuille cadastrale comporte des parcelles, qui peuvent supporter des bâtiments, ainsi que de nombreux autres objets d’habillage ou de gestion.<br />
+          Pour plus de précision, veuillez vous reporter à la documentation du <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>standard EDIGÉO</a>.</p>
 
         <h4>Mise à disposition</h4>
 
@@ -199,7 +199,7 @@ const Pci = () => (
         <h4>Outils</h4>
 
         <p>Les données au format <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>EDIGÉO</a> peuvent être exploitées avec les outils libres <a href='https://plugins.qgis.org/plugins/cadastre/' rel='nofollow'>QGIS</a>, <a href='http://wiki.openstreetmap.org/wiki/FR:JOSM' rel='nofollow'>JOSM</a> ou <a href='https://gdal.gloobe.org/ogr/formats/edigeo.html' rel='nofollow'>GDAL</a>. Elles peuvent aussi être ouvertes avec des applications métiers conçues pour les collectivités locales.<br />
-        Les données au format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> peuvent être ouvertes avec des outils bureautiques de CAO/DAO.</p>
+          Les données au format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> peuvent être ouvertes avec des outils bureautiques de CAO/DAO.</p>
       </div>
     </Section>
     <Section title='Millésimes disponibles en téléchargement direct' background='grey'>

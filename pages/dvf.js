@@ -43,7 +43,7 @@ export default () => (
           La base de données DVF ne contient pas de données à caractère personnel, comme le nom du vendeur ou celui de l’acheteur d’un bien. Elle ne contient que des informations sur les transactions : type de bien vendu, superficie, prix de vente et ainsi de suite. Comme ces données peuvent être recoupées avec d’autres données déjà en ligne, la direction générale des finances publiques rappelle que l’utilisation des données issues de la base DVF ne peut avoir ni pour objet ni pour effet de permettre la réidentification des personnes concernées, et qu’elle ne doit pas non plus faire l’objet d’une indexation sur les moteurs de recherche en ligne.
         </p>
         <ButtonLink className='button-outline large' href='https://www.data.gouv.fr/fr/datasets/r/99549bdd-91f1-4a99-ac00-855b9a14e5f6'>
-        Voir les conditions générales d’utilisation
+          Voir les conditions générales d’utilisation
         </ButtonLink>
       </div>
     </Section>
@@ -98,7 +98,7 @@ export default () => (
     <Section background='color'>
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <ButtonLink className='button-outline large' href='https://app.dvf.etalab.gouv.fr'>
-            Explorer les données
+          Explorer les données
         </ButtonLink>
       </div>
     </Section>
