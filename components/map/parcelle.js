@@ -29,7 +29,7 @@ const Parcelle = ({parcelle, close}) => {
       <div className='content'>
         <div><b>Section</b> : {(prefixe === '000') ? '' : prefixe} {section}</div>
         <div><b>Commune</b> : {commune ? `${commune.nom} - ${commune.code}` : '…'}</div>
-        <div><b>Contenance cadastrale</b> : {contenanceToSurface(contenance)}</div>
+        {contenance && <div><b>Contenance cadastrale</b> : {contenanceToSurface(contenance)}</div>}
       </div>
       <style jsx>{`
         .parcelle-container {

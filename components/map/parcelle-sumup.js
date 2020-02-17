@@ -9,10 +9,10 @@ const ParcelleSumup = ({prefixe, section, numero, contenance}) => (
       <span className='title'>Parcelle </span>
       <span>{(prefixe === '000') ? '' : prefixe} {section} {numero}</span>
     </div>
-    <div>
+    {contenance && <div>
       <span className='title'>Contenance </span>
       <span>{contenanceToSurface(contenance)}</span>
-    </div>
+    </div>}
     <style jsx>{`
         .sumup-container {
           font-size: larger;
