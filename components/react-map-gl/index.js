@@ -30,7 +30,7 @@ function getBaseStyle(style) {
   }
 }
 
-const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChange, selectedParcelle, selectParcelle}) => {
+const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, changeStyle, onViewportChange, selectedParcelle, selectParcelle}) => {
   const [map, setMap] = useState()
 
   const [isLoaded, setIsLoaded] = useState(false)
@@ -182,7 +182,7 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
         mapStyle={mapStyle}
         {...settings}
         onClick={onClick}
-        onHover={onHover}
+        onHover={isTouchScreenDevice ? null : onHover}
         onLoad={() => setIsLoaded(true)}
         getCursor={({isHovering}) => {
           return isHovering ? 'pointer' : 'default'
@@ -282,7 +282,8 @@ const Map = ({viewport, showBati, toggleBati, style, changeStyle, onViewportChan
 }
 
 Map.defaultProps = {
-  selectedParcelle: null
+  selectedParcelle: null,
+  isTouchScreenDevice: false
 }
 
 Map.propTypes = {
@@ -291,6 +292,7 @@ Map.propTypes = {
     latitude: PropTypes.number.isRequired,
     zoom: PropTypes.number.isRequired
   }).isRequired,
+  isTouchScreenDevice: PropTypes.bool,
   showBati: PropTypes.bool.isRequired,
   toggleBati: PropTypes.func.isRequired,
   style: PropTypes.oneOf(['ortho', 'vector']).isRequired,

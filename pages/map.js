@@ -39,6 +39,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
   const [results, setResults] = useState([])
 
   const [viewport, setViewport] = useState(defaultViewport)
+  const [isTouchScreenDevice, setIsTouchScreenDevice] = useState(false)
   const [showBati, setShowBati] = useState(!hideBati)
   const [style, setStyle] = useState(defaultStyle)
   const [parcelle, setParcelle] = useState(defaultParcelleId ? {id: defaultParcelleId} : null)
@@ -96,6 +97,10 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
     }
   }, [])
 
+  useEffect(() => {
+    setIsTouchScreenDevice('ontouchstart' in document.documentElement)
+  }, [])
+
   return (
     <Page title={title} description={description} fullscreen>
       <div className='interactive-map'>
@@ -124,6 +129,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
           <Map
             viewport={viewport}
             showBati={showBati}
+            isTouchScreenDevice={isTouchScreenDevice}
             toggleBati={() => setShowBati(!showBati)}
             style={style}
             changeStyle={() => setStyle(style === 'vector' ? 'ortho' : 'vector')}
