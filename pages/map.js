@@ -98,7 +98,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
   }, [])
 
   useEffect(() => {
-    setIsTouchScreenDevice("ontouchstart" in document.documentElement)
+    setIsTouchScreenDevice('ontouchstart' in document.documentElement)
   }, [])
 
   return (

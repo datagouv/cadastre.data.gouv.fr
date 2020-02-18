@@ -283,7 +283,7 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
 
 Map.defaultProps = {
   selectedParcelle: null,
-  isTouchScreenDevice: false,
+  isTouchScreenDevice: false
 }
 
 Map.propTypes = {
