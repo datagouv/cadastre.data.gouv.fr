@@ -28,6 +28,14 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '1er juillet 2020',
+    path: '2020-07-01',
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
+    ]
+  },
+  {
     date: '1er janvier 2020',
     path: '2020-01-01',
     formats: [
@@ -144,7 +152,7 @@ const CadastreEtalab = () => (
 
         <h4>Couverture</h4>
 
-        <p>Les 33 682 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
+        <p>Les 34 500 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
           Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
 
         <h4>Formats disponibles</h4>
@@ -186,6 +194,7 @@ const CadastreEtalab = () => (
           <li>25/07/2019 : nouveau millésime PCI + nouvelles données Strasbourg + ajout du champ ‘arpente’ (<a href='https://github.com/etalab/cadastre/issues/80'>détails</a>)</li>
           <li>18/10/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
           <li>02/13/2020 : nouveau millésime PCI + nouvelles données Strasbourg</li>
+          <li>08/09/2020 : nouveau millésime PCI juillet 2020 + nouvelles données Strasbourg</li>
         </ul>
       </div>
     </Section>
