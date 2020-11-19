@@ -6,7 +6,7 @@ import Page from '../layouts/main'
 import Hero from '../components/hero'
 
 import Usages from '../components/home/usages'
-import Subscribe from '../components/home/subscribe'
+import Infolettre from '../components/infolettre'
 import OtherSites from '../components/home/other-sites'
 import Section from '../components/section'
 import ButtonLink from '../components/button-link'
@@ -61,7 +61,7 @@ export default () => (
     </Section>
 
     <Usages />
-    <Subscribe />
+    <Infolettre />
     <OtherSites />
     <style jsx>{`
     .action-button {
