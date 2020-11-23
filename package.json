@@ -31,13 +31,13 @@
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^10.0.2",
     "ava": "^3.3.0",
     "babel-eslint": "^10.0.3",
     "babel-plugin-inline-import": "^3.0.0",
     "eslint-config-xo-nextjs": "^1.5.0",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^2.4.0",
-    "webpack-bundle-analyzer": "^3.6.0",
     "xo": "^0.26.1"
   },
   "xo": {

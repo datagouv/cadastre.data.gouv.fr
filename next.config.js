@@ -1,20 +1,8 @@
-const {join} = require('path')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+})
 
-module.exports = {
-  webpack(config, {dev, isServer}) {
-    if (!dev && !isServer) {
-      const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
-      config.plugins.push(new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        openAnalyzer: false,
-        reportFilename: join(__dirname, 'reports/bundles.html'),
-        defaultSizes: 'gzip'
-      }))
-    }
-
-    return config
-  },
-
+module.exports = withBundleAnalyzer({
   exportPathMap() {
     return {
       '/': {page: '/'},
@@ -26,4 +14,4 @@ module.exports = {
       '/datasets/cadastre-etalab': {page: '/datasets/cadastre-etalab'}
     }
   }
-}
+})
