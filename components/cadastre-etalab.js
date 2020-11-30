@@ -146,7 +146,7 @@ const CadastreEtalab = () => (
         <p>Ces données sont produites à partir :</p>
         <ul>
           <li>des <Link href='/datasets/plan-cadastral-informatise'><a>données EDIGÉO du PCI Vecteur</a></Link> ;</li>
-          <li>des <Link href='/datasets/cadastre-strasbourg'><a>données cadastrales de l’Eurométropole de Strasbourg</a></Link>.</li>
+          <li>des <a href='https://www.data.gouv.fr/datasets/5e6ad06d06e3e742367168cc/'>données cadastrales de l’Eurométropole de Strasbourg</a>.</li>
         </ul>
 
         <h4>Processus de construction</h4>
