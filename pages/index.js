@@ -10,14 +10,12 @@ import Infolettre from '../components/infolettre'
 import OtherSites from '../components/home/other-sites'
 import Section from '../components/section'
 import ButtonLink from '../components/button-link'
-import IncendieOvh from '../components/incendie-ovh'
 
 const title = 'Données cadastrales ouvertes'
 const tagline = 'Consulter, télécharger et intégrer facilement les données cadastrales'
 
 export default () => (
   <Page title={title} description={tagline}>
-    <IncendieOvh />
 
     <Hero title={title} tagline={tagline}>
       <div className='button-container'>
