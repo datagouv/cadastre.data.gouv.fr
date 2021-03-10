@@ -2241,7 +2241,7 @@
       "layout": {
         "visibility": "visible",
         "text-field": "{code}",
-        "text-font": ["Lato Bold"],
+        "text-font": ["Noto Sans Bold"],
         "text-optional": false,
         "text-size": 14
       },
@@ -2265,7 +2265,7 @@
       "layout": {
         "visibility": "visible",
         "text-field": "{numero}",
-        "text-font": ["Lato Bold"],
+        "text-font": ["Noto Sans Bold"],
         "text-size": 12,
         "text-optional": false,
         "text-allow-overlap": false,

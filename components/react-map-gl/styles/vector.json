@@ -2427,7 +2427,7 @@
       "maxzoom": 16,
       "layout": {
         "text-field": "{code}",
-        "text-font": ["Lato Bold"],
+        "text-font": ["Noto Sans Bold"],
         "visibility": "visible"
       },
       "paint": {
@@ -2444,7 +2444,7 @@
       "filter": ["all"],
       "layout": {
         "text-field": "{numero}",
-        "text-font": ["Lato Bold"],
+        "text-font": ["Noto Sans Bold"],
         "text-allow-overlap": false,
         "visibility": "visible",
         "text-size": 16
