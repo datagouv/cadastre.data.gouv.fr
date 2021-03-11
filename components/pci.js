@@ -24,6 +24,17 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '1er février 2021',
+    path: '2021-02-01',
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
+  },
+  {
     date: '1er octobre 2020',
     path: '2020-10-01',
     formats: [
@@ -200,7 +211,7 @@ const Pci = () => (
           Le <b>PCI Image</b> regroupe les feuilles qui n’ont été que scannées, et complète la couverture.</p>
 
         <h4>Couverture</h4>
-        <p><b>34 600 communes</b> sont couvertes par le PCI Vecteur, sur un peu plus de 35 000 communes.
+        <p><b>34 700 communes</b> sont couvertes par le PCI Vecteur, sur un peu plus de 35 000 communes.
           Les plans des autres communes sont disponibles dans le PCI Image.<br />
           Strasbourg et les communes limitrophes ne sont actuellement pas gérées au format PCI.<br />
           Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et historiquement intégrées dans le département de la Guadeloupe (971).</p>
