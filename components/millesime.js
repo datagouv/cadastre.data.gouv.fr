@@ -10,7 +10,8 @@ const formatLabels = {
   dxf: 'Format DXF-PCI',
   'dxf-cc': 'Format DXF-PCI (CC 9 zones)',
   geojson: 'Format GeoJSON',
-  shp: 'Format Shapefile'
+  shp: 'Format Shapefile',
+  mbtiles: 'Format MBTiles'
 }
 
 const granularityLabels = {
