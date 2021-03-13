@@ -32,7 +32,8 @@ const millesimes = [
     path: '2021-02-01',
     formats: [
       {name: 'geojson', granularities: ['communes', 'departements', 'france']},
-      {name: 'shp', granularities: ['departements', 'france']}
+      {name: 'shp', granularities: ['departements', 'france']},
+      {name: 'mbtiles', granularities: ['france']}
     ]
   },
   {
