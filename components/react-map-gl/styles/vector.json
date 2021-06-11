@@ -61,22 +61,72 @@
       }
     },
     {
-      "id": "batiments-fill",
+      "id": "landcover-wood",
       "type": "fill",
-      "source": "cadastre",
-      "source-layer": "batiments",
-      "minzoom": 16,
-      "paint": {"fill-opacity": 0.3}
+      "metadata": {
+        "mapbox:group": "1444849388993.3071"
+      },
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "filter": [
+        "==",
+        "class",
+        "wood"
+      ],
+      "paint": {
+        "fill-antialias": {
+          "base": 1,
+          "stops": [
+            [
+              0,
+              false
+            ],
+            [
+              9,
+              true
+            ]
+          ]
+        },
+        "fill-color": "#6a4",
+        "fill-opacity": 0.1,
+        "fill-outline-color": "hsla(0, 0%, 0%, 0.03)"
+      }
     },
     {
-      "id": "batiments-line",
-      "type": "line",
-      "source": "cadastre",
-      "source-layer": "batiments",
-      "minzoom": 16,
-      "maxzoom": 22,
-      "layout": {"visibility": "visible"},
-      "paint": {"line-opacity": 1, "line-color": "rgba(0, 0, 0, 1)"}
+      "id": "landcover-grass",
+      "type": "fill",
+      "metadata": {
+        "mapbox:group": "1444849388993.3071"
+      },
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "filter": [
+        "==",
+        "class",
+        "grass"
+      ],
+      "paint": {
+        "fill-color": "#d8e8c8",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "landcover-grass-park",
+      "type": "fill",
+      "metadata": {
+        "mapbox:group": "1444849388993.3071"
+      },
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "filter": [
+        "==",
+        "class",
+        "public_park"
+      ],
+      "paint": {
+        "fill-color": "#d8e8c8",
+        "fill-opacity": 0.8
+      }
     },
     {
       "id": "landuse-residential",
@@ -161,38 +211,6 @@
       "source-layer": "landuse",
       "filter": ["==", "class", "railway"],
       "paint": {"fill-color": "hsla(30, 19%, 90%, 0.4)"}
-    },
-    {
-      "id": "landcover-wood",
-      "type": "fill",
-      "metadata": {"mapbox:group": "1444849388993.3071"},
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "filter": ["==", "class", "wood"],
-      "paint": {
-        "fill-antialias": {"base": 1, "stops": [[0, false], [9, true]]},
-        "fill-color": "#6a4",
-        "fill-opacity": 0.1,
-        "fill-outline-color": "hsla(0, 0%, 0%, 0.03)"
-      }
-    },
-    {
-      "id": "landcover-grass",
-      "type": "fill",
-      "metadata": {"mapbox:group": "1444849388993.3071"},
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "filter": ["==", "class", "grass"],
-      "paint": {"fill-color": "#d8e8c8", "fill-opacity": 1}
-    },
-    {
-      "id": "landcover-grass-park",
-      "type": "fill",
-      "metadata": {"mapbox:group": "1444849388993.3071"},
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "filter": ["==", "class", "public_park"],
-      "paint": {"fill-color": "#d8e8c8", "fill-opacity": 0.8}
     },
     {
       "id": "waterway_tunnel",
@@ -1696,6 +1714,31 @@
       }
     },
     {
+      "id": "batiments-fill",
+      "type": "fill",
+      "source": "cadastre",
+      "source-layer": "batiments",
+      "minzoom": 16,
+      "paint": {
+        "fill-opacity": 0.3
+      }
+    },
+    {
+      "id": "batiments-line",
+      "type": "line",
+      "source": "cadastre",
+      "source-layer": "batiments",
+      "minzoom": 16,
+      "maxzoom": 22,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-opacity": 1,
+        "line-color": "rgba(0, 0, 0, 1)"
+      }
+    },
+    {
       "id": "parcelle-highlighted",
       "type": "fill",
       "source": "cadastre",
@@ -1742,6 +1785,49 @@
       "source": "decoupage-administratif",
       "source-layer": "regions",
       "layout": {"visibility": "visible"}
+    },
+    {
+      "id": "code-section",
+      "type": "symbol",
+      "source": "cadastre",
+      "source-layer": "sections",
+      "minzoom": 12.5,
+      "maxzoom": 16,
+      "layout": {
+        "text-field": "{code}",
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-halo-color": "rgba(255, 246, 241, 1)",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "code-parcelles",
+      "type": "symbol",
+      "source": "cadastre",
+      "source-layer": "parcelles",
+      "minzoom": 16,
+      "filter": [
+        "all"
+      ],
+      "layout": {
+        "text-field": "{numero}",
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "text-allow-overlap": false,
+        "visibility": "visible",
+        "text-size": 16
+      },
+      "paint": {
+        "text-halo-color": "#fff6f1",
+        "text-halo-width": 1.5,
+        "text-translate-anchor": "map"
+      }
     },
     {
       "id": "water-name-lakeline",
@@ -2416,43 +2502,6 @@
         "text-halo-blur": 1,
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 2
-      }
-    },
-    {
-      "id": "code-section",
-      "type": "symbol",
-      "source": "cadastre",
-      "source-layer": "sections",
-      "minzoom": 12.5,
-      "maxzoom": 16,
-      "layout": {
-        "text-field": "{code}",
-        "text-font": ["Noto Sans Bold"],
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-halo-color": "rgba(255, 246, 241, 1)",
-        "text-halo-width": 1.5
-      }
-    },
-    {
-      "id": "code-parcelles",
-      "type": "symbol",
-      "source": "cadastre",
-      "source-layer": "parcelles",
-      "minzoom": 16,
-      "filter": ["all"],
-      "layout": {
-        "text-field": "{numero}",
-        "text-font": ["Noto Sans Bold"],
-        "text-allow-overlap": false,
-        "visibility": "visible",
-        "text-size": 16
-      },
-      "paint": {
-        "text-halo-color": "#fff6f1",
-        "text-halo-width": 1.5,
-        "text-translate-anchor": "map"
       }
     }
   ],
