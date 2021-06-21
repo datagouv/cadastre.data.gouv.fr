@@ -28,6 +28,15 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '1er avril 2021',
+    path: '2021-04-01',
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']},
+      {name: 'mbtiles', granularities: ['france']}
+    ]
+  },
+  {
     date: '1er février 2021',
     path: '2021-02-01',
     formats: [
