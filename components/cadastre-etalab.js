@@ -223,6 +223,7 @@ const CadastreEtalab = () => (
           <li>08/09/2020 : nouveau millésime PCI juillet 2020 + nouvelles données Strasbourg</li>
           <li>16/11/2020 : nouveau millésime PCI octobre 2020 + nouvelles données Strasbourg</li>
           <li>12/03/2021 : nouveau millésime PCI février 2021 + nouvelles données Strasbourg</li>
+          <li>21/06/2021 : nouveau millésime PCI avril 2021 + nouvelles données Strasbourg</li>
         </ul>
       </div>
     </Section>
