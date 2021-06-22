@@ -49,13 +49,13 @@ export default () => (
         <div>
           <h2 className='section__title'>Qu’est-ce que le cadastre ?</h2>
           <p className='section__subtitle'>
-            Les données ouvertes à ce jour sont celles du plan cadastral : parcelles, sections, bâti et éléments d’habillage. Les fichiers des propriétés et des propriétaires ne sont pas concernés.
+            Le cadastre est un ensemble de plans et fichiers administratifs qui recensent toutes les propriétés immobilières situées dans chaque commune française, et qui en consigne la valeur afin de servir de base de calcul à certains impôts. (Wikipedia)
           </p>
         </div>
         <div>
           <h2 className='section__title'>Quelles sont les données ouvertes ?</h2>
           <p className='section__subtitle'>
-            Le cadastre est un ensemble de plans et fichiers administratifs qui recensent toutes les propriétés immobilières situées dans chaque commune française, et qui en consigne la valeur afin de servir de base de calcul à certains impôts. (Wikipedia)
+            Les données ouvertes à ce jour sont celles du plan cadastral : parcelles, sections, bâti et éléments d’habillage. Les fichiers des propriétés et des propriétaires ne sont pas concernés.
           </p>
         </div>
       </div>
