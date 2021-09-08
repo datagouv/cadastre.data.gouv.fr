@@ -35,7 +35,6 @@ const millesimes = [
     ]
   },
   {
-    latest: true,
     date: '1er avril 2021',
     path: '2021-04-01',
     formats: [
