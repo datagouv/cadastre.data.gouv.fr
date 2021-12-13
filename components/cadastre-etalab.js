@@ -28,6 +28,15 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '1er octobre 2021',
+    path: '2021-10-01',
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']},
+      {name: 'mbtiles', granularities: ['france']}
+    ]
+  },
+  {
     date: '1er juillet 2021',
     path: '2021-07-01',
     formats: [
@@ -234,6 +243,7 @@ const CadastreEtalab = () => (
           <li>12/03/2021 : nouveau millésime PCI février 2021 + nouvelles données Strasbourg</li>
           <li>21/06/2021 : nouveau millésime PCI avril 2021 + nouvelles données Strasbourg</li>
           <li>11/09/2021 : nouveau millésime PCI juillet 2021 + nouvelles données Strasbourg</li>
+          <li>13/12/2021 : nouveau millésime PCI octobre 2021 + nouvelles données Strasbourg</li>
         </ul>
       </div>
     </Section>
