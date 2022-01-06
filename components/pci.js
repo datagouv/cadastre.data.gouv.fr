@@ -143,80 +143,6 @@ const millesimes = [
       {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
       {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
-  },
-  {
-    date: '1er octobre 2018',
-    path: '2018-10-01',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']},
-      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
-      {name: 'dxf', granularities: ['feuilles', 'departements']},
-      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
-      {name: 'tiff', granularities: ['feuilles', 'departements']}
-    ]
-  },
-  {
-    date: '29 juin 2018',
-    path: '2018-06-29',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']},
-      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
-      {name: 'dxf', granularities: ['feuilles', 'departements']},
-      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
-      {name: 'tiff', granularities: ['feuilles', 'departements']}
-    ]
-  },
-  {
-    date: '3 avril 2018',
-    path: '2018-04-03',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']},
-      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
-      {name: 'dxf', granularities: ['feuilles', 'departements']},
-      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
-      {name: 'tiff', granularities: ['feuilles', 'departements']}
-    ]
-  },
-  {
-    date: '2 janvier 2018',
-    path: '2018-01-02',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']},
-      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
-      {name: 'dxf', granularities: ['feuilles', 'departements']},
-      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
-      {name: 'tiff', granularities: ['feuilles', 'departements']}
-    ]
-  },
-  {
-    date: '12 octobre 2017',
-    path: '2017-10-12',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']},
-      {name: 'dxf', granularities: ['feuilles', 'departements']},
-      {name: 'tiff', granularities: ['feuilles', 'departements']}
-    ]
-  },
-  {
-    date: '6 juillet 2017',
-    path: '2017-07-06',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']}
-    ]
-  },
-  {
-    date: '14 mai 2017',
-    path: '2017-05-14',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']}
-    ]
-  },
-  {
-    date: '13 février 2017',
-    path: '2017-02-13',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']}
-    ]
   }
 ]
 
@@ -272,6 +198,7 @@ const Pci = () => (
           <li>Via un outil en ligne pour les <b>archives communales</b>. Les données sont alors produites à la volée.</li>
         </ul>
         <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
+        <p>Les archives de <b>juillet 2017</b> à <b>octobre 2018</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
 
         <h4>Outils</h4>
 
