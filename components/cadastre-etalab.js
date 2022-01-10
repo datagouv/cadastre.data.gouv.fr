@@ -118,51 +118,6 @@ const millesimes = [
       {name: 'geojson', granularities: ['communes', 'departements', 'france']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
-  },
-  {
-    date: '1er octobre 2018',
-    path: '2018-10-01',
-    formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
-      {name: 'shp', granularities: ['departements', 'france']}
-    ]
-  },
-  {
-    date: '29 juin 2018',
-    path: '2018-06-29',
-    formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
-      {name: 'shp', granularities: ['departements', 'france']}
-    ]
-  },
-  {
-    date: '3 avril 2018',
-    path: '2018-04-03',
-    formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
-      {name: 'shp', granularities: ['departements', 'france']}
-    ]
-  },
-  {
-    date: '2 janvier 2018',
-    path: '2018-01-02',
-    formats: [
-      {name: 'geojson', granularities: ['communes', 'departements']}
-    ]
-  },
-  {
-    date: '12 octobre 2017',
-    path: '2017-10-12',
-    formats: [
-      {name: 'geojson', granularities: ['communes', 'departements']}
-    ]
-  },
-  {
-    date: '6 juillet 2017',
-    path: '2017-07-06',
-    formats: [
-      {name: 'geojson', granularities: ['communes', 'departements']}
-    ]
   }
 ]
 
@@ -223,6 +178,8 @@ const CadastreEtalab = () => (
           <li>Via un outil en ligne pour les données aux formats <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, quel que soit le niveau de granularité.</li>
         </ul>
         <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
+        <p>Les archives de <b>juillet 2017</b> à <b>octobre 2018</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
+
 
         <h4>Historique</h4>
 
