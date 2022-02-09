@@ -24,7 +24,7 @@ const products = [
 const millesimes = [
   {
     latest: true,
-    date: '1er décembre 2022',
+    date: '1er janvier 2022',
     path: '2022-01-01',
     formats: [
       {name: 'edigeo', granularities: ['feuilles', 'departements']},
