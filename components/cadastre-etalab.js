@@ -203,13 +203,14 @@ const CadastreEtalab = () => (
           <li>27/04/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
           <li>25/07/2019 : nouveau millésime PCI + nouvelles données Strasbourg + ajout du champ ‘arpente’ (<a href='https://github.com/etalab/cadastre/issues/80'>détails</a>)</li>
           <li>18/10/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
-          <li>02/13/2020 : nouveau millésime PCI + nouvelles données Strasbourg</li>
+          <li>13/02/2020 : nouveau millésime PCI + nouvelles données Strasbourg</li>
           <li>08/09/2020 : nouveau millésime PCI juillet 2020 + nouvelles données Strasbourg</li>
           <li>16/11/2020 : nouveau millésime PCI octobre 2020 + nouvelles données Strasbourg</li>
           <li>12/03/2021 : nouveau millésime PCI février 2021 + nouvelles données Strasbourg</li>
           <li>21/06/2021 : nouveau millésime PCI avril 2021 + nouvelles données Strasbourg</li>
           <li>11/09/2021 : nouveau millésime PCI juillet 2021 + nouvelles données Strasbourg</li>
           <li>13/12/2021 : nouveau millésime PCI octobre 2021 + nouvelles données Strasbourg</li>
+          <li>19/02/2022 : nouveau millésime PCI janvier 2021 + nouvelles données Strasbourg</li>
         </ul>
       </div>
     </Section>
