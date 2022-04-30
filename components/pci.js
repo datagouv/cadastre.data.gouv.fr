@@ -24,6 +24,17 @@ const products = [
 const millesimes = [
   {
     latest: true,
+    date: '1er avril 2022',
+    path: '2022-04-01',
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
+  },
+  {
     date: '1er janvier 2022',
     path: '2022-01-01',
     formats: [
