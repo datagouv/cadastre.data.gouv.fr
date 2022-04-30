@@ -198,7 +198,6 @@ const CadastreEtalab = () => (
         <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
         <p>Les archives de <b>juillet 2017</b> à <b>octobre 2018</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
 
-
         <h4>Historique</h4>
 
         <ul>
