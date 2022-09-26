@@ -227,8 +227,9 @@ const CadastreEtalab = () => (
           <li>21/06/2021 : nouveau millésime PCI avril 2021 + nouvelles données Strasbourg</li>
           <li>11/09/2021 : nouveau millésime PCI juillet 2021 + nouvelles données Strasbourg</li>
           <li>13/12/2021 : nouveau millésime PCI octobre 2021 + nouvelles données Strasbourg</li>
-          <li>19/02/2022 : nouveau millésime PCI janvier 2021 + nouvelles données Strasbourg</li>
-          <li>29/04/2022 : nouveau millésime PCI avril 2021 + nouvelles données Strasbourg + corrections sur génération des contours communaux</li>
+          <li>19/02/2022 : nouveau millésime PCI janvier 2022 + nouvelles données Strasbourg</li>
+          <li>29/04/2022 : nouveau millésime PCI avril 2022 + nouvelles données Strasbourg + corrections sur génération des contours communaux</li>
+          <li>22/09/2022 : nouveau millésime PCI juillet 2022 + nouvelles données Strasbourg</li>
         </ul>
       </div>
     </Section>
