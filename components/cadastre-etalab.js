@@ -122,38 +122,6 @@ const millesimes = [
       {name: 'geojson', granularities: ['communes', 'departements', 'france']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
-  },
-  {
-    date: '1er octobre 2019',
-    path: '2019-10-01',
-    formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
-      {name: 'shp', granularities: ['departements', 'france']}
-    ]
-  },
-  {
-    date: '1er juillet 2019',
-    path: '2019-07-01',
-    formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
-      {name: 'shp', granularities: ['departements', 'france']}
-    ]
-  },
-  {
-    date: '1er avril 2019',
-    path: '2019-04-01',
-    formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
-      {name: 'shp', granularities: ['departements', 'france']}
-    ]
-  },
-  {
-    date: '1er janvier 2019',
-    path: '2019-01-01',
-    formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
-      {name: 'shp', granularities: ['departements', 'france']}
-    ]
   }
 ]
 
@@ -214,7 +182,7 @@ const CadastreEtalab = () => (
           <li>Via un outil en ligne pour les données aux formats <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, quel que soit le niveau de granularité.</li>
         </ul>
         <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
-        <p>Les archives de <b>juillet 2017</b> à <b>octobre 2018</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
+        <p>Les archives de <b>juillet 2017</b> à <b>octobre 2019</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
 
         <h4>Historique</h4>
 
