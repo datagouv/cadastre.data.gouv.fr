@@ -143,50 +143,6 @@ const millesimes = [
       {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
       {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
-  },
-  {
-    date: '1er octobre 2019',
-    path: '2019-10-01',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']},
-      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
-      {name: 'dxf', granularities: ['feuilles', 'departements']},
-      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
-      {name: 'tiff', granularities: ['feuilles', 'departements']}
-    ]
-  },
-  {
-    date: '1er juillet 2019',
-    path: '2019-07-01',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']},
-      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
-      {name: 'dxf', granularities: ['feuilles', 'departements']},
-      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
-      {name: 'tiff', granularities: ['feuilles', 'departements']}
-    ]
-  },
-  {
-    date: '1er avril 2019',
-    path: '2019-04-01',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']},
-      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
-      {name: 'dxf', granularities: ['feuilles', 'departements']},
-      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
-      {name: 'tiff', granularities: ['feuilles', 'departements']}
-    ]
-  },
-  {
-    date: '1er janvier 2019',
-    path: '2019-01-01',
-    formats: [
-      {name: 'edigeo', granularities: ['feuilles', 'departements']},
-      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
-      {name: 'dxf', granularities: ['feuilles', 'departements']},
-      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
-      {name: 'tiff', granularities: ['feuilles', 'departements']}
-    ]
   }
 ]
 
@@ -242,7 +198,7 @@ const Pci = () => (
           <li>Via un outil en ligne pour les <b>archives communales</b>. Les données sont alors produites à la volée.</li>
         </ul>
         <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
-        <p>Les archives de <b>juillet 2017</b> à <b>octobre 2018</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
+        <p>Les archives de <b>juillet 2017</b> à <b>octobre 2019</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
 
         <h4>Outils</h4>
 
