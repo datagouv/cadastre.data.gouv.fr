@@ -161,7 +161,7 @@ const Pci = () => (
         </p>
 
         <h4>Numérisation du plan cadastral</h4>
-        <p>Depuis la fin des années 1980, des initiatives de numérisation du plan se sont succédées et structurées pour atteindre un régime de croisière au cours des années 2000.<br />
+        <p>Depuis la fin des années 1980, des initiatives de numérisation du plan se sont succédé et structuré pour atteindre un régime de croisière au cours des années 2000.<br />
           Cette numérisation est réalisée avec le concours financier des collectivités, et en particulier des communes, et se poursuit encore aujourd’hui.</p>
 
         <h4>PCI Vecteur et PCI Image</h4>
