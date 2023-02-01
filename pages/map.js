@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Router from 'next/router'
 import {pickBy, identity} from 'lodash'
 
-import Map from '../components/react-map-gl'
+import MapComponent from '../components/react-map-gl'
 
 import {useInput} from '../components/hooks/input'
 import useDebounce from '../components/hooks/debounce'
@@ -126,7 +126,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
         </div>
 
         <div className='map-container'>
-          <Map
+          <MapComponent
             viewport={viewport}
             showBati={showBati}
             isTouchScreenDevice={isTouchScreenDevice}

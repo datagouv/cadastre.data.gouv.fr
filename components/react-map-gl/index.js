@@ -1,14 +1,17 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import ReactMapGL, {NavigationControl, GeolocateControl, Popup} from 'react-map-gl'
+// import maplibregl from 'maplibre-gl';
+
+// import 'maplibre-gl/dist/maplibre-gl.css';
 
 import {Home} from 'react-feather'
 
 import usePrevious from '../hooks/previous'
 
 import ParcelleSumup from '../map/parcelle-sumup'
-import Control from './control'
-import SwitchMapStyle from './switch-map-style'
+// import Control from './control'
+// import SwitchMapStyle from './switch-map-style'
 
 import {vector, ortho} from './styles'
 
@@ -30,7 +33,7 @@ function getBaseStyle(style) {
   }
 }
 
-const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, changeStyle, onViewportChange, selectedParcelle, selectParcelle}) => {
+const MapComponent = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, changeStyle, onViewportChange, selectedParcelle, selectParcelle}) => {
   const [map, setMap] = useState()
 
   const [isLoaded, setIsLoaded] = useState(false)
@@ -200,6 +203,7 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
                 trackUserLocation={false}
               />
             </div>
+            {/*
             <Control
               captureClick
               enabled={showBati}
@@ -207,15 +211,17 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
               enabledHint='Afficher le bâti'
               disabledHint='Cacher le bâti'
               onChange={toggleBati} />
+              */}
           </div>
         </div>
 
         <div className='control style-switch mapboxgl-ctrl-group mapboxgl-ctrl'>
-          <SwitchMapStyle
+          {/*<SwitchMapStyle
             captureClick
             isVector={style === 'vector'}
             handleChange={changeStyle}
           />
+          */}
         </div>
 
         {displayPopup() && (
@@ -281,12 +287,12 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
   )
 }
 
-Map.defaultProps = {
+MapComponent.defaultProps = {
   selectedParcelle: null,
   isTouchScreenDevice: false
 }
 
-Map.propTypes = {
+MapComponent.propTypes = {
   viewport: PropTypes.shape({
     longitude: PropTypes.number.isRequired,
     latitude: PropTypes.number.isRequired,
@@ -305,4 +311,4 @@ Map.propTypes = {
   selectParcelle: PropTypes.func.isRequired
 }
 
-export default Map
+export default MapComponent
