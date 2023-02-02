@@ -1,8 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {BaseControl} from 'react-map-gl'
+import {useControl} from 'react-map-gl'
 
 import theme from '../../styles/theme'
+
+const SwitchMapStyleProps = {
+  isVector: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired
+}
+
+function DrawControl(props) {
+  useControl(() => new MapboxDraw(props), {
+    position: props.position
+  });
+
+  return null;
+}
 
 class SwitchMapStyle extends BaseControl {
   static propTypes = {
@@ -18,7 +31,7 @@ class SwitchMapStyle extends BaseControl {
     return (
       <div
         ref={this._containerRef}
-        className='switch-style mapboxgl-ctrl-swith-map-style'
+        className='switch-style maplibregl-ctrl-swith-map-style'
         onClick={handleChange}
       >
         <img alt={style} src={source} />

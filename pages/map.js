@@ -2,10 +2,6 @@ import React, {useState, useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
 import {pickBy, identity} from 'lodash'
-// import maplibregl from 'maplibre-gl';
-
-// console.log(maplibregl);
-// import '../../node_modules/maplibre-gl/dist/maplibre-gl.css';
 
 import MapComponent from '../components/react-map-gl'
 

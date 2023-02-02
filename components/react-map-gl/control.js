@@ -22,11 +22,11 @@ class Control extends BaseControl {
       <button
         type='button'
         ref={this._containerRef}
-        className='mapboxgl-ctrl-icon mapboxgl-ctrl-custom-control'
+        className='maplibregl-ctrl-icon maplibregl-ctrl-custom-control'
         title={enabled ? enabledHint : disabledHint}
         onClick={onChange}
       >
-        <span className='mapboxgl-ctrl-icon' aria-hidden='true'>{icon}</span>
+        <span className='maplibregl-ctrl-icon' aria-hidden='true'>{icon}</span>
 
         <style jsx>{`
           button span {

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import Map, {NavigationControl, GeolocateControl, Popup} from 'react-map-gl'
 import maplibregl from "maplibre-gl"
 
-// console.log(maplibre)
-
+// import 'maplibre-gl/dist/maplibre-gl.css';
 
 import {Home} from 'react-feather'
 
@@ -50,7 +49,8 @@ const MapComponent = ({viewport, isTouchScreenDevice, showBati, toggleBati, styl
   }, [])
 
   const onClick = useCallback(event => {
-    event.stopPropagation()
+    event.originalEvent.stopPropagation()
+    console.log(event)
     const feature = event.features && event.features[0]
     const {id} = selectedParcelle || {}
 
@@ -62,7 +62,8 @@ const MapComponent = ({viewport, isTouchScreenDevice, showBati, toggleBati, styl
   }, [selectParcelle, selectedParcelle])
 
   const onHover = event => {
-    event.stopPropagation()
+    event.originalEvent.stopPropagation()
+    console.log(event)
     const feature = event.features && event.features[0]
     const [longitude, latitude] = event.lngLat
     let hoverInfo
@@ -197,7 +198,7 @@ const MapComponent = ({viewport, isTouchScreenDevice, showBati, toggleBati, styl
 
         <div className='control navigation'>
           <NavigationControl showCompass={false} />
-          <div className='control custom mapboxgl-ctrl-group mapboxgl-ctrl'>
+          <div className='control custom maplibregl-ctrl-group maplibregl-ctrl'>
             <div className='user-location'>
               <GeolocateControl
                 label='Géolocaliser'
@@ -217,7 +218,7 @@ const MapComponent = ({viewport, isTouchScreenDevice, showBati, toggleBati, styl
           </div>
         </div>
 
-        <div className='control style-switch mapboxgl-ctrl-group mapboxgl-ctrl'>
+        <div className='control style-switch maplibregl-ctrl-group maplibregl-ctrl'>
           {/*<SwitchMapStyle
             captureClick
             isVector={style === 'vector'}
