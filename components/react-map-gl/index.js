@@ -1,9 +1,10 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import PropTypes from 'prop-types'
-import ReactMapGL, {NavigationControl, GeolocateControl, Popup} from 'react-map-gl'
-// import maplibregl from 'maplibre-gl';
+import Map, {NavigationControl, GeolocateControl, Popup} from 'react-map-gl'
+import maplibregl from "maplibre-gl"
 
-// import 'maplibre-gl/dist/maplibre-gl.css';
+// console.log(maplibre)
+
 
 import {Home} from 'react-feather'
 
@@ -174,7 +175,7 @@ const MapComponent = ({viewport, isTouchScreenDevice, showBati, toggleBati, styl
 
   return (
     <div className='map-container'>
-      <ReactMapGL
+      <Map
         ReuseMaps
         ref={mapRef}
         {...viewport}
@@ -191,6 +192,7 @@ const MapComponent = ({viewport, isTouchScreenDevice, showBati, toggleBati, styl
           return isHovering ? 'pointer' : 'default'
         }}
         interactiveLayerIds={interactiveLayerIds}
+        mapLib={maplibregl}
       >
 
         <div className='control navigation'>
@@ -239,7 +241,7 @@ const MapComponent = ({viewport, isTouchScreenDevice, showBati, toggleBati, styl
             </Popup>
           </div>
         )}
-      </ReactMapGL>
+      </Map>
 
       <style jsx>{`
         .map-container {
