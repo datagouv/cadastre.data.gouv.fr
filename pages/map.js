@@ -38,7 +38,9 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
   const [placeholder, setPlaceholder] = useInput('Rechercher une adresse')
   const [results, setResults] = useState([])
 
-  const [viewport, setViewport] = useState(defaultViewport)
+  const [viewState, setViewState] = useState(defaultViewport)
+  // const [viewport, setViewport] = useState({})
+  // setViewport({zoom: defaultViewport.zoom, longitude: defaultViewport.longitude, latitude: defaultViewport.latitude})
   const [isTouchScreenDevice, setIsTouchScreenDevice] = useState(false)
   const [showBati, setShowBati] = useState(!hideBati)
   const [style, setStyle] = useState(defaultStyle)
@@ -51,7 +53,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
     const [longitude, latitude] = address.geometry.coordinates
     const zoom = zoomLevel[address.properties.type]
 
-    setViewport({zoom, longitude, latitude})
+    setViewState({zoom, longitude, latitude})
     setInput('')
     setPlaceholder(label)
     setParcelle(null)
@@ -88,7 +90,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
       if (hash !== '#8/0/0') { // Prevent map init to override hash
         const [zoom, lat, lng] = hash.replace('#', '').split('/')
 
-        setViewport({
+        setViewState({
           latitude: Number(lat),
           longitude: Number(lng),
           zoom: Number(zoom)
@@ -127,13 +129,12 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
 
         <div className='map-container'>
           <MapComponent
-            viewport={viewport}
             showBati={showBati}
             isTouchScreenDevice={isTouchScreenDevice}
             toggleBati={() => setShowBati(!showBati)}
             style={style}
             changeStyle={() => setStyle(style === 'vector' ? 'ortho' : 'vector')}
-            onViewportChange={setViewport}
+            // onViewportChange={setViewport}
             selectedParcelle={parcelle}
             selectParcelle={setParcelle}
           />

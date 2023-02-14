@@ -32,7 +32,7 @@ const HeadLinkTitle = ({title, subtitle, href, icon}) => {
         }
         `}</style>
     </div>
-  )
+  );
 }
 
 HeadLinkTitle.propTypes = {
