@@ -62,16 +62,12 @@ const MapComponent = ({viewState, isTouchScreenDevice, showBati, toggleBati, sty
     }
   }, [selectParcelle, selectedParcelle])
 
-  const onMouseEnter = useCallback(() => setCursor('pointer'), []);
-  const onMouseLeave = useCallback(() => setCursor('default'), []);
-
   const onHover = event => {
-    console.log('onHover', event)
     event.originalEvent.stopPropagation()
     const feature = event.features && event.features[0]
-    const [longitude, latitude] = event.lngLat
+    const longitude = event.lngLat.lng
+    const latitude = event.lngLat.lat
     let hoverInfo
-
     if (feature) {
       hoverInfo = {
         longitude,
@@ -79,8 +75,12 @@ const MapComponent = ({viewState, isTouchScreenDevice, showBati, toggleBati, sty
         feature
       }
     }
-
     setHovered(hoverInfo)
+    if (event.type == 'mouseenter') {
+      setCursor('pointer')
+    } else if (event.type == 'mouseleave') {
+      setCursor('default')
+    }
   }
 
   const loadLayers = useCallback(() => {
@@ -183,15 +183,18 @@ const MapComponent = ({viewState, isTouchScreenDevice, showBati, toggleBati, sty
       <Map
         ReuseMaps
         ref={mapRef}
+        {...viewState}
+        onMove={onMove}
         style={{width: '100%', height: '100%'}}
-        hash={true}
+        hash={false}
         mapStyle={mapStyle}
         {...settings}
         onClick={onClick}
         onHover={isTouchScreenDevice ? null : onHover}
         onLoad={() => setIsLoaded(true)}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
+        onMouseEnter={onHover}
+        onMouseLeave={onHover}
+        onMouseMove={onHover}
         cursor={cursor}
         interactiveLayerIds={interactiveLayerIds}
         mapLib={maplibregl}
@@ -207,9 +210,24 @@ const MapComponent = ({viewState, isTouchScreenDevice, showBati, toggleBati, sty
                 trackUserLocation={false}
               />
             </div>
-            <button type='button' title='Afficher le bâti' className='maplibre-ctrl-icon maplibre-ctrl-custom-control'>
-              <span aria-hidden='true' className='maplibre-ctrl-icon'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'></path><polyline points='9 22 9 12 15 12 15 22'></polyline></svg></span>
+            {/*
+            <Control
+              captureClick
+              enabled={showBati}
+              icon={<Home />}
+              enabledHint='Afficher le bâti'
+              disabledHint='Cacher le bâti'
+              onChange={toggleBati} />
+            */}
+            {/*<button type='button' title='Afficher le bâti' className='maplibre-ctrl-icon maplibre-ctrl-custom-control'>
+              <span aria-hidden='true' className='maplibre-ctrl-icon'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>
+                  <path d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'></path>
+                  <polyline points='9 22 9 12 15 12 15 22'></polyline>
+                </svg>
+              </span>
             </button>
+            */}
           </div>
         </div>
 

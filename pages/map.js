@@ -129,6 +129,27 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
 
         <div className='map-container'>
           <MapComponent
+            viewState={viewState}
+            onMove={evt => {
+              let {zoom, latitude, longitude} = evt.viewState
+              zoom = Math.round(zoom * 100) / 100;
+              // derived from equation: 512px * 2^z / 360 / 10^d < 0.5px
+              const precision = Math.ceil((zoom * Math.LN2 + Math.log(512 / 360 / 0.5)) / Math.LN10);
+              const m = Math.pow(10, precision);
+              longitude = Math.round(longitude * m) / m,
+              latitude = Math.round(latitude * m) / m
+              Router.push({
+                pathname: '/map',
+                query: pickBy({
+                  ...Router.query,
+                  parcelleId: parcelle ? parcelle.id : null,
+                  hideBati: !showBati,
+                  style
+                }, identity),
+                hash: `#${zoom}/${latitude}/${longitude}`
+              })
+              return setViewState(evt.viewState);
+            }}
             showBati={showBati}
             isTouchScreenDevice={isTouchScreenDevice}
             toggleBati={() => setShowBati(!showBati)}
