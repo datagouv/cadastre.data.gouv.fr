@@ -187,6 +187,7 @@ const MapComponent = ({viewState, isTouchScreenDevice, showBati, toggleBati, sty
         onMove={onMove}
         style={{width: '100%', height: '100%'}}
         hash={false}
+        locale={{'GeolocateControl.FindMyLocation': 'Trouver ma position', 'GeolocateControl.LocationNotAvailable': 'Position non disponible'}}
         mapStyle={mapStyle}
         {...settings}
         onClick={onClick}
