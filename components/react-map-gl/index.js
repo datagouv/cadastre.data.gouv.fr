@@ -1,17 +1,17 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import PropTypes from 'prop-types'
-import Map, {NavigationControl, GeolocateControl, Popup} from 'react-map-gl'
-import maplibregl from "maplibre-gl"
+import {Map, NavigationControl, GeolocateControl, Popup} from 'react-map-gl'
+import maplibregl from 'maplibre-gl'
 
-// import 'maplibre-gl/dist/maplibre-gl.css';
+// Import 'maplibre-gl/dist/maplibre-gl.css';
 
 import {Home} from 'react-feather'
 
 import usePrevious from '../hooks/previous'
 
 import ParcelleSumup from '../map/parcelle-sumup'
-// import Control from './control'
-// import SwitchMapStyle from './switch-map-style'
+import Control from './control'
+import SwitchMapStyle from './switch-map-style'
 
 import {vector, ortho} from './styles'
 
@@ -33,13 +33,13 @@ function getBaseStyle(style) {
   }
 }
 
-const MapComponent = ({viewState, isTouchScreenDevice, showBati, toggleBati, style, changeStyle, onMove, selectedParcelle, selectParcelle}) => {
+function MapComponent({viewState, isTouchScreenDevice, showBati, toggleBati, style, changeStyle, onMove, selectedParcelle, selectParcelle}) {
   const [map, setMap] = useState()
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [mapStyle, setMapStyle] = useState(getBaseStyle(style))
   const [hovered, setHovered] = useState(null)
-  const [cursor, setCursor] = useState('default');
+  const [cursor, setCursor] = useState('default')
 
   const prevHovered = usePrevious(hovered)
 
@@ -75,10 +75,11 @@ const MapComponent = ({viewState, isTouchScreenDevice, showBati, toggleBati, sty
         feature
       }
     }
+
     setHovered(hoverInfo)
-    if (event.type == 'mouseenter') {
+    if (event.type === 'mouseenter') {
       setCursor('pointer')
-    } else if (event.type == 'mouseleave') {
+    } else if (event.type === 'mouseleave') {
       setCursor('default')
     }
   }
@@ -200,18 +201,14 @@ const MapComponent = ({viewState, isTouchScreenDevice, showBati, toggleBati, sty
         interactiveLayerIds={interactiveLayerIds}
         mapLib={maplibregl}
       >
-
-        <div className='control navigation'>
-          <NavigationControl showCompass={false} />
+        <NavigationControl showCompass={false} />
+        <GeolocateControl
+          label='Géolocaliser'
+          positionOptions={{enableHighAccuracy: true}}
+          trackUserLocation={false}
+        />
+        <div style={{top: '108px'}} className='control navigation maplibregl-ctrl-top-right'>
           <div className='control custom maplibregl-ctrl-group maplibregl-ctrl'>
-            <div className='user-location'>
-              <GeolocateControl
-                label='Géolocaliser'
-                positionOptions={{enableHighAccuracy: true}}
-                trackUserLocation={false}
-              />
-            </div>
-            {/*
             <Control
               captureClick
               enabled={showBati}
@@ -219,24 +216,15 @@ const MapComponent = ({viewState, isTouchScreenDevice, showBati, toggleBati, sty
               enabledHint='Afficher le bâti'
               disabledHint='Cacher le bâti'
               onChange={toggleBati} />
-            */}
-            {/*<button type='button' title='Afficher le bâti' className='maplibre-ctrl-icon maplibre-ctrl-custom-control'>
-              <span aria-hidden='true' className='maplibre-ctrl-icon'>
-                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>
-                  <path d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'></path>
-                  <polyline points='9 22 9 12 15 12 15 22'></polyline>
-                </svg>
-              </span>
-            </button>
-            */}
           </div>
         </div>
 
-        <div className='control style-switch maplibre-ctrl-group maplibre-ctrl'>
-          <div className='switch-style maplibre-ctrl-swith-map-style'>
-            <img style={{height: "100%", width: "100%"}} alt='Satellite' src='/static/images/map/preview-ortho.png'/>
-            <div className='text'>Satellite</div>
-          </div>
+        <div className='control style-switch mapboxgl-ctrl-group mapboxgl-ctrl'>
+          <SwitchMapStyle
+            captureClick
+            isVector={style === 'vector'}
+            handleChange={changeStyle}
+          />
         </div>
 
         {displayPopup() && (
@@ -268,16 +256,6 @@ const MapComponent = ({viewState, isTouchScreenDevice, showBati, toggleBati, sty
 
         .user-location {
           display: none;
-        }
-
-        .control {
-          position: absolute;
-          margin: 0.5em;
-        }
-
-        .control.custom {
-          position: relative;
-          margin: 0.4em 0;
         }
 
         .navigation {
@@ -325,17 +303,17 @@ MapComponent.defaultProps = {
 }
 
 MapComponent.propTypes = {
-  // initialViewState: PropTypes.shape({
-  //   longitude: PropTypes.number.isRequired,
-  //   latitude: PropTypes.number.isRequired,
-  //   zoom: PropTypes.number.isRequired
-  // }).isRequired,
+  viewState: PropTypes.shape({
+    longitude: PropTypes.number.isRequired,
+    latitude: PropTypes.number.isRequired,
+    zoom: PropTypes.number.isRequired
+  }).isRequired,
   isTouchScreenDevice: PropTypes.bool,
   showBati: PropTypes.bool.isRequired,
   toggleBati: PropTypes.func.isRequired,
   style: PropTypes.oneOf(['ortho', 'vector']).isRequired,
   changeStyle: PropTypes.func.isRequired,
-  //onViewportChange: PropTypes.func.isRequired,
+  onMove: PropTypes.func.isRequired,
   selectedParcelle: PropTypes.shape({
     id: PropTypes.string,
     section: PropTypes.string

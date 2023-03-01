@@ -33,14 +33,12 @@ const defaultViewport = {
   zoom: 5
 }
 
-const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
+function MapPage({hideBati, defaultParcelleId, defaultStyle}) {
   const [input, setInput] = useInput('')
   const [placeholder, setPlaceholder] = useInput('Rechercher une adresse')
   const [results, setResults] = useState([])
 
   const [viewState, setViewState] = useState(defaultViewport)
-  // const [viewport, setViewport] = useState({})
-  // setViewport({zoom: defaultViewport.zoom, longitude: defaultViewport.longitude, latitude: defaultViewport.latitude})
   const [isTouchScreenDevice, setIsTouchScreenDevice] = useState(false)
   const [showBati, setShowBati] = useState(!hideBati)
   const [style, setStyle] = useState(defaultStyle)
@@ -132,11 +130,11 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
             viewState={viewState}
             onMove={evt => {
               let {zoom, latitude, longitude} = evt.viewState
-              zoom = Math.round(zoom * 100) / 100;
-              // derived from equation: 512px * 2^z / 360 / 10^d < 0.5px
-              const precision = Math.ceil((zoom * Math.LN2 + Math.log(512 / 360 / 0.5)) / Math.LN10);
-              const m = Math.pow(10, precision);
-              longitude = Math.round(longitude * m) / m,
+              zoom = Math.round(zoom * 100) / 100
+              // Derived from equation: 512px * 2^z / 360 / 10^d < 0.5px
+              const precision = Math.ceil(((zoom * Math.LN2) + Math.log(512 / 360 / 0.5)) / Math.LN10)
+              const m = 10 ** precision
+              longitude = Math.round(longitude * m) / m
               latitude = Math.round(latitude * m) / m
               Router.push({
                 pathname: '/map',
@@ -148,14 +146,13 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
                 }, identity),
                 hash: `#${zoom}/${latitude}/${longitude}`
               })
-              return setViewState(evt.viewState);
+              return setViewState(evt.viewState)
             }}
             showBati={showBati}
             isTouchScreenDevice={isTouchScreenDevice}
             toggleBati={() => setShowBati(!showBati)}
             style={style}
             changeStyle={() => setStyle(style === 'vector' ? 'ortho' : 'vector')}
-            // onViewportChange={setViewport}
             selectedParcelle={parcelle}
             selectParcelle={setParcelle}
           />

@@ -1,30 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {BaseControl} from 'react-map-gl'
 
-class HelloWorldControl {
-  onAdd(map) {
-    this._map = map;
-    this._container = document.createElement('div');
-    this._container.className = 'maplibregl-ctrl';
-    this._container.textContent = 'Hello, world';
-    return this._container;
-  }
-
-  onRemove() {
-    this._container.parentNode.removeChild(this._container);
-    this._map = undefined;
-  }
-  getMap() {
-    return this._map;
-  }
-
-  getElement() {
-    return this._container;
-  }
-}
-
-class Control extends BaseControl {
+class Control extends React.Component {
   static defaultProps = {
     enabled: true
   }
@@ -37,18 +14,17 @@ class Control extends BaseControl {
     onChange: PropTypes.func.isRequired
   }
 
-  _render() {
+  render() {
     const {enabled, enabledHint, disabledHint, onChange, icon} = this.props
-
     return (
       <button
         type='button'
         ref={this._containerRef}
-        className='maplibregl-ctrl-icon maplibregl-ctrl-custom-control'
+        className='mapboxgl-ctrl-icon mapboxgl-ctrl-custom-control'
         title={enabled ? enabledHint : disabledHint}
         onClick={onChange}
       >
-        <span className='maplibregl-ctrl-icon' aria-hidden='true'>{icon}</span>
+        <span className='mapboxgl-ctrl-icon' aria-hidden='true'>{icon}</span>
 
         <style jsx>{`
           button span {
@@ -61,14 +37,6 @@ class Control extends BaseControl {
       </button>
     )
   }
-}
-
-function DrawControl(props: DrawControlProps) {
-  useControl(() => new HelloWorldControl(props), {
-    position: props.position
-  });
-
-  return null;
 }
 
 export default Control
