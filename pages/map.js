@@ -2,6 +2,8 @@ import React, {useState, useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
 import {pickBy, identity} from 'lodash'
+import mapStyle from 'maplibre-gl/dist/maplibre-gl.css'
+import Head from 'next/head'
 
 import MapComponent from '../components/react-map-gl'
 
@@ -103,6 +105,11 @@ function MapPage({hideBati, defaultParcelleId, defaultStyle}) {
 
   return (
     <Page title={title} description={description} fullscreen>
+      <Head>
+        <style key='maplibre'
+          dangerouslySetInnerHTML={{__html: mapStyle}} // eslint-disable-line react/no-danger
+        />
+      </Head>
       <div className='interactive-map'>
         <div className='input'>
           <SearchInput
