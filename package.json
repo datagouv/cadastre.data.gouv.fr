@@ -58,7 +58,8 @@
       "react/jsx-child-element-spacing": "off",
       "react/boolean-prop-naming": "off",
       "react/static-property-placement": "off",
-      "react/state-in-constructor": "off"
+      "react/state-in-constructor": "off",
+      "react/no-unknown-property": ["error", { "ignore": ["jsx", "global"] }]
     }
   }
 }

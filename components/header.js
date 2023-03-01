@@ -10,31 +10,33 @@ const links = [
   {text: 'FAQ', href: '/faq'}
 ]
 
-const Header = () => <header className='navbar' role='navigation'>
-  <div className='navbar__container'>
+function Header() {
+  return (
+    <header className='navbar' role='navigation'>
+      <div className='navbar__container'>
 
-    <Link href='/'>
-      <a className='nav__link'>
-        <img className='nav__logo' src='/static/images/logos/cadastre.data.gouv.fr.svg' alt='Page d’accueil de cadastre.data.gouv.fr' />
-      </a>
-    </Link>
+        <Link href='/'>
+          <a className='nav__link'>
+            <img className='nav__logo' src='/static/images/logos/cadastre.data.gouv.fr.svg' alt='Page d’accueil de cadastre.data.gouv.fr' />
+          </a>
+        </Link>
 
-    <nav>
-      <ul className='nav__links'>
-        {links.map(link => (
-          <li key={link.text} className='nav__item'>
-            <Link href={link.href}><a>{link.text}</a></Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+        <nav>
+          <ul className='nav__links'>
+            {links.map(link => (
+              <li key={link.text} className='nav__item'>
+                <Link href={link.href}><a>{link.text}</a></Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-    <div className='hamburger-menu'>
-      <HamburgerMenu links={links} />
-    </div>
+        <div className='hamburger-menu'>
+          <HamburgerMenu links={links} />
+        </div>
 
-  </div>
-  <style jsx>{`
+      </div>
+      <style jsx>{`
     .navbar__container {
       flex-flow: nowrap;
       align-items: center;
@@ -69,6 +71,8 @@ const Header = () => <header className='navbar' role='navigation'>
       }
     }
   `}</style>
-</header>;
+    </header>
+  )
+}
 
-export default Header;
+export default Header

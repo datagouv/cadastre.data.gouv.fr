@@ -3,24 +3,25 @@ import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-const Ressource = ({title, lastModification, format, link}) => (
-  <div className='ressource-container'>
-    <a className='ressource' href={link}>
-      <div className='overlay'>
-        <div>
-          <div>Télécharger</div>
-          <img src='../static/images/icons/download.svg' />
+function Ressource({title, lastModification, format, link}) {
+  return (
+    <div className='ressource-container'>
+      <a className='ressource' href={link}>
+        <div className='overlay'>
+          <div>
+            <div>Télécharger</div>
+            <img src='../static/images/icons/download.svg' />
+          </div>
         </div>
-      </div>
-      <div className='content'>
-        <div className='description'>
-          <h4>{title}</h4>
-          <p>{lastModification}</p>
+        <div className='content'>
+          <div className='description'>
+            <h4>{title}</h4>
+            <p>{lastModification}</p>
+          </div>
+          <div className='format'><strong>{format}</strong></div>
         </div>
-        <div className='format'><strong>{format}</strong></div>
-      </div>
-    </a>
-    <style jsx>{`
+      </a>
+      <style jsx>{`
       .ressource-container {
         position: relative;
         background: ${theme.backgroundWhite};
@@ -69,8 +70,9 @@ const Ressource = ({title, lastModification, format, link}) => (
         text-transform: uppercase;
       }
     `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 Ressource.propTypes = {
   title: PropTypes.string.isRequired,

@@ -7,7 +7,7 @@ import Fonts from './styles/fonts'
 
 const SITE_NAME = 'cadastre.data.gouv.fr'
 
-const Meta = ({title, description}) => {
+function Meta({title, description}) {
   description = prune(description, 160, '…')
   return (
     <>

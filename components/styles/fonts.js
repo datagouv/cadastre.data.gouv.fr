@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Fonts = () => <style jsx global>{`
+function Fonts() {
+  return (
+    <style jsx global>{`
   @font-face {
     font-family: 'Source Sans Pro';
     font-weight: 400;
@@ -80,6 +82,8 @@ const Fonts = () => <style jsx global>{`
       local('Evolventa-BoldOblique'),
       url('/static/fonts/Evolventa/Evolventa-BoldOblique.woff') format('woff');
   }
-`}</style>;
+`}</style>
+  )
+}
 
-export default Fonts;
+export default Fonts

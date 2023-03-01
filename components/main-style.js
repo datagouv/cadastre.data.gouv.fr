@@ -1,7 +1,7 @@
 import React from 'react'
 import Template from './styles/template'
 
-const MainStyle = () => {
+function MainStyle() {
   return <Template />
 }
 

@@ -1,24 +1,26 @@
 import React from 'react'
 import Section from '../section'
 
-const OtherSites = () => <Section title='Voir aussi' subtitle=''>
-  <div className='main'>
-    <div>
-      <a href='https://adresse.data.gouv.fr'>
-        <img src='/static/images/logos/logo-adresse.svg' />
-      </a>
-    </div>
-    <div>
-      <a href='https://geo.api.gouv.fr'>
-        <img src='/static/images/logos/geo.api.gouv.fr.svg' />
-      </a>
-    </div>
-  </div>
-  <div className='centered'>
-    <p>Catalogues des données géographiques</p>
-  </div>
+function OtherSites() {
+  return (
+    <Section title='Voir aussi' subtitle=''>
+      <div className='main'>
+        <div>
+          <a href='https://adresse.data.gouv.fr'>
+            <img src='/static/images/logos/logo-adresse.svg' />
+          </a>
+        </div>
+        <div>
+          <a href='https://geo.api.gouv.fr'>
+            <img src='/static/images/logos/geo.api.gouv.fr.svg' />
+          </a>
+        </div>
+      </div>
+      <div className='centered'>
+        <p>Catalogues des données géographiques</p>
+      </div>
 
-  <style jsx>{`
+      <style jsx>{`
     .main {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
@@ -34,6 +36,8 @@ const OtherSites = () => <Section title='Voir aussi' subtitle=''>
       width: 300px;
     }
   `}</style>
-</Section>;
+    </Section>
+  )
+}
 
-export default OtherSites;
+export default OtherSites

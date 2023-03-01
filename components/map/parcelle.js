@@ -7,7 +7,7 @@ import {contenanceToSurface} from '../../lib/surfaces'
 import {getCommune} from '../../lib/api-geo'
 import colors from '../../styles/colors'
 
-const Parcelle = ({parcelle, close}) => {
+function Parcelle({parcelle, close}) {
   const [commune, setCommune] = useState(null)
   const {prefixe, section, numero, contenance} = parcelle
 
