@@ -205,7 +205,8 @@ function MapComponent({viewState, isTouchScreenDevice, showBati, toggleBati, sty
         <GeolocateControl
           label='Géolocaliser'
           positionOptions={{enableHighAccuracy: true}}
-          trackUserLocation={false}
+          trackUserLocation={true}
+          fitBoundsOptions={{maxZoom: 16}}
         />
         <div style={{top: '108px'}} className='control navigation maplibregl-ctrl-top-right'>
           <div className='control custom maplibregl-ctrl-group maplibregl-ctrl'>
