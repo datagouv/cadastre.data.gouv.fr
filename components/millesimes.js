@@ -5,21 +5,22 @@ import theme from '../styles/theme'
 
 import Millesime from './millesime'
 
-const Millesimes = ({millesimes, getUrl}) => (
-  <div className='grid'>
-    {millesimes.map(millesime => (
-      <div key={millesime.date}>
-        {millesime.latest ?
-          <div className='latest line'><span>Dernier millésime</span></div> :
-          <div className='latest' />}
-        <Millesime
-          date={millesime.date}
-          path={millesime.path}
-          formats={millesime.formats}
-          getUrl={getUrl} />
-      </div>
-    ))}
-    <style jsx>{`
+function Millesimes({millesimes, getUrl}) {
+  return (
+    <div className='grid'>
+      {millesimes.map(millesime => (
+        <div key={millesime.date}>
+          {millesime.latest ?
+            <div className='latest line'><span>Dernier millésime</span></div> :
+            <div className='latest' />}
+          <Millesime
+            date={millesime.date}
+            path={millesime.path}
+            formats={millesime.formats}
+            getUrl={getUrl} />
+        </div>
+      ))}
+      <style jsx>{`
       .grid {
         grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
       }
@@ -43,8 +44,9 @@ const Millesimes = ({millesimes, getUrl}) => (
         padding: 0 10px;
       }
     `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 Millesimes.propTypes = {
   millesimes: PropTypes.array.isRequired,

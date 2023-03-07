@@ -1,7 +1,8 @@
 import React from 'react'
 
-export default () => (
-  <style jsx global>{`
+function Template() {
+  return (
+    <style jsx global>{`
     /* global rules */
 
     @font-face {
@@ -2333,5 +2334,9 @@ export default () => (
       margin: 0;
     }
 
-  `}</style>
-)
+  `}
+    </style>
+  )
+}
+
+export default Template

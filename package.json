@@ -16,18 +16,22 @@
   },
   "dependencies": {
     "compression": "^1.7.4",
+    "css-loader": "^6.7.3",
     "debounce": "^1.2.0",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
-    "mapbox-gl": "^1.7.0",
-    "next": "^10.0.2",
+    "mapbox-gl": "npm:empty-npm-package@^1.0.0",
+    "maplibre-gl": "^2.4.0",
+    "next": "11",
     "piwik-react-router": "^0.12.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-autocomplete": "^1.8.1",
+    "react-autosuggest": "^10.1.0",
     "react-dom": "^17.0.1",
     "react-feather": "^2.0.9",
-    "react-map-gl": "^5.2.3",
+    "react-map-gl": "^7.0.21",
+    "style-loader": "^3.3.1",
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
@@ -54,7 +58,8 @@
       "react/jsx-child-element-spacing": "off",
       "react/boolean-prop-naming": "off",
       "react/static-property-placement": "off",
-      "react/state-in-constructor": "off"
+      "react/state-in-constructor": "off",
+      "react/no-unknown-property": ["error", { "ignore": ["jsx", "global"] }]
     }
   }
 }

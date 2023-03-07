@@ -1,20 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Documentation = ({title, format, link, children}) => (
-  <div className='article__author panel'>
-    <div className='article__author-info'>
-      <div className='article__author-name'>{title}</div>
-      <div className='article__author-role'>{format}</div>
+function Documentation({title, format, link, children}) {
+  return (
+    <div className='article__author panel'>
+      <div className='article__author-info'>
+        <div className='article__author-name'>{title}</div>
+        <div className='article__author-role'>{format}</div>
+      </div>
+      <p className='article__author-description'>
+        {children}
+      </p>
+      <p className='article__author-description'>
+        <a href={link} className='button'>Télécharger</a>
+      </p>
     </div>
-    <p className='article__author-description'>
-      {children}
-    </p>
-    <p className='article__author-description'>
-      <a href={link} className='button'>Télécharger</a>
-    </p>
-  </div>
-)
+  )
+}
 
 Documentation.propTypes = {
   title: PropTypes.string.isRequired,

@@ -2,8 +2,10 @@ import React, {useState, useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
 import {pickBy, identity} from 'lodash'
+import mapStyle from 'maplibre-gl/dist/maplibre-gl.css'
+import Head from 'next/head'
 
-import Map from '../components/react-map-gl'
+import MapComponent from '../components/react-map-gl'
 
 import {useInput} from '../components/hooks/input'
 import useDebounce from '../components/hooks/debounce'
@@ -33,12 +35,12 @@ const defaultViewport = {
   zoom: 5
 }
 
-const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
+function MapPage({hideBati, defaultParcelleId, defaultStyle}) {
   const [input, setInput] = useInput('')
   const [placeholder, setPlaceholder] = useInput('Rechercher une adresse')
   const [results, setResults] = useState([])
 
-  const [viewport, setViewport] = useState(defaultViewport)
+  const [viewState, setViewState] = useState(defaultViewport)
   const [isTouchScreenDevice, setIsTouchScreenDevice] = useState(false)
   const [showBati, setShowBati] = useState(!hideBati)
   const [style, setStyle] = useState(defaultStyle)
@@ -51,7 +53,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
     const [longitude, latitude] = address.geometry.coordinates
     const zoom = zoomLevel[address.properties.type]
 
-    setViewport({zoom, longitude, latitude})
+    setViewState({zoom, longitude, latitude})
     setInput('')
     setPlaceholder(label)
     setParcelle(null)
@@ -88,7 +90,7 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
       if (hash !== '#8/0/0') { // Prevent map init to override hash
         const [zoom, lat, lng] = hash.replace('#', '').split('/')
 
-        setViewport({
+        setViewState({
           latitude: Number(lat),
           longitude: Number(lng),
           zoom: Number(zoom)
@@ -103,6 +105,11 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
 
   return (
     <Page title={title} description={description} fullscreen>
+      <Head>
+        <style key='maplibre'
+          dangerouslySetInnerHTML={{__html: mapStyle}} // eslint-disable-line react/no-danger
+        />
+      </Head>
       <div className='interactive-map'>
         <div className='input'>
           <SearchInput
@@ -126,14 +133,33 @@ const MapPage = ({hideBati, defaultParcelleId, defaultStyle}) => {
         </div>
 
         <div className='map-container'>
-          <Map
-            viewport={viewport}
+          <MapComponent
+            viewState={viewState}
+            onMove={evt => {
+              let {zoom, latitude, longitude} = evt.viewState
+              zoom = Math.round(zoom * 100) / 100
+              // Derived from equation: 512px * 2^z / 360 / 10^d < 0.5px
+              const precision = Math.ceil(((zoom * Math.LN2) + Math.log(512 / 360 / 0.5)) / Math.LN10)
+              const m = 10 ** precision
+              longitude = Math.round(longitude * m) / m
+              latitude = Math.round(latitude * m) / m
+              Router.push({
+                pathname: '/map',
+                query: pickBy({
+                  ...Router.query,
+                  parcelleId: parcelle ? parcelle.id : null,
+                  hideBati: !showBati,
+                  style
+                }, identity),
+                hash: `#${zoom}/${latitude}/${longitude}`
+              })
+              return setViewState(evt.viewState)
+            }}
             showBati={showBati}
             isTouchScreenDevice={isTouchScreenDevice}
             toggleBati={() => setShowBati(!showBati)}
             style={style}
             changeStyle={() => setStyle(style === 'vector' ? 'ortho' : 'vector')}
-            onViewportChange={setViewport}
             selectedParcelle={parcelle}
             selectParcelle={setParcelle}
           />

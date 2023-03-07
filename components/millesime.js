@@ -21,22 +21,23 @@ const granularityLabels = {
   france: 'France entière'
 }
 
-const Millesime = ({date, formats, path, getUrl}) => (
-  <div className='millesime-container'>
-    <h5>Millésime {date}</h5>
-    <div className='millesimes'>
-      {formats.map(format => (
-        <div key={date + format.name} className='format'>
-          <div><strong>{formatLabels[format.name]}</strong></div>
-          <div className='granularity'>
-            {format.granularities.map(granularity => (
-              <a key={date + format.name + granularity} href={getUrl(path, format.name, granularity)}>{granularityLabels[granularity]}</a>
-            ))}
+function Millesime({date, formats, path, getUrl}) {
+  return (
+    <div className='millesime-container'>
+      <h5>Millésime {date}</h5>
+      <div className='millesimes'>
+        {formats.map(format => (
+          <div key={date + format.name} className='format'>
+            <div><strong>{formatLabels[format.name]}</strong></div>
+            <div className='granularity'>
+              {format.granularities.map(granularity => (
+                <a key={date + format.name + granularity} href={getUrl(path, format.name, granularity)}>{granularityLabels[granularity]}</a>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-    <style jsx>{`
+        ))}
+      </div>
+      <style jsx>{`
       .millesime-container {
         background: ${theme.colors.white};
         box-shadow: 0 1px 4px ${theme.boxShadow};
@@ -74,8 +75,9 @@ const Millesime = ({date, formats, path, getUrl}) => (
         text-decoration: underline;
       }
     `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 Millesime.propTypes = {
   date: PropTypes.string.isRequired,

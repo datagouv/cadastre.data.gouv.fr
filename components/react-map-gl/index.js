@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import PropTypes from 'prop-types'
-import ReactMapGL, {NavigationControl, GeolocateControl, Popup} from 'react-map-gl'
+import {Map, NavigationControl, GeolocateControl, Popup} from 'react-map-gl'
+import maplibregl from 'maplibre-gl'
 
 import {Home} from 'react-feather'
 
@@ -30,12 +31,13 @@ function getBaseStyle(style) {
   }
 }
 
-const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, changeStyle, onViewportChange, selectedParcelle, selectParcelle}) => {
+function MapComponent({viewState, isTouchScreenDevice, showBati, toggleBati, style, changeStyle, onMove, selectedParcelle, selectParcelle}) {
   const [map, setMap] = useState()
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [mapStyle, setMapStyle] = useState(getBaseStyle(style))
   const [hovered, setHovered] = useState(null)
+  const [cursor, setCursor] = useState('default')
 
   const prevHovered = usePrevious(hovered)
 
@@ -46,7 +48,8 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
   }, [])
 
   const onClick = useCallback(event => {
-    event.stopPropagation()
+    console.log('onClick', event)
+    event.originalEvent.stopPropagation()
     const feature = event.features && event.features[0]
     const {id} = selectedParcelle || {}
 
@@ -58,11 +61,11 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
   }, [selectParcelle, selectedParcelle])
 
   const onHover = event => {
-    event.stopPropagation()
+    event.originalEvent.stopPropagation()
     const feature = event.features && event.features[0]
-    const [longitude, latitude] = event.lngLat
+    const longitude = event.lngLat.lng
+    const latitude = event.lngLat.lat
     let hoverInfo
-
     if (feature) {
       hoverInfo = {
         longitude,
@@ -72,6 +75,11 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
     }
 
     setHovered(hoverInfo)
+    if (event.type === 'mouseenter') {
+      setCursor('pointer')
+    } else if (event.type === 'mouseleave') {
+      setCursor('default')
+    }
   }
 
   const loadLayers = useCallback(() => {
@@ -171,35 +179,35 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
 
   return (
     <div className='map-container'>
-      <ReactMapGL
+      <Map
         ReuseMaps
         ref={mapRef}
-        {...viewport}
-        width='100%'
-        height='100%'
-        mapOptions={{hash: true}}
-        onViewportChange={onViewportChange}
+        {...viewState}
+        onMove={onMove}
+        style={{width: '100%', height: '100%'}}
+        hash={false}
+        locale={{'GeolocateControl.FindMyLocation': 'Trouver ma position', 'GeolocateControl.LocationNotAvailable': 'Position non disponible'}}
         mapStyle={mapStyle}
         {...settings}
         onClick={onClick}
         onHover={isTouchScreenDevice ? null : onHover}
         onLoad={() => setIsLoaded(true)}
-        getCursor={({isHovering}) => {
-          return isHovering ? 'pointer' : 'default'
-        }}
+        onMouseEnter={onHover}
+        onMouseLeave={onHover}
+        onMouseMove={onHover}
+        cursor={cursor}
         interactiveLayerIds={interactiveLayerIds}
+        mapLib={maplibregl}
       >
-
-        <div className='control navigation'>
-          <NavigationControl showCompass={false} />
-          <div className='control custom mapboxgl-ctrl-group mapboxgl-ctrl'>
-            <div className='user-location'>
-              <GeolocateControl
-                label='Géolocaliser'
-                positionOptions={{enableHighAccuracy: true}}
-                trackUserLocation={false}
-              />
-            </div>
+        <NavigationControl showCompass={false} />
+        <GeolocateControl
+          label='Géolocaliser'
+          positionOptions={{enableHighAccuracy: true}}
+          trackUserLocation
+          fitBoundsOptions={{maxZoom: 16}}
+        />
+        <div style={{top: '108px'}} className='control navigation maplibregl-ctrl-top-right'>
+          <div className='control custom maplibregl-ctrl-group maplibregl-ctrl'>
             <Control
               captureClick
               enabled={showBati}
@@ -233,7 +241,7 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
             </Popup>
           </div>
         )}
-      </ReactMapGL>
+      </Map>
 
       <style jsx>{`
         .map-container {
@@ -246,16 +254,6 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
           display: none;
         }
 
-        .control {
-          position: absolute;
-          margin: 0.5em;
-        }
-
-        .control.custom {
-          position: relative;
-          margin: 0.4em 0;
-        }
-
         .navigation {
           top: 0;
           right: 0;
@@ -265,6 +263,20 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
           position: absolute;
           bottom: 0;
           left: 0;
+        }
+
+        .switch-style {
+          width: 80px;
+          height: 80px;
+          border: 2px solid rgb(255, 255, 255);
+          box-shadow: rgb(201 211 223) 0px 1px 4px 0
+        }
+
+        .text {
+            position: relative;
+            bottom: 26px;
+            left: 4px;
+            color: rgb(255, 255, 255);
         }
 
         @media (max-width: 470px) {
@@ -281,13 +293,13 @@ const Map = ({viewport, isTouchScreenDevice, showBati, toggleBati, style, change
   )
 }
 
-Map.defaultProps = {
+MapComponent.defaultProps = {
   selectedParcelle: null,
   isTouchScreenDevice: false
 }
 
-Map.propTypes = {
-  viewport: PropTypes.shape({
+MapComponent.propTypes = {
+  viewState: PropTypes.shape({
     longitude: PropTypes.number.isRequired,
     latitude: PropTypes.number.isRequired,
     zoom: PropTypes.number.isRequired
@@ -297,7 +309,7 @@ Map.propTypes = {
   toggleBati: PropTypes.func.isRequired,
   style: PropTypes.oneOf(['ortho', 'vector']).isRequired,
   changeStyle: PropTypes.func.isRequired,
-  onViewportChange: PropTypes.func.isRequired,
+  onMove: PropTypes.func.isRequired,
   selectedParcelle: PropTypes.shape({
     id: PropTypes.string,
     section: PropTypes.string
@@ -305,4 +317,4 @@ Map.propTypes = {
   selectParcelle: PropTypes.func.isRequired
 }
 
-export default Map
+export default MapComponent

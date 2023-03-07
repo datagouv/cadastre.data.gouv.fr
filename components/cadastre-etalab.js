@@ -138,98 +138,99 @@ function getUrl(path, selectedFormat, granularity) {
   return `https://cadastre.data.gouv.fr/data/etalab-cadastre/${path}/${selectedFormat}/${granularity}`
 }
 
-const CadastreEtalab = () => (
-  <div>
-    <Section>
-      <div className='main'>
-        <h4>Raison d’être de ce jeu de données</h4>
-        <p>Le <Link href='/datasets/plan-cadastral-informatise'><a>Plan Cadastral Informatisé</a></Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
-          Etalab a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
+function CadastreEtalab() {
+  return (
+    <div>
+      <Section>
+        <div className='main'>
+          <h4>Raison d’être de ce jeu de données</h4>
+          <p>Le <Link href='/datasets/plan-cadastral-informatise'><a>Plan Cadastral Informatisé</a></Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
+            Etalab a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
 
-        <h4>Données sources</h4>
-        <p>Ces données sont produites à partir :</p>
-        <ul>
-          <li>des <Link href='/datasets/plan-cadastral-informatise'><a>données EDIGÉO du PCI Vecteur</a></Link> ;</li>
-          <li>des <a href='https://www.data.gouv.fr/datasets/5e6ad06d06e3e742367168cc/'>données cadastrales de l’Eurométropole de Strasbourg</a>.</li>
-        </ul>
+          <h4>Données sources</h4>
+          <p>Ces données sont produites à partir :</p>
+          <ul>
+            <li>des <Link href='/datasets/plan-cadastral-informatise'><a>données EDIGÉO du PCI Vecteur</a></Link> ;</li>
+            <li>des <a href='https://www.data.gouv.fr/datasets/5e6ad06d06e3e742367168cc/'>données cadastrales de l’Eurométropole de Strasbourg</a>.</li>
+          </ul>
 
-        <h4>Processus de construction</h4>
+          <h4>Processus de construction</h4>
 
-        <p>Les différentes couches sont constituées par juxtaposition des feuilles, sans correction de topologie.<br />
-          Les données de l’Eurométropole Strasbourg sont ajoutées par écrasement de celles éventuellement présentes dans le PCI Vecteur.<br />
-          Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b>, les <b>lieux-dits</b>, les <b>parcelles</b>, les <b>subdivisions fiscales</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
-          La couche des contours des <b>préfixes de sections</b> est construite à partir de la couche des sections.<br />
-          Le code source est ouvert et <a href='https://github.com/etalab/cadastre'>disponible sur GitHub</a>.
-        </p>
+          <p>Les différentes couches sont constituées par juxtaposition des feuilles, sans correction de topologie.<br />
+            Les données de l’Eurométropole Strasbourg sont ajoutées par écrasement de celles éventuellement présentes dans le PCI Vecteur.<br />
+            Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b>, les <b>lieux-dits</b>, les <b>parcelles</b>, les <b>subdivisions fiscales</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
+            La couche des contours des <b>préfixes de sections</b> est construite à partir de la couche des sections.<br />
+            Le code source est ouvert et <a href='https://github.com/etalab/cadastre'>disponible sur GitHub</a>.
+          </p>
 
-        <h4>Couverture</h4>
+          <h4>Couverture</h4>
 
-        <p>Les 34 700 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
-          Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
+          <p>Les 34 700 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
+            Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
 
-        <h4>Formats disponibles</h4>
-        <p>Les données sont actuellement disponibles aux formats <a href='http://geojson.org/'>GeoJSON</a> compressé, <a href='http://geojson.org/'>GeoJSON</a> simple et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, via l’outil d’aide au téléchargement.</p>
+          <h4>Formats disponibles</h4>
+          <p>Les données sont actuellement disponibles aux formats <a href='http://geojson.org/'>GeoJSON</a> compressé, <a href='http://geojson.org/'>GeoJSON</a> simple et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, via l’outil d’aide au téléchargement.</p>
 
-        <h4>Couches géographiques</h4>
+          <h4>Couches géographiques</h4>
 
-        <ul>
-          <li>parcelles (polygones ou multi polygones)</li>
-          <li>subdivisions_fiscales (polygones)</li>
-          <li>lieux_dits (polygones)</li>
-          <li>feuilles (multi polygones)</li>
-          <li>sections (multi polygones)</li>
-          <li>prefixes_sections (multi polygones)</li>
-          <li>communes (multi polygones)</li>
-          <li>batiments (polygones)</li>
-        </ul>
+          <ul>
+            <li>parcelles (polygones ou multi polygones)</li>
+            <li>subdivisions_fiscales (polygones)</li>
+            <li>lieux_dits (polygones)</li>
+            <li>feuilles (multi polygones)</li>
+            <li>sections (multi polygones)</li>
+            <li>prefixes_sections (multi polygones)</li>
+            <li>communes (multi polygones)</li>
+            <li>batiments (polygones)</li>
+          </ul>
 
-        <h4>Mise à disposition</h4>
+          <h4>Mise à disposition</h4>
 
-        <p>Les données sont mises à disposition de deux manières :</p>
-        <ul>
-          <li>En <b>téléchargement direct</b> à la <b>commune</b>, au <b>département</b> ou <b>France entière</b>, pour le format <a href='http://geojson.org/'>GeoJSON</a> compressé, au <b>département</b> ou <b>France entière</b> pour le format <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
-          <li>Via un outil en ligne pour les données aux formats <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, quel que soit le niveau de granularité.</li>
-        </ul>
-        <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
-        <p>Les archives de <b>juillet 2017</b> à <b>octobre 2019</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
+          <p>Les données sont mises à disposition de deux manières :</p>
+          <ul>
+            <li>En <b>téléchargement direct</b> à la <b>commune</b>, au <b>département</b> ou <b>France entière</b>, pour le format <a href='http://geojson.org/'>GeoJSON</a> compressé, au <b>département</b> ou <b>France entière</b> pour le format <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
+            <li>Via un outil en ligne pour les données aux formats <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, quel que soit le niveau de granularité.</li>
+          </ul>
+          <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
+          <p>Les archives de <b>juillet 2017</b> à <b>octobre 2019</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
 
-        <h4>Historique</h4>
+          <h4>Historique</h4>
 
-        <ul>
-          <li>30/09/2017 : première diffusion des données</li>
-          <li>08/11/2017 : nouveau millésime PCI + correction projection Saint-Barthelemy et Saint-Martin + intégration données Strasbourg + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=is%3Aclosed+label%3A%22cadastre+data%22+is%3Aissue+milestone%3A%22Sprint+%232%22' rel='nofollow'>détails</a>)</li>
-          <li>07/02/2018 : nouveau millésime PCI + nouvelles données Strasbourg + ajout des lieux-dits + amélioration des géométries + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=milestone%3A%22Livraison+01%2F2018%22+label%3A%22cadastre+data%22+is%3Aclosed' rel='nofollow'>détails</a>)</li>
-          <li>20/05/2018 : nouveau millésime PCI + ajout des subdivisions fiscales et des préfixes de sections + ajout des assemblages nationaux + ajout du format Shapefile + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/5?closed=1'>détails</a>)</li>
-          <li>16/07/2018 : nouveau millésime PCI + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/6?closed=1'>détails</a>)</li>
-          <li>31/10/2018 : nouveau millésime PCI + nouvelles données Strasbourg</li>
-          <li>29/01/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
-          <li>27/04/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
-          <li>25/07/2019 : nouveau millésime PCI + nouvelles données Strasbourg + ajout du champ ‘arpente’ (<a href='https://github.com/etalab/cadastre/issues/80'>détails</a>)</li>
-          <li>18/10/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
-          <li>13/02/2020 : nouveau millésime PCI + nouvelles données Strasbourg</li>
-          <li>08/09/2020 : nouveau millésime PCI juillet 2020 + nouvelles données Strasbourg</li>
-          <li>16/11/2020 : nouveau millésime PCI octobre 2020 + nouvelles données Strasbourg</li>
-          <li>12/03/2021 : nouveau millésime PCI février 2021 + nouvelles données Strasbourg</li>
-          <li>21/06/2021 : nouveau millésime PCI avril 2021 + nouvelles données Strasbourg</li>
-          <li>11/09/2021 : nouveau millésime PCI juillet 2021 + nouvelles données Strasbourg</li>
-          <li>13/12/2021 : nouveau millésime PCI octobre 2021 + nouvelles données Strasbourg</li>
-          <li>19/02/2022 : nouveau millésime PCI janvier 2022 + nouvelles données Strasbourg</li>
-          <li>29/04/2022 : nouveau millésime PCI avril 2022 + nouvelles données Strasbourg + corrections sur génération des contours communaux</li>
-          <li>22/09/2022 : nouveau millésime PCI juillet 2022 + nouvelles données Strasbourg</li>
-          <li>03/11/2022 : nouveau millésime PCI octobre 2022 + nouvelles données Strasbourg</li>
-          <li>30/01/2023 : nouveau millésime PCI janvier 2023 + nouvelles données Strasbourg</li>
-        </ul>
-      </div>
-    </Section>
-    <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
-      <p>Les liens suivants permettent de télécharger les données cadastrales <b>à la commune</b>, ou <b>au département</b>.<br />Dans le cas d’un téléchargement à la commune, vous serez invité à choisir un code département puis un code de commune.</p>
-      <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
-      <Millesimes millesimes={millesimes} getUrl={getUrl} />
-    </Section>
-    <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
-      <DownloadAssistant productList={products} />
-    </Section>
-    <style jsx>{`
+          <ul>
+            <li>30/09/2017 : première diffusion des données</li>
+            <li>08/11/2017 : nouveau millésime PCI + correction projection Saint-Barthelemy et Saint-Martin + intégration données Strasbourg + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=is%3Aclosed+label%3A%22cadastre+data%22+is%3Aissue+milestone%3A%22Sprint+%232%22' rel='nofollow'>détails</a>)</li>
+            <li>07/02/2018 : nouveau millésime PCI + nouvelles données Strasbourg + ajout des lieux-dits + amélioration des géométries + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=milestone%3A%22Livraison+01%2F2018%22+label%3A%22cadastre+data%22+is%3Aclosed' rel='nofollow'>détails</a>)</li>
+            <li>20/05/2018 : nouveau millésime PCI + ajout des subdivisions fiscales et des préfixes de sections + ajout des assemblages nationaux + ajout du format Shapefile + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/5?closed=1'>détails</a>)</li>
+            <li>16/07/2018 : nouveau millésime PCI + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/6?closed=1'>détails</a>)</li>
+            <li>31/10/2018 : nouveau millésime PCI + nouvelles données Strasbourg</li>
+            <li>29/01/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
+            <li>27/04/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
+            <li>25/07/2019 : nouveau millésime PCI + nouvelles données Strasbourg + ajout du champ ‘arpente’ (<a href='https://github.com/etalab/cadastre/issues/80'>détails</a>)</li>
+            <li>18/10/2019 : nouveau millésime PCI + nouvelles données Strasbourg</li>
+            <li>13/02/2020 : nouveau millésime PCI + nouvelles données Strasbourg</li>
+            <li>08/09/2020 : nouveau millésime PCI juillet 2020 + nouvelles données Strasbourg</li>
+            <li>16/11/2020 : nouveau millésime PCI octobre 2020 + nouvelles données Strasbourg</li>
+            <li>12/03/2021 : nouveau millésime PCI février 2021 + nouvelles données Strasbourg</li>
+            <li>21/06/2021 : nouveau millésime PCI avril 2021 + nouvelles données Strasbourg</li>
+            <li>11/09/2021 : nouveau millésime PCI juillet 2021 + nouvelles données Strasbourg</li>
+            <li>13/12/2021 : nouveau millésime PCI octobre 2021 + nouvelles données Strasbourg</li>
+            <li>19/02/2022 : nouveau millésime PCI janvier 2022 + nouvelles données Strasbourg</li>
+            <li>29/04/2022 : nouveau millésime PCI avril 2022 + nouvelles données Strasbourg + corrections sur génération des contours communaux</li>
+            <li>22/09/2022 : nouveau millésime PCI juillet 2022 + nouvelles données Strasbourg</li>
+            <li>03/11/2022 : nouveau millésime PCI octobre 2022 + nouvelles données Strasbourg</li>
+            <li>30/01/2023 : nouveau millésime PCI janvier 2023 + nouvelles données Strasbourg</li>
+          </ul>
+        </div>
+      </Section>
+      <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
+        <p>Les liens suivants permettent de télécharger les données cadastrales <b>à la commune</b>, ou <b>au département</b>.<br />Dans le cas d’un téléchargement à la commune, vous serez invité à choisir un code département puis un code de commune.</p>
+        <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
+        <Millesimes millesimes={millesimes} getUrl={getUrl} />
+      </Section>
+      <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
+        <DownloadAssistant productList={products} />
+      </Section>
+      <style jsx>{`
       .ressources {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -238,7 +239,8 @@ const CadastreEtalab = () => (
         margin: 2em 0;
       }
     `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 export default CadastreEtalab

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ButtonLink = ({size, color, href, outlined, children, ...props}) => {
+function ButtonLink({size, color, href, outlined, children, ...props}) {
   return (
     <a href={href} className={`button${outlined ? '-outline' : ''} ${size} ${color}`} {...props}>
       {children}

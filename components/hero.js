@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-const Hero = ({title, tagline, children}) => (
-  <div className='hero'>
-    <div className='hero__container'>
-      <h1 className='hero__white-background'>{title}</h1>
-      <p className='hero__white-background'>{tagline}</p>
-      {children}
-    </div>
-    <style jsx>{`
+function Hero({title, tagline, children}) {
+  return (
+    <div className='hero'>
+      <div className='hero__container'>
+        <h1 className='hero__white-background'>{title}</h1>
+        <p className='hero__white-background'>{tagline}</p>
+        {children}
+      </div>
+      <style jsx>{`
       .hero {
         background-color: ${theme.backgroundGrey};
         background-blend-mode: darken;
@@ -22,8 +23,9 @@ const Hero = ({title, tagline, children}) => (
         background-color: ${theme.colors.white};
       }
     `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
 Hero.propTypes = {
   title: PropTypes.string.isRequired,

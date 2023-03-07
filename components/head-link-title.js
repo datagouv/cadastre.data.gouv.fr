@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import theme from '../styles/theme'
 
-const HeadLinkTitle = ({title, subtitle, href, icon}) => {
+function HeadLinkTitle({title, subtitle, href, icon}) {
   return (
     <div className='data'>
       <div className='icon'>

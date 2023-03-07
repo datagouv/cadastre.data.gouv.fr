@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {BaseControl} from 'react-map-gl'
 
-class Control extends BaseControl {
+class Control extends React.Component {
   static defaultProps = {
     enabled: true
   }
@@ -15,9 +14,8 @@ class Control extends BaseControl {
     onChange: PropTypes.func.isRequired
   }
 
-  _render() {
+  render() {
     const {enabled, enabledHint, disabledHint, onChange, icon} = this.props
-
     return (
       <button
         type='button'
