@@ -16,12 +16,13 @@ const formatLabels = {
 
 const granularityLabels = {
   feuilles: 'par feuille',
+  epcis: 'par EPCI',
   departements: 'par département',
   communes: 'par commune',
   france: 'France entière'
 }
 
-function Millesime({date, formats, path, getUrl}) {
+function Millesime({ date, formats, path, baseUrl, getUrl}) {
   return (
     <div className='millesime-container'>
       <h5>Millésime {date}</h5>
@@ -31,7 +32,7 @@ function Millesime({date, formats, path, getUrl}) {
             <div><strong>{formatLabels[format.name]}</strong></div>
             <div className='granularity'>
               {format.granularities.map(granularity => (
-                <a key={date + format.name + granularity} href={getUrl(path, format.name, granularity)}>{granularityLabels[granularity]}</a>
+                <a key={date + format.name + granularity} href={getUrl(baseUrl, path, format.name, granularity)}>{granularityLabels[granularity]}</a>
               ))}
             </div>
           </div>

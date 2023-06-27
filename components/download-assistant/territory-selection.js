@@ -8,20 +8,25 @@ import ApiGeo from '../api-geo'
 const territories = [
   'départements',
   'communes',
-  'epci'
+  'epcis'
 ]
+
+const stepTitlesDependingOnLevel = {
+  'communes': 'la commune',
+  'départements': 'le département',
+  'epcis': "l'EPCI"
+}
 
 class ProductSelection extends React.Component {
   render() {
     const {territorySelected, selectTerritoryType, selectTerritory} = this.props
-    const stepTitle = territorySelected ? `Rechercher ${territorySelected === 'communes' ? 'la commune' : 'le département'}` : ''
+    const stepTitle = territorySelected ? `Rechercher ${stepTitlesDependingOnLevel[territorySelected]}` : ''
 
     return (
       <>
         <Selector
           items={territories}
           selected={territorySelected}
-          unavailable={['epci']}
           handleSelect={selectTerritoryType} />
         <Step
           title={stepTitle}

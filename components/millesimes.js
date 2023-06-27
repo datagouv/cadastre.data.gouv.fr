@@ -17,6 +17,7 @@ function Millesimes({millesimes, getUrl}) {
             date={millesime.date}
             path={millesime.path}
             formats={millesime.formats}
+            baseUrl={millesime.baseUrl}
             getUrl={getUrl} />
         </div>
       ))}

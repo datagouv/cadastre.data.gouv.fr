@@ -68,8 +68,9 @@ class DownloadAssistant extends React.Component {
 
   constructUrl() {
     const {product, territoryType, territory, format, layer} = this.state
+    const API_CADASTRE_BUNDLER = process.env.NEXT_PUBLIC_API_CADASTRE_BUNDLER || 'https://cadastre.data.gouv.fr/bundler'
     let url = [
-      'https://cadastre.data.gouv.fr/bundler',
+      API_CADASTRE_BUNDLER,
       product.name.toLowerCase().replace(' ', '-'),
       territoryType.replace('é', 'e'),
       territory.code,
