@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
+import parse from 'html-react-parser'
 import Section from './section'
 import Millesimes from './millesimes'
+import WrapperShowHide from './wrapper-show-hide'
 import DownloadAssistant from './download-assistant/download-assistant'
 
 const historique = [
@@ -29,7 +31,7 @@ const historique = [
   ["30/01/2023", "nouveau millésime PCI janvier 2023 + nouvelles données Strasbourg"],
   ["21/04/2023", "nouveau millésime PCI avril 2023 + nouvelles données Strasbourg"]
 ]
-const listItemsHistorique = historique.slice().reverse().map(([dateMaj, comment]) => <li>{dateMaj} : {comment}</li>);
+const listItemsHistorique = historique.slice().reverse().map(([dateMaj, comment]) => <li>{dateMaj} : {parse(comment)}</li>);
 
 const products = [
   {
@@ -342,7 +344,10 @@ function CadastreEtalab() {
       <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
         <p>Les liens suivants permettent de télécharger les données cadastrales <b>à la commune</b>, ou <b>au département</b>.<br />Dans le cas d’un téléchargement à la commune, vous serez invité à choisir un code département puis un code de commune.</p>
         <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
-        <Millesimes millesimes={millesimes} getUrl={getUrl} />
+        <Millesimes millesimes={millesimes.slice(0, 2)} getUrl={getUrl} />
+        <WrapperShowHide labelWhenClosed='Montrer les données des anciennes dates' labelWhenOpened='Cacher les données des anciennes dates'>
+          <Millesimes millesimes={millesimes.slice(2)} getUrl={getUrl} />
+        </WrapperShowHide>
       </Section>
       <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
         <DownloadAssistant productList={products} />

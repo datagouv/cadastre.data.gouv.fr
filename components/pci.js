@@ -2,6 +2,7 @@ import React from 'react'
 import Section from './section'
 import DownloadAssistant from './download-assistant/download-assistant'
 import Millesimes from './millesimes'
+import WrapperShowHide from './wrapper-show-hide'
 
 const products = [
   {
@@ -381,7 +382,10 @@ function Pci() {
         <p>Les URL de téléchargement sont maintenues dans le temps, il est donc tout à fait possible d’automatiser la récupération des données
           grâce à un script.</p>
         <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
-        <Millesimes millesimes={millesimes} getUrl={getUrl} />
+        <Millesimes millesimes={millesimes.slice(0, 2)} getUrl={getUrl} />
+        <WrapperShowHide>
+          <Millesimes millesimes={millesimes.slice(2)} getUrl={getUrl} />
+        </WrapperShowHide>
       </Section>
       <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
         <DownloadAssistant productList={products} />
