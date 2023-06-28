@@ -68,7 +68,8 @@
             "global"
           ]
         }
-      ]
+      ],
+      "react/jsx-no-bind": "off"
     }
   }
 }

@@ -22,7 +22,7 @@ const granularityLabels = {
   france: 'France entière'
 }
 
-function Millesime({ date, formats, path, baseUrl, getUrl}) {
+function Millesime({date, formats, path, baseUrl, getUrl}) {
   return (
     <div className='millesime-container'>
       <h5>Millésime {date}</h5>
@@ -84,6 +84,7 @@ Millesime.propTypes = {
   date: PropTypes.string.isRequired,
   formats: PropTypes.array.isRequired,
   path: PropTypes.string.isRequired,
+  baseUrl: PropTypes.string.isRequired,
   getUrl: PropTypes.func.isRequired
 }
 

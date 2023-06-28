@@ -23,7 +23,7 @@ const products = [
 ]
 const downloadUrls = {
   current: 'https://cadastre.data.gouv.fr/data',
-  old: 'https://files.data.gouv.fr/cadastre',
+  old: 'https://files.data.gouv.fr/cadastre'
 }
 
 const millesimes = [
@@ -189,11 +189,11 @@ const millesimes = [
     path: '2019-10-01',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] },
-      { name: 'edigeo-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'tiff', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -201,11 +201,11 @@ const millesimes = [
     path: '2019-07-01',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] },
-      { name: 'edigeo-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'tiff', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -213,11 +213,11 @@ const millesimes = [
     path: '2019-04-01',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] },
-      { name: 'edigeo-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'tiff', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -225,11 +225,11 @@ const millesimes = [
     path: '2019-01-01',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] },
-      { name: 'edigeo-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'tiff', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -237,11 +237,11 @@ const millesimes = [
     path: '2018-10-01',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] },
-      { name: 'edigeo-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'tiff', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -249,11 +249,11 @@ const millesimes = [
     path: '2018-06-29',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] },
-      { name: 'edigeo-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'tiff', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -261,11 +261,11 @@ const millesimes = [
     path: '2018-04-03',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] },
-      { name: 'edigeo-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'tiff', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -273,11 +273,11 @@ const millesimes = [
     path: '2018-01-02',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] },
-      { name: 'edigeo-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf-cc', granularities: ['feuilles', 'departements'] },
-      { name: 'tiff', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -285,9 +285,9 @@ const millesimes = [
     path: '2017-10-12',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] },
-      { name: 'dxf', granularities: ['feuilles', 'departements'] },
-      { name: 'tiff', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -295,7 +295,7 @@ const millesimes = [
     path: '2017-07-06',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -303,7 +303,7 @@ const millesimes = [
     path: '2017-05-14',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']}
     ]
   },
   {
@@ -311,7 +311,7 @@ const millesimes = [
     path: '2017-02-13',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'edigeo', granularities: ['feuilles', 'departements'] }
+      {name: 'edigeo', granularities: ['feuilles', 'departements']}
     ]
   }
 ]
@@ -383,7 +383,7 @@ function Pci() {
           grâce à un script.</p>
         <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
         <Millesimes millesimes={millesimes.slice(0, 2)} getUrl={getUrl} />
-        <WrapperShowHide>
+        <WrapperShowHide labelWhenClosed='Montrer les données des anciennes dates' labelWhenOpened='Cacher les données des anciennes dates'>
           <Millesimes millesimes={millesimes.slice(2)} getUrl={getUrl} />
         </WrapperShowHide>
       </Section>

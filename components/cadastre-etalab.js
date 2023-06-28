@@ -7,31 +7,31 @@ import WrapperShowHide from './wrapper-show-hide'
 import DownloadAssistant from './download-assistant/download-assistant'
 
 const historique = [
-  ["30/09/2017", "première diffusion des données"],
-  ["08/11/2017", "nouveau millésime PCI + correction projection Saint-Barthelemy et Saint-Martin + intégration données Strasbourg + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=is%3Aclosed+label%3A%22cadastre+data%22+is%3Aissue+milestone%3A%22Sprint+%232%22' rel='nofollow'>détails</a>)"],
-  ["07/02/2018", "nouveau millésime PCI + nouvelles données Strasbourg + ajout des lieux-dits + amélioration des géométries + corrections diverses (<a href='https://github.com/etalab/cadastre/issues?q=milestone%3A%22Livraison+01%2F2018%22+label%3A%22cadastre+data%22+is%3Aclosed' rel='nofollow'>détails</a>)"],
-  ["20/05/2018", "nouveau millésime PCI + ajout des subdivisions fiscales et des préfixes de sections + ajout des assemblages nationaux + ajout du format Shapefile + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/5?closed=1'>détails</a>)"],
-  ["16/07/2018", "nouveau millésime PCI + corrections diverses (<a href='https://github.com/etalab/cadastre/milestone/6?closed=1'>détails</a>)"],
-  ["31/10/2018", "nouveau millésime PCI + nouvelles données Strasbourg"],
-  ["29/01/2019", "nouveau millésime PCI + nouvelles données Strasbourg"],
-  ["27/04/2019", "nouveau millésime PCI + nouvelles données Strasbourg"],
-  ["25/07/2019", "nouveau millésime PCI + nouvelles données Strasbourg + ajout du champ ‘arpente’ (<a href='https://github.com/etalab/cadastre/issues/80'>détails</a>)"],
-  ["18/10/2019", "nouveau millésime PCI + nouvelles données Strasbourg"],
-  ["13/02/2020", "nouveau millésime PCI + nouvelles données Strasbourg"],
-  ["08/09/2020", "nouveau millésime PCI juillet 2020 + nouvelles données Strasbourg"],
-  ["16/11/2020", "nouveau millésime PCI octobre 2020 + nouvelles données Strasbourg"],
-  ["12/03/2021", "nouveau millésime PCI février 2021 + nouvelles données Strasbourg"],
-  ["21/06/2021", "nouveau millésime PCI avril 2021 + nouvelles données Strasbourg"],
-  ["11/09/2021", "nouveau millésime PCI juillet 2021 + nouvelles données Strasbourg"],
-  ["13/12/2021", "nouveau millésime PCI octobre 2021 + nouvelles données Strasbourg"],
-  ["19/02/2022", "nouveau millésime PCI janvier 2022 + nouvelles données Strasbourg"],
-  ["29/04/2022", "nouveau millésime PCI avril 2022 + nouvelles données Strasbourg + corrections sur génération des contours communaux"],
-  ["22/09/2022", "nouveau millésime PCI juillet 2022 + nouvelles données Strasbourg"],
-  ["03/11/2022", "nouveau millésime PCI octobre 2022 + nouvelles données Strasbourg"],
-  ["30/01/2023", "nouveau millésime PCI janvier 2023 + nouvelles données Strasbourg"],
-  ["21/04/2023", "nouveau millésime PCI avril 2023 + nouvelles données Strasbourg"]
+  ['30/09/2017', 'première diffusion des données'],
+  ['08/11/2017', 'nouveau millésime PCI + correction projection Saint-Barthelemy et Saint-Martin + intégration données Strasbourg + corrections diverses (<a href=\'https://github.com/etalab/cadastre/issues?q=is%3Aclosed+label%3A%22cadastre+data%22+is%3Aissue+milestone%3A%22Sprint+%232%22\' rel=\'nofollow\'>détails</a>)'],
+  ['07/02/2018', 'nouveau millésime PCI + nouvelles données Strasbourg + ajout des lieux-dits + amélioration des géométries + corrections diverses (<a href=\'https://github.com/etalab/cadastre/issues?q=milestone%3A%22Livraison+01%2F2018%22+label%3A%22cadastre+data%22+is%3Aclosed\' rel=\'nofollow\'>détails</a>)'],
+  ['20/05/2018', 'nouveau millésime PCI + ajout des subdivisions fiscales et des préfixes de sections + ajout des assemblages nationaux + ajout du format Shapefile + corrections diverses (<a href=\'https://github.com/etalab/cadastre/milestone/5?closed=1\'>détails</a>)'],
+  ['16/07/2018', 'nouveau millésime PCI + corrections diverses (<a href=\'https://github.com/etalab/cadastre/milestone/6?closed=1\'>détails</a>)'],
+  ['31/10/2018', 'nouveau millésime PCI + nouvelles données Strasbourg'],
+  ['29/01/2019', 'nouveau millésime PCI + nouvelles données Strasbourg'],
+  ['27/04/2019', 'nouveau millésime PCI + nouvelles données Strasbourg'],
+  ['25/07/2019', 'nouveau millésime PCI + nouvelles données Strasbourg + ajout du champ ‘arpente’ (<a href=\'https://github.com/etalab/cadastre/issues/80\'>détails</a>)'],
+  ['18/10/2019', 'nouveau millésime PCI + nouvelles données Strasbourg'],
+  ['13/02/2020', 'nouveau millésime PCI + nouvelles données Strasbourg'],
+  ['08/09/2020', 'nouveau millésime PCI juillet 2020 + nouvelles données Strasbourg'],
+  ['16/11/2020', 'nouveau millésime PCI octobre 2020 + nouvelles données Strasbourg'],
+  ['12/03/2021', 'nouveau millésime PCI février 2021 + nouvelles données Strasbourg'],
+  ['21/06/2021', 'nouveau millésime PCI avril 2021 + nouvelles données Strasbourg'],
+  ['11/09/2021', 'nouveau millésime PCI juillet 2021 + nouvelles données Strasbourg'],
+  ['13/12/2021', 'nouveau millésime PCI octobre 2021 + nouvelles données Strasbourg'],
+  ['19/02/2022', 'nouveau millésime PCI janvier 2022 + nouvelles données Strasbourg'],
+  ['29/04/2022', 'nouveau millésime PCI avril 2022 + nouvelles données Strasbourg + corrections sur génération des contours communaux'],
+  ['22/09/2022', 'nouveau millésime PCI juillet 2022 + nouvelles données Strasbourg'],
+  ['03/11/2022', 'nouveau millésime PCI octobre 2022 + nouvelles données Strasbourg'],
+  ['30/01/2023', 'nouveau millésime PCI janvier 2023 + nouvelles données Strasbourg'],
+  ['21/04/2023', 'nouveau millésime PCI avril 2023 + nouvelles données Strasbourg']
 ]
-const listItemsHistorique = historique.slice().reverse().map(([dateMaj, comment]) => <li>{dateMaj} : {parse(comment)}</li>);
+const listItemsHistorique = historique.slice().reverse().map(([dateMaj, comment]) => <li key={dateMaj}>{dateMaj} : {parse(comment)}</li>)
 
 const products = [
   {
@@ -56,7 +56,7 @@ const products = [
 
 const downloadUrls = {
   current: 'https://cadastre.data.gouv.fr/data/etalab-cadastre',
-  old: 'https://files.data.gouv.fr/cadastre/etalab-cadastre',
+  old: 'https://files.data.gouv.fr/cadastre/etalab-cadastre'
 }
 
 const millesimes = [
@@ -193,8 +193,8 @@ const millesimes = [
     path: '2019-10-01',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'geojson', granularities: ['communes', 'departements', 'france'] },
-      { name: 'shp', granularities: ['departements', 'france'] }
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
   {
@@ -202,8 +202,8 @@ const millesimes = [
     path: '2019-07-01',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'geojson', granularities: ['communes', 'departements', 'france'] },
-      { name: 'shp', granularities: ['departements', 'france'] }
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
   {
@@ -211,8 +211,8 @@ const millesimes = [
     path: '2019-04-01',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'geojson', granularities: ['communes', 'departements', 'france'] },
-      { name: 'shp', granularities: ['departements', 'france'] }
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
   {
@@ -220,8 +220,8 @@ const millesimes = [
     path: '2019-01-01',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'geojson', granularities: ['communes', 'departements', 'france'] },
-      { name: 'shp', granularities: ['departements', 'france'] }
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
   {
@@ -229,8 +229,8 @@ const millesimes = [
     path: '2018-10-01',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'geojson', granularities: ['communes', 'departements', 'france'] },
-      { name: 'shp', granularities: ['departements', 'france'] }
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
   {
@@ -238,8 +238,8 @@ const millesimes = [
     path: '2018-06-29',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'geojson', granularities: ['communes', 'departements', 'france'] },
-      { name: 'shp', granularities: ['departements', 'france'] }
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
   {
@@ -247,8 +247,8 @@ const millesimes = [
     path: '2018-04-03',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'geojson', granularities: ['communes', 'departements', 'france'] },
-      { name: 'shp', granularities: ['departements', 'france'] }
+      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
   {
@@ -256,7 +256,7 @@ const millesimes = [
     path: '2018-01-02',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'geojson', granularities: ['communes', 'departements'] }
+      {name: 'geojson', granularities: ['communes', 'departements']}
     ]
   },
   {
@@ -264,7 +264,7 @@ const millesimes = [
     path: '2017-10-12',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'geojson', granularities: ['communes', 'departements'] }
+      {name: 'geojson', granularities: ['communes', 'departements']}
     ]
   },
   {
@@ -272,7 +272,7 @@ const millesimes = [
     path: '2017-07-06',
     baseUrl: downloadUrls.old,
     formats: [
-      { name: 'geojson', granularities: ['communes', 'departements'] }
+      {name: 'geojson', granularities: ['communes', 'departements']}
     ]
   }
 ]

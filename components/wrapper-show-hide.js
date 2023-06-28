@@ -1,25 +1,29 @@
-import React, { PropsWithChildren, useState } from 'react';
+import React, {useState} from 'react'
+import PropTypes from 'prop-types'
 
-const WrapperShowHide = ({
+function WrapperShowHide({
   children,
   isOpenByDefault = false,
   labelWhenOpened = 'Fermer',
   labelWhenClosed = 'Ouvrir'
-}) => {
-  const [isOpen, setOpen] = useState(isOpenByDefault);
-  const label = isOpen ? labelWhenOpened : labelWhenClosed;
+}) {
+  const [isOpen, setOpen] = useState(isOpenByDefault)
+  const label = isOpen ? labelWhenOpened : labelWhenClosed
 
-  const toggle = function () { setOpen(!isOpen)}
+  const toggle = function () {
+    setOpen(!isOpen)
+  }
+
   return (
     <>
-      <button onClick={toggle} className="button-open-close" style={isOpen ? {"display": "None"}: {"display": "inherit"}}>{label}</button>
+      <button type='button' onClick={toggle} className='button-open-close' style={isOpen ? {display: 'None'} : {display: 'inherit'}}>{label}</button>
       {isOpen && (
-        <div className={isOpen ? "open": "closed"}>
+        <div className={isOpen ? 'open' : 'closed'}>
           <div>{children}</div>
-          <button className="button-open-close" onClick={toggle}>{label}</button>
+          <button type='button' className='button-open-close' onClick={toggle}>{label}</button>
         </div>
       )}
-    <style jsx>{`
+      <style jsx>{`
       .button-open-close {
         width: 80%;
         padding: 0.8em;
@@ -35,7 +39,14 @@ const WrapperShowHide = ({
       }
     `}</style>
     </>
-  );
-};
+  )
+}
+
+WrapperShowHide.propTypes = {
+  children: PropTypes.element.isRequired,
+  isOpenByDefault: PropTypes.string,
+  labelWhenOpened: PropTypes.string,
+  labelWhenClosed: PropTypes.string
+}
 
 export default WrapperShowHide

@@ -12,9 +12,9 @@ const territories = [
 ]
 
 const stepTitlesDependingOnLevel = {
-  'communes': 'la commune',
-  'départements': 'le département',
-  'epcis': "l'EPCI"
+  communes: 'la commune',
+  départements: 'le département',
+  epcis: 'l\'EPCI'
 }
 
 class ProductSelection extends React.Component {

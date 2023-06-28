@@ -8,8 +8,8 @@ import SearchInput from './search-input'
 
 const placeHoldersDependingOnLevel = {
   communes: 'Taper le nom de la commune',
-  epcis: "Taper le nom de l'EPCI",
-  'département': 'Taper le nom du département'
+  epcis: 'Taper le nom de l\'EPCI',
+  département: 'Taper le nom du département'
 }
 
 class ApiGeo extends React.Component {
@@ -58,8 +58,7 @@ class ApiGeo extends React.Component {
       description = item.region.nom
     } else if (item.code && item.code.length === 9) {
       description = 'EPCI'
-    }
-    else {
+    } else {
       description = 'Collectivité d’outre-mer'
     }
 
