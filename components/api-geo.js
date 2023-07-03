@@ -6,6 +6,12 @@ import theme from '../styles/theme'
 
 import SearchInput from './search-input'
 
+const placeHoldersDependingOnLevel = {
+  communes: 'Taper le nom de la commune',
+  epcis: 'Taper le nom de l\'EPCI',
+  département: 'Taper le nom du département'
+}
+
 class ApiGeo extends React.Component {
   constructor(props) {
     super(props)
@@ -50,6 +56,8 @@ class ApiGeo extends React.Component {
       description = `${item.departement.nom} - ${item.departement.code}`
     } else if (item.region) {
       description = item.region.nom
+    } else if (item.code && item.code.length === 9) {
+      description = 'EPCI'
     } else {
       description = 'Collectivité d’outre-mer'
     }
@@ -117,9 +125,7 @@ class ApiGeo extends React.Component {
   render() {
     const {territoryType} = this.props
     const {value, loading, results} = this.state
-    const placeholder = territoryType === 'communes' ?
-      'Taper le nom de la commune' :
-      'Taper le nom du département'
+    const placeholder = placeHoldersDependingOnLevel[territoryType]
 
     return (
       <SearchInput
