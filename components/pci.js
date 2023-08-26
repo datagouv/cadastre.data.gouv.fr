@@ -163,7 +163,7 @@ const millesimes = [
   {
     date: '1er octobre 2020',
     path: '2020-10-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'edigeo', granularities: ['feuilles', 'departements']},
       {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
@@ -175,7 +175,7 @@ const millesimes = [
   {
     date: '1er juillet 2020',
     path: '2020-07-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'edigeo', granularities: ['feuilles', 'departements']},
       {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
@@ -187,7 +187,7 @@ const millesimes = [
   {
     date: '1er janvier 2020',
     path: '2020-01-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'edigeo', granularities: ['feuilles', 'departements']},
       {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},

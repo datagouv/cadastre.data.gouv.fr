@@ -175,7 +175,7 @@ const millesimes = [
   {
     date: '1er octobre 2020',
     path: '2020-10-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'geojson', granularities: ['communes', 'departements', 'france']},
       {name: 'shp', granularities: ['departements', 'france']}
@@ -184,7 +184,7 @@ const millesimes = [
   {
     date: '1er juillet 2020',
     path: '2020-07-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'geojson', granularities: ['communes', 'departements', 'france']},
       {name: 'shp', granularities: ['departements', 'france']}
@@ -193,7 +193,7 @@ const millesimes = [
   {
     date: '1er janvier 2020',
     path: '2020-01-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'geojson', granularities: ['communes', 'departements', 'france']},
       {name: 'shp', granularities: ['departements', 'france']}
