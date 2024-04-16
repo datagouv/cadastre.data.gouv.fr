@@ -9,8 +9,8 @@ function Footer() {
           <img src='/static/images/logos/etalab.svg' />
           <ul className='footer__social'>
             <li><Link href='https://twitter.com/geodatagouv'><a><img src='/static/images/medias/twitter.svg' alt='Twitter' /></a></Link></li>
-            <li><Link href='https://github.com/etalab/cadastre.data.gouv.fr'><a><img src='/static/images/medias/github.svg' alt='Github' /></a></Link></li>
-            <li><Link href='https://blog.geo.data.gouv.fr'><a><img src='/static/images/medias/medium.svg' alt='Medium' /></a></Link></li>
+            <li><Link href='https://github.com/datagouv/cadastre.data.gouv.fr'><a><img src='/static/images/medias/github.svg' alt='Github' /></a></Link></li>
+            <li><Link href='https://medium.com/geo-data-gouv-fr'><a><img src='/static/images/medias/medium.svg' alt='Medium' /></a></Link></li>
             <li><a href='mailto:cadastre@data.gouv.fr'><img src='/static/images/medias/envelop.svg' alt='Contact' /></a></li>
           </ul>
         </div>
