@@ -32,7 +32,8 @@ const historique = [
   ['21/04/2023', 'nouveau millésime PCI avril 2023 + nouvelles données Strasbourg'],
   ['31/07/2023', 'nouveau millésime PCI juillet 2023 + nouvelles données Strasbourg'],
   ['27/11/2023', 'nouveau millésime PCI octobre 2023 + nouvelles données Strasbourg'],
-  ['22/01/2024', 'nouveau millésime PCI janvier 2024 + nouvelles données Strasbourg']
+  ['22/01/2024', 'nouveau millésime PCI janvier 2024 + nouvelles données Strasbourg'],
+  ['13/05/2024', 'nouveau millésime PCI avril 2024 + nouvelles données Strasbourg']
 ]
 const listItemsHistorique = historique.slice().reverse().map(([dateMaj, comment]) => <li key={dateMaj}>{dateMaj} : {parse(comment)}</li>)
 
@@ -65,6 +66,16 @@ const downloadUrls = {
 const millesimes = [
   {
     latest: true,
+    date: '1er avril 2024',
+    path: '2024-04-01',
+    baseUrl: downloadUrls.current,
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'epcis', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']},
+      {name: 'mbtiles', granularities: ['france']}
+    ]
+  },
+  {
     date: '1er janvier 2024',
     path: '2024-01-01',
     baseUrl: downloadUrls.current,
@@ -187,7 +198,7 @@ const millesimes = [
   {
     date: '1er février 2021',
     path: '2021-02-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'geojson', granularities: ['communes', 'departements', 'france']},
       {name: 'shp', granularities: ['departements', 'france']},
@@ -367,7 +378,7 @@ function CadastreEtalab() {
             <li>Via un outil en ligne pour les données aux formats <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, quel que soit le niveau de granularité.</li>
           </ul>
           <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
-          <p>Les archives de <b>juillet 2017</b> à <b>octobre 2019</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
+          <p>Les archives de <b>juillet 2017</b> à <b>février 2021</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
 
           <h4>Historique</h4>
 
