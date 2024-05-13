@@ -29,6 +29,18 @@ const downloadUrls = {
 const millesimes = [
   {
     latest: true,
+    date: '1er avril 2024',
+    path: '2024-04-01',
+    baseUrl: downloadUrls.current,
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
+  },
+  {
     date: '1er janvier 2024',
     path: '2024-01-01',
     baseUrl: downloadUrls.current,
