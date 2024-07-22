@@ -29,6 +29,18 @@ const downloadUrls = {
 const millesimes = [
   {
     latest: true,
+    date: '1er juillet 2024',
+    path: '2024-07-01',
+    baseUrl: downloadUrls.current,
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
+  },
+  {
     date: '1er avril 2024',
     path: '2024-04-01',
     baseUrl: downloadUrls.current,
@@ -175,7 +187,7 @@ const millesimes = [
   {
     date: '1er avril 2021',
     path: '2021-04-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'edigeo', granularities: ['feuilles', 'departements']},
       {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
@@ -187,7 +199,7 @@ const millesimes = [
   {
     date: '1er février 2021',
     path: '2021-02-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'edigeo', granularities: ['feuilles', 'departements']},
       {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
@@ -417,7 +429,7 @@ function Pci() {
             <li>Via un outil en ligne pour les <b>archives communales</b>. Les données sont alors produites à la volée.</li>
           </ul>
           <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
-          <p>Les archives de <b>juillet 2017</b> à <b>octobre 2019</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
+          <p>Les archives de <b>juillet 2017</b> à <b>avril 2021</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
 
           <h4>Outils</h4>
 
