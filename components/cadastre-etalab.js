@@ -34,7 +34,8 @@ const historique = [
   ['27/11/2023', 'nouveau millésime PCI octobre 2023 + nouvelles données Strasbourg'],
   ['22/01/2024', 'nouveau millésime PCI janvier 2024 + nouvelles données Strasbourg'],
   ['13/05/2024', 'nouveau millésime PCI avril 2024 + nouvelles données Strasbourg'],
-  ['22/07/2024', 'nouveau millésime PCI juillet 2024 + nouvelles données Strasbourg']
+  ['22/07/2024', 'nouveau millésime PCI juillet 2024 + nouvelles données Strasbourg'],
+  ['17/11/2024', 'nouveau millésime PCI octobre 2024 + nouvelles données Strasbourg']
 ]
 const listItemsHistorique = historique.slice().reverse().map(([dateMaj, comment]) => <li key={dateMaj}>{dateMaj} : {parse(comment)}</li>)
 
@@ -67,6 +68,16 @@ const downloadUrls = {
 const millesimes = [
   {
     latest: true,
+    date: '1er octobre 2024',
+    path: '2024-10-01',
+    baseUrl: downloadUrls.current,
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'epcis', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']},
+      {name: 'mbtiles', granularities: ['france']}
+    ]
+  },
+  {
     date: '1er juillet 2024',
     path: '2024-07-01',
     baseUrl: downloadUrls.current,
@@ -189,7 +200,7 @@ const millesimes = [
   {
     date: '1er juillet 2021',
     path: '2021-07-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'geojson', granularities: ['communes', 'departements', 'france']},
       {name: 'shp', granularities: ['departements', 'france']},
