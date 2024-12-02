@@ -44,7 +44,6 @@ class Layout extends React.Component {
              flex: 1;
            }
         `}</style>
-        <script src='https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.prototype.includes,modernizr:es6string,Promise,fetch' />
       </div>
     )
   }
