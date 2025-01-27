@@ -29,6 +29,18 @@ const downloadUrls = {
 const millesimes = [
   {
     latest: true,
+    date: '1er janvier 2025',
+    path: '2025-01-01',
+    baseUrl: downloadUrls.current,
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
+  },
+  {
     date: '1er octobre 2024',
     path: '2024-10-01',
     baseUrl: downloadUrls.current,
@@ -175,7 +187,7 @@ const millesimes = [
   {
     date: '1er octobre 2021',
     path: '2021-10-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'edigeo', granularities: ['feuilles', 'departements']},
       {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
