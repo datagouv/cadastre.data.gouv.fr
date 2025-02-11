@@ -191,7 +191,7 @@ const millesimes = [
   {
     date: '1er janvier 2022',
     path: '2022-01-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'geojson', granularities: ['communes', 'departements', 'france']},
       {name: 'shp', granularities: ['departements', 'france']},
