@@ -175,7 +175,7 @@ const millesimes = [
   {
     date: '1er janvier 2022',
     path: '2022-01-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'edigeo', granularities: ['feuilles', 'departements']},
       {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
