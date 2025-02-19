@@ -31,7 +31,8 @@ class ApiGeo extends React.Component {
   updateValue(value) {
     const {territoryType} = this.props
     const field = territoryType === 'communes' ? 'departement' : 'region'
-    const url = `https://geo.api.gouv.fr/${territoryType.replace('é', 'e')}?nom=${value}&fields=${field}&boost=population`
+    const optionalParam = territoryType === 'communes' ? '&type=arrondissement-municipal,commune-actuelle' : ''
+    const url = `https://geo.api.gouv.fr/${territoryType.replace('é', 'e')}?nom=${value}&fields=${field}&boost=population${optionalParam}`
     this.setState({value, results: [], loading: true}, this.search(url))
   }
 
