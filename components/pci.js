@@ -461,7 +461,7 @@ function Pci() {
             Les données au format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> peuvent être ouvertes avec des outils bureautiques de CAO/DAO.</p>
         </div>
       </Section>
-      <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
+      <Section id='millesimes-disponibles-telechargement-direct' title='Millésimes disponibles en téléchargement direct' background='grey'>
         <p>Les liens suivants permettent de télécharger les données du plan cadastral <b>à la feuille</b>, ou <b>par département</b>.<br />Dans le cas d’un téléchargement à la feuille, vous serez invité à choisir un code département puis un code de commune.</p>
         <p>Les URL de téléchargement sont maintenues dans le temps, il est donc tout à fait possible d’automatiser la récupération des données
           grâce à un script.</p>
@@ -471,7 +471,7 @@ function Pci() {
           <Millesimes millesimes={millesimes.slice(2)} getUrl={getUrl} />
         </WrapperShowHide>
       </Section>
-      <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
+      <Section id='aide-au-telechargement' title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
         <DownloadAssistant productList={products} />
       </Section>
     </div>
