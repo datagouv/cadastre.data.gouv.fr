@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import Container from './container'
 
-function Section({title, subtitle, children, background}) {
+function Section({id, title, subtitle, children, background}) {
   return (
-    <section className={`section section-${background}`}>
+    <section id={id} className={`section section-${background}`}>
       <Container>
         {title && <h2 className='section__title'>{title}</h2>}
         {subtitle && <p className='section__subtitle'>{subtitle}</p>}
@@ -16,6 +16,7 @@ function Section({title, subtitle, children, background}) {
 }
 
 Section.propTypes = {
+  id: PropTypes.string,
   title: PropTypes.string,
   subtitle: PropTypes.string,
   children: PropTypes.node,
@@ -28,6 +29,7 @@ Section.propTypes = {
 }
 
 Section.defaultProps = {
+  id: null,
   title: null,
   subtitle: null,
   children: null,

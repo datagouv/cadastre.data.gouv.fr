@@ -418,7 +418,7 @@ function CadastreEtalab() {
           <ul>{listItemsHistorique}</ul>;
         </div>
       </Section>
-      <Section title='Millésimes disponibles en téléchargement direct' background='grey'>
+      <Section id='millesimes-disponibles-telechargement-direct' title='Millésimes disponibles en téléchargement direct' background='grey'>
         <p>Les liens suivants permettent de télécharger les données cadastrales <b>à la commune</b>, ou <b>au département</b>.<br />Dans le cas d’un téléchargement à la commune, vous serez invité à choisir un code département puis un code de commune.</p>
         <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
         <Millesimes millesimes={millesimes.slice(0, 2)} getUrl={getUrl} />
@@ -426,7 +426,7 @@ function CadastreEtalab() {
           <Millesimes millesimes={millesimes.slice(2)} getUrl={getUrl} />
         </WrapperShowHide>
       </Section>
-      <Section title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
+      <Section id='aide-au-telechargement' title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
         <DownloadAssistant productList={products} />
       </Section>
       <style jsx>{`
