@@ -36,7 +36,8 @@ const historique = [
   ['13/05/2024', 'nouveau millésime PCI avril 2024 + nouvelles données Strasbourg'],
   ['22/07/2024', 'nouveau millésime PCI juillet 2024 + nouvelles données Strasbourg'],
   ['17/11/2024', 'nouveau millésime PCI octobre 2024 + nouvelles données Strasbourg'],
-  ['27/01/2025', 'nouveau millésime PCI janvier 2025 + nouvelles données Strasbourg']
+  ['27/01/2025', 'nouveau millésime PCI janvier 2025 + nouvelles données Strasbourg'],
+  ['23/04/2025', 'nouveau millésime PCI avril 2025 + nouvelles données Strasbourg']
 ]
 const listItemsHistorique = historique.slice().reverse().map(([dateMaj, comment]) => <li key={dateMaj}>{dateMaj} : {parse(comment)}</li>)
 
@@ -63,12 +64,23 @@ const products = [
 
 const downloadUrls = {
   current: 'https://cadastre.data.gouv.fr/data/etalab-cadastre',
-  old: 'https://files.data.gouv.fr/cadastre/etalab-cadastre'
+  old: 'https://files.data.gouv.fr/cadastre/etalab-cadastre',
+  minio: 'https://object.infra.data.gouv.fr/browser/cadastre/etalab-cadastre'
 }
 
 const millesimes = [
   {
     latest: true,
+    date: '1er avril 2025',
+    path: '2025-04-01',
+    baseUrl: downloadUrls.current,
+    formats: [
+      {name: 'geojson', granularities: ['communes', 'epcis', 'departements', 'france']},
+      {name: 'shp', granularities: ['departements', 'france']},
+      {name: 'mbtiles', granularities: ['france']}
+    ]
+  },
+  {
     date: '1er janvier 2025',
     path: '2025-01-01',
     baseUrl: downloadUrls.current,
@@ -181,9 +193,9 @@ const millesimes = [
   {
     date: '1er avril 2022',
     path: '2022-04-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']},
       {name: 'mbtiles', granularities: ['france']}
     ]
@@ -193,7 +205,7 @@ const millesimes = [
     path: '2022-01-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']},
       {name: 'mbtiles', granularities: ['france']}
     ]
@@ -203,7 +215,7 @@ const millesimes = [
     path: '2021-10-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']},
       {name: 'mbtiles', granularities: ['france']}
     ]
@@ -213,7 +225,7 @@ const millesimes = [
     path: '2021-07-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']},
       {name: 'mbtiles', granularities: ['france']}
     ]
@@ -223,7 +235,7 @@ const millesimes = [
     path: '2021-04-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']},
       {name: 'mbtiles', granularities: ['france']}
     ]
@@ -233,7 +245,7 @@ const millesimes = [
     path: '2021-02-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']},
       {name: 'mbtiles', granularities: ['france']}
     ]
@@ -243,7 +255,7 @@ const millesimes = [
     path: '2020-10-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
@@ -252,7 +264,7 @@ const millesimes = [
     path: '2020-07-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
@@ -261,7 +273,7 @@ const millesimes = [
     path: '2020-01-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
@@ -270,7 +282,7 @@ const millesimes = [
     path: '2019-10-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
@@ -279,7 +291,7 @@ const millesimes = [
     path: '2019-07-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
@@ -288,7 +300,7 @@ const millesimes = [
     path: '2019-04-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
@@ -297,7 +309,7 @@ const millesimes = [
     path: '2019-01-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
@@ -306,7 +318,7 @@ const millesimes = [
     path: '2018-10-01',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
@@ -315,7 +327,7 @@ const millesimes = [
     path: '2018-06-29',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
@@ -324,7 +336,7 @@ const millesimes = [
     path: '2018-04-03',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements', 'france']},
+      {name: 'geojson', granularities: ['communes']},
       {name: 'shp', granularities: ['departements', 'france']}
     ]
   },
@@ -333,7 +345,7 @@ const millesimes = [
     path: '2018-01-02',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements']}
+      {name: 'geojson', granularities: ['communes']}
     ]
   },
   {
@@ -341,7 +353,7 @@ const millesimes = [
     path: '2017-10-12',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements']}
+      {name: 'geojson', granularities: ['communes']}
     ]
   },
   {
@@ -349,7 +361,7 @@ const millesimes = [
     path: '2017-07-06',
     baseUrl: downloadUrls.old,
     formats: [
-      {name: 'geojson', granularities: ['communes', 'departements']}
+      {name: 'geojson', granularities: ['communes']}
     ]
   }
 ]
