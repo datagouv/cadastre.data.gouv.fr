@@ -23,12 +23,25 @@ const products = [
 ]
 const downloadUrls = {
   current: 'https://cadastre.data.gouv.fr/data',
-  old: 'https://files.data.gouv.fr/cadastre'
+  old: 'https://files.data.gouv.fr/cadastre',
+  minio: 'https://object.infra.data.gouv.fr/browser/cadastre'
 }
 
 const millesimes = [
   {
     latest: true,
+    date: '1er avril 2025',
+    path: '2025-04-01',
+    baseUrl: downloadUrls.current,
+    formats: [
+      {name: 'edigeo', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'edigeo-cc', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'dxf', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'dxf-cc', granularities: ['feuilles', 'epcis', 'departements']},
+      {name: 'tiff', granularities: ['feuilles', 'departements']}
+    ]
+  },
+  {
     date: '1er janvier 2025',
     path: '2025-01-01',
     baseUrl: downloadUrls.current,
@@ -163,7 +176,7 @@ const millesimes = [
   {
     date: '1er avril 2022',
     path: '2022-04-01',
-    baseUrl: downloadUrls.current,
+    baseUrl: downloadUrls.old,
     formats: [
       {name: 'edigeo', granularities: ['feuilles', 'departements']},
       {name: 'edigeo-cc', granularities: ['feuilles', 'departements']},
