@@ -3,7 +3,7 @@ import Section from './section'
 import DownloadAssistant from './download-assistant/download-assistant'
 import Millesimes from './millesimes'
 import WrapperShowHide from './wrapper-show-hide'
-import {millesimes, getUrl} from '../lib/pci'
+import {millesimes, getUrl} from '../lib/pci.mjs'
 
 const products = [
   {
