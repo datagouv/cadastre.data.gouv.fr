@@ -5,7 +5,7 @@ import Section from './section'
 import Millesimes from './millesimes'
 import WrapperShowHide from './wrapper-show-hide'
 import DownloadAssistant from './download-assistant/download-assistant'
-import {millesimes, getUrl} from '../lib/cadastre-etalab.mjs'
+import {millesimes, getUrl} from '../lib/cadastre-etalab'
 
 const historique = [
   ['30/09/2017', 'première diffusion des données'],
