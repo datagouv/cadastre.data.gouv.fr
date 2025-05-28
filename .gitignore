@@ -29,3 +29,6 @@ Icon
 
 # Editors
 .vscode
+
+
+public/static/*.json

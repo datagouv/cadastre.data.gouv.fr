@@ -7,7 +7,7 @@ defaults:
   nodejs_container: &nodejs_container
     working_directory: *workspace_root
     docker:
-      - image: circleci/node:12-stretch
+      - image: cimg/node:22.16
 
   attach_workspace: &attach_workspace
     attach_workspace:
@@ -74,6 +74,12 @@ jobs:
     steps:
       - *attach_workspace
       - *restore_node_modules
+
+      - run:
+          name: Update PATH and Define Environment Variable at Runtime
+          command: |
+            echo 'export NODE_OPTIONS="--openssl-legacy-provider"' >> "$BASH_ENV"
+            source "$BASH_ENV"
 
       - run:
           name: Build output bundles

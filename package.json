@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node server",
-    "build": "next build",
+    "build": "node build/index.mjs && next build",
     "export": "next export",
     "start": "NODE_ENV=production node server",
     "lint": "xo",
