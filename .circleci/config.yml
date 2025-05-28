@@ -76,6 +76,12 @@ jobs:
       - *restore_node_modules
 
       - run:
+          name: Update PATH and Define Environment Variable at Runtime
+          command: |
+            echo 'export NODE_OPTIONS="--openssl-legacy-provider"' >> "$BASH_ENV"
+            source "$BASH_ENV"
+
+      - run:
           name: Build output bundles
           command: yarn build
 
