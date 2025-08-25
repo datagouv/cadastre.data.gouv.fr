@@ -52,17 +52,17 @@ function Pci() {
           <h4>Formats disponibles</h4>
           <p>Les données du PCI Vecteur sont disponibles dans plusieurs formats :</p>
           <ul>
-            <li>Format <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>EDIGÉO</a> en projection Lambert 93 ;</li>
-            <li>Format <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>EDIGÉO</a> en projection Lambert CC 9 zones ;</li>
-            <li>Format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> en projection Lambert 93 ;</li>
-            <li>Format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> en projection Lambert CC 9 zones.</li>
+            <li>Format <a href='https://static.data.gouv.fr/resources/plan-cadastral-informatise/20250825-085949/standard-edigeo-modifie-2025-f-v1.3.pdf'>EDIGÉO</a> en projection Lambert 93 ;</li>
+            <li>Format <a href='https://static.data.gouv.fr/resources/plan-cadastral-informatise/20250825-085949/standard-edigeo-modifie-2025-f-v1.3.pdf'>EDIGÉO</a> en projection Lambert CC 9 zones ;</li>
+            <li>Format <a href='https://static.data.gouv.fr/resources/plan-cadastral-informatise/20250825-085902/standard-dxf-pci-edition-avril-2025-fi-v1.2.pdf'>DXF-PCI</a> en projection Lambert 93 ;</li>
+            <li>Format <a href='https://static.data.gouv.fr/resources/plan-cadastral-informatise/20250825-085902/standard-dxf-pci-edition-avril-2025-fi-v1.2.pdf'>DXF-PCI</a> en projection Lambert CC 9 zones.</li>
           </ul>
           <p>Les données du PCI Image sont disponibles au format TIFF.</p>
 
           <h4>Modèle de données</h4>
           <p>Chaque commune est subdivisée en sections, elles-mêmes subdivisées en feuilles (ou planches).
             Une feuille cadastrale comporte des parcelles, qui peuvent supporter des bâtiments, ainsi que de nombreux autres objets d’habillage ou de gestion.<br />
-            Pour plus de précision, veuillez vous reporter à la documentation du <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>standard EDIGÉO</a>.</p>
+            Pour plus de précision, veuillez vous reporter à la documentation du <a href='https://static.data.gouv.fr/resources/plan-cadastral-informatise/20250825-085949/standard-edigeo-modifie-2025-f-v1.3.pdf'>standard EDIGÉO</a>.</p>
 
           <h4>Mise à disposition</h4>
 
@@ -76,8 +76,8 @@ function Pci() {
 
           <h4>Outils</h4>
 
-          <p>Les données au format <a href='https://www.data.gouv.fr/s/resources/plan-cadastral-informatise/20170906-150737/standard_edigeo_2013.pdf'>EDIGÉO</a> peuvent être exploitées avec les outils libres <a href='https://plugins.qgis.org/plugins/cadastre/' rel='nofollow'>QGIS</a>, <a href='http://wiki.openstreetmap.org/wiki/FR:JOSM' rel='nofollow'>JOSM</a> ou <a href='https://gdal.gloobe.org/ogr/formats/edigeo.html' rel='nofollow'>GDAL</a>. Elles peuvent aussi être ouvertes avec des applications métiers conçues pour les collectivités locales.<br />
-            Les données au format <a href='https://www.data.gouv.fr/s/resources/pci-vecteur-plan-cadastral-informatise/20171207-172016/standard_dxf-pci_2013.pdf'>DXF-PCI</a> peuvent être ouvertes avec des outils bureautiques de CAO/DAO.</p>
+          <p>Les données au format <a href='https://static.data.gouv.fr/resources/plan-cadastral-informatise/20250825-085949/standard-edigeo-modifie-2025-f-v1.3.pdf'>EDIGÉO</a> peuvent être exploitées avec les outils libres <a href='https://plugins.qgis.org/plugins/cadastre/' rel='nofollow'>QGIS</a>, <a href='http://wiki.openstreetmap.org/wiki/FR:JOSM' rel='nofollow'>JOSM</a> ou <a href='https://gdal.gloobe.org/ogr/formats/edigeo.html' rel='nofollow'>GDAL</a>. Elles peuvent aussi être ouvertes avec des applications métiers conçues pour les collectivités locales.<br />
+            Les données au format <a href='https://static.data.gouv.fr/resources/plan-cadastral-informatise/20250825-085902/standard-dxf-pci-edition-avril-2025-fi-v1.2.pdf'>DXF-PCI</a> peuvent être ouvertes avec des outils bureautiques de CAO/DAO.</p>
         </div>
       </Section>
       <Section id='millesimes-disponibles-telechargement-direct' title='Millésimes disponibles en téléchargement direct' background='grey'>
