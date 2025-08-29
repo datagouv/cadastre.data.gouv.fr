@@ -6,25 +6,22 @@ function Footer() {
     <footer className='footer'>
       <div className='container'>
         <div className='footer__logo'>
-          <img src='/static/images/logos/etalab.svg' />
-          <ul className='footer__social'>
-            <li><Link href='https://twitter.com/datagouvfr'><a><img src='/static/images/medias/twitter.svg' alt='Twitter' /></a></Link></li>
-            <li><Link href='https://github.com/datagouv/cadastre.data.gouv.fr'><a><img src='/static/images/medias/github.svg' alt='Github' /></a></Link></li>
-            <li><Link href='https://medium.com/geo-data-gouv-fr'><a><img src='/static/images/medias/medium.svg' alt='Medium' /></a></Link></li>
-            <li><a href='mailto:cadastre@data.gouv.fr'><img src='/static/images/medias/envelop.svg' alt='Contact' /></a></li>
-          </ul>
+          <img src='/static/images/logos/cadastre.data.gouv.fr.svg' alt='cadastre.data.gouv.fr' />
+
         </div>
         <ul className='footer__links'>
-          <li><h2>cadastre.data.gouv.fr</h2></li>
+          <li><p><b>Un produit de la Direction Interministérielle du Numérique (DINUM).</b></p></li>
           <li><Link href='/mentions-legales'><a>Mentions légales</a></Link></li>
           <li><Link href='/faq'><a>FAQ</a></Link></li>
-          <li><a href='mailto:cadastre@data.gouv.fr'>Contact</a></li>
+          <li><a href='https://www.data.gouv.fr/support/help/dataset/cadastre/#support-tree'>Contact</a></li>
         </ul>
       </div>
       <style jsx>{`
-      .footer__social img {
-        width: 25px;
-      }
+        .footer {
+          border-top: 2px solid var(--theme-primary);
+          margin-top: 2em;
+          padding-top: 1.5em;
+        }
       `}</style>
     </footer>
   )

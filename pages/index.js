@@ -63,7 +63,6 @@ function Index() {
       </Section>
 
       <Usages />
-      <Infolettre />
       <OtherSites />
       <style jsx>{`
   .action-button {

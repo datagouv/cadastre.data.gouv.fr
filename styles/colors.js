@@ -1,5 +1,5 @@
 export default ({
-  blue: '#0081D5',
+  blue: '#3558A2',
   lightBlue: '#1E90DA',
   darkBlue: '#006CB0',
   lighterBlue: '#B4E1FA',

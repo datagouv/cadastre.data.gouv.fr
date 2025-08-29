@@ -32,7 +32,7 @@ function MentionsLegales() {
               En application de la loi n°78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, les utilisateurs de la plateforme data.gouv.fr disposent notamment d’un droit d’accès et de rectification auprès de l’éditeur de la plateforme.
             </p>
             <p>
-              Ce droit s’exerce auprès de la Mission Etalab, Direction interministérielle du numérique (DINUM), 20 avenue de Ségur, 75007 Paris.
+              Ce droit s’exerce auprès de la Direction interministérielle du numérique (DINUM), 20 avenue de Ségur, 75007 Paris.
             </p>
             <p>
               La plateforme data.gouv.fr a été déclarée à la Commission Nationale de l’Informatique et des Libertés sous le numéro : eRa0876341t.
@@ -41,7 +41,7 @@ function MentionsLegales() {
 
           <div>
             <h2>Nous contacter</h2>
-            <p><a href='mailto:cadastre@data.gouv.fr'>cadastre@data.gouv.fr</a></p>
+            <p><a href='https://www.data.gouv.fr/support/help/dataset/cadastre/#support-tree'>support de data.gouv.fr</a></p>
 
             <h2>Mentions légales</h2>
             <h4>Editeur</h4>
