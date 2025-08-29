@@ -70,7 +70,7 @@ function CadastreEtalab() {
         <div className='main'>
           <h4>Raison d’être de ce jeu de données</h4>
           <p>Le <Link href='/datasets/plan-cadastral-informatise'><a>Plan Cadastral Informatisé</a></Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
-            Etalab a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
+            la Direction Interministérielle du Numérique a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
 
           <h4>Données sources</h4>
           <p>Ces données sont produites à partir :</p>
