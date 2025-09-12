@@ -6,7 +6,6 @@ import Page from '../layouts/main'
 import Hero from '../components/hero'
 
 import Usages from '../components/home/usages'
-import Infolettre from '../components/infolettre'
 import OtherSites from '../components/home/other-sites'
 import Section from '../components/section'
 import ButtonLink from '../components/button-link'

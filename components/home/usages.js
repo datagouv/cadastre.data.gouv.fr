@@ -28,8 +28,8 @@ function Usages() {
         }
         .usage-block {
           flex: 1;
-          margin: 0 2em; 
-          min-width: 200px; 
+          margin: 0 2em;
+          min-width: 200px;
         }
       `}</style>
     </Section>

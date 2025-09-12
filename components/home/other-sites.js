@@ -7,12 +7,12 @@ function OtherSites() {
       <div className='main'>
         <div>
           <a href='https://adresse.data.gouv.fr'>
-          <h3>La Base Adresse Nationale</h3>
+            <h3>La Base Adresse Nationale</h3>
           </a>
         </div>
         <div>
           <a href='https://geo.api.gouv.fr'>
-          <h3>L'Api découpage administratif</h3>
+            <h3>L&apos;Api découpage administratif</h3>
           </a>
         </div>
       </div>
