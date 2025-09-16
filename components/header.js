@@ -24,6 +24,7 @@ function Header() {
         <nav>
           <ul className='nav__links'>
             {links.map(link => (
+
               <li key={link.text} className='nav__item'>
                 <Link href={link.href}><a>{link.text}</a></Link>
               </li>
@@ -40,6 +41,7 @@ function Header() {
     .navbar__container {
       flex-flow: nowrap;
       align-items: center;
+      height: 70px;
     }
 
     .navbar__home:hover {
@@ -51,7 +53,8 @@ function Header() {
     }
 
     .nav__logo {
-      height: 38px;
+      height: 65px;
+      width: auto;
     }
 
     @media (max-width: 800px) {
@@ -70,7 +73,9 @@ function Header() {
         height: 28px;
       }
     }
+
   `}</style>
+
     </header>
   )
 }

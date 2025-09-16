@@ -21,7 +21,7 @@ function Faq() {
         <div className='faq-row'>
           <div className='theme'>
             <Question question='Qui gère ce site ?'>
-              <p>Le site cadastre.data.gouv.fr est géré par la <a href='https://www.etalab.gouv.fr'>mission Etalab</a> de la direction interministérielle du numérique (DINUM).</p>
+              <p>Le site cadastre.data.gouv.fr est géré par l&apos;équipe de <a href='https://data.gouv.fr/'>data.gouv.fr</a> de la direction interministérielle du numérique (DINUM).</p>
             </Question>
 
             <Question question='Que puis-je faire avec les données ?'>
