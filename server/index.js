@@ -1,36 +1,42 @@
-const {join} = require('path')
-const url = require('url')
-const express = require('express')
-const next = require('next')
-const compression = require('compression')
+import path from 'path'
+import url from 'url'
+import express from 'express'
+import next from 'next'
+import compression from 'compression'
 
-const port = parseInt(process.env.PORT, 10) || 3000
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({dev})
+const port = Number.parseInt(process.env.PORT, 10) || 3000
+const development = process.env.NODE_ENV !== 'production'
+const app = next({dev: development})
 const handle = app.getRequestHandler()
 
-app.prepare().then(() => {
+const __dirname = import.meta.dirname
+
+try {
+  await app.prepare()
   const server = express()
 
-  if (!dev) {
+  if (!development) {
     server.use(compression())
   }
 
-  server.get('/robots.txt', (req, res) => {
-    res.sendFile(join(__dirname, '..', 'public', 'static', 'robots.txt'))
+  server.get('/robots.txt', (request, response) => {
+    response.sendFile(path.join(__dirname, '..', 'public', 'static', 'robots.txt'))
   })
 
-  server.get('*', (req, res) => {
-    /* eslint node/no-deprecated-api: off */
-    const parsedUrl = url.parse(req.url, true)
-    handle(req, res, parsedUrl)
+  server.get('*', (request, response) => {
+    // eslint-disable-next-line n/no-deprecated-api
+    const parsedUrl = url.parse(request.url, true)
+    handle(request, response, parsedUrl)
   })
 
-  server.listen(port, err => {
-    if (err) {
-      throw err
+  server.listen(port, error => {
+    if (error) {
+      throw error
     }
 
     console.log(`> Ready on http://localhost:${port}`)
   })
-})
+} catch (error) {
+  console.error(error)
+  throw error
+}

@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import Selector from '../selector'
+import Selector from '../selector.js'
 
 class ProductSelection extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor(properties) {
+    super(properties)
     this.select = this.select.bind(this)
   }
 
@@ -32,11 +31,11 @@ class ProductSelection extends React.Component {
 ProductSelection.propTypes = {
   products: PropTypes.array.isRequired,
   selectProduct: PropTypes.func.isRequired,
-  productSelected: PropTypes.object
+  productSelected: PropTypes.object,
 }
 
 ProductSelection.defaultProps = {
-  productSelected: null
+  productSelected: null,
 }
 
 export default ProductSelection

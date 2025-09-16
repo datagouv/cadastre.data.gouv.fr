@@ -1,6 +1,5 @@
 import React from 'react'
-
-import theme from '../../styles/theme'
+import theme from '../../styles/theme.js'
 
 const featuresTypes = {
   housenumber: 'numéro',
@@ -9,10 +8,10 @@ const featuresTypes = {
   hamlet: 'hameau',
   village: 'village',
   city: 'ville',
-  municipality: 'commune'
+  municipality: 'commune',
 }
 
-function RenderAdresse(item, isHighlighted) {
+const RenderAdresse = (item, isHighlighted) => {
   const {id, label, context, type} = item.properties
   return (
     <div key={id} className={`item ${isHighlighted ? 'item-highlighted' : ''}`}>

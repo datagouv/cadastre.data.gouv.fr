@@ -1,12 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import theme from '../styles/theme.js'
 
-import theme from '../styles/theme'
-
-function Loader({size = 'regular'}) {
-  return (
-    <div className={`loader ${size}`}>
-      <style jsx>{`
+const Loader = ({size = 'regular'}) => (
+  <div className={`loader ${size}`}>
+    <style jsx>{`
       .loader {
         border-radius: 50%;
         animation: spin 2s linear infinite;
@@ -40,16 +38,15 @@ function Loader({size = 'regular'}) {
         100% { transform: rotate(360deg); }
       }
     `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 Loader.propTypes = {
   size: PropTypes.oneOf([
     'small',
     'regular',
-    'big'
-  ])
+    'big',
+  ]),
 }
 
 export default Loader

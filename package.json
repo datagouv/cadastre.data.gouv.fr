@@ -72,7 +72,11 @@
           ]
         }
       ],
-      "react/jsx-no-bind": "off"
+      "react/jsx-no-bind": "off",
+      "react/jsx-uses-vars": "error",
+      "react/jsx-uses-react": "error",
+      "no-restricted-imports": "off",
+      "react/jsx-no-target-blank": "off"
     }
   }
 }

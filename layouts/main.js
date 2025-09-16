@@ -1,15 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {withRouter} from 'next/router'
-
-import piwik from '../lib/piwik'
-
-import Meta from '../components/meta'
-import MainStyle from '../components/main-style'
-import Header from '../components/header'
-import Footer from '../components/footer'
-
-import theme from '../styles/theme'
+import piwik from '../lib/piwik.js'
+import Meta from '../components/meta.js'
+import MainStyle from '../components/main-style.js'
+import Header from '../components/header.js'
+import Footer from '../components/footer.js'
+import theme from '../styles/theme.js'
 
 class Layout extends React.Component {
   componentDidMount() {
@@ -51,19 +48,19 @@ class Layout extends React.Component {
 
 Layout.propTypes = {
   router: PropTypes.shape({
-    pathname: PropTypes.string.isRequired
+    pathname: PropTypes.string.isRequired,
   }).isRequired,
   children: PropTypes.node,
   title: PropTypes.string,
   fullscreen: PropTypes.bool,
-  description: PropTypes.string
+  description: PropTypes.string,
 }
 
 Layout.defaultProps = {
   children: null,
   title: null,
   description: null,
-  fullscreen: false
+  fullscreen: false,
 }
 
 export default withRouter(Layout)

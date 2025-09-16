@@ -1,13 +1,11 @@
 import React, {useEffect, useState, useCallback} from 'react'
 import PropTypes from 'prop-types'
-
 import {X} from 'react-feather'
+import {contenanceToSurface} from '../../lib/surfaces.js'
+import {getCommune} from '../../lib/api-geo.js'
+import colors from '../../styles/colors.js'
 
-import {contenanceToSurface} from '../../lib/surfaces'
-import {getCommune} from '../../lib/api-geo'
-import colors from '../../styles/colors'
-
-function Parcelle({parcelle, close}) {
+const Parcelle = ({parcelle, close}) => {
   const [commune, setCommune] = useState(null)
   const {prefixe, section, numero, contenance} = parcelle
 
@@ -79,9 +77,9 @@ Parcelle.propTypes = {
     prefixe: PropTypes.string,
     section: PropTypes.string.isRequired,
     numero: PropTypes.string.isRequired,
-    contenance: PropTypes.number.isRequired
+    contenance: PropTypes.number.isRequired,
   }).isRequired,
-  close: PropTypes.func.isRequired
+  close: PropTypes.func.isRequired,
 }
 
 export default Parcelle

@@ -1,20 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+import theme from '../styles/theme.js'
 
-import theme from '../styles/theme'
-
-function HeadLinkTitle({title, subtitle, href, icon = null}) {
-  return (
-    <div className='data'>
-      <div className='icon'>
-        {icon && icon}
-      </div>
-      <div>
-        <h2><Link href={href}>{title}</Link></h2>
-        <p>{subtitle}</p>
-      </div>
-      <style jsx>{`
+const HeadLinkTitle = ({title, subtitle, href, icon = null}) => (
+  <div className='data'>
+    <div className='icon'>
+      {icon && icon}
+    </div>
+    <div>
+      <h2><Link href={href}>{title}</Link></h2>
+      <p>{subtitle}</p>
+    </div>
+    <style jsx>{`
         a {
           color: ${theme.darkText};
           text-decoration: underline;
@@ -30,15 +28,14 @@ function HeadLinkTitle({title, subtitle, href, icon = null}) {
           font-size: 32px;
         }
         `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 HeadLinkTitle.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
-  icon: PropTypes.element
+  icon: PropTypes.element,
 }
 
 export default HeadLinkTitle

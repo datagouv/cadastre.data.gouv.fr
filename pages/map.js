@@ -3,20 +3,14 @@ import PropTypes from 'prop-types'
 import Router from 'next/router'
 import mapStyle from 'maplibre-gl/dist/maplibre-gl.css'
 import Head from 'next/head'
-
-import MapComponent from '../components/react-map-gl'
-
-import {useInput} from '../components/hooks/input'
-import useDebounce from '../components/hooks/debounce'
-
-import {search} from '../lib/api-adresse'
-
-import Page from '../layouts/main'
-
-import SearchInput from '../components/search-input'
-import renderAddress from '../components/search-input/render-address'
-
-import Parcelle from '../components/map/parcelle'
+import MapComponent from '../components/react-map-gl/index.js'
+import {useInput} from '../components/hooks/input.js'
+import useDebounce from '../components/hooks/debounce.js'
+import {search} from '../lib/api-adresse.js'
+import Page from '../layouts/main.js'
+import SearchInput from '../components/search-input.js'
+import renderAddress from '../components/search-input/render-address.js'
+import Parcelle from '../components/map/parcelle.js'
 
 const title = 'Carte interactive'
 const description = 'Consulter les données cadastrales'
@@ -25,16 +19,16 @@ const zoomLevel = {
   street: 16,
   locality: 17,
   housenumber: 18,
-  municipality: 13
+  municipality: 13,
 }
 
 const defaultViewport = {
   latitude: 46.9,
   longitude: 1.7,
-  zoom: 5
+  zoom: 5,
 }
 
-function MapPage({hideBati = true, defaultParcelleId = null, defaultStyle = 'ortho'}) {
+const MapPage = ({hideBati = true, defaultParcelleId = null, defaultStyle = 'ortho'}) => {
   const [input, setInput] = useInput('')
   const [placeholder, setPlaceholder] = useInput('Rechercher une adresse')
   const [results, setResults] = useState([])
@@ -70,9 +64,9 @@ function MapPage({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
         ...Router.query,
         parcelleId: parcelle ? parcelle.id : null,
         hideBati: !showBati,
-        style
-      }).filter(([k,v]) => v)),
-      hash: window.location.hash
+        style,
+      }).filter(([_, v]) => v)),
+      hash: globalThis.location.hash,
     })
   }, [showBati, parcelle, style])
 
@@ -83,8 +77,8 @@ function MapPage({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
   }, [debouncedInput, searchAddress])
 
   useEffect(() => {
-    if (window.location && window.location.hash) {
-      const {hash} = window.location
+    if (globalThis.location && globalThis.location.hash) {
+      const {hash} = globalThis.location
 
       if (hash !== '#8/0/0') { // Prevent map init to override hash
         const [zoom, lat, lng] = hash.replace('#', '').split('/')
@@ -92,7 +86,7 @@ function MapPage({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
         setViewState({
           latitude: Number(lat),
           longitude: Number(lng),
-          zoom: Number(zoom)
+          zoom: Number(zoom),
         })
       }
     }
@@ -134,8 +128,8 @@ function MapPage({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
         <div className='map-container'>
           <MapComponent
             viewState={viewState}
-            onMove={evt => {
-              let {zoom, latitude, longitude} = evt.viewState
+            onMove={event_ => {
+              let {zoom, latitude, longitude} = event_.viewState
               zoom = Math.round(zoom * 100) / 100
               // Derived from equation: 512px * 2^z / 360 / 10^d < 0.5px
               const precision = Math.ceil(((zoom * Math.LN2) + Math.log(512 / 360 / 0.5)) / Math.LN10)
@@ -144,15 +138,15 @@ function MapPage({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
               latitude = Math.round(latitude * m) / m
               Router.push({
                 pathname: '/map',
-                query: pickBy({
+                query: Object.fromEntries(Object.entries({
                   ...Router.query,
                   parcelleId: parcelle ? parcelle.id : null,
                   hideBati: !showBati,
-                  style
-                }, identity),
-                hash: `#${zoom}/${latitude}/${longitude}`
+                  style,
+                }).filter(([_, v]) => v)),
+                hash: `#${zoom}/${latitude}/${longitude}`,
               })
-              return setViewState(evt.viewState)
+              return setViewState(event_.viewState)
             }}
             showBati={showBati}
             isTouchScreenDevice={isTouchScreenDevice}
@@ -216,7 +210,7 @@ function MapPage({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
 MapPage.propTypes = {
   hideBati: PropTypes.bool,
   defaultParcelleId: PropTypes.string,
-  defaultStyle: PropTypes.string
+  defaultStyle: PropTypes.string,
 }
 
 MapPage.getInitialProps = async ({query}) => {
@@ -225,7 +219,7 @@ MapPage.getInitialProps = async ({query}) => {
   return {
     defaultParcelleId: parcelleId,
     hideBati: (hideBati && hideBati === 'true') || false,
-    defaultStyle: style
+    defaultStyle: style,
   }
 }
 
