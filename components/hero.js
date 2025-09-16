@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-function Hero({title, tagline, children}) {
+function Hero({title, tagline, children = null}) {
   return (
     <div className='hero'>
       <div className='hero__container'>
@@ -25,16 +24,6 @@ function Hero({title, tagline, children}) {
     `}</style>
     </div>
   )
-}
-
-Hero.propTypes = {
-  title: PropTypes.string.isRequired,
-  tagline: PropTypes.string.isRequired,
-  children: PropTypes.node
-}
-
-Hero.defaultProps = {
-  children: null
 }
 
 export default Hero

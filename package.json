@@ -28,7 +28,6 @@
     "prop-types": "^15.7.2",
     "react": "18",
     "react-autocomplete": "npm:@webgeodatavore/react-autocomplete@2.0.0",
-    "react-autosuggest": "^10.1.0",
     "react-dom": "18",
     "react-feather": "^2.0.9",
     "react-map-gl": "^7.1.8",
