@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import ItemButton from './item-button'
 
@@ -21,6 +22,14 @@ function Selector({items, selected = null, handleSelect, unavailable = [], upper
       `}</style>
     </div>
   )
+}
+
+Selector.propTypes = {
+  items: PropTypes.array.isRequired,
+  handleSelect: PropTypes.func.isRequired,
+  unavailable: PropTypes.array,
+  selected: PropTypes.string,
+  uppercase: PropTypes.bool
 }
 
 export default Selector

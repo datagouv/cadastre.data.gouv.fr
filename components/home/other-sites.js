@@ -7,17 +7,14 @@ function OtherSites() {
       <div className='main'>
         <div>
           <a href='https://adresse.data.gouv.fr'>
-            <img src='/static/images/logos/logo-adresse.svg' />
+            <h3>La Base Adresse Nationale</h3>
           </a>
         </div>
         <div>
           <a href='https://geo.api.gouv.fr'>
-            <img src='/static/images/logos/geo.api.gouv.fr.svg' />
+            <h3>L&apos;Api découpage administratif</h3>
           </a>
         </div>
-      </div>
-      <div className='centered'>
-        <p>Catalogues des données géographiques</p>
       </div>
 
       <style jsx>{`

@@ -34,7 +34,7 @@ const defaultViewport = {
   zoom: 5
 }
 
-function MapPage({hideBati, defaultParcelleId, defaultStyle}) {
+function MapPage({hideBati = true, defaultParcelleId = null, defaultStyle = 'ortho'}) {
   const [input, setInput] = useInput('')
   const [placeholder, setPlaceholder] = useInput('Rechercher une adresse')
   const [results, setResults] = useState([])
@@ -217,12 +217,6 @@ MapPage.propTypes = {
   hideBati: PropTypes.bool,
   defaultParcelleId: PropTypes.string,
   defaultStyle: PropTypes.string
-}
-
-MapPage.defaultProps = {
-  hideBati: true,
-  defaultParcelleId: null,
-  defaultStyle: 'ortho'
 }
 
 MapPage.getInitialProps = async ({query}) => {

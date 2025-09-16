@@ -31,7 +31,7 @@ function getBaseStyle(style) {
   }
 }
 
-function MapComponent({viewState, isTouchScreenDevice, showBati, toggleBati, style, changeStyle, onMove, selectedParcelle, selectParcelle}) {
+function MapComponent({viewState, isTouchScreenDevice = false, showBati, toggleBati, style, changeStyle, onMove, selectedParcelle = null, selectParcelle}) {
   const [map, setMap] = useState()
 
   const [isLoaded, setIsLoaded] = useState(false)
@@ -291,11 +291,6 @@ function MapComponent({viewState, isTouchScreenDevice, showBati, toggleBati, sty
       `}</style>
     </div>
   )
-}
-
-MapComponent.defaultProps = {
-  selectedParcelle: null,
-  isTouchScreenDevice: false
 }
 
 MapComponent.propTypes = {

@@ -30,10 +30,10 @@ function WrapperShowHide({
         display: table;
         margin: 0 auto;
         margin-top: 0.8em;
-        background: #0081D5;
+        background: #3558A2;
         color: #fff;
         font-size: 1em;
-        font-family: "Evolventa","Trebuchet MS",sans-serif;
+        font-family: "Marianne","Trebuchet MS",sans-serif;
         font-weight: bold;
         border: 0;
       }

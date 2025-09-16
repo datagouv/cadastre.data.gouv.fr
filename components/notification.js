@@ -4,7 +4,7 @@ import {X} from 'react-feather'
 
 import Button from './button'
 
-function Notification({message, type, style, isFullWidth, onClose, children}) {
+function Notification({message = null, type = null, style = null, isFullWidth = false, onClose = null, children = null}) {
   return (
     <div style={style} className={`notification ${type || ''} ${onClose ? 'closable' : ''} ${isFullWidth ? 'full-width' : ''}`}>
       {children || message}
@@ -13,15 +13,6 @@ function Notification({message, type, style, isFullWidth, onClose, children}) {
       )}
     </div >
   )
-}
-
-Notification.defaultProps = {
-  message: null,
-  type: null,
-  style: null,
-  onClose: null,
-  isFullWidth: false,
-  children: null
 }
 
 Notification.propTypes = {

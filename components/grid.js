@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Grid({children, columns, ...props}) {
+function Grid({children = null, columns = 4, ...props}) {
   return (
     <div className='grid' {...props}>
       {children}
@@ -32,11 +32,6 @@ function Grid({children, columns, ...props}) {
 Grid.propTypes = {
   columns: PropTypes.number,
   children: PropTypes.node
-}
-
-Grid.defaultProps = {
-  columns: 4,
-  children: null
 }
 
 export default Grid

@@ -1,5 +1,6 @@
 import React from 'react'
 import prune from 'underscore.string/prune'
+import PropTypes from 'prop-types'
 import Head from 'next/head'
 
 import Fonts from './styles/fonts'
@@ -50,6 +51,11 @@ function Meta({title = 'Données cadastrales ouvertes', description = 'Consulter
       <Fonts />
     </>
   )
+}
+
+Meta.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string
 }
 
 export default Meta

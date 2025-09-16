@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
@@ -54,6 +55,12 @@ function Head({title, icon, beta = false}) {
     `}</style>
     </div>
   )
+}
+
+Head.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+  beta: PropTypes.bool
 }
 
 export default Head

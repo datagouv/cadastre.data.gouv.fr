@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
-function Loader({size}) {
+function Loader({size = 'regular'}) {
   return (
     <div className={`loader ${size}`}>
       <style jsx>{`
@@ -50,10 +50,6 @@ Loader.propTypes = {
     'regular',
     'big'
   ])
-}
-
-Loader.defaultProps = {
-  size: 'regular'
 }
 
 export default Loader

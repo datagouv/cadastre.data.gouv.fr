@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import theme from '../styles/theme'
 
-function HeadLinkTitle({title, subtitle, href, icon}) {
+function HeadLinkTitle({title, subtitle, href, icon = null}) {
   return (
     <div className='data'>
       <div className='icon'>
@@ -39,10 +39,6 @@ HeadLinkTitle.propTypes = {
   subtitle: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
   icon: PropTypes.element
-}
-
-HeadLinkTitle.defaultProps = {
-  icon: null
 }
 
 export default HeadLinkTitle

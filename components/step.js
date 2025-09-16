@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
@@ -24,6 +25,13 @@ function Step({id = '', title, disabled, children}) {
       `}</style>
     </div>
   )
+}
+
+Step.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  disabled: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Step
