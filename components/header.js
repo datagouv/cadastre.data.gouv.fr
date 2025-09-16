@@ -15,17 +15,15 @@ function Header() {
     <header className='navbar' role='navigation'>
       <div className='navbar__container'>
 
-        <Link href='/'>
-          <a className='nav__link'>
-            <img className='nav__logo' src='/static/images/logos/cadastre.data.gouv.fr.svg' alt='Page d’accueil de cadastre.data.gouv.fr' />
-          </a>
+        <Link className='nav__link' href='/'>
+          <img className='nav__logo' src='/static/images/logos/cadastre.data.gouv.fr.svg' alt='Page d’accueil de cadastre.data.gouv.fr' />
         </Link>
 
         <nav>
           <ul className='nav__links'>
             {links.map(link => (
               <li key={link.text} className='nav__item'>
-                <Link href={link.href}><a>{link.text}</a></Link>
+                <Link href={link.href}>{link.text}</Link>
               </li>
             ))}
           </ul>

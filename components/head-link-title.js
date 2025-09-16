@@ -11,10 +11,9 @@ function HeadLinkTitle({title, subtitle, href, icon}) {
         {icon && icon}
       </div>
       <div>
-        <h2><Link href={href}><a>{title}</a></Link></h2>
+        <h2><Link href={href}>{title}</Link></h2>
         <p>{subtitle}</p>
       </div>
-
       <style jsx>{`
         a {
           color: ${theme.darkText};

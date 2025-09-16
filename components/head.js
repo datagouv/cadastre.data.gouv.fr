@@ -1,12 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import theme from '../styles/theme'
 
 import Container from './container'
 import BetaRibbon from './beta-ribbon'
 
-function Head({title, icon, beta}) {
+function Head({title, icon, beta = false}) {
   return (
     <div>
       <div className='head'>
@@ -55,16 +54,6 @@ function Head({title, icon, beta}) {
     `}</style>
     </div>
   )
-}
-
-Head.propTypes = {
-  title: PropTypes.string.isRequired,
-  icon: PropTypes.element.isRequired,
-  beta: PropTypes.bool
-}
-
-Head.defaultProps = {
-  beta: false
 }
 
 export default Head

@@ -35,12 +35,11 @@ class HamburgerMenu extends React.Component {
         <div onClick={this.handleMenu}>
           {visible ? <X size={22} /> : <Menu size={22} />}
         </div>
-
         {visible && (
           <div className='content'>
             {links.map(link => (
               <Link key={link.text} href={link.href}>
-                <a>{link.text}</a>
+                {link.text}
               </Link>
             ))}
           </div>

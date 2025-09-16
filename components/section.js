@@ -1,9 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import Container from './container'
 
-function Section({id, title, subtitle, children, background}) {
+// background can be 'white', 'grey', 'dark' or 'color'
+function Section({id = null, title = null, subtitle = null, children = null, background = 'white'}) {
   return (
     <section id={id} className={`section section-${background}`}>
       <Container>
@@ -13,27 +13,6 @@ function Section({id, title, subtitle, children, background}) {
       </Container>
     </section>
   )
-}
-
-Section.propTypes = {
-  id: PropTypes.string,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  children: PropTypes.node,
-  background: PropTypes.oneOf([
-    'white',
-    'grey',
-    'dark',
-    'color'
-  ])
-}
-
-Section.defaultProps = {
-  id: null,
-  title: null,
-  subtitle: null,
-  children: null,
-  background: 'white'
 }
 
 export default Section

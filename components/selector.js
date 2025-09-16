@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import ItemButton from './item-button'
 
-function Selector({items, selected, handleSelect, unavailable, uppercase}) {
+function Selector({items, selected = null, handleSelect, unavailable = [], uppercase = false}) {
   return (
     <div className='main grid'>
       {items.map(item => (
@@ -22,20 +21,6 @@ function Selector({items, selected, handleSelect, unavailable, uppercase}) {
       `}</style>
     </div>
   )
-}
-
-Selector.propTypes = {
-  items: PropTypes.array.isRequired,
-  handleSelect: PropTypes.func.isRequired,
-  unavailable: PropTypes.array,
-  selected: PropTypes.string,
-  uppercase: PropTypes.bool
-}
-
-Selector.defaultProps = {
-  selected: null,
-  unavailable: [],
-  uppercase: false
 }
 
 export default Selector

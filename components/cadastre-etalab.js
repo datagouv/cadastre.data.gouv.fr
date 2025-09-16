@@ -69,13 +69,13 @@ function CadastreEtalab() {
       <Section>
         <div className='main'>
           <h4>Raison d’être de ce jeu de données</h4>
-          <p>Le <Link href='/datasets/plan-cadastral-informatise'><a>Plan Cadastral Informatisé</a></Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
+          <p>Le <Link href='/datasets/plan-cadastral-informatise'>Plan Cadastral Informatisé</Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
             Etalab a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
 
           <h4>Données sources</h4>
           <p>Ces données sont produites à partir :</p>
           <ul>
-            <li>des <Link href='/datasets/plan-cadastral-informatise'><a>données EDIGÉO du PCI Vecteur</a></Link> ;</li>
+            <li>des <Link href='/datasets/plan-cadastral-informatise'>données EDIGÉO du PCI Vecteur</Link> ;</li>
             <li>des <a href='https://www.data.gouv.fr/datasets/5e6ad06d06e3e742367168cc/'>données cadastrales de l’Eurométropole de Strasbourg</a>.</li>
           </ul>
 
