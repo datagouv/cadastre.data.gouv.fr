@@ -1,7 +1,6 @@
 import React, {useState, useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
-import {pickBy, identity} from 'lodash'
 import mapStyle from 'maplibre-gl/dist/maplibre-gl.css'
 import Head from 'next/head'
 
@@ -67,12 +66,12 @@ function MapPage({hideBati, defaultParcelleId, defaultStyle}) {
   useEffect(() => {
     Router.push({
       pathname: '/map',
-      query: pickBy({
+      query: Object.fromEntries(Object.entries({
         ...Router.query,
         parcelleId: parcelle ? parcelle.id : null,
         hideBati: !showBati,
         style
-      }, identity),
+      }).filter(([k,v]) => v)),
       hash: window.location.hash
     })
   }, [showBati, parcelle, style])
