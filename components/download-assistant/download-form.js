@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import Step from '../step'
-import Selector from '../selector'
-import ProductSelection from './product-selection'
-import TerritorySelection from './territory-selection'
-import LayerSelection from './layer-selection'
+import Step from '../step.js'
+import Selector from '../selector.js'
+import ProductSelection from './product-selection.js'
+import TerritorySelection from './territory-selection.js'
+import LayerSelection from './layer-selection.js'
 
 class DownloadForm extends React.Component {
   componentDidUpdate() {
@@ -43,8 +42,8 @@ class DownloadForm extends React.Component {
             handleSelect={setFormat} />
         </Step>
 
-        {layer &&
-          <Step id='layer' title='Sélectionner une couche' disabled={Boolean(!format || !territory || !product)}>
+        {layer
+          && <Step id='layer' title='Sélectionner une couche' disabled={Boolean(!format || !territory || !product)}>
             <LayerSelection layers={product.layers} layer={layer} toggleLayer={setLayer} />
           </Step>}
       </>
@@ -64,7 +63,7 @@ DownloadForm.propTypes = {
   setTerritoryType: PropTypes.func.isRequired,
   setTerritory: PropTypes.func.isRequired,
   setFormat: PropTypes.func.isRequired,
-  formCompleted: PropTypes.func.isRequired
+  formCompleted: PropTypes.func.isRequired,
 }
 
 DownloadForm.defaultProps = {
@@ -72,7 +71,7 @@ DownloadForm.defaultProps = {
   territoryType: null,
   territory: null,
   format: null,
-  layer: null
+  layer: null,
 }
 
 export default DownloadForm

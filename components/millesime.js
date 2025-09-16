@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import theme from '../styles/theme'
+import theme from '../styles/theme.js'
 
 const formatLabels = {
   tiff: 'Format TIFF (PCI Image)',
@@ -11,7 +10,7 @@ const formatLabels = {
   'dxf-cc': 'Format DXF-PCI (CC 9 zones)',
   geojson: 'Format GeoJSON',
   shp: 'Format Shapefile',
-  mbtiles: 'Format MBTiles'
+  mbtiles: 'Format MBTiles',
 }
 
 const granularityLabels = {
@@ -19,26 +18,25 @@ const granularityLabels = {
   epcis: 'par EPCI',
   departements: 'par département',
   communes: 'par commune',
-  france: 'France entière'
+  france: 'France entière',
 }
 
-function Millesime({date, formats, path, baseUrl, getUrl}) {
-  return (
-    <div className='millesime-container'>
-      <h5>Millésime {date}</h5>
-      <div className='millesimes'>
-        {formats.map(format => (
-          <div key={date + format.name} className='format'>
-            <div><strong>{formatLabels[format.name]}</strong></div>
-            <div className='granularity'>
-              {format.granularities.map(granularity => (
-                <a key={date + format.name + granularity} href={getUrl(baseUrl, path, format.name, granularity)}>{granularityLabels[granularity]}</a>
-              ))}
-            </div>
+const Millesime = ({date, formats, path, baseUrl, getUrl}) => (
+  <div className='millesime-container'>
+    <h5>Millésime {date}</h5>
+    <div className='millesimes'>
+      {formats.map(format => (
+        <div key={date + format.name} className='format'>
+          <div><strong>{formatLabels[format.name]}</strong></div>
+          <div className='granularity'>
+            {format.granularities.map(granularity => (
+              <a key={date + format.name + granularity} href={getUrl(baseUrl, path, format.name, granularity)}>{granularityLabels[granularity]}</a>
+            ))}
           </div>
-        ))}
-      </div>
-      <style jsx>{`
+        </div>
+      ))}
+    </div>
+    <style jsx>{`
       .millesime-container {
         background: ${theme.colors.white};
         box-shadow: 0 1px 4px ${theme.boxShadow};
@@ -76,16 +74,15 @@ function Millesime({date, formats, path, baseUrl, getUrl}) {
         text-decoration: underline;
       }
     `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 Millesime.propTypes = {
   date: PropTypes.string.isRequired,
   formats: PropTypes.array.isRequired,
   path: PropTypes.string.isRequired,
   baseUrl: PropTypes.string.isRequired,
-  getUrl: PropTypes.func.isRequired
+  getUrl: PropTypes.func.isRequired,
 }
 
 export default Millesime

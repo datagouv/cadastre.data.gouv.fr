@@ -1,16 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import theme from '../styles/theme.js'
 
-import theme from '../styles/theme'
-
-function Step({id, title, disabled, children}) {
-  return (
-    <div id={id} className={`step ${disabled ? 'disabled' : ''}`}>
-      <h3>{title}</h3>
-      <div>
-        {children}
-      </div>
-      <style jsx>{`
+const Step = ({id = '', title, disabled, children}) => (
+  <div id={id} className={`step ${disabled ? 'disabled' : ''}`}>
+    <h3>{title}</h3>
+    <div>
+      {children}
+    </div>
+    <style jsx>{`
       .step {
         padding-bottom: 1em;
       }
@@ -23,19 +21,14 @@ function Step({id, title, disabled, children}) {
         display: none;
       }
       `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 Step.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired
-}
-
-Step.defaultProps = {
-  id: ''
+  children: PropTypes.node.isRequired,
 }
 
 export default Step

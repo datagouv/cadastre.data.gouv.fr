@@ -1,6 +1,6 @@
-import colors from './colors'
+import colors from './colors.js'
 
-export default ({
+const theme = {
   // Expose colors
   colors,
 
@@ -29,5 +29,7 @@ export default ({
   errorBorder: colors.red,
   errorBg: colors.lightRed,
   infoBorder: colors.blue,
-  infoBg: colors.lighterBlue
-})
+  infoBg: colors.lighterBlue,
+}
+
+export default theme

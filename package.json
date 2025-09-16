@@ -20,31 +20,34 @@
     "debounce": "^1.2.0",
     "express": "^4.17.1",
     "html-react-parser": "^4.0.0",
-    "lodash": "^4.17.20",
     "mapbox-gl": "npm:empty-npm-package@^1.0.0",
     "maplibre-gl": "^2.4.0",
-    "next": "11",
+    "next": "13",
     "piwik-react-router": "^0.12.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-autocomplete": "^1.8.1",
-    "react-autosuggest": "^10.1.0",
-    "react-dom": "^17.0.1",
+    "react": "18",
+    "react-autocomplete": "npm:@webgeodatavore/react-autocomplete@2.0.0",
+    "react-dom": "18",
     "react-feather": "^2.0.9",
-    "react-map-gl": "^7.0.21",
+    "react-map-gl": "^7.1.8",
     "style-loader": "^3.3.1",
     "underscore.string": "^3.3.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.4",
+    "@babel/eslint-parser": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
     "@next/bundle-analyzer": "^10.0.2",
-    "ava": "^3.3.0",
-    "babel-eslint": "^10.0.3",
+    "ava": "^6.4.1",
     "babel-plugin-inline-import": "^3.0.0",
-    "babel-plugin-lodash": "^3.3.4",
-    "eslint-config-xo-nextjs": "^1.5.0",
+    "eslint": "^9.35.0",
+    "eslint-config-xo": "^0.46.0",
+    "eslint-config-next": "13",
+    "eslint-config-xo-nextjs": "^6.3.0",
     "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^2.4.0",
-    "xo": "^0.26.1"
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "xo": "^0.60.0"
   },
   "xo": {
     "extends": "xo-nextjs",
@@ -69,8 +72,11 @@
           ]
         }
       ],
-      "react/jsx-no-bind": "off"
+      "react/jsx-no-bind": "off",
+      "react/jsx-uses-vars": "error",
+      "react/jsx-uses-react": "error",
+      "no-restricted-imports": "off",
+      "react/jsx-no-target-blank": "off"
     }
-  },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  }
 }

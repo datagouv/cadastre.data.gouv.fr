@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import ButtonLink from '../button-link'
+import ButtonLink from '../button-link.js'
 
 class DownloadButton extends React.Component {
   render() {
@@ -25,11 +24,11 @@ class DownloadButton extends React.Component {
 }
 
 DownloadButton.propTypes = {
-  href: PropTypes.string
+  href: PropTypes.string,
 }
 
 DownloadButton.defaultProps = {
-  href: null
+  href: null,
 }
 
 export default DownloadButton

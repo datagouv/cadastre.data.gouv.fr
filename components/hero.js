@@ -1,17 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import theme from '../styles/theme.js'
 
-import theme from '../styles/theme'
-
-function Hero({title, tagline, children}) {
-  return (
-    <div className='hero'>
-      <div className='hero__container'>
-        <h1 className='hero__white-background'>{title}</h1>
-        <p className='hero__white-background'>{tagline}</p>
-        {children}
-      </div>
-      <style jsx>{`
+const Hero = ({title, tagline, children = null}) => (
+  <div className='hero'>
+    <div className='hero__container'>
+      <h1 className='hero__white-background'>{title}</h1>
+      <p className='hero__white-background'>{tagline}</p>
+      {children}
+    </div>
+    <style jsx>{`
       .hero {
         background-color: ${theme.backgroundGrey};
         background-blend-mode: darken;
@@ -23,18 +21,13 @@ function Hero({title, tagline, children}) {
         background-color: ${theme.colors.white};
       }
     `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 Hero.propTypes = {
   title: PropTypes.string.isRequired,
   tagline: PropTypes.string.isRequired,
-  children: PropTypes.node
-}
-
-Hero.defaultProps = {
-  children: null
+  children: PropTypes.node,
 }
 
 export default Hero
