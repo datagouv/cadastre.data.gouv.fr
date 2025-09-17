@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Landing page pour le cadastre",
   "main": "index.js",
+  "type": "module",
   "license": "MIT",
   "scripts": {
     "dev": "node server",
