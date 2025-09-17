@@ -4,4 +4,8 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })
 
-export default withBundleAnalyzer({})
+const nextConfig = {
+  output: 'export',
+}
+
+export default withBundleAnalyzer(nextConfig)
