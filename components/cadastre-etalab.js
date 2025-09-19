@@ -40,7 +40,7 @@ const historique = [
   ['27/01/2025', 'nouveau millésime PCI janvier 2025 + nouvelles données Strasbourg'],
   ['23/04/2025', 'nouveau millésime PCI avril 2025 + nouvelles données Strasbourg'],
 ]
-const listItemsHistorique = historique.slice().reverse().map(([dateMaj, comment]) => <li key={dateMaj}>{dateMaj} : {parse(comment)}</li>)
+const listItemsHistorique = [...historique].reverse().map(([dateMaj, comment]) => <li key={dateMaj}>{dateMaj} : {parse(comment)}</li>)
 
 const products = [
   {

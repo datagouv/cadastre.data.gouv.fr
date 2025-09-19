@@ -7,11 +7,11 @@ import TerritorySelection from './territory-selection.js'
 import LayerSelection from './layer-selection.js'
 
 class DownloadForm extends React.Component {
-  componentDidUpdate() {
+  async componentDidUpdate() {
     const {product, territoryType, territory, format, formCompleted} = this.props
     const isCompleted = Boolean(product && territoryType && territory && format)
 
-    formCompleted(isCompleted)
+    await formCompleted(isCompleted)
   }
 
   render() {

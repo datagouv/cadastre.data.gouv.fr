@@ -74,24 +74,23 @@ class DownloadAssistant extends React.Component {
     return url
   }
 
-  toggleForm(formCompleted) {
+  async toggleForm(formCompleted) {
     const {url, error} = this.state
 
     if (formCompleted) {
       const newUrl = this.constructUrl()
 
       if ((!url || newUrl !== url) && !error) {
-        fetch(newUrl, {method: 'HEAD'})
-          .then(response => {
-            if (response.status === 200) {
-              this.setState({url: newUrl, downloadable: true})
-            } else {
-              this.setState({downloadable: false, error: true})
-            }
-          })
-          .catch(error_ => {
-            this.setState({downloadable: false, error: error_})
-          })
+        try {
+          const response = await fetch(newUrl, {method: 'HEAD'})
+          if (response.status === 200) {
+            this.setState({url: newUrl, downloadable: true})
+          } else {
+            this.setState({downloadable: false, error: true})
+          }
+        } catch (error_) {
+          this.setState({downloadable: false, error: error_})
+        }
       }
     } else if (url || error) {
       this.setState({downloadable: false, url: null, error: null})

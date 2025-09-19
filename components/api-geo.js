@@ -26,12 +26,12 @@ class ApiGeo extends React.Component {
     this.search = debounce(this.search, 200)
   }
 
-  updateValue(value) {
+  async updateValue(value) {
     const {territoryType} = this.props
     const field = territoryType === 'communes' ? 'departement' : 'region'
     const optionalParameter = territoryType === 'communes' ? '&type=arrondissement-municipal,commune-actuelle' : ''
     const url = `https://geo.api.gouv.fr/${territoryType.replace('é', 'e')}?nom=${value}&fields=${field}&boost=population${optionalParameter}`
-    this.setState({value, results: [], loading: true}, this.search(url))
+    this.setState({value, results: [], loading: true}, await this.search(url))
   }
 
   componentDidUpdate(previousProperties) {
@@ -88,7 +88,7 @@ class ApiGeo extends React.Component {
     )
   }
 
-  search(url) {
+  async search(url) {
     const options = {
       headers: {
         Accept: 'application/json',
@@ -97,22 +97,20 @@ class ApiGeo extends React.Component {
       method: 'GET',
     }
 
-    fetch(url, options).then(response => {
-      const contentType = response.headers.get('content-type')
-      if (contentType && contentType.includes('application/json')) {
-        response.json().then(json => {
-          this.setState({
-            results: json.splice(0, 10) || [],
-            loading: false,
-          })
-        })
-      } else {
-        this.setState({
-          results: [],
-          loading: false,
-        })
-      }
-    })
+    const response = await fetch(url, options)
+    const contentType = response.headers.get('content-type')
+    if (contentType && contentType.includes('application/json')) {
+      const json = await response.json()
+      this.setState({
+        results: json.splice(0, 10) || [],
+        loading: false,
+      })
+    } else {
+      this.setState({
+        results: [],
+        loading: false,
+      })
+    }
   }
 
   selectTerritory(territory) {

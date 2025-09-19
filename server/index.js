@@ -9,7 +9,7 @@ const development = process.env.NODE_ENV !== 'production'
 const app = next({dev: development})
 const handle = app.getRequestHandler()
 
-const __dirname = import.meta.dirname
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 
 try {
   await app.prepare()

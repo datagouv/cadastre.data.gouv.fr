@@ -71,7 +71,7 @@ const MapPage = ({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
   }, [showBati, parcelle, style])
 
   useEffect(() => {
-    if (debouncedInput.length > 0) {
+    if (debouncedInput.trim().length >= 3) {
       searchAddress()
     }
   }, [debouncedInput, searchAddress])

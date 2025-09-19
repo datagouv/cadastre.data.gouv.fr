@@ -51,9 +51,6 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "xo": "^0.60.0"
   },
-  "engines" : {
-    "node" : ">=20.11.0"
-  },
   "xo": {
     "extends": "xo-nextjs",
     "semicolon": false,
