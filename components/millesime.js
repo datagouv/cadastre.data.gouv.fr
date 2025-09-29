@@ -11,6 +11,7 @@ const formatLabels = {
   geojson: 'Format GeoJSON',
   shp: 'Format Shapefile',
   mbtiles: 'Format MBTiles',
+  geoparquet: 'Format GeoParquet',
 }
 
 const granularityLabels = {
