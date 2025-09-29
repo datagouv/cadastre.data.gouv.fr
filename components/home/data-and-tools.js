@@ -1,43 +1,41 @@
 import React from 'react'
-import Section from '../section'
+import Section from '../section.js'
+import theme from '../../styles/theme.js'
 
-import theme from '../../styles/theme'
-
-function DataAndTools() {
-  return (
-    <Section title='Données et outils disponibles'>
-      <div className='main'>
-        <div>
-          <a target='_blank' rel='noopener noreferrer' href='https://www.data.gouv.fr/fr/datasets/58e5924b88ee3802ca255566/'>
-            <img src='/static/images/icons/download.svg' alt='Données PCI Vecteur' />
-            Données PCI Vecteur
-          </a>
-          <i>DGFiP</i>
-        </div>
-        <div>
-          <a target='_blank' rel='noopener noreferrer' href='https://www.data.gouv.fr/fr/datasets/59b0020ec751df07d5f13bcf/'>
-            <img src='/static/images/icons/download.svg' alt='Données Cadastre simplifié' />
-            Données Cadastre simplifié
-          </a>
-          <i>Etalab</i>
-        </div>
-        <div>
-          <span className='muted'>
-            <img src='/static/images/icons/search.svg' alt='Consulter le cadastre' />
-            Consulter le cadastre
-          </span>
-          <i>(à venir)</i>
-        </div>
-        <div>
-          <span className='muted'>
-            <img src='/static/images/icons/map.svg' alt='Cartographie interactive' />
-            Cartographie interactive
-          </span>
-          <i>(à venir)</i>
-        </div>
+const DataAndTools = () => (
+  <Section title='Données et outils disponibles'>
+    <div className='main'>
+      <div>
+        <a target='_blank' rel='noopener noreferrer' href='https://www.data.gouv.fr/fr/datasets/58e5924b88ee3802ca255566/'>
+          <img src='/static/images/icons/download.svg' alt='Données PCI Vecteur' />
+          Données PCI Vecteur
+        </a>
+        <i>DGFiP</i>
       </div>
+      <div>
+        <a target='_blank' rel='noopener noreferrer' href='https://www.data.gouv.fr/fr/datasets/59b0020ec751df07d5f13bcf/'>
+          <img src='/static/images/icons/download.svg' alt='Données Cadastre simplifié' />
+          Données Cadastre simplifié
+        </a>
+        <i>Etalab</i>
+      </div>
+      <div>
+        <span className='muted'>
+          <img src='/static/images/icons/search.svg' alt='Consulter le cadastre' />
+          Consulter le cadastre
+        </span>
+        <i>(à venir)</i>
+      </div>
+      <div>
+        <span className='muted'>
+          <img src='/static/images/icons/map.svg' alt='Cartographie interactive' />
+          Cartographie interactive
+        </span>
+        <i>(à venir)</i>
+      </div>
+    </div>
 
-      <style jsx>{`
+    <style jsx>{`
     .main {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -73,8 +71,7 @@ function DataAndTools() {
       opacity: 0.4;
     }
   `}</style>
-    </Section>
-  )
-}
+  </Section>
+)
 
 export default DataAndTools

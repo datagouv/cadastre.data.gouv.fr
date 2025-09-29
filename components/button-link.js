@@ -1,35 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function ButtonLink({size, color, href, outlined, children, ...props}) {
-  return (
-    <a href={href} className={`button${outlined ? '-outline' : ''} ${size} ${color}`} {...props}>
-      {children}
-    </a>
-  )
-}
+const ButtonLink = ({size = null, color = 'primary', href, outlined = false, children = null, ...properties}) => (
+  <a href={href} className={`button${outlined ? '-outline' : ''} ${size} ${color}`} {...properties}>
+    {children}
+  </a>
+)
 
 ButtonLink.propTypes = {
   size: PropTypes.oneOf([
     'small',
-    'large'
+    'large',
   ]),
   color: PropTypes.oneOf([
     'primary',
     'warning-light',
     'warning',
-    'secondary'
+    'secondary',
   ]),
   href: PropTypes.string.isRequired,
   outlined: PropTypes.bool,
-  children: PropTypes.node
-}
-
-ButtonLink.defaultProps = {
-  size: null,
-  color: 'primary',
-  outlined: false,
-  children: null
+  children: PropTypes.node,
 }
 
 export default ButtonLink

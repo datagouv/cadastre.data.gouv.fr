@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 import parse from 'html-react-parser'
-import Section from './section'
-import Millesimes from './millesimes'
-import WrapperShowHide from './wrapper-show-hide'
-import DownloadAssistant from './download-assistant/download-assistant'
-import {millesimes, getUrl} from '../lib/cadastre-etalab'
+import {millesimes, getUrl} from '../lib/cadastre-etalab.mjs'
+import Section from './section.js'
+import Millesimes from './millesimes.js'
+import WrapperShowHide from './wrapper-show-hide.js'
+import DownloadAssistant from './download-assistant/download-assistant.js'
 
 const historique = [
   ['30/09/2017', 'première diffusion des données'],
@@ -39,9 +39,9 @@ const historique = [
   ['17/11/2024', 'nouveau millésime PCI octobre 2024 + nouvelles données Strasbourg'],
   ['27/01/2025', 'nouveau millésime PCI janvier 2025 + nouvelles données Strasbourg'],
   ['23/04/2025', 'nouveau millésime PCI avril 2025 + nouvelles données Strasbourg'],
-  ['29/09/2025', 'nouveau millésime PCI septembre 2025. Données de strasbourg non intégrées car entièrement intégrées dans PCI maintenant']
+  ['29/09/2025', 'nouveau millésime PCI septembre 2025. Données de strasbourg non intégrées car entièrement intégrées dans PCI maintenant'],
 ]
-const listItemsHistorique = historique.slice().reverse().map(([dateMaj, comment]) => <li key={dateMaj}>{dateMaj} : {parse(comment)}</li>)
+const listItemsHistorique = [...historique].reverse().map(([dateMaj, comment]) => <li key={dateMaj}>{dateMaj} : {parse(comment)}</li>)
 
 const products = [
   {
@@ -49,7 +49,7 @@ const products = [
     formats: [
       'geojson',
       'geojson/gz',
-      'shp'
+      'shp',
     ],
     layers: [
       'communes',
@@ -59,84 +59,83 @@ const products = [
       'lieux_dits',
       'parcelles',
       'subdivisions_fiscales',
-      'batiments'
-    ]
-  }
+      'batiments',
+    ],
+  },
 ]
 
-function CadastreEtalab() {
-  return (
-    <div>
-      <Section>
-        <div className='main'>
-          <h4>Raison d’être de ce jeu de données</h4>
-          <p>Le <Link href='/datasets/plan-cadastral-informatise'><a>Plan Cadastral Informatisé</a></Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
-            la Direction Interministérielle du Numérique a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
+const CadastreEtalab = () => (
+  <div>
+    <Section>
+      <div className='main'>
+        <h4>Raison d’être de ce jeu de données</h4>
+        <p>Le <Link href='/datasets/plan-cadastral-informatise'>Plan Cadastral Informatisé</Link> est diffusé sous deux formats experts rendant sa réutilisation difficile en dehors du contexte des applications métiers.<br />
+          la Direction Interministérielle du Numérique a donc pris l’initiative d’en redistribuer une version retravaillée, dans des formats plus largement répandus.<br /></p>
 
-          <h4>Données sources</h4>
-          <p>Ces données sont produites à partir :</p>
-          <ul>
-            <li>des <Link href='/datasets/plan-cadastral-informatise'><a>données EDIGÉO du PCI Vecteur</a></Link> ;</li>
-            <li>des <a href='https://www.data.gouv.fr/datasets/5e6ad06d06e3e742367168cc/'>données cadastrales de l’Eurométropole de Strasbourg</a>.</li>
-          </ul>
+        <h4>Données sources</h4>
+        <p>Ces données sont produites à partir :</p>
+        <ul>
+          <li>des <Link href='/datasets/plan-cadastral-informatise'>données EDIGÉO du PCI Vecteur</Link> ;</li>
+          <li>des <a href='https://www.data.gouv.fr/datasets/5e6ad06d06e3e742367168cc/'>données cadastrales de l’Eurométropole de Strasbourg</a>.</li>
+        </ul>
 
-          <h4>Processus de construction</h4>
+        <h4>Processus de construction</h4>
 
-          <p>Les différentes couches sont constituées par juxtaposition des feuilles, sans correction de topologie.<br />
-            Les données de l’Eurométropole Strasbourg sont ajoutées par écrasement de celles éventuellement présentes dans le PCI Vecteur.<br />
-            Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b>, les <b>lieux-dits</b>, les <b>parcelles</b>, les <b>subdivisions fiscales</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
-            La couche des contours des <b>préfixes de sections</b> est construite à partir de la couche des sections.<br />
-            Le code source est ouvert et <a href='https://github.com/etalab/cadastre'>disponible sur GitHub</a>.
-          </p>
+        <p>Les différentes couches sont constituées par juxtaposition des feuilles, sans correction de topologie.<br />
+          Les données de l’Eurométropole Strasbourg sont ajoutées par écrasement de celles éventuellement présentes dans le PCI Vecteur.<br />
+          Le modèle de données est simplifié, et ne sont conservés que les <b>sections</b>, les <b>feuilles</b>, les <b>lieux-dits</b>, les <b>parcelles</b>, les <b>subdivisions fiscales</b>, les <b>limites de communes</b> et le <b>bâti</b>.<br />
+          La couche des contours des <b>préfixes de sections</b> est construite à partir de la couche des sections.<br />
+          Le code source est ouvert et <a href='https://github.com/etalab/cadastre'>disponible sur GitHub</a>.
+        </p>
 
-          <h4>Couverture</h4>
+        <h4>Couverture</h4>
 
-          <p>Les 34 700 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
-            Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
+        <p>Les 34 700 communes couvertes par le PCI Vecteur, ainsi que les communes de l’Eurométropole de Strasbourg.<br />
+          Les collectivités d’outre-mer de Saint-Martin et de Saint-Barthelemy sont présentes et intégrées dans le département de la Guadeloupe (971).</p>
 
-          <h4>Formats disponibles</h4>
-          <p>Les données sont actuellement disponibles aux formats <a href='http://geojson.org/'>GeoJSON</a> compressé, <a href='http://geojson.org/'>GeoJSON</a> simple et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, via l’outil d’aide au téléchargement.</p>
+        <h4>Formats disponibles</h4>
+        <p>Les données sont actuellement disponibles aux formats <a href='http://geojson.org/'>GeoJSON</a> compressé, <a href='http://geojson.org/'>GeoJSON</a> simple et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, via l’outil d’aide au téléchargement.</p>
 
-          <h4>Couches géographiques</h4>
+        <h4>Couches géographiques</h4>
 
-          <ul>
-            <li>parcelles (polygones ou multi polygones)</li>
-            <li>subdivisions_fiscales (polygones)</li>
-            <li>lieux_dits (polygones)</li>
-            <li>feuilles (multi polygones)</li>
-            <li>sections (multi polygones)</li>
-            <li>prefixes_sections (multi polygones)</li>
-            <li>communes (multi polygones)</li>
-            <li>batiments (polygones)</li>
-          </ul>
+        <ul>
+          <li>parcelles (polygones ou multi polygones)</li>
+          <li>subdivisions_fiscales (polygones)</li>
+          <li>lieux_dits (polygones)</li>
+          <li>feuilles (multi polygones)</li>
+          <li>sections (multi polygones)</li>
+          <li>prefixes_sections (multi polygones)</li>
+          <li>communes (multi polygones)</li>
+          <li>batiments (polygones)</li>
+        </ul>
 
-          <h4>Mise à disposition</h4>
+        <h4>Mise à disposition</h4>
 
-          <p>Les données sont mises à disposition de deux manières :</p>
-          <ul>
-            <li>En <b>téléchargement direct</b> à la <b>commune</b>, au <b>département</b> ou <b>France entière</b>, pour le format <a href='http://geojson.org/'>GeoJSON</a> compressé, au <b>département</b> ou <b>France entière</b> pour le format <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
-            <li>Via un outil en ligne pour les données aux formats <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, quel que soit le niveau de granularité.</li>
-          </ul>
-          <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
-          <p>Les archives de <b>juillet 2017</b> à <b>avril 2021</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
+        <p>Les données sont mises à disposition de deux manières :</p>
+        <ul>
+          <li>En <b>téléchargement direct</b> à la <b>commune</b>, au <b>département</b> ou <b>France entière</b>, pour le format <a href='http://geojson.org/'>GeoJSON</a> compressé, au <b>département</b> ou <b>France entière</b> pour le format <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>. Ce sont ces URL qu’il faut utiliser si vous souhaitez <b>automatiser la récupération des données</b> et <b>bénéficier des meilleures performances</b>.</li>
+          <li>Via un outil en ligne pour les données aux formats <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, quel que soit le niveau de granularité.</li>
+        </ul>
+        <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
+        <p>Les archives de <b>juillet 2017</b> à <b>avril 2021</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
 
-          <h4>Historique</h4>
+        <h4>Historique</h4>
 
-          <ul>{listItemsHistorique}</ul>;
-        </div>
-      </Section>
-      <Section id='millesimes-disponibles-telechargement-direct' title='Millésimes disponibles en téléchargement direct' background='grey'>
-        <p>Les liens suivants permettent de télécharger les données cadastrales <b>à la commune</b>, ou <b>au département</b>.<br />Dans le cas d’un téléchargement à la commune, vous serez invité à choisir un code département puis un code de commune.</p>
-        <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
-        <Millesimes millesimes={millesimes.slice(0, 2)} getUrl={getUrl} />
-        <WrapperShowHide labelWhenClosed='Montrer les données des anciennes dates' labelWhenOpened='Cacher les données des anciennes dates'>
-          <Millesimes millesimes={millesimes.slice(2)} getUrl={getUrl} />
-        </WrapperShowHide>
-      </Section>
-      <Section id='aide-au-telechargement' title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
-        <DownloadAssistant productList={products} />
-      </Section>
-      <style jsx>{`
+        <ul>{listItemsHistorique}</ul>;
+      </div>
+    </Section>
+    <Section id='millesimes-disponibles-telechargement-direct' title='Millésimes disponibles en téléchargement direct' background='grey'>
+      <p>Les liens suivants permettent de télécharger les données cadastrales <b>à la commune</b>, ou <b>au département</b>.<br />Dans le cas d’un téléchargement à la commune, vous serez invité à choisir un code département puis un code de commune.</p>
+      <p>NB : Il est possible de remplacer la date du millésime par `latest` dans les URL.</p>
+      <Millesimes millesimes={millesimes.slice(0, 2)} getUrl={getUrl} />
+      <WrapperShowHide labelWhenClosed='Montrer les données des anciennes dates' labelWhenOpened='Cacher les données des anciennes dates'>
+        <Millesimes millesimes={millesimes.slice(2)} getUrl={getUrl} />
+      </WrapperShowHide>
+    </Section>
+    <Section id='aide-au-telechargement' title='Aide au téléchargement' subtitle='Télécharger facilement n’importe quel niveau de granularité'>
+      <DownloadAssistant productList={products} />
+    </Section>
+    <style jsx>{`
       .ressources {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -145,8 +144,7 @@ function CadastreEtalab() {
         margin: 2em 0;
       }
     `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 export default CadastreEtalab

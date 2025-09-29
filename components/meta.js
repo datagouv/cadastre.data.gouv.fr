@@ -2,13 +2,13 @@ import React from 'react'
 import prune from 'underscore.string/prune'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
-
-import Fonts from './styles/fonts'
+import Fonts from './styles/fonts.js'
 
 const SITE_NAME = 'cadastre.data.gouv.fr'
 
-function Meta({title, description}) {
+const Meta = ({title = 'Données cadastrales ouvertes', description = 'Consulter, télécharger et intégrer les données cadastrales sans effort'}) => {
   description = prune(description, 160, '…')
+  const metaTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME}`
   return (
     <>
       <Head>
@@ -16,7 +16,7 @@ function Meta({title, description}) {
         <meta httpEquiv='x-ua-compatible' content='ie=edge' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
 
-        {title ? <title>{title} | {SITE_NAME}</title> : <title>{SITE_NAME}</title>}
+        <title>{metaTitle}</title>
 
         <link rel='icon' href='/static/favicon.ico' />
 
@@ -54,12 +54,7 @@ function Meta({title, description}) {
 
 Meta.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.string
-}
-
-Meta.defaultProps = {
-  title: 'Données cadastrales ouvertes',
-  description: 'Consulter, télécharger et intégrer les données cadastrales sans effort'
+  description: PropTypes.string,
 }
 
 export default Meta

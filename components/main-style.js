@@ -1,8 +1,6 @@
 import React from 'react'
-import Template from './styles/template'
+import Template from './styles/template.js'
 
-function MainStyle() {
-  return <Template />
-}
+const MainStyle = () => <Template />
 
 export default MainStyle

@@ -1,24 +1,24 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
-function WrapperShowHide({
+const WrapperShowHide = ({
   children,
   isOpenByDefault = false,
   labelWhenOpened = 'Fermer',
-  labelWhenClosed = 'Ouvrir'
-}) {
-  const [isOpen, setOpen] = useState(isOpenByDefault)
-  const label = isOpen ? labelWhenOpened : labelWhenClosed
+  labelWhenClosed = 'Ouvrir',
+}) => {
+  const [open, setOpen] = useState(isOpenByDefault)
+  const label = open ? labelWhenOpened : labelWhenClosed
 
   const toggle = function () {
-    setOpen(!isOpen)
+    setOpen(!open)
   }
 
   return (
     <>
-      <button type='button' onClick={toggle} className='button-open-close' style={isOpen ? {display: 'None'} : {display: 'inherit'}}>{label}</button>
-      {isOpen && (
-        <div className={isOpen ? 'open' : 'closed'}>
+      <button type='button' onClick={toggle} className='button-open-close' style={open ? {display: 'None'} : {display: 'inherit'}}>{label}</button>
+      {open && (
+        <div className={open ? 'open' : 'closed'}>
           <div>{children}</div>
           <button type='button' className='button-open-close' onClick={toggle}>{label}</button>
         </div>
@@ -46,7 +46,7 @@ WrapperShowHide.propTypes = {
   children: PropTypes.element.isRequired,
   isOpenByDefault: PropTypes.string,
   labelWhenOpened: PropTypes.string,
-  labelWhenClosed: PropTypes.string
+  labelWhenClosed: PropTypes.string,
 }
 
 export default WrapperShowHide

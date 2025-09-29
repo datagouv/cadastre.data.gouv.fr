@@ -2,13 +2,12 @@ import React from 'react'
 import Autocomplete from 'react-autocomplete'
 import PropTypes from 'prop-types'
 import {Search} from 'react-feather'
-
-import theme from '../styles/theme'
-import Loader from './loader'
+import theme from '../styles/theme.js'
+import Loader from './loader.js'
 
 class SearchInput extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor(properties) {
+    super(properties)
     this.inputRef = React.createRef()
   }
 
@@ -22,38 +21,34 @@ class SearchInput extends React.Component {
     onSearch: PropTypes.func.isRequired,
     renderItem: PropTypes.func.isRequired,
     getItemValue: PropTypes.func.isRequired,
-    isFullscreen: PropTypes.bool
+    isFullscreen: PropTypes.bool,
   }
-
   static defaultProps = {
     results: [],
     value: '',
     placeholder: '',
     isLoading: false,
     wrapperStyle: null,
-    isFullscreen: false
+    isFullscreen: false,
   }
-
   handleSearch = event => {
     const {onSearch} = this.props
 
     onSearch(event.target.value)
   }
-
   handleSelect = (itemName, item) => {
     const {onSelect} = this.props
     this.inputRef.current.blur()
 
     onSelect(item)
   }
-
-  renderInput = props => {
+  renderInput = properties => {
     const {placeholder} = this.props
 
     return (
       <div className='search-input-container'>
         {/* disable safari zoom in on focus with font-size at 16px */}
-        <input style={{fontSize: '16px'}} className='search' {...props} placeholder={placeholder} />
+        <input style={{fontSize: '16px'}} className='search' {...properties} placeholder={placeholder} />
         <span className='iconTitle'><Search /></span>
         <style jsx>{`
           .search-input-container {
@@ -94,7 +89,6 @@ class SearchInput extends React.Component {
       </div>
     )
   }
-
   renderMenu = (items, value) => {
     const {isLoading, isFullscreen} = this.props
 

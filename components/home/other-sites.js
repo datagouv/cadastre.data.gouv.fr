@@ -1,23 +1,22 @@
 import React from 'react'
-import Section from '../section'
+import Section from '../section.js'
 
-function OtherSites() {
-  return (
-    <Section title='Voir aussi' subtitle=''>
-      <div className='main'>
-        <div>
-          <a href='https://adresse.data.gouv.fr'>
-            <h3>La Base Adresse Nationale</h3>
-          </a>
-        </div>
-        <div>
-          <a href='https://geo.api.gouv.fr'>
-            <h3>L&apos;Api découpage administratif</h3>
-          </a>
-        </div>
+const OtherSites = () => (
+  <Section title='Voir aussi' subtitle=''>
+    <div className='main'>
+      <div>
+        <a href='https://adresse.data.gouv.fr'>
+          <h3>La Base Adresse Nationale</h3>
+        </a>
       </div>
+      <div>
+        <a href='https://geo.api.gouv.fr'>
+          <h3>L&apos;Api découpage administratif</h3>
+        </a>
+      </div>
+    </div>
 
-      <style jsx>{`
+    <style jsx>{`
     .main {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
@@ -33,8 +32,7 @@ function OtherSites() {
       width: 300px;
     }
   `}</style>
-    </Section>
-  )
-}
+  </Section>
+)
 
 export default OtherSites

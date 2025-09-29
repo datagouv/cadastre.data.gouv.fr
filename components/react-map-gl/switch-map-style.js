@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import theme from '../../styles/theme'
+import theme from '../../styles/theme.js'
 
 class SwitchMapStyle extends React.Component {
   static propTypes = {
     isVector: PropTypes.bool.isRequired,
-    handleChange: PropTypes.func.isRequired
+    handleChange: PropTypes.func.isRequired,
   }
 
   render() {
