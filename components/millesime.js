@@ -11,7 +11,8 @@ const formatLabels = {
   'dxf-cc': 'Format DXF-PCI (CC 9 zones)',
   geojson: 'Format GeoJSON',
   shp: 'Format Shapefile',
-  mbtiles: 'Format MBTiles'
+  mbtiles: 'Format MBTiles',
+  geoparquet: 'Format GeoParquet'
 }
 
 const granularityLabels = {
