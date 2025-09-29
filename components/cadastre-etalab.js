@@ -38,7 +38,8 @@ const historique = [
   ['22/07/2024', 'nouveau millésime PCI juillet 2024 + nouvelles données Strasbourg'],
   ['17/11/2024', 'nouveau millésime PCI octobre 2024 + nouvelles données Strasbourg'],
   ['27/01/2025', 'nouveau millésime PCI janvier 2025 + nouvelles données Strasbourg'],
-  ['23/04/2025', 'nouveau millésime PCI avril 2025 + nouvelles données Strasbourg']
+  ['23/04/2025', 'nouveau millésime PCI avril 2025 + nouvelles données Strasbourg'],
+  ['29/09/2025', 'nouveau millésime PCI septembre 2025. Données de strasbourg non intégrées car entièrement intégrées dans PCI maintenant']
 ]
 const listItemsHistorique = historique.slice().reverse().map(([dateMaj, comment]) => <li key={dateMaj}>{dateMaj} : {parse(comment)}</li>)
 
