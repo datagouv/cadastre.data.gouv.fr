@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import theme from '../../styles/theme'
+import theme from '../../styles/theme.js'
 
 class LayerSelection extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor(properties) {
+    super(properties)
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -57,7 +56,7 @@ class LayerSelection extends React.Component {
 LayerSelection.propTypes = {
   layers: PropTypes.array.isRequired,
   layer: PropTypes.string.isRequired,
-  toggleLayer: PropTypes.func.isRequired
+  toggleLayer: PropTypes.func.isRequired,
 }
 
 export default LayerSelection

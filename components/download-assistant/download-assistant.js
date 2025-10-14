@@ -1,23 +1,21 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import theme from '../../styles/theme'
-
-import DownloadForm from './download-form'
-import DownloadButton from './download-button'
+import theme from '../../styles/theme.js'
+import DownloadForm from './download-form.js'
+import DownloadButton from './download-button.js'
 
 class DownloadAssistant extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor(properties) {
+    super(properties)
     this.state = {
-      product: props.productList.length === 1 ? props.productList[0] : null,
-      layer: props.productList[0].layers ? props.productList[0].layers[0] : null,
+      product: properties.productList.length === 1 ? properties.productList[0] : null,
+      layer: properties.productList[0].layers ? properties.productList[0].layers[0] : null,
       territory: null,
       territoryType: null,
       format: null,
       url: null,
       downloadable: false,
-      error: false
+      error: false,
     }
 
     this.toggleProduct = this.toggleProduct.bind(this)
@@ -29,37 +27,29 @@ class DownloadAssistant extends React.Component {
   }
 
   toggleProduct(product) {
-    this.setState(state => {
-      return {
-        product: product === state.product ? null : product,
-        format: product.formats.length === 1 ? product.formats[0] : null
-      }
-    })
+    this.setState(state => ({
+      product: product === state.product ? null : product,
+      format: product.formats.length === 1 ? product.formats[0] : null,
+    }))
   }
 
   toggleTerritoryType(territoryType) {
-    this.setState(state => {
-      return {
-        territoryType: territoryType === state.territoryType ? null : territoryType,
-        territory: null
-      }
-    })
+    this.setState(state => ({
+      territoryType: territoryType === state.territoryType ? null : territoryType,
+      territory: null,
+    }))
   }
 
   toggleTerritory(territory) {
-    this.setState(state => {
-      return {
-        territory: territory === state.territory ? null : territory
-      }
-    })
+    this.setState(state => ({
+      territory: territory === state.territory ? null : territory,
+    }))
   }
 
   toggleFormat(format) {
-    this.setState(state => {
-      return {
-        format: format === state.format ? null : format
-      }
-    })
+    this.setState(state => ({
+      format: format === state.format ? null : format,
+    }))
   }
 
   toggleLayer(layer) {
@@ -74,7 +64,7 @@ class DownloadAssistant extends React.Component {
       product.name.toLowerCase().replace(' ', '-'),
       territoryType.replace('é', 'e'),
       territory.code,
-      format.replace('/', '-')
+      format.replace('/', '-'),
     ].join('/')
 
     if (layer) {
@@ -84,24 +74,23 @@ class DownloadAssistant extends React.Component {
     return url
   }
 
-  toggleForm(formCompleted) {
+  async toggleForm(formCompleted) {
     const {url, error} = this.state
 
     if (formCompleted) {
       const newUrl = this.constructUrl()
 
       if ((!url || newUrl !== url) && !error) {
-        fetch(newUrl, {method: 'HEAD'})
-          .then(response => {
-            if (response.status === 200) {
-              this.setState({url: newUrl, downloadable: true})
-            } else {
-              this.setState({downloadable: false, error: true})
-            }
-          })
-          .catch(err => {
-            this.setState({downloadable: false, error: err})
-          })
+        try {
+          const response = await fetch(newUrl, {method: 'HEAD'})
+          if (response.status === 200) {
+            this.setState({url: newUrl, downloadable: true})
+          } else {
+            this.setState({downloadable: false, error: true})
+          }
+        } catch (error_) {
+          this.setState({downloadable: false, error: error_})
+        }
       }
     } else if (url || error) {
       this.setState({downloadable: false, url: null, error: null})
@@ -129,8 +118,8 @@ class DownloadAssistant extends React.Component {
           formCompleted={this.toggleForm} />
 
         {downloadable && <DownloadButton href={url} />}
-        {error &&
-          <div className='error-msg'>Cette ressource n’est pas disponible sur ce territoire.</div>}
+        {error
+          && <div className='error-msg'>Cette ressource n’est pas disponible sur ce territoire.</div>}
 
         <style jsx>{`
           .download-wizard {
@@ -151,7 +140,7 @@ class DownloadAssistant extends React.Component {
 }
 
 DownloadAssistant.propTypes = {
-  productList: PropTypes.array.isRequired
+  productList: PropTypes.array.isRequired,
 }
 
 export default DownloadAssistant

@@ -3,15 +3,14 @@ import PropTypes from 'prop-types'
 
 class Control extends React.Component {
   static defaultProps = {
-    enabled: true
+    enabled: true,
   }
-
   static propTypes = {
     enabled: PropTypes.bool,
     icon: PropTypes.node.isRequired,
     enabledHint: PropTypes.string.isRequired,
     disabledHint: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
   }
 
   render() {
