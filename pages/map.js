@@ -9,6 +9,7 @@ import useDebounce from '../components/hooks/debounce.js'
 import {search} from '../lib/api-adresse.js'
 import Page from '../layouts/main.js'
 import SearchInput from '../components/search-input.js'
+import SearchParcelle from '../components/filter-box.js'
 import renderAddress from '../components/search-input/render-address.js'
 import Parcelle from '../components/map/parcelle.js'
 
@@ -115,6 +116,7 @@ const MapPage = ({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
             getItemValue={item => item.properties.context}
             fullscreen
           />
+          <SearchParcelle />
           {parcelle && parcelle.section && (
             <div className='info-panel'>
               <Parcelle

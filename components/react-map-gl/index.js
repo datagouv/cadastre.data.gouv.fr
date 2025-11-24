@@ -7,6 +7,7 @@ import maplibregl from 'maplibre-gl'
 import {Home} from 'react-feather'
 import usePrevious from '../hooks/previous.js'
 import ParcelleSumup from '../map/parcelle-sumup.js'
+import {subscribe} from '../../lib/events.js'
 import Control from './control.js'
 import SwitchMapStyle from './switch-map-style.js'
 import {vector, ortho} from './styles/index.js'
@@ -83,6 +84,17 @@ const MapComponent = ({viewState, isTouchScreenDevice = false, showBati, toggleB
     }
   }
 
+  useEffect(() => {
+    subscribe('parcelles-info', event => {
+      console.log(event.detail)
+      if (map) {
+        map.fitBounds(event.detail.bbox, {
+          linear: true,
+          animate: true,
+        })
+      }
+    })
+  }, [map])
   const loadLayers = useCallback(() => {
     const {id} = selectedParcelle || {}
     map.setFilter('parcelle-highlighted', ['==', 'id', id || ''])
