@@ -32,3 +32,4 @@ Icon
 
 
 public/static/*.json
+!public/static/centers_deps.json
