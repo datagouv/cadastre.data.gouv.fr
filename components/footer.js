@@ -14,6 +14,7 @@ function Footer() {
           <li><Link href='/mentions-legales'><a>Mentions légales</a></Link></li>
           <li><Link href='/faq'><a>FAQ</a></Link></li>
           <li><a href='https://www.data.gouv.fr/support/help/dataset/cadastre/#support-tree'>Contact</a></li>
+          <li><a href='https://guides.data.gouv.fr/reutiliser-des-donnees/autour-du-cadastre'>Documentation</a></li>
         </ul>
       </div>
       <style jsx>{`
