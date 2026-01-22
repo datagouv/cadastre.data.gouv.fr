@@ -31,6 +31,11 @@ function Faq() {
               </p>
             </Question>
 
+            <Question question='Comment utiliser ces données ?'>
+              <p>Un <a href='https://guides.data.gouv.fr/reutiliser-des-donnees/autour-du-cadastre'>guide</a> est à votre disposition pour vous accompagner dans l’utilisation des données ouvertes du cadastre.
+              </p>
+            </Question>
+
             <Question question='Pourquoi les données du plan cadastral se chevauchent-elles dans certaines zones ?'>
               <p>
                 Les feuilles cadastrales sont numérisées feuille par feuille. Les différents procédés et époques de numérisation ont pour conséquence des chevauchements, en particulier en limites de communes et en zones forestières, de montagne ou agricoles.
