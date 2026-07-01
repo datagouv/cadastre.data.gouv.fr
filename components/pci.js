@@ -57,7 +57,7 @@ function Pci() {
             <li>Format <a href='https://static.data.gouv.fr/resources/plan-cadastral-informatise/20250825-085902/standard-dxf-pci-edition-avril-2025-fi-v1.2.pdf'>DXF-PCI</a> en projection Lambert 93 ;</li>
             <li>Format <a href='https://static.data.gouv.fr/resources/plan-cadastral-informatise/20250825-085902/standard-dxf-pci-edition-avril-2025-fi-v1.2.pdf'>DXF-PCI</a> en projection Lambert CC 9 zones.</li>
           </ul>
-          <p>Les données du PCI Image sont disponibles au format TIFF.</p>
+          <p>Les données du PCI Image sont disponibles au format TIFF. A partir de la livraison de décembre 2025, il n’y a plus de données TIFF, l’intégralité des planches ayant numérisées sous forme vecteur</p>
 
           <h4>Modèle de données</h4>
           <p>Chaque commune est subdivisée en sections, elles-mêmes subdivisées en feuilles (ou planches).
@@ -72,7 +72,7 @@ function Pci() {
             <li>Via un outil en ligne pour les <b>archives communales</b>. Les données sont alors produites à la volée.</li>
           </ul>
           <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
-          <p>Les archives de <b>juillet 2017</b> à <b>avril 2023</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
+          <p>Les archives de <b>juillet 2017</b> à <b>juillet 2023</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
 
           <h4>Outils</h4>
 
