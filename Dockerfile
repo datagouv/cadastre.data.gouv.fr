@@ -1,6 +1,13 @@
 # Build stage
 FROM node:22-alpine AS builder
 
+ARG NEXT_PUBLIC_API_ADRESSE=https://data.geopf.fr/geocodage
+ARG NEXT_PUBLIC_API_GEO=https://geo.api.gouv.fr
+ARG NEXT_PUBLIC_API_CADASTRE_BUNDLER=https://cadastre.data.gouv.fr/bundler
+ENV NEXT_PUBLIC_API_ADRESSE=${NEXT_PUBLIC_API_ADRESSE}
+ENV NEXT_PUBLIC_API_GEO=${NEXT_PUBLIC_API_GEO}
+ENV NEXT_PUBLIC_API_CADASTRE_BUNDLER=${NEXT_PUBLIC_API_CADASTRE_BUNDLER}
+
 # Set working directory
 WORKDIR /app
 
