@@ -1,28 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-
 import {Menu, X} from 'react-feather'
-
-import theme from '../styles/theme'
+import theme from '../styles/theme.js'
 
 class HamburgerMenu extends React.Component {
   static propTypes = {
     links: PropTypes.arrayOf(PropTypes.shape({
       action: PropTypes.func,
-      text: PropTypes.string.isRequired
-    })).isRequired
+      text: PropTypes.string.isRequired,
+    })).isRequired,
   }
-
   state = {
-    visible: false
+    visible: false,
   }
-
-  handleMenu = e => {
-    e.preventDefault()
+  handleMenu = event => {
+    event.preventDefault()
 
     this.setState(state => ({
-      visible: !state.visible
+      visible: !state.visible,
     }))
   }
 
@@ -35,12 +31,11 @@ class HamburgerMenu extends React.Component {
         <div onClick={this.handleMenu}>
           {visible ? <X size={22} /> : <Menu size={22} />}
         </div>
-
         {visible && (
           <div className='content'>
             {links.map(link => (
               <Link key={link.text} href={link.href}>
-                <a>{link.text}</a>
+                {link.text}
               </Link>
             ))}
           </div>

@@ -1,27 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import theme from '../styles/theme.js'
 
-import theme from '../styles/theme'
-
-function Ressource({title, lastModification, format, link}) {
-  return (
-    <div className='ressource-container'>
-      <a className='ressource' href={link}>
-        <div className='overlay'>
-          <div>
-            <div>Télécharger</div>
-            <img src='../static/images/icons/download.svg' />
-          </div>
+const Ressource = ({title, lastModification, format, link}) => (
+  <div className='ressource-container'>
+    <a className='ressource' href={link}>
+      <div className='overlay'>
+        <div>
+          <div>Télécharger</div>
+          <img src='../static/images/icons/download.svg' />
         </div>
-        <div className='content'>
-          <div className='description'>
-            <h4>{title}</h4>
-            <p>{lastModification}</p>
-          </div>
-          <div className='format'><strong>{format}</strong></div>
+      </div>
+      <div className='content'>
+        <div className='description'>
+          <h4>{title}</h4>
+          <p>{lastModification}</p>
         </div>
-      </a>
-      <style jsx>{`
+        <div className='format'><strong>{format}</strong></div>
+      </div>
+    </a>
+    <style jsx>{`
       .ressource-container {
         position: relative;
         background: ${theme.backgroundWhite};
@@ -70,15 +68,14 @@ function Ressource({title, lastModification, format, link}) {
         text-transform: uppercase;
       }
     `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 Ressource.propTypes = {
   title: PropTypes.string.isRequired,
   lastModification: PropTypes.string.isRequired,
   format: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired
+  link: PropTypes.string.isRequired,
 }
 
 export default Ressource

@@ -2,34 +2,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Button({size, color, outlined, children, ...props}) {
-  return (
-    <button className={`button${outlined ? '-outlined' : ''} ${size} ${color}`} {...props}>
-      {children}
-    </button>
-  )
-}
+const Button = ({size = null, color = 'primary', outlined = false, children = null, ...properties}) => (
+  <button className={`button${outlined ? '-outlined' : ''} ${size} ${color}`} {...properties}>
+    {children}
+  </button>
+)
 
 Button.propTypes = {
   size: PropTypes.oneOf([
     'small',
-    'large'
+    'large',
   ]),
   color: PropTypes.oneOf([
     'primary',
     'warning-light',
     'warning',
-    'secondary'
+    'secondary',
   ]),
   outlined: PropTypes.bool,
-  children: PropTypes.node
-}
-
-Button.defaultProps = {
-  size: null,
-  color: 'primary',
-  outlined: false,
-  children: null
+  children: PropTypes.node,
 }
 
 export default Button

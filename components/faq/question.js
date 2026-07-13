@@ -1,25 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {ChevronUp, ChevronDown} from 'react-feather'
-
-import theme from '../../styles/theme'
+import theme from '../../styles/theme.js'
 
 class Question extends React.Component {
   state = {
-    open: false
+    open: false,
   }
-
   static propTypes = {
     question: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
   }
-
   toggle = () => {
-    this.setState(state => {
-      return {
-        open: !state.open
-      }
-    })
+    this.setState(state => ({
+      open: !state.open,
+    }))
   }
 
   render() {

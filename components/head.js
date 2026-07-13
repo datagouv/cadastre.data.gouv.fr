@@ -1,30 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import theme from '../styles/theme.js'
+import Container from './container.js'
+import BetaRibbon from './beta-ribbon.js'
 
-import theme from '../styles/theme'
-
-import Container from './container'
-import BetaRibbon from './beta-ribbon'
-
-function Head({title, icon, beta}) {
-  return (
-    <div>
-      <div className='head'>
-        <Container>
-          <div className='flex'>
-            <div className='title'>
-              <div className='icon'>{icon}</div>
-              <h1>{title}</h1>
-            </div>
-
-            {beta && (
-              <BetaRibbon />
-            )}
+const Head = ({title, icon, beta = false}) => (
+  <div>
+    <div className='head'>
+      <Container>
+        <div className='flex'>
+          <div className='title'>
+            <div className='icon'>{icon}</div>
+            <h1>{title}</h1>
           </div>
-        </Container>
-      </div>
 
-      <style jsx>{`
+          {beta && (
+            <BetaRibbon />
+          )}
+        </div>
+      </Container>
+    </div>
+
+    <style jsx>{`
       .head {
         background-color: ${theme.primary};
       }
@@ -53,18 +50,13 @@ function Head({title, icon, beta}) {
         margin-top: 1em;
       }
     `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 Head.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
-  beta: PropTypes.bool
-}
-
-Head.defaultProps = {
-  beta: false
+  beta: PropTypes.bool,
 }
 
 export default Head

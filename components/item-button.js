@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import theme from '../styles/theme'
+import theme from '../styles/theme.js'
 
 class ItemButton extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor(properties) {
+    super(properties)
     this.handleClick = this.handleClick.bind(this)
   }
 
@@ -20,14 +19,14 @@ class ItemButton extends React.Component {
 
     return (
       <div>
-        {unavailable ?
-          <div key={item} className='unavailable'>
+        {unavailable
+          ? <div key={item} className='unavailable'>
             <div className='item unavailable'>
               <div>{text}</div>
             </div>
             <div style={{fontStyle: 'italic', position: 'relative', left: '-7px'}}>Bientôt disponible</div>
-          </div> :
-          <div key={item} value={text} className={`item ${selected === item ? 'selected' : ''}`} onClick={this.handleClick}>
+          </div>
+          : <div key={item} value={text} className={`item ${selected === item ? 'selected' : ''}`} onClick={this.handleClick}>
             <div>{text}</div>
           </div>}
         <style jsx>{`
@@ -98,13 +97,13 @@ ItemButton.propTypes = {
   handleSelect: PropTypes.func.isRequired,
   unavailable: PropTypes.bool,
   selected: PropTypes.string,
-  uppercase: PropTypes.bool
+  uppercase: PropTypes.bool,
 }
 
 ItemButton.defaultProps = {
   selected: null,
   unavailable: false,
-  uppercase: false
+  uppercase: false,
 }
 
 export default ItemButton

@@ -1,19 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Container from './container.js'
 
-import Container from './container'
-
-function Section({id, title, subtitle, children, background}) {
-  return (
-    <section id={id} className={`section section-${background}`}>
-      <Container>
-        {title && <h2 className='section__title'>{title}</h2>}
-        {subtitle && <p className='section__subtitle'>{subtitle}</p>}
-        {children}
-      </Container>
-    </section>
-  )
-}
+const Section = ({id = null, title = null, subtitle = null, children = null, background = 'white'}) => (
+  <section id={id} className={`section section-${background}`}>
+    <Container>
+      {title && <h2 className='section__title'>{title}</h2>}
+      {subtitle && <p className='section__subtitle'>{subtitle}</p>}
+      {children}
+    </Container>
+  </section>
+)
 
 Section.propTypes = {
   id: PropTypes.string,
@@ -24,16 +21,8 @@ Section.propTypes = {
     'white',
     'grey',
     'dark',
-    'color'
-  ])
-}
-
-Section.defaultProps = {
-  id: null,
-  title: null,
-  subtitle: null,
-  children: null,
-  background: 'white'
+    'color',
+  ]),
 }
 
 export default Section
