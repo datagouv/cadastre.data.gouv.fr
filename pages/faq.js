@@ -28,10 +28,10 @@ const Faq = () => (
           </Question>
 
           <Question question='Comment utiliser ces données ?'>
-              <p>
-                Un <a href='https://guides.data.gouv.fr/reutiliser-des-donnees/autour-du-cadastre'>guide</a> est à votre disposition pour vous accompagner dans l’utilisation des données ouvertes du cadastre.
-              </p>
-            </Question>
+            <p>
+              Un <a href='https://guides.data.gouv.fr/reutiliser-des-donnees/autour-du-cadastre'>guide</a> est à votre disposition pour vous accompagner dans l’utilisation des données ouvertes du cadastre.
+            </p>
+          </Question>
 
           <Question question='Pourquoi les données du plan cadastral se chevauchent-elles dans certaines zones ?'>
             <p>
