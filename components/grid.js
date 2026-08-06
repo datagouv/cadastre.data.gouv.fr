@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Grid({children, columns, ...props}) {
-  return (
-    <div className='grid' {...props}>
-      {children}
+const Grid = ({children = null, columns = 4, ...properties}) => (
+  <div className='grid' {...properties}>
+    {children}
 
-      <style jsx>{`
+    <style jsx>{`
       .grid {
         display: grid;
         grid-template-columns: repeat(${columns}, 1fr);
@@ -25,18 +24,12 @@ function Grid({children, columns, ...props}) {
         }
       }
     `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 Grid.propTypes = {
   columns: PropTypes.number,
-  children: PropTypes.node
-}
-
-Grid.defaultProps = {
-  columns: 4,
-  children: null
+  children: PropTypes.node,
 }
 
 export default Grid

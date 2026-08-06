@@ -1,8 +1,7 @@
 import React from 'react'
 
-function Fonts() {
-  return (
-    <style jsx global>{`
+const Fonts = () => (
+  <style jsx global>{`
   /* Marianne self-hosted */
   @font-face {
     font-family: 'Marianne';
@@ -49,7 +48,6 @@ function Fonts() {
     font-family: 'Marianne', Arial, sans-serif;
   }
 `}</style>
-  )
-}
+)
 
 export default Fonts
