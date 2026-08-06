@@ -1,20 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import Selector from '../selector'
-import Step from '../step'
-import ApiGeo from '../api-geo'
+import Selector from '../selector.js'
+import Step from '../step.js'
+import ApiGeo from '../api-geo.js'
 
 const territories = [
   'départements',
   'communes',
-  'epcis'
+  'epcis',
 ]
 
 const stepTitlesDependingOnLevel = {
   communes: 'la commune',
   départements: 'le département',
-  epcis: 'l\'EPCI'
+  epcis: 'l\'EPCI',
 }
 
 class ProductSelection extends React.Component {
@@ -32,11 +31,10 @@ class ProductSelection extends React.Component {
           title={stepTitle}
           disabled={Boolean(!territorySelected)}
         >
-          {territorySelected ?
-            <ApiGeo
-              territoryType={territorySelected}
-              onSelect={selectTerritory} /> :
-            <div />}
+          {territorySelected ? <ApiGeo
+            territoryType={territorySelected}
+            onSelect={selectTerritory} />
+            : <div />}
         </Step>
       </>
     )
@@ -46,11 +44,11 @@ class ProductSelection extends React.Component {
 ProductSelection.propTypes = {
   selectTerritoryType: PropTypes.func.isRequired,
   selectTerritory: PropTypes.func.isRequired,
-  territorySelected: PropTypes.string
+  territorySelected: PropTypes.string,
 }
 
 ProductSelection.defaultProps = {
-  territorySelected: null
+  territorySelected: null,
 }
 
 export default ProductSelection

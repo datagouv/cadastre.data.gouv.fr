@@ -1,20 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {contenanceToSurface} from '../../lib/surfaces.js'
 
-import {contenanceToSurface} from '../../lib/surfaces'
-
-function ParcelleSumup({prefixe, section, numero, contenance}) {
-  return (
-    <div className='sumup-container'>
-      <div>
-        <span className='title'>Parcelle </span>
-        <span>{(prefixe === '000') ? '' : prefixe} {section} {numero}</span>
-      </div>
-      {contenance && <div>
-        <span className='title'>Contenance </span>
-        <span>{contenanceToSurface(contenance)}</span>
-      </div>}
-      <style jsx>{`
+const ParcelleSumup = ({prefixe, section, numero, contenance}) => (
+  <div className='sumup-container'>
+    <div>
+      <span className='title'>Parcelle </span>
+      <span>{(prefixe === '000') ? '' : prefixe} {section} {numero}</span>
+    </div>
+    {contenance && <div>
+      <span className='title'>Contenance </span>
+      <span>{contenanceToSurface(contenance)}</span>
+    </div>}
+    <style jsx>{`
         .sumup-container {
           font-size: larger;
         }
@@ -23,15 +21,14 @@ function ParcelleSumup({prefixe, section, numero, contenance}) {
           font-weight: bold;
         }
       `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 ParcelleSumup.propTypes = {
   prefixe: PropTypes.string.isRequired,
   section: PropTypes.string.isRequired,
   numero: PropTypes.string.isRequired,
-  contenance: PropTypes.number.isRequired
+  contenance: PropTypes.number.isRequired,
 }
 
 export default ParcelleSumup

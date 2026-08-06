@@ -1,10 +1,9 @@
 import React from 'react'
-import theme from '../styles/theme'
+import theme from '../styles/theme.js'
 
-function BetaRibbon() {
-  return (
-    <div className='ribbon'>
-      <style jsx>{`
+const BetaRibbon = () => (
+  <div className='ribbon'>
+    <style jsx>{`
       .ribbon:after {
         content: "beta";
         display: inline-block;
@@ -40,8 +39,7 @@ function BetaRibbon() {
         }
       }
       `}</style>
-    </div>
-  )
-}
+  </div>
+)
 
 export default BetaRibbon

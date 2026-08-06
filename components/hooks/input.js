@@ -17,8 +17,8 @@ export function useInput(initialValue) {
 export function useCheckboxInput(initialValue) {
   const [checked, setChecked] = useState(initialValue || false)
 
-  const onChange = useCallback(e => {
-    setChecked(e.target.checked)
+  const onChange = useCallback(event => {
+    setChecked(event.target.checked)
   }, [])
 
   return [checked, onChange]
