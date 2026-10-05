@@ -43,6 +43,7 @@ const historique = [
   ['08/01/2026', 'nouveau millésime PCI décembre 2025. Données de strasbourg non intégrées car entièrement intégrées dans PCI maintenant'],
   ['09/04/2026', 'nouveau millésime PCI mars 2026. Données de strasbourg non intégrées car entièrement intégrées dans PCI maintenant'],
   ['01/07/2026', 'nouveau millésime PCI juin 2026. Données de strasbourg non intégrées car entièrement intégrées dans PCI maintenant'],
+  ['05/10/2026', 'nouveau millésime PCI septembre 2026. Données de strasbourg non intégrées car entièrement intégrées dans PCI maintenant'],
 ]
 const listItemsHistorique = [...historique].reverse().map(([dateMaj, comment]) => <li key={dateMaj}>{dateMaj} : {parse(comment)}</li>)
 
@@ -120,7 +121,6 @@ const CadastreEtalab = () => (
           <li>Via un outil en ligne pour les données aux formats <a href='http://geojson.org/'>GeoJSON</a> et <a href='https://fr.wikipedia.org/wiki/Shapefile'>Shapefile</a>, quel que soit le niveau de granularité.</li>
         </ul>
         <p>Les deux modes de mise à disposition sont accessibles ci-dessous.</p>
-        <p>Les archives de <b>juillet 2017</b> à <b>avril 2021</b> sont maintenant hébergées sur <a href='https://files.data.gouv.fr/cadastre/'>https://files.data.gouv.fr/cadastre/</a></p>
 
         <h4>Historique</h4>
 
