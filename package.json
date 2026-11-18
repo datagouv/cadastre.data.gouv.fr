@@ -23,7 +23,7 @@
     "html-react-parser": "^4.0.0",
     "mapbox-gl": "npm:empty-npm-package@^1.0.0",
     "maplibre-gl": "^2.4.0",
-    "next": "^14.2.32",
+    "next": "^15.5.29",
     "piwik-react-router": "^0.12.1",
     "prop-types": "^15.7.2",
     "react": "18",
@@ -40,16 +40,19 @@
     "@babel/preset-env": "^7.29.14",
     "@babel/preset-react": "^7.29.7",
     "@babel/runtime": "^7.29.14",
-    "@next/bundle-analyzer": "^10.0.2",
+    "@next/bundle-analyzer": "^15.5.29",
     "ava": "^6.4.1",
     "babel-plugin-inline-import": "^3.0.0",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.32",
+    "eslint-config-next": "^15.5.29",
     "eslint-config-xo": "^0.44.0",
     "eslint-config-xo-nextjs": "^6.3.0",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "xo": "^0.60.0"
+  },
+  "resolutions": {
+    "next/postcss": "^8.5.33"
   },
   "xo": {
     "extends": "xo-nextjs",
