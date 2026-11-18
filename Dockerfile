@@ -12,12 +12,12 @@ ENV NEXT_PUBLIC_API_CADASTRE_BUNDLER=${NEXT_PUBLIC_API_CADASTRE_BUNDLER}
 WORKDIR /app
 
 # Copy package files
-COPY package*.json ./
+COPY package.json yarn.lock ./
 
 # Install dependencies
 # RUN npm i -g yarn
 
-RUN yarn --only=production && yarn cache clean
+RUN yarn install --frozen-lockfile && yarn cache clean
 
 # Copy source code
 COPY . .
