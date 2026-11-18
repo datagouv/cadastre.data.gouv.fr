@@ -22,7 +22,7 @@
     "express": "^4.22.3",
     "html-react-parser": "^4.0.0",
     "mapbox-gl": "npm:empty-npm-package@^1.0.0",
-    "maplibre-gl": "^2.4.0",
+    "maplibre-gl": "^6.4.1",
     "next": "^15.5.29",
     "piwik-react-router": "^0.12.1",
     "prop-types": "^15.7.2",
