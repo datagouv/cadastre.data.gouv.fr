@@ -138,17 +138,15 @@ const MapPage = ({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
               const m = 10 ** precision
               longitude = Math.round(longitude * m) / m
               latitude = Math.round(latitude * m) / m
-              Router.push({
-                pathname: '/map',
-                query: Object.fromEntries(Object.entries({
-                  ...Router.query,
-                  parcelleId: parcelle ? parcelle.id : null,
-                  hideBati: !showBati,
-                  style,
-                }).filter(([_, v]) => v)),
-                hash: `#${zoom}/${latitude}/${longitude}`,
-              })
-              return setViewState(event_.viewState)
+              const hash = `#${zoom}/${latitude}/${longitude}`
+
+              globalThis.history.replaceState(
+                globalThis.history.state,
+                '',
+                `${globalThis.location.pathname}${globalThis.location.search}${hash}`,
+              )
+
+              setViewState(event_.viewState)
             }}
             showBati={showBati}
             isTouchScreenDevice={isTouchScreenDevice}
