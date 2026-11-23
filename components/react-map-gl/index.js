@@ -2,8 +2,7 @@ import React, {useState, useEffect, useCallback} from 'react'
 import PropTypes from 'prop-types'
 import {
   Map, NavigationControl, GeolocateControl, Popup,
-} from 'react-map-gl'
-import maplibregl from 'maplibre-gl'
+} from 'react-map-gl/maplibre'
 import {Home} from 'react-feather'
 import usePrevious from '../hooks/previous.js'
 import ParcelleSumup from '../map/parcelle-sumup.js'
@@ -11,6 +10,23 @@ import {subscribe} from '../../lib/events.js'
 import Control from './control.js'
 import SwitchMapStyle from './switch-map-style.js'
 import {vector, ortho} from './styles/index.js'
+
+let mapLibrary
+
+// MapLibre resolves its worker from `import.meta.url`, which breaks once bundled:
+// let webpack emit the worker file and hand its URL to MapLibre.
+// `typeof window` is replaced at build time, so this code only exists in the client bundle.
+function loadMapLibrary() {
+  // eslint-disable-next-line unicorn/prefer-global-this
+  if (typeof window !== 'undefined') {
+    mapLibrary ||= import('maplibre-gl').then(maplibregl => {
+      maplibregl.setWorkerUrl(new URL('maplibre-gl/dist/maplibre-gl-worker.mjs', import.meta.url).href)
+      return maplibregl
+    })
+  }
+
+  return mapLibrary
+}
 
 const interactiveLayerIds = ['parcelles-fill']
 const settings = {
@@ -208,7 +224,7 @@ const MapComponent = ({viewState, isTouchScreenDevice = false, showBati, toggleB
         onMouseMove={onHover}
         cursor={cursor}
         interactiveLayerIds={interactiveLayerIds}
-        mapLib={maplibregl}
+        mapLib={loadMapLibrary()}
       >
         <NavigationControl showCompass={false} />
         <GeolocateControl
@@ -246,7 +262,6 @@ const MapComponent = ({viewState, isTouchScreenDevice = false, showBati, toggleB
               closeOnClick={false}
               onClose={() => setHovered(null)}
               anchor='top'
-              offsetTop={20}
             >
               <ParcelleSumup {...hovered.feature.properties} />
             </Popup>
