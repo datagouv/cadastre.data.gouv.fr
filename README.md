@@ -1,4 +1,4 @@
-# cadastre.data.gouv.fr [![CircleCI](https://circleci.com/gh/etalab/cadastre.data.gouv.fr.svg?style=svg)](https://circleci.com/gh/etalab/cadastre.data.gouv.fr)
+# cadastre.data.gouv.fr [![CI](https://github.com/datagouv/cadastre.data.gouv.fr/actions/workflows/ci.yml/badge.svg)](https://github.com/datagouv/cadastre.data.gouv.fr/actions/workflows/ci.yml)
 
 Une landing page pour le cadastre
 
