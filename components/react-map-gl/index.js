@@ -33,7 +33,7 @@ function getBaseStyle(style) {
   }
 }
 
-const MapComponent = ({viewState, isTouchScreenDevice = false, showBati, toggleBati, style, changeStyle, onMove, selectedParcelle = null, selectParcelle}) => {
+const MapComponent = ({viewState, isTouchScreenDevice = false, showBati, toggleBati, style, changeStyle, onMoveEnd, selectedParcelle = null, selectParcelle}) => {
   const [map, setMap] = useState()
 
   const [isLoaded, setIsLoaded] = useState(false)
@@ -194,7 +194,7 @@ const MapComponent = ({viewState, isTouchScreenDevice = false, showBati, toggleB
         ReuseMaps
         ref={mapReference}
         {...viewState}
-        onMove={onMove}
+        onMoveEnd={onMoveEnd}
         style={{width: '100%', height: '100%'}}
         hash={false}
         locale={{'GeolocateControl.FindMyLocation': 'Trouver ma position', 'GeolocateControl.LocationNotAvailable': 'Position non disponible'}}
@@ -315,7 +315,7 @@ MapComponent.propTypes = {
   toggleBati: PropTypes.func.isRequired,
   style: PropTypes.oneOf(['ortho', 'vector']).isRequired,
   changeStyle: PropTypes.func.isRequired,
-  onMove: PropTypes.func.isRequired,
+  onMoveEnd: PropTypes.func.isRequired,
   selectedParcelle: PropTypes.shape({
     id: PropTypes.string,
     section: PropTypes.string,

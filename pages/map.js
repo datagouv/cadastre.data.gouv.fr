@@ -130,7 +130,7 @@ const MapPage = ({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
         <div className='map-container'>
           <MapComponent
             viewState={viewState}
-            onMove={event_ => {
+            onMoveEnd={event_ => {
               let {zoom, latitude, longitude} = event_.viewState
               zoom = Math.round(zoom * 100) / 100
               // Derived from equation: 512px * 2^z / 360 / 10^d < 0.5px
@@ -138,17 +138,15 @@ const MapPage = ({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
               const m = 10 ** precision
               longitude = Math.round(longitude * m) / m
               latitude = Math.round(latitude * m) / m
-              Router.push({
-                pathname: '/map',
-                query: Object.fromEntries(Object.entries({
-                  ...Router.query,
-                  parcelleId: parcelle ? parcelle.id : null,
-                  hideBati: !showBati,
-                  style,
-                }).filter(([_, v]) => v)),
-                hash: `#${zoom}/${latitude}/${longitude}`,
-              })
-              return setViewState(event_.viewState)
+              const hash = `#${zoom}/${latitude}/${longitude}`
+
+              window.history.replaceState(
+                window.history.state,
+                '',
+                `${window.location.pathname}${window.location.search}${hash}`
+              )
+
+              setViewState(event_.viewState)
             }}
             showBati={showBati}
             isTouchScreenDevice={isTouchScreenDevice}
