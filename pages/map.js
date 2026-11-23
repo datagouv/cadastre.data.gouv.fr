@@ -130,7 +130,7 @@ const MapPage = ({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
         <div className='map-container'>
           <MapComponent
             viewState={viewState}
-            onMoveEnd={event_ => {
+            onMove={event_ => {
               let {zoom, latitude, longitude} = event_.viewState
               zoom = Math.round(zoom * 100) / 100
               // Derived from equation: 512px * 2^z / 360 / 10^d < 0.5px
@@ -140,10 +140,10 @@ const MapPage = ({hideBati = true, defaultParcelleId = null, defaultStyle = 'ort
               latitude = Math.round(latitude * m) / m
               const hash = `#${zoom}/${latitude}/${longitude}`
 
-              window.history.replaceState(
-                window.history.state,
+              globalThis.history.replaceState(
+                globalThis.history.state,
                 '',
-                `${window.location.pathname}${window.location.search}${hash}`
+                `${globalThis.location.pathname}${globalThis.location.search}${hash}`,
               )
 
               setViewState(event_.viewState)
