@@ -8,6 +8,12 @@ ENV NEXT_PUBLIC_API_ADRESSE=${NEXT_PUBLIC_API_ADRESSE}
 ENV NEXT_PUBLIC_API_GEO=${NEXT_PUBLIC_API_GEO}
 ENV NEXT_PUBLIC_API_CADASTRE_BUNDLER=${NEXT_PUBLIC_API_CADASTRE_BUNDLER}
 
+ARG APP_VERSION
+ENV APP_VERSION=${APP_VERSION}
+
+# git is required to read the version from the git tag or commit (when APP_VERSION is not provided)
+RUN apk add --no-cache git
+
 # Set working directory
 WORKDIR /app
 
