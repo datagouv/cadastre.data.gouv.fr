@@ -5,14 +5,10 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })
 
-// Version shown in the footer: latest git tag, overridable via APP_VERSION
+// Version shown in the footer: APP_VERSION, else latest git tag, else short commit hash
 function getAppVersion() {
-  if (process.env.APP_VERSION) {
-    return process.env.APP_VERSION
-  }
-
   try {
-    return execSync('git describe --tags --abbrev=0', {stdio: ['ignore', 'pipe', 'ignore']}).toString().trim()
+    return process.env.APP_VERSION || execSync('git describe --tags --abbrev=0 || git rev-parse --short HEAD', {stdio: ['ignore', 'pipe', 'ignore']}).toString().trim()
   } catch {
     return ''
   }

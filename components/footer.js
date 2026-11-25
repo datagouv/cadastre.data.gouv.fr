@@ -15,7 +15,7 @@ const Footer = () => (
         <li><a href='https://www.data.gouv.fr/support/help/dataset/cadastre/#support-tree'>Contact</a></li>
         <li><a href='https://guides.data.gouv.fr/reutiliser-des-donnees/autour-du-cadastre'>Documentation</a></li>
         {process.env.NEXT_PUBLIC_APP_VERSION && (
-          <li><a href={`https://github.com/datagouv/cadastre.data.gouv.fr/releases/tag/${process.env.NEXT_PUBLIC_APP_VERSION}`}>Version {process.env.NEXT_PUBLIC_APP_VERSION}</a></li>
+          <li><a href={`https://github.com/datagouv/cadastre.data.gouv.fr/tree/${process.env.NEXT_PUBLIC_APP_VERSION}`}>Version {process.env.NEXT_PUBLIC_APP_VERSION}</a></li>
         )}
       </ul>
     </div>
